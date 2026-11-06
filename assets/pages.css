@@ -404,3 +404,8 @@ body[data-page="mostres"]{background:var(--black)}
   .sw > span{transform:none;transition:none}
   ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
+
+/* projectes: logo de lliga.cat */
+.lg-name{display:flex;align-items:center;gap:18px}
+.lg-name img{width:clamp(52px,5vw,72px);height:auto;border-radius:18px;box-shadow:0 12px 30px -10px rgba(0,190,160,.55)}
+.lg-name span{color:#00bfa5}
