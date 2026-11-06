@@ -661,7 +661,7 @@
       e.preventDefault(); const note = $('#note');
       if (!form.nom.value.trim() || !/^\S+@\S+\.\S+$/.test(form.email.value) || !form.missatge.value.trim()){ note.textContent = tr('Omple el nom, un correu vàlid i el missatge.'); return; }
       const body = `${form.missatge.value}\n\n— ${form.nom.value} (${form.email.value})`;
-      location.href = `mailto:equip.lliga.cat@gmail.com?subject=${encodeURIComponent('Projecte: ' + form.tipus.value)}&body=${encodeURIComponent(body)}`;
+      location.href = `mailto:labs.mna@gmail.com?subject=${encodeURIComponent('Projecte: ' + form.tipus.value)}&body=${encodeURIComponent(body)}`;
       note.textContent = tr("S'està obrint el teu correu per enviar la proposta.");
     });
   }
