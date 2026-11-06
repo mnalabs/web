@@ -990,6 +990,82 @@ window.PAQUETS_DEFAULT = {
      }
     },
     {
+     "id": "gratuits-amazon",
+     "nom": {
+      "ca": "Venda a Amazon",
+      "es": "Venta en Amazon",
+      "en": "Selling on Amazon"
+     },
+     "desc": {
+      "ca": "Posem els teus productes a la venda a Amazon i ens n'ocupem de tot. Fa cinc anys que hi venem.",
+      "es": "Ponemos tus productos a la venta en Amazon y nos ocupamos de todo. Llevamos cinco años vendiendo ahí.",
+      "en": "We list your products on Amazon and handle everything. We have been selling there for five years."
+     },
+     "recomanat": false,
+     "desDe": false,
+     "preu": 0,
+     "unitat": "comissio",
+     "extra": false,
+     "preu2": null,
+     "meta": [
+      {
+       "ca": "Percentatge negociat en cada cas",
+       "es": "Porcentaje negociado en cada caso",
+       "en": "Percentage agreed case by case"
+      },
+      {
+       "ca": "Només per a productes que seleccionem",
+       "es": "Solo para productos que seleccionamos",
+       "en": "Only for products we select"
+      }
+     ],
+     "inclou": [
+      {
+       "ca": "Alta del compte de venedor i dels productes",
+       "es": "Alta de la cuenta de vendedor y de los productos",
+       "en": "Seller account and product listings set up"
+      },
+      {
+       "ca": "Fitxes de producte, fotos i textos que venen",
+       "es": "Fichas de producto, fotos y textos que venden",
+       "en": "Product pages, photos and copy that sell"
+      },
+      {
+       "ca": "Preus, estoc i enviaments, també amb logística d'Amazon",
+       "es": "Precios, stock y envíos, también con logística de Amazon",
+       "en": "Pricing, stock and shipping, including Amazon fulfilment"
+      },
+      {
+       "ca": "Publicitat dins d'Amazon",
+       "es": "Publicidad dentro de Amazon",
+       "en": "Amazon advertising"
+      },
+      {
+       "ca": "Atenció a clients i ressenyes",
+       "es": "Atención a clientes y reseñas",
+       "en": "Customer service and reviews"
+      },
+      {
+       "ca": "Informe mensual de vendes",
+       "es": "Informe mensual de ventas",
+       "en": "Monthly sales report"
+      }
+     ],
+     "opcions": [],
+     "tipus": "Venda a Amazon",
+     "exemple": {
+      "marca": "Espelmes Brisa",
+      "maqueta": {
+       "mock": "shop",
+       "brand": "Espelmes Brisa",
+       "url": "Botiga a Amazon",
+       "items": "Espelma de figa|16,90 €;Lot de tres|39 €;Espelma de cedre|16,90 €;Recanvi|8,50 €",
+       "c1": "#b06a2c",
+       "c2": "#f4e8dc"
+      }
+     }
+    },
+    {
      "id": "gratuits-alt",
      "tipus": "alt",
      "nom": {

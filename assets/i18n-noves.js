@@ -97,3 +97,17 @@ Object.assign(window.I18N.en, {
 "Algunes botigues no permeten compartir la comissió. En aquests casos t'ho diem i no et prometem cap descompte.":"Some shops don't allow sharing the commission. When that's the case we tell you and promise no discount.",
 "Afiliacions · MNA LABS":"Affiliates · MNA LABS"
 });
+Object.assign(window.I18N.es, {
+"Venda a Amazon":"Venta en Amazon","Amazon":"Amazon","Veure les condicions":"Ver las condiciones","sense quota fixa":"sin cuota fija",
+"Fa cinc anys que venem a Amazon. Posem els teus productes a la venda i en portem tota la gestió. Cobrem un petit percentatge de cada venda, que pactem amb cada botiga.":"Llevamos cinco años vendiendo en Amazon. Ponemos tus productos a la venta y llevamos toda la gestión. Cobramos un pequeño porcentaje de cada venta, que pactamos con cada tienda.",
+"Alta del compte i dels productes":"Alta de la cuenta y de los productos","Fitxes, fotos i textos que venen":"Fichas, fotos y textos que venden","Preus, estoc, enviaments i publicitat":"Precios, stock, envíos y publicidad","Atenció a clients i ressenyes":"Atención a clientes y reseñas",
+"Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.":"Vendemos tus productos en Amazon a cambio de un pequeño porcentaje de cada venta.",
+"Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Seis cosas, y las hacemos bien. Si tu proyecto no encaja, también hablamos."
+});
+Object.assign(window.I18N.en, {
+"Venda a Amazon":"Selling on Amazon","Amazon":"Amazon","Veure les condicions":"See the terms","sense quota fixa":"no fixed fee",
+"Fa cinc anys que venem a Amazon. Posem els teus productes a la venda i en portem tota la gestió. Cobrem un petit percentatge de cada venda, que pactem amb cada botiga.":"We have been selling on Amazon for five years. We list your products and run the whole operation. We take a small percentage of each sale, agreed with each shop.",
+"Alta del compte i dels productes":"Account and product set-up","Fitxes, fotos i textos que venen":"Listings, photos and copy that sell","Preus, estoc, enviaments i publicitat":"Pricing, stock, shipping and advertising","Atenció a clients i ressenyes":"Customer service and reviews",
+"Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.":"We sell your products on Amazon for a small percentage of each sale.",
+"Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Six things, done well. If your project doesn't fit, let's talk anyway."
+});
