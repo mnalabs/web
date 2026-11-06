@@ -1,9 +1,8 @@
 /* Connexió amb Supabase per al panell d'administració.
-   Enganxa aquí l'URL del projecte i la clau pública "anon" (Project Settings > API).
    La clau anon és pública per disseny: la seguretat la donen les regles de la taula (vegeu CONFIGURAR-PANELL.md).
-   Mai hi posis la contrasenya de ningú ni la clau "service_role". */
+   Mai hi posis la contrasenya de ningú ni la clau service_role. */
 window.MNA_CONFIG = {
-  supabaseUrl: '',
-  supabaseAnonKey: '',
-  adminEmail: 'equip.lliga.cat@gmail.com',
+  supabaseUrl: 'https://eqkhggjkpaakouvbiodp.supabase.co',
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxa2hnZ2prcGFha291dmJpb2RwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM5OTg5OTMsImV4cCI6MjEwOTU3NDk5M30.IzOMhgZRpCu7Nc3svqsCBAv9pSrCp2vbsrkpbvkoxpg',
+  adminEmail: 'labs.mna@gmail.com',
 };
