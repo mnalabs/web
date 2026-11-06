@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clos d'Ombra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Celler del Priorat: una ampolla 3D que gira, s'acosta i serveix el vi a la copa amb el scroll */
+:root{
+  --bg:#0c0607;
+  --ink:#f3e9e1;
+  --ink-2:rgba(243,233,225,.64);
+  --wine:#8e1a2b;
+  --cream:#e9dcc7;
+  --serif:"Bodoni Moda",Didot,Georgia,serif;
+  --sans:Geist,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block}
+.track{height:820vh}
+.top{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px max(16px,3vw)}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:.02em}
+.brand i{font-style:italic;color:#d26a78}
+.top nav{display:flex;gap:28px;font-size:13px;color:var(--ink-2)}
+.top nav a{color:inherit;text-decoration:none}
+.cart{font-size:13px;color:var(--ink);border:1px solid rgba(243,233,225,.3);padding:9px 16px;border-radius:999px;display:flex;gap:8px;align-items:center}
+.cart b{background:var(--wine);color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-grid;place-items:center;font-size:11px;transition:transform .3s}
+.cart b.bump{transform:scale(1.4)}
+@media (max-width:760px){.top nav{display:none}}
+
+.ch{position:fixed;z-index:4;opacity:0;pointer-events:none;max-width:min(520px,86vw)}
+.ch.on{pointer-events:auto}
+.ch .k{display:block;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#d26a78;margin-bottom:18px}
+.ch h1,.ch h2{font-family:var(--serif);font-weight:400;line-height:.95;letter-spacing:-.02em}
+.ch h1{font-size:clamp(64px,10vw,170px)}
+.ch h2{font-size:clamp(40px,5.4vw,88px)}
+.ch em{font-style:italic;color:#e48b97}
+.ch p{margin-top:18px;line-height:1.65;color:var(--ink-2);font-size:clamp(15px,1.2vw,18px);max-width:40ch}
+.l{left:max(16px,6vw);top:50%;transform:translateY(-50%)}
+.r{right:max(16px,6vw);top:50%;transform:translateY(-50%);text-align:right}
+.r p{margin-left:auto}
+.c{left:50%;top:13vh;transform:translateX(-50%);text-align:center;max-width:min(900px,92vw)}
+@media (max-width:760px){.l,.r{top:auto;bottom:9vh;transform:none;left:16px;right:16px;text-align:left}.r p{margin-left:0}}
+
+.notes{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;margin-top:24px;align-items:center;font-size:13px;color:var(--ink-2);text-align:left}
+.notes span:nth-child(odd){letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+.bar{height:2px;background:rgba(243,233,225,.15);position:relative;min-width:160px}
+.bar i{position:absolute;inset:0;background:linear-gradient(90deg,#d26a78,var(--cream));transform-origin:left;transform:scaleX(var(--v,0));transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+
+.shop{position:fixed;left:50%;bottom:6vh;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;pointer-events:none;width:min(720px,94vw)}
+.shop.on{pointer-events:auto}
+.wines{display:flex;gap:8px;padding:6px;border:1px solid rgba(243,233,225,.18);border-radius:999px;background:rgba(12,6,7,.55);backdrop-filter:blur(12px)}
+.wines button{font:inherit;font-size:13px;color:var(--ink-2);background:transparent;border:0;border-radius:999px;padding:10px 16px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.wines button i{width:10px;height:10px;border-radius:50%}
+.wines button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.buy{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.buy .pr{font-family:var(--serif);font-size:32px}
+.buy button{font:inherit;font-size:14px;background:var(--wine);color:#fff;border:0;border-radius:999px;padding:14px 24px;cursor:pointer}
+.buy button:hover{background:#a3223a}
+.desc{font-size:13px;color:var(--ink-2);text-align:center;max-width:52ch}
+
+.load{position:fixed;inset:0;z-index:10;background:var(--bg);display:grid;place-items:center;transition:opacity 1.2s,visibility 1.2s}
+.load.done{opacity:0;visibility:hidden}
+.load b{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,56px)}
+.load b i{color:#d26a78}
+.demo{position:fixed;left:max(16px,3vw);bottom:18px;z-index:6;font-size:11px;color:var(--ink-2);display:flex;gap:10px;align-items:center}
+.demo a{color:var(--ink);text-decoration:none;border:1px solid rgba(243,233,225,.25);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.25);backdrop-filter:blur(8px)}
+@media (max-width:760px){.demo span{display:none}}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="Ampolla de vi en 3D"></canvas>
+<header class="top">
+  <span class="brand">Clos <i>d'Ombra</i></span>
+  <nav><a href="#">Els vins</a><a href="#">La vinya</a><a href="#">Visites</a><a href="#">Club</a></nav>
+  <span class="cart">Cistella <b id="cartN">0</b></span>
+</header>
+
+<section class="ch c" data-a="0" data-b=".1">
+  <span class="k">Priorat · DOQ</span>
+  <h1>Clos <em>d'Ombra</em></h1>
+  <p style="margin:18px auto 0">Vins de llicorella, vinyes velles i paciència.</p>
+</section>
+<section class="ch l" data-a=".13" data-b=".3">
+  <span class="k">Ombra Negre 2021</span>
+  <h2>Vinyes de<br><em>vuitanta anys.</em></h2>
+  <p>Garnatxa i carinyena de costers de llicorella, collides a mà a 600 metres d'altitud.</p>
+</section>
+<section class="ch r" data-a=".36" data-b=".52">
+  <span class="k">El servei</span>
+  <h2>Obrir-lo<br>és un <em>ritual.</em></h2>
+  <p>Setze graus de temperatura, una copa ampla i deu minuts d'espera.</p>
+</section>
+<section class="ch l" data-a=".64" data-b=".8" id="tasting">
+  <span class="k">Nota de tast</span>
+  <h2>Fosc, mineral,<br><em>infinit.</em></h2>
+  <div class="notes">
+    <span>Cos</span><div class="bar"><i style="--v:.85"></i></div>
+    <span>Fruita</span><div class="bar"><i style="--v:.7"></i></div>
+    <span>Mineralitat</span><div class="bar"><i style="--v:.92"></i></div>
+    <span>Fusta</span><div class="bar"><i style="--v:.45"></i></div>
+  </div>
+</section>
+<section class="ch c" data-a=".86" data-b="1.01" style="top:11vh">
+  <span class="k">La col·lecció</span>
+  <h2>Tria el teu <em>vi.</em></h2>
+</section>
+<div class="shop" id="shop">
+  <div class="wines" role="group" aria-label="Vins">
+    <button type="button" data-w="0" aria-pressed="true"><i style="background:#7a1022"></i>Ombra Negre</button>
+    <button type="button" data-w="1" aria-pressed="false"><i style="background:#e0c56c"></i>Ombra Blanc</button>
+    <button type="button" data-w="2" aria-pressed="false"><i style="background:#e98a8a"></i>Ombra Rosat</button>
+  </div>
+  <p class="desc" id="desc">Garnatxa i carinyena. 16 mesos en bóta de roure francès.</p>
+  <div class="buy"><span class="pr" id="price">38 €</span><button type="button" id="add">Afegeix a la cistella</button></div>
+</div>
+
+<div class="demo"><a href="../mostres.html" id="back">← MNA LABS</a><span>Projecte de mostra · dades fictícies</span></div>
+<div class="load" id="load"><b>Clos <i>d'Ombra</i></b></div>
+<div class="track"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(() => {
+  document.getElementById('back').addEventListener('click', e => { if (history.length > 1 && document.referrer) { e.preventDefault(); history.back(); } });
+  const canvas = document.getElementById('scene');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0c0607);
+  scene.fog = new THREE.Fog(0x0c0607, 9, 22);
+  const camera = new THREE.PerspectiveCamera(32, 1, .05, 100);
+
+  // entorn d'estudi: dues finestres de llum suau per als reflexos del vidre
+  (function env(){
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 512; const g = c.getContext('2d');
+    g.fillStyle = '#0a0506'; g.fillRect(0, 0, 1024, 512);
+    const box = (x, y, w, h, col) => { const gr = g.createLinearGradient(x, 0, x + w, 0); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(.5, col); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(x, y, w, h); };
+    box(150, 90, 140, 300, '#ffe9d6'); box(620, 120, 90, 260, '#ffd2c2'); box(860, 60, 60, 380, '#9fb6ff');
+    g.fillStyle = 'rgba(255,240,230,.9)'; g.fillRect(400, 20, 240, 40);
+    const t = new THREE.CanvasTexture(c); t.mapping = THREE.EquirectangularReflectionMapping; t.encoding = THREE.sRGBEncoding;
+    const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromEquirectangular(t).texture; pm.dispose();
+  })();
+
+  // llums
+  scene.add(new THREE.AmbientLight(0x3a1a1e, .5));
+  const key = new THREE.SpotLight(0xffe6d0, 60, 20, .42, .7, 2); key.position.set(1.5, 7, 3); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); scene.add(key);
+  const rimL = new THREE.DirectionalLight(0xff6b7f, 1.6); rimL.position.set(-5, 2, -4); scene.add(rimL);
+  const rimR = new THREE.DirectionalLight(0x8fa8ff, 1.2); rimR.position.set(5, 3, -3); scene.add(rimR);
+
+  // terra de llicorella
+  function slate(){
+    const c = document.createElement('canvas'); c.width = c.height = 512; const g = c.getContext('2d');
+    g.fillStyle = '#16100f'; g.fillRect(0, 0, 512, 512);
+    for (let i = 0; i < 900; i++){ const y = Math.random() * 512, w = 40 + Math.random() * 200, x = Math.random() * 512; g.fillStyle = `rgba(${60 + Math.random() * 40},${44 + Math.random() * 30},${40 + Math.random() * 30},${.15 + Math.random() * .3})`; g.fillRect(x, y, w, 1 + Math.random() * 3); }
+    const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(4, 4); t.encoding = THREE.sRGBEncoding; return t;
+  }
+  const floor = new THREE.Mesh(new THREE.CircleGeometry(14, 64), new THREE.MeshStandardMaterial({ map: slate(), roughness: .55, metalness: .25 }));
+  floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+
+  // pols en suspensió dins el feix de llum
+  const dustGeo = new THREE.BufferGeometry(), dp = [];
+  for (let i = 0; i < 500; i++) dp.push((Math.random() - .5) * 4, Math.random() * 6, (Math.random() - .5) * 4);
+  dustGeo.setAttribute('position', new THREE.Float32BufferAttribute(dp, 3));
+  const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: 0xffd9c4, size: .018, transparent: true, opacity: .55, depthWrite: false, blending: THREE.AdditiveBlending }));
+  scene.add(dust);
+
+  /* ---------- vins ---------- */
+  const WINES = [
+    { name: 'Ombra Negre', year: '2021', liquid: 0x4a0612, capsule: 0x5c0d1b, label: '#efe5d3', accent: '#7a1022', price: '38 €', desc: 'Garnatxa i carinyena. 16 mesos en bóta de roure francès.' },
+    { name: 'Ombra Blanc', year: '2023', liquid: 0xd9b54a, capsule: 0xc9a14a, label: '#f4efe4', accent: '#a07d22', price: '29 €', desc: 'Garnatxa blanca i macabeu. Fermentat en àmfora de fang.' },
+    { name: 'Ombra Rosat', year: '2024', liquid: 0xe36a74, capsule: 0xd88e95, label: '#f6ece8', accent: '#b2454f', price: '24 €', desc: 'Garnatxa negra de sagnat. Fresc, floral i salí.' }
+  ];
+  let wine = 0;
+
+  // ampolla bordelesa (torn)
+  const prof = [[0, 0], [.36, 0], [.375, .03], [.375, 2.05], [.36, 2.25], [.28, 2.48], [.18, 2.66], [.145, 2.8], [.14, 3.3], [.158, 3.33], [.158, 3.42], [.13, 3.44], [.11, 3.44]].map(([x, y]) => new THREE.Vector2(x, y));
+  const bottleMat = new THREE.MeshPhysicalMaterial({ color: 0x1b2a18, metalness: 0, roughness: .05, clearcoat: 1, clearcoatRoughness: .05, transparent: true, opacity: .9, envMapIntensity: 2.2 });
+  const bottle = new THREE.Mesh(new THREE.LatheGeometry(prof, 96), bottleMat); bottle.castShadow = true;
+  const capsuleMat = new THREE.MeshStandardMaterial({ color: WINES[0].capsule, metalness: .9, roughness: .3 });
+  const capsule = new THREE.Mesh(new THREE.LatheGeometry([[.152, 2.86], [.16, 2.88], [.16, 3.36], [.165, 3.44], [.12, 3.46], [0, 3.46]].map(([x, y]) => new THREE.Vector2(x, y)), 64), capsuleMat);
+  // etiqueta
+  const labelCanvas = document.createElement('canvas'); labelCanvas.width = 1024; labelCanvas.height = 512;
+  const labelTex = new THREE.CanvasTexture(labelCanvas); labelTex.encoding = THREE.sRGBEncoding; labelTex.anisotropy = 8;
+  function drawLabel(w){
+    const g = labelCanvas.getContext('2d'), W = 1024, H = 512;
+    g.fillStyle = w.label; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 4000; i++){ g.fillStyle = `rgba(120,90,60,${Math.random() * .05})`; g.fillRect(Math.random() * W, Math.random() * H, 2, 2); }
+    g.strokeStyle = w.accent; g.lineWidth = 2; g.strokeRect(300, 40, 424, 432);
+    g.fillStyle = '#1a1210'; g.textAlign = 'center';
+    g.font = 'italic 30px "Bodoni Moda", Georgia, serif'; g.fillText('Priorat', 512, 112);
+    g.font = '500 62px "Bodoni Moda", Georgia, serif'; g.fillText("CLOS D'OMBRA", 512, 196);
+    g.strokeStyle = '#1a1210'; g.lineWidth = 1.5; g.beginPath();
+    // muntanyes de línia fina
+    g.moveTo(360, 300); g.lineTo(430, 240); g.lineTo(470, 270); g.lineTo(530, 218); g.lineTo(600, 280); g.lineTo(664, 300); g.stroke();
+    g.fillStyle = w.accent; g.font = '600 26px Geist, Arial, sans-serif'; g.fillText(w.name.toUpperCase(), 512, 352);
+    g.fillStyle = '#1a1210'; g.font = '400 54px "Bodoni Moda", Georgia, serif'; g.fillText(w.year, 512, 418);
+    g.font = '400 16px Geist, Arial, sans-serif'; g.fillText('DENOMINACIÓ D\'ORIGEN QUALIFICADA · 75 cl · 14,5 % vol', 512, 456);
+    labelTex.needsUpdate = true;
+  }
+  const label = new THREE.Mesh(new THREE.CylinderGeometry(.378, .378, 1.05, 96, 1, true, Math.PI * .35, Math.PI * 1.3), new THREE.MeshStandardMaterial({ map: labelTex, roughness: .8 }));
+  label.position.y = 1.15;
+  const bottleGroup = new THREE.Group(); bottleGroup.add(bottle, capsule, label);
+  const pivot = new THREE.Group(); scene.add(pivot); pivot.add(bottleGroup);
+  bottleGroup.position.y = -1.6;
+
+  // copa (torn amb gruix)
+  const outer = [[0, 0], [.42, 0], [.43, .02], [.4, .04], [.05, .07], [.03, .14], [.028, 1.05], [.05, 1.15], [.3, 1.35], [.48, 1.7], [.5, 2.0], [.44, 2.35], [.4, 2.5]];
+  const inner = [[.39, 2.5], [.43, 2.35], [.49, 2.0], [.47, 1.7], [.29, 1.37], [.05, 1.18], [0, 1.17]];
+  const glassProfile = outer.concat(inner).map(([x, y]) => new THREE.Vector2(x, y));
+  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: 0, transparent: true, opacity: .2, envMapIntensity: 2.5, clearcoat: 1, side: THREE.DoubleSide, depthWrite: false });
+  const glass = new THREE.Mesh(new THREE.LatheGeometry(glassProfile, 96), glassMat);
+  const wineMat = new THREE.MeshPhysicalMaterial({ color: WINES[0].liquid, roughness: .08, metalness: 0, transparent: true, opacity: .92, clearcoat: 1, envMapIntensity: 1.2 });
+  const wineIn = new THREE.Mesh(new THREE.BufferGeometry(), wineMat);
+  const glassGroup = new THREE.Group(); glassGroup.add(wineIn, glass); scene.add(glassGroup);
+  // perfil interior de la copa per omplir-la fins a un nivell
+  const bowl = [[.0, 1.18], [.05, 1.19], [.29, 1.38], [.465, 1.7], [.485, 2.0], [.425, 2.35]];
+  function bowlR(y){ for (let i = 0; i < bowl.length - 1; i++){ const [r0, y0] = bowl[i], [r1, y1] = bowl[i + 1]; if (y <= y1) return r0 + (r1 - r0) * ((y - y0) / (y1 - y0)); } return bowl[bowl.length - 1][0]; }
+  let lastLevel = -1;
+  function setLevel(f){
+    const lvl = Math.round(f * 100) / 100; if (lvl === lastLevel) return; lastLevel = lvl;
+    wineIn.visible = lvl > .01; if (!wineIn.visible) return;
+    const top = 1.19 + (2.05 - 1.19) * lvl, pts = [];
+    for (let i = 0; i <= 14; i++){ const y = 1.19 + (top - 1.19) * (i / 14); pts.push(new THREE.Vector2(Math.max(.001, bowlR(y) - .012), y)); }
+    pts.push(new THREE.Vector2(0, top));
+    wineIn.geometry.dispose(); wineIn.geometry = new THREE.LatheGeometry(pts, 64);
+  }
+  // raig de vi
+  const streamMat = new THREE.MeshPhysicalMaterial({ color: WINES[0].liquid, roughness: .1, transparent: true, opacity: .95, clearcoat: 1 });
+  const stream = new THREE.Mesh(new THREE.BufferGeometry(), streamMat); scene.add(stream);
+
+  function applyWine(i){
+    wine = i; const w = WINES[i];
+    drawLabel(w); capsuleMat.color.setHex(w.capsule); wineMat.color.setHex(w.liquid); streamMat.color.setHex(w.liquid);
+    bottleMat.color.setHex(i === 0 ? 0x1b2a18 : 0xcfe0c8); bottleMat.opacity = i === 0 ? .9 : .38;
+    document.getElementById('price').textContent = w.price; document.getElementById('desc').textContent = w.desc;
+    document.querySelectorAll('.wines button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.w === i)));
+  }
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => applyWine(wine));
+  applyWine(0);
+  document.querySelectorAll('.wines button').forEach(b => b.addEventListener('click', () => applyWine(+b.dataset.w)));
+  const cartN = document.getElementById('cartN');
+  document.getElementById('add').addEventListener('click', () => { cartN.textContent = +cartN.textContent + 1; cartN.classList.add('bump'); setTimeout(() => cartN.classList.remove('bump'), 300); });
+
+  /* ---------- scroll ---------- */
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const ss = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  let target = 0, prog = 0, mx = 0, my = 0;
+  const instant = location.hash === "#instant";
+  const readScroll = () => { const max = document.documentElement.scrollHeight - innerHeight; target = max > 0 ? clamp(scrollY / max) : 0; };
+  addEventListener('scroll', readScroll, { passive: true });
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+  let portrait = false;
+  function resize(){ renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; portrait = innerWidth < innerHeight; camera.fov = portrait ? 46 : 32; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize); resize(); readScroll();
+
+  const chapters = [...document.querySelectorAll('.ch')], shop = document.getElementById('shop'), tasting = document.getElementById('tasting');
+  const clock = new THREE.Clock(); let first = true;
+  const mouth = new THREE.Vector3();
+  function frame(){
+    const t = clock.getElapsedTime();
+    prog = instant ? target : prog + (target - prog) * .07;
+    const p = prog;
+
+    // 1. presentació i etiqueta
+    const close = ss(.12, .26, p) * (1 - ss(.3, .4, p));
+    const pour = ss(.44, .56, p) * (1 - ss(.62, .72, p));
+    const showGlass = ss(.32, .44, p);
+    const spin = (1 - ss(.1, .2, p)) * t * .35 + ss(.1, .2, p) * Math.sin(t * .4) * .15;
+    bottleGroup.rotation.y = spin + (1 - ss(.0, .12, p)) * .6;
+    // posició de l'ampolla: centrada al principi, a la dreta quan hi ha la copa
+    const side = portrait ? .55 : .95;
+    const restX = lerp(0, side, showGlass), restY = 1.6 + Math.sin(t * .8) * .02;
+    const pourX = -.38 + 1.62, pourY = 3.62;
+    pivot.position.set(lerp(restX, pourX, pour), lerp(restY, pourY, pour), 0);
+    pivot.rotation.z = pour * 1.98;
+    // copa
+    glassGroup.position.set(lerp(-.6, portrait ? -.35 : -.6, showGlass), lerp(-3, 0, showGlass), 0);
+    const fill = ss(.5, .66, p);
+    setLevel(fill * .55);
+    // raig: de la boca de l'ampolla a la superfície del vi
+    mouth.set(0, 3.42 - 1.6, 0).applyMatrix4(bottleGroup.matrixWorld);
+    const streaming = pour > .92 && fill < .99 && fill > 0;
+    stream.visible = streaming;
+    if (streaming){
+      const surf = new THREE.Vector3(glassGroup.position.x, 1.19 + (2.05 - 1.19) * fill * .55, 0);
+      const mid = new THREE.Vector3((mouth.x + surf.x) / 2 - .05, (mouth.y + surf.y) / 2, 0);
+      const curve = new THREE.QuadraticBezierCurve3(mouth.clone(), mid, surf);
+      stream.geometry.dispose(); stream.geometry = new THREE.TubeGeometry(curve, 20, .022 + Math.sin(t * 30) * .002, 8, false);
+    }
+    // càmera
+    const camTargets = [
+      { p: 0,   pos: [0, 2.1, 9.5], look: [0, 1.6, 0] },
+      { p: .2,  pos: [.15, 1.2, 3.1], look: [0, 1.15 - 1.6 + 1.6, 0] },
+      { p: .4,  pos: [.1, 2.1, 8.6], look: [.15, 1.6, 0] },
+      { p: .56, pos: [-.4, 2.8, 6.2], look: [-.2, 2.1, 0] },
+      { p: .74, pos: [-2.2, 2.0, 5.0], look: [-.5, 1.5, 0] },
+      { p: 1,   pos: [0, 2.2, 9], look: [.15, 1.55, 0] }
+    ];
+    let a = camTargets[0], b = camTargets[camTargets.length - 1];
+    for (let i = 0; i < camTargets.length - 1; i++) if (p <= camTargets[i + 1].p){ a = camTargets[i]; b = camTargets[i + 1]; break; }
+    const k = ss(a.p, b.p, p);
+    const zoomOut = portrait ? 1.35 : 1;
+    camera.position.set(lerp(a.pos[0], b.pos[0], k) + mx * .25, lerp(a.pos[1], b.pos[1], k) - my * .15, lerp(a.pos[2], b.pos[2], k) * zoomOut);
+    camera.lookAt(lerp(a.look[0], b.look[0], k), lerp(a.look[1], b.look[1], k), lerp(a.look[2], b.look[2], k));
+    void close;
+
+    dust.rotation.y = t * .02; dust.position.y = Math.sin(t * .2) * .1;
+    key.intensity = 60 + Math.sin(t * .7) * 3;
+
+    chapters.forEach(c => {
+      const a1 = +c.dataset.a, b1 = +c.dataset.b, f = .03;
+      const o = Math.min(ss(a1 - f, a1 + f, p), 1 - ss(b1 - f, b1 + f, p));
+      c.style.opacity = o.toFixed(3); c.classList.toggle('on', o > .5);
+    });
+    tasting.querySelectorAll('.bar i').forEach(i => i.style.transform = `scaleX(${tasting.classList.contains('on') ? getComputedStyle(i).getPropertyValue('--v') : 0})`);
+    const so = ss(.86, .92, p); shop.style.opacity = so.toFixed(3); shop.classList.toggle('on', so > .5);
+
+    renderer.render(scene, camera);
+    if (first){ first = false; setTimeout(() => document.getElementById('load').classList.add('done'), 400); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

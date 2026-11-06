@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Administració · MNA LABS</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--ink-2:#6e6e73;--line:#d2d2d7;--line-2:#e8e8ed;--blue:#6b4eff;--blue-h:#5838f0;--red:#d70015;--green:#1a7f37;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line-2)}
+.top-in{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin-right:auto;text-decoration:none;color:var(--ink)}
+.brand svg{width:20px;height:20px;color:var(--blue)}
+.brand small{font-weight:500;color:var(--ink-2)}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 20px 120px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:0 16px;border-radius:10px;border:0;background:var(--ink);color:#fff;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#000}
+.btn.pri{background:var(--blue)}.btn.pri:hover{background:var(--blue-h)}
+.btn.sec{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.btn.sec:hover{background:#f2f2f4}
+.btn.sm{min-height:30px;padding:0 10px;font-size:13px;font-weight:500;border-radius:8px}
+.btn.del{background:#fff;color:var(--red);box-shadow:inset 0 0 0 1px #f3c2c7}.btn.del:hover{background:#fff5f6}
+.btn:disabled{opacity:.5;cursor:default}
+.card{background:var(--card);border-radius:var(--r);box-shadow:0 0 0 1px var(--line-2);padding:24px}
+.card + .card{margin-top:16px}
+h1{font-size:34px;font-weight:700;letter-spacing:-.035em;line-height:1.1}
+h2{font-size:22px;font-weight:700;letter-spacing:-.03em}
+h3{font-size:17px;font-weight:600}
+.muted{color:var(--ink-2)}
+.login{max-width:420px;margin:12vh auto 0}
+.login h1{margin-bottom:8px}
+.field{display:grid;gap:6px;margin-top:14px;align-content:start}
+.bar.fix{position:sticky;top:57px;z-index:5;background:rgba(245,245,247,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0;margin-top:-12px}
+.field > span{font-size:13px;font-weight:500;color:var(--ink-2)}
+input[type=text],input[type=email],input[type=password],input[type=number],select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 12px;min-height:40px}
+textarea{min-height:96px;resize:vertical;line-height:1.5}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(107,78,255,.18)}
+.err{color:var(--red);font-size:14px;margin-top:12px;min-height:20px}
+.ok{color:var(--green)}
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.status{font-size:13px;color:var(--ink-2);min-width:150px}
+.status.dirty{color:#b25e00}
+.seg{display:inline-flex;padding:3px;gap:3px;border-radius:10px;background:#e8e8ed}
+.seg button{border:0;background:none;padding:5px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 16px}
+.check{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--blue)}
+.sec-head{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:36px 0 12px}
+.sec-head h2{margin-right:auto}
+details.pk{background:var(--card);border-radius:var(--r);box-shadow:0 0 0 1px var(--line-2);margin-top:10px}
+details.pk[open]{box-shadow:0 0 0 1px var(--line),0 12px 30px -18px rgba(0,0,0,.25)}
+details.pk > summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer}
+details.pk > summary::-webkit-details-marker{display:none}
+details.pk > summary::before{content:"";width:8px;height:8px;border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);transform:rotate(-45deg);transition:transform .2s;flex:none}
+details.pk[open] > summary::before{transform:rotate(45deg)}
+.sum-name{font-weight:600;margin-right:auto}
+.sum-price{color:var(--ink-2);font-size:14px}
+.tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(107,78,255,.12);color:var(--blue)}
+.pk-body{padding:4px 18px 20px;border-top:1px solid var(--line-2)}
+.sub{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-2)}
+.sub > h3{margin-bottom:2px}
+.hint{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+.opt{display:grid;grid-template-columns:1fr 120px 2fr auto;gap:10px;align-items:end}
+.opt + .opt{margin-top:4px}
+.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px}
+.empty{padding:18px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:var(--r);margin-top:10px}
+.setup ol{margin:14px 0 0 20px;display:grid;gap:8px}
+.setup code{background:#f2f2f4;padding:1px 6px;border-radius:6px;font-size:13px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:20}
+.toast.on{opacity:1;transform:translateX(-50%)}
+[hidden]{display:none!important}
+@media (max-width:720px){.grid2,.grid3,.opt{grid-template-columns:1fr}.top-in{gap:8px}.wrap{padding:20px 16px 100px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20V4l9 9 9-9v16" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>MNA LABS <small>Administració</small></a>
+    <span class="muted" id="who"></span>
+    <button class="btn sec sm" id="logout" hidden>Surt</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Sense configurar -->
+  <section class="card setup" id="vSetup" hidden>
+    <h1>El panell encara no està connectat</h1>
+    <p class="muted" style="margin-top:8px">Perquè els canvis es guardin i els vegi tothom, el panell necessita un projecte de Supabase. Mentrestant, la web mostra els paquets per defecte.</p>
+    <ol>
+      <li>Crea un projecte nou a <a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com</a>. No facis servir el de lliga.cat.</li>
+      <li>A <b>SQL Editor</b>, executa el codi del fitxer <code>CONFIGURAR-PANELL.md</code>.</li>
+      <li>A <b>Authentication › Users</b>, afegeix l'usuari <code>equip.lliga.cat@gmail.com</code> amb la contrasenya que vulgueu.</li>
+      <li>Copia l'URL i la clau <b>anon</b> de <b>Project Settings › API</b> a <code>assets/config.js</code> i torna a publicar la web.</li>
+    </ol>
+  </section>
+
+  <!-- Inici de sessió -->
+  <section class="card login" id="vLogin" hidden>
+    <h1>Entra</h1>
+    <p class="muted">Només per a l'equip de MNA LABS.</p>
+    <form id="fLogin">
+      <label class="field"><span>Correu electrònic</span><input type="email" id="lEmail" autocomplete="username" required></label>
+      <label class="field"><span>Contrasenya</span><input type="password" id="lPass" autocomplete="current-password" required></label>
+      <p class="err" id="lErr" role="alert"></p>
+      <button class="btn pri" style="width:100%;margin-top:4px" id="lBtn">Entra</button>
+    </form>
+  </section>
+
+  <!-- Editor -->
+  <section id="vEdit" hidden>
+    <div class="bar fix" style="margin-bottom:22px">
+      <h1 style="margin-right:auto">Paquets</h1>
+      <div class="seg" role="group" aria-label="Idioma dels textos"><button data-l="ca" aria-pressed="true">CA</button><button data-l="es" aria-pressed="false">ES</button><button data-l="en" aria-pressed="false">EN</button></div>
+      <a class="btn sec" href="paquets.html" target="_blank" rel="noopener">Veure la web</a>
+      <span class="status" id="status" role="status"></span>
+      <button class="btn pri" id="save" disabled>Desa els canvis</button>
+    </div>
+    <p class="hint" style="margin-bottom:18px">Els textos que deixis buits en castellà o anglès es mostren en català. Els preus són iguals en tots els idiomes.</p>
+    <div id="editor"></div>
+    <div class="actions" style="margin-top:28px">
+      <button class="btn sec" id="addSec">Afegeix una secció</button>
+      <button class="btn del" id="reset">Torna als paquets per defecte</button>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/paquets-dades.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>

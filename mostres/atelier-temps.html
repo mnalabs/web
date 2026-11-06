@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Temps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Rellotgeria d'alta gamma: el rellotge es desmunta en 3D peça a peça amb el scroll i es torna a muntar */
+:root{
+  --bg:#070a12;
+  --ink:#eef0f5;
+  --ink-2:rgba(238,240,245,.62);
+  --gold:#d9b46a;
+  --serif:"Instrument Serif",Didot,Georgia,serif;
+  --sans:Geist,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block}
+.track{height:900vh}
+.top{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px max(16px,3vw)}
+.brand{font-family:var(--serif);font-size:26px;letter-spacing:.02em}
+.brand i{color:var(--gold)}
+.top nav{display:flex;gap:28px;font-size:13px;color:var(--ink-2)}
+.top nav a{color:inherit;text-decoration:none}
+.appt{font-size:13px;color:var(--bg);background:var(--ink);padding:10px 18px;border-radius:999px;text-decoration:none}
+@media (max-width:760px){.top nav{display:none}}
+
+.ch{position:fixed;z-index:4;opacity:0;pointer-events:none;max-width:min(520px,86vw)}
+.ch .k{display:block;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ch h1,.ch h2{font-family:var(--serif);font-weight:400;line-height:.95;letter-spacing:-.01em}
+.ch h1{font-size:clamp(64px,10vw,168px)}
+.ch h2{font-size:clamp(42px,5.6vw,92px)}
+.ch em{font-style:italic;color:var(--gold)}
+.ch p{margin-top:16px;line-height:1.65;color:var(--ink-2);font-size:clamp(15px,1.2vw,18px);max-width:40ch}
+.l{left:max(16px,6vw);top:50%;transform:translateY(-50%)}
+.r{right:max(16px,6vw);top:50%;transform:translateY(-50%);text-align:right}
+.r p{margin-left:auto}
+.c{left:50%;top:12vh;transform:translateX(-50%);text-align:center;max-width:min(940px,92vw)}
+.b{left:max(16px,6vw);bottom:9vh}
+@media (max-width:760px){.l,.r{top:auto;bottom:10vh;transform:none;left:16px;right:16px;text-align:left}.r p{margin-left:0}}
+.specs{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+.specs div{border-top:1px solid rgba(238,240,245,.2);padding-top:10px}
+.specs b{display:block;font-family:var(--serif);font-size:44px;font-weight:400;line-height:1}
+.specs span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+
+.tags{position:fixed;inset:0;z-index:3;pointer-events:none}
+.tag{position:absolute;display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.06em;color:var(--ink);white-space:nowrap;opacity:0;transform:translate(0,-50%)}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(217,180,106,.18)}
+.tag::after{content:"";order:-1}
+.tag span{border-left:1px solid rgba(238,240,245,.35);padding-left:10px}
+@media (max-width:760px){.tag{font-size:10px}}
+
+.cfg{position:fixed;left:50%;bottom:5vh;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;pointer-events:none;width:min(760px,94vw)}
+.cfg.on{pointer-events:auto}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.row > span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);min-width:70px}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:inset 0 0 0 2px var(--bg)}
+.sw[aria-pressed="true"]{border-color:var(--ink)}
+.buy{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:4px}
+.buy .pr{font-family:var(--serif);font-size:36px}
+.buy a{font-size:14px;background:var(--gold);color:#1a1307;padding:14px 24px;border-radius:999px;text-decoration:none}
+
+.load{position:fixed;inset:0;z-index:10;background:var(--bg);display:grid;place-items:center;transition:opacity 1.2s,visibility 1.2s}
+.load.done{opacity:0;visibility:hidden}
+.load b{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,60px)}
+.load b i{color:var(--gold)}
+.demo{position:fixed;left:max(16px,3vw);bottom:18px;z-index:6;font-size:11px;color:var(--ink-2);display:flex;gap:10px;align-items:center}
+.demo a{color:var(--ink);text-decoration:none;border:1px solid rgba(238,240,245,.25);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.25);backdrop-filter:blur(8px)}
+@media (max-width:760px){.demo span{display:none}}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="Rellotge mecànic en 3D"></canvas>
+<header class="top">
+  <span class="brand">Atelier <i>Temps</i></span>
+  <nav><a href="#">Col·lecció</a><a href="#">Manufactura</a><a href="#">Servei</a><a href="#">Atelier</a></nav>
+  <a class="appt" href="#">Demana cita</a>
+</header>
+
+<section class="ch c" data-a="0" data-b=".1">
+  <span class="k">Barcelona · des de 1924</span>
+  <h1>Cada <em>segon,</em><br>fet a mà.</h1>
+</section>
+<section class="ch l" data-a=".14" data-b=".3">
+  <span class="k">Calibre AT-21</span>
+  <h2>Obrim-lo<br>per <em>dins.</em></h2>
+  <p>Dues-centes quaranta peces, muntades una a una per tres rellotgers al nostre taller de Gràcia.</p>
+</section>
+<section class="ch c" data-a=".42" data-b=".58" style="top:auto;bottom:7vh">
+  <span class="k">Vista explosionada</span>
+  <h2>Res és <em>decoració.</em></h2>
+</section>
+<section class="ch r" data-a=".6" data-b=".72">
+  <span class="k">El cor</span>
+  <h2>Un volant<br>que batega <em>quatre</em><br>cops per segon.</h2>
+  <div class="specs" style="justify-content:flex-end">
+    <div><b>31</b><span>rubins</span></div>
+    <div><b>72 h</b><span>reserva de marxa</span></div>
+    <div><b>4 Hz</b><span>freqüència</span></div>
+  </div>
+</section>
+<section class="ch l" data-a=".76" data-b=".86">
+  <span class="k">El fons</span>
+  <h2>Rotor d'or<br>de <em>divuit</em> quirats.</h2>
+  <p>Gira amb cada moviment del canell i carrega el rellotge sense que hi pensis.</p>
+</section>
+<section class="ch c" data-a=".9" data-b="1.01" style="top:10vh">
+  <span class="k">Atelier Temps · AT-21</span>
+  <h2>Fes-lo <em>teu.</em></h2>
+</section>
+<div class="tags" id="tags"></div>
+<div class="cfg" id="cfg">
+  <div class="row" role="group" aria-label="Esfera"><span>Esfera</span>
+    <button class="sw" data-dial="0" aria-pressed="true" aria-label="Blau" style="background:#1d3270"></button>
+    <button class="sw" data-dial="1" aria-pressed="false" aria-label="Negre" style="background:#16171c"></button>
+    <button class="sw" data-dial="2" aria-pressed="false" aria-label="Crema" style="background:#e8e0cc"></button>
+  </div>
+  <div class="row" role="group" aria-label="Corretja"><span>Corretja</span>
+    <button class="sw" data-strap="0" aria-pressed="true" aria-label="Cuir marró" style="background:#6b4026"></button>
+    <button class="sw" data-strap="1" aria-pressed="false" aria-label="Cuir negre" style="background:#1b1a1a"></button>
+    <button class="sw" data-strap="2" aria-pressed="false" aria-label="Blau marí" style="background:#1d2a48"></button>
+    <button class="sw" data-strap="3" aria-pressed="false" aria-label="Verd" style="background:#2f4a36"></button>
+  </div>
+  <div class="buy"><span class="pr">8.400 €</span><a href="#">Reserva una cita a l'atelier</a></div>
+</div>
+
+<div class="demo"><a href="../mostres.html" id="back">← MNA LABS</a><span>Projecte de mostra · dades fictícies</span></div>
+<div class="load" id="load"><b>Atelier <i>Temps</i></b></div>
+<div class="track"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(() => {
+  document.getElementById('back').addEventListener('click', e => { if (history.length > 1 && document.referrer) { e.preventDefault(); history.back(); } });
+  const canvas = document.getElementById('scene');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 200);
+
+  // fons: degradat blau nit
+  (function bg(){
+    const c = document.createElement('canvas'); c.width = 2; c.height = 512; const g = c.getContext('2d');
+    const gr = g.createLinearGradient(0, 0, 0, 512); gr.addColorStop(0, '#0d1424'); gr.addColorStop(.6, '#070a12'); gr.addColorStop(1, '#050608');
+    g.fillStyle = gr; g.fillRect(0, 0, 2, 512);
+    const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; scene.background = t;
+  })();
+  // entorn d'estudi per als metalls polits
+  (function env(){
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 512; const g = c.getContext('2d');
+    g.fillStyle = '#05070c'; g.fillRect(0, 0, 1024, 512);
+    const soft = (x, y, w, h, col, a = 1) => { const gr = g.createLinearGradient(x, 0, x + w, 0); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(.5, col); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.globalAlpha = a; g.fillStyle = gr; g.fillRect(x, y, w, h); g.globalAlpha = 1; };
+    soft(80, 60, 220, 380, '#ffffff'); soft(430, 10, 300, 70, '#fff4e0'); soft(760, 100, 120, 300, '#9ab4ff', .9); soft(560, 300, 200, 160, '#ffe2b0', .6);
+    g.fillStyle = '#20283a'; g.fillRect(0, 440, 1024, 72);
+    const t = new THREE.CanvasTexture(c); t.mapping = THREE.EquirectangularReflectionMapping; t.encoding = THREE.sRGBEncoding;
+    const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromEquirectangular(t).texture; pm.dispose();
+  })();
+  scene.add(new THREE.AmbientLight(0x6070a0, .25));
+  const keyL = new THREE.DirectionalLight(0xfff2e0, 1.6); keyL.position.set(4, 6, 8); scene.add(keyL);
+  const rim = new THREE.DirectionalLight(0x7f9cff, 1.2); rim.position.set(-6, 2, -5); scene.add(rim);
+
+  /* ---------- textures ---------- */
+  function canvasTex(w, h, draw, srgb = true){ const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); if (srgb) t.encoding = THREE.sRGBEncoding; t.anisotropy = 8; return t; }
+  const perlage = canvasTex(512, 512, (g, w, h) => {
+    g.fillStyle = '#b9bdc6'; g.fillRect(0, 0, w, h);
+    for (let y = -20; y < h + 20; y += 26) for (let x = -20; x < w + 20; x += 26){
+      const ox = x + ((y / 26) % 2) * 13, gr = g.createRadialGradient(ox, y, 0, ox, y, 20);
+      gr.addColorStop(0, 'rgba(255,255,255,.55)'); gr.addColorStop(.6, 'rgba(160,165,175,.15)'); gr.addColorStop(1, 'rgba(90,95,105,.45)');
+      g.fillStyle = gr; g.beginPath(); g.arc(ox, y, 20, 0, 7); g.fill();
+    }
+  });
+  perlage.wrapS = perlage.wrapT = THREE.RepeatWrapping; perlage.repeat.set(2, 2);
+  const cotes = canvasTex(512, 512, (g, w, h) => {
+    for (let i = -2; i < 14; i++){
+      const gr = g.createLinearGradient(i * 48 - 24, 0, i * 48 + 24, 0);
+      gr.addColorStop(0, '#9ea3ad'); gr.addColorStop(.5, '#f2f3f6'); gr.addColorStop(1, '#9ea3ad');
+      g.fillStyle = gr; g.fillRect(i * 48 - 24, 0, 48, h);
+    }
+  });
+  cotes.wrapS = cotes.wrapT = THREE.RepeatWrapping; cotes.rotation = .5; cotes.repeat.set(1.5, 1.5);
+  const engrave = canvasTex(1024, 1024, (g, w, h) => {
+    const gr = g.createRadialGradient(512, 512, 60, 512, 512, 512); gr.addColorStop(0, '#e9c983'); gr.addColorStop(1, '#b8893c');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(90,60,20,.35)'; for (let r = 120; r < 512; r += 9){ g.beginPath(); g.arc(512, 512, r, 0, 7); g.stroke(); }
+    g.fillStyle = 'rgba(70,45,15,.85)'; g.font = '600 46px Geist, Arial'; g.textAlign = 'center';
+    g.save(); g.translate(512, 512); g.rotate(-Math.PI / 2 - .55);
+    const txt = 'ATELIER TEMPS · OR 18 K · BARCELONA';
+    for (let i = 0; i < txt.length; i++){ g.save(); g.rotate(i * .055); g.fillText(txt[i], 0, -380); g.restore(); }
+    g.restore();
+  });
+
+  /* ---------- materials ---------- */
+  const M = {
+    steel: new THREE.MeshStandardMaterial({ color: 0xd8dbe2, metalness: 1, roughness: .14 }),
+    brushed: new THREE.MeshStandardMaterial({ color: 0xc4c8d0, metalness: 1, roughness: .32 }),
+    brass: new THREE.MeshStandardMaterial({ color: 0xd9ad55, metalness: 1, roughness: .26 }),
+    gold: new THREE.MeshStandardMaterial({ map: engrave, color: 0xffffff, metalness: 1, roughness: .22 }),
+    plate: new THREE.MeshStandardMaterial({ map: perlage, metalness: 1, roughness: .3, color: 0xe2e4ea }),
+    bridge: new THREE.MeshStandardMaterial({ map: cotes, metalness: 1, roughness: .2, color: 0xe8eaee }),
+    blued: new THREE.MeshStandardMaterial({ color: 0x2a4fb8, metalness: 1, roughness: .25 }),
+    ruby: new THREE.MeshPhysicalMaterial({ color: 0xb0001c, roughness: .05, metalness: 0, clearcoat: 1, emissive: 0x3a0008 }),
+    sapphire: new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0, metalness: 0, transparent: true, opacity: .1, envMapIntensity: 3, clearcoat: 1, depthWrite: false, side: THREE.DoubleSide }),
+    strap: new THREE.MeshStandardMaterial({ color: 0x6b4026, roughness: .7, metalness: 0 })
+  };
+
+  /* ---------- geometria ---------- */
+  function gearShape(teeth, r, tooth, hole, spokes, pointed){
+    const s = new THREE.Shape(), step = Math.PI * 2 / teeth, root = r - tooth;
+    for (let i = 0; i < teeth; i++){
+      const a = i * step;
+      const pts = pointed ? [[root, a], [r, a + step * .12], [root * 1.01, a + step * .55]] : [[root, a], [r, a + step * .18], [r, a + step * .48], [root, a + step * .66]];
+      pts.forEach(([rr, aa], k) => { const x = Math.cos(aa) * rr, y = Math.sin(aa) * rr; (i === 0 && k === 0) ? s.moveTo(x, y) : s.lineTo(x, y); });
+    }
+    s.closePath();
+    const h = new THREE.Path(); h.absarc(0, 0, hole, 0, Math.PI * 2, true); s.holes.push(h);
+    if (spokes){
+      const ri = hole * 2.4, ro = root * .8, gap = .22;
+      for (let k = 0; k < spokes; k++){
+        const a1 = k * Math.PI * 2 / spokes + gap, a2 = (k + 1) * Math.PI * 2 / spokes - gap;
+        const w = new THREE.Path(); w.absarc(0, 0, ro, a1, a2, false); w.absarc(0, 0, ri, a2, a1, true); w.closePath(); s.holes.push(w);
+      }
+    }
+    return s;
+  }
+  const ext = (shape, depth, bevel = .012) => new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 2, curveSegments: 18 });
+  function mesh(geo, mat, x = 0, y = 0, z = 0){ const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); return m; }
+
+  const watch = new THREE.Group(); scene.add(watch);
+  const layer = name => { const g = new THREE.Group(); g.name = name; watch.add(g); return g; };
+
+  // caixa (torn amb l'eix cap a la càmera)
+  const caseProfile = [[2.02, -.36], [2.3, -.36], [2.42, -.26], [2.48, -.05], [2.46, .16], [2.36, .3], [2.2, .4], [2.06, .42], [2.03, .38]].map(([x, y]) => new THREE.Vector2(x, y));
+  const caseMid = mesh(new THREE.LatheGeometry(caseProfile, 128), M.steel); caseMid.rotation.x = Math.PI / 2;
+  const caseG = layer('case'); caseG.add(caseMid);
+  [[-1, 1], [1, 1], [-1, -1], [1, -1]].forEach(([sx, sy]) => { const lug = mesh(new THREE.BoxGeometry(.42, 1.0, .5), M.steel, sx * 1.32, sy * 2.42, -.02); lug.rotation.z = sx * sy * -.12; caseG.add(lug); });
+  const crown = mesh(new THREE.CylinderGeometry(.24, .24, .36, 32), M.steel, 2.64, 0, 0); crown.rotation.z = Math.PI / 2; caseG.add(crown);
+  for (let i = 0; i < 24; i++){ const k = mesh(new THREE.BoxGeometry(.3, .03, .03), M.brushed, 2.66, Math.cos(i / 24 * Math.PI * 2) * .245, Math.sin(i / 24 * Math.PI * 2) * .245); caseG.add(k); }
+  // corretja: segments que segueixen una corba
+  function strapHalf(dir){
+    const g = new THREE.Group(), pts = [];
+    for (let i = 0; i <= 14; i++){ const t = i / 14; pts.push(new THREE.Vector3(0, dir * (2.75 + t * 3.2), -Math.pow(t, 2.2) * 3.6 - .05)); }
+    const curve = new THREE.CatmullRomCurve3(pts);
+    for (let i = 0; i < 28; i++){
+      const t0 = i / 28, t1 = (i + 1) / 28, p0 = curve.getPoint(t0), p1 = curve.getPoint(t1);
+      const seg = mesh(new THREE.BoxGeometry(2.05 - t0 * .25, p0.distanceTo(p1) * 1.04, .16), M.strap);
+      seg.position.copy(p0).lerp(p1, .5);
+      seg.rotation.x = Math.atan2(p1.z - p0.z, Math.abs(p1.y - p0.y)) * dir * -1;
+      g.add(seg);
+    }
+    return g;
+  }
+  const strap = layer('strap'); strap.add(strapHalf(1), strapHalf(-1));
+
+  // esfera amb raigs de sol i índexs aplicats
+  const DIALS = [{ a: '#2b4796', b: '#0d1838', ink: '#f2f2f2' }, { a: '#2a2c33', b: '#0b0c10', ink: '#f2f2f2' }, { a: '#f5efe0', b: '#cfc4a8', ink: '#1a1a1a' }];
+  const dialCanvas = document.createElement('canvas'); dialCanvas.width = dialCanvas.height = 1024;
+  const dialTex = new THREE.CanvasTexture(dialCanvas); dialTex.encoding = THREE.sRGBEncoding; dialTex.anisotropy = 8;
+  function drawDial(d){
+    const g = dialCanvas.getContext('2d'), c = 512;
+    const gr = g.createRadialGradient(c, c, 0, c, c, 512); gr.addColorStop(0, d.a); gr.addColorStop(1, d.b);
+    g.fillStyle = gr; g.fillRect(0, 0, 1024, 1024);
+    for (let i = 0; i < 360; i++){ g.save(); g.translate(c, c); g.rotate(i / 360 * Math.PI * 2); g.fillStyle = i % 2 ? 'rgba(255,255,255,.05)' : 'rgba(0,0,0,.06)'; g.beginPath(); g.moveTo(0, 0); g.lineTo(-5, -520); g.lineTo(5, -520); g.fill(); g.restore(); }
+    g.strokeStyle = d.ink; g.globalAlpha = .7;
+    for (let i = 0; i < 60; i++){ g.save(); g.translate(c, c); g.rotate(i / 60 * Math.PI * 2); g.lineWidth = i % 5 ? 2 : 4; g.beginPath(); g.moveTo(0, -488); g.lineTo(0, i % 5 ? -470 : -460); g.stroke(); g.restore(); }
+    g.globalAlpha = 1; g.fillStyle = d.ink; g.textAlign = 'center';
+    g.font = '400 54px "Instrument Serif", Georgia, serif'; g.fillText('Atelier Temps', c, 330);
+    g.font = '500 20px Geist, Arial'; g.fillText('BARCELONA', c, 366);
+    g.font = '500 22px Geist, Arial'; g.fillText('AUTOMÀTIC', c, 700); g.font = '400 18px Geist, Arial'; g.fillText('72 H · 31 RUBINS', c, 730);
+    dialTex.needsUpdate = true;
+  }
+  const dialG = layer('dial');
+  dialG.add(mesh(new THREE.CircleGeometry(2.0, 128), new THREE.MeshStandardMaterial({ map: dialTex, metalness: .35, roughness: .35 }), 0, 0, .01));
+  const dialEdge = mesh(new THREE.CylinderGeometry(2.0, 2.0, .04, 128), M.brushed); dialEdge.rotation.x = Math.PI / 2; dialEdge.position.z = -.012; dialG.add(dialEdge);
+  for (let i = 0; i < 12; i++){
+    const a = i / 12 * Math.PI * 2, r = 1.6, big = i % 3 === 0;
+    const idx = mesh(new THREE.BoxGeometry(big ? .11 : .07, big ? .42 : .3, .05), M.steel, Math.sin(a) * r, Math.cos(a) * r, .04);
+    idx.rotation.z = -a; dialG.add(idx);
+  }
+  // agulles
+  function hand(len, w, tail, mat){
+    const s = new THREE.Shape(); s.moveTo(-w * .35, -tail); s.lineTo(-w / 2, len * .15); s.lineTo(0, len); s.lineTo(w / 2, len * .15); s.lineTo(w * .35, -tail); s.closePath();
+    return mesh(ext(s, .02, .006), mat);
+  }
+  const handsG = layer('hands');
+  const hH = hand(1.12, .14, .22, M.steel), hM = hand(1.62, .1, .25, M.steel), hS = hand(1.78, .03, .45, new THREE.MeshStandardMaterial({ color: 0xd9b46a, metalness: 1, roughness: .25 }));
+  hH.position.z = 0; hM.position.z = .04; hS.position.z = .08;
+  handsG.add(hH, hM, hS, mesh(new THREE.CylinderGeometry(.08, .08, .12, 24), M.steel, 0, 0, .06));
+  handsG.children[3].rotation.x = Math.PI / 2;
+  // vidre de safir
+  const crystalG = layer('crystal'); const crystal = mesh(new THREE.CircleGeometry(2.04, 96), M.sapphire); crystalG.add(crystal);
+
+  // platina
+  const plateG = layer('plate'); const plateShape = new THREE.Shape(); plateShape.absarc(0, 0, 1.96, 0, Math.PI * 2, false);
+  plateG.add(mesh(ext(plateShape, .1, .015), M.plate));
+  // tren d'engranatges
+  const gearsG = layer('gears');
+  const G = [];
+  function addGear(teeth, r, x, y, mat, speed, opts = {}){
+    const g = mesh(ext(gearShape(teeth, r, opts.tooth || r * .07, opts.hole || .05, opts.spokes ?? 5, opts.pointed), .05, .006), mat, x, y, 0);
+    g.geometry.translate(0, 0, 0); gearsG.add(g);
+    const pin = mesh(new THREE.CylinderGeometry(r * .14, r * .14, .2, 20), M.steel, x, y, -.04); pin.rotation.x = Math.PI / 2; gearsG.add(pin);
+    const jw = mesh(new THREE.SphereGeometry(.055, 16, 12), M.ruby, x, y, .09); jw.scale.z = .5; gearsG.add(jw);
+    G.push({ m: g, speed, tick: opts.tick });
+    return g;
+  }
+  addGear(72, .8, -.72, .56, M.brass, .04);
+  addGear(64, .6, .2, .1, M.brass, -.25);
+  addGear(48, .46, .95, .62, M.brass, 1.2);
+  addGear(42, .4, .92, -.42, M.brass, -3.4);
+  addGear(15, .27, .32, -1.02, M.steel, 0, { pointed: true, spokes: 3, tick: true, tooth: .07 });
+  // àncora
+  const fork = new THREE.Shape(); fork.moveTo(-.32, .05); fork.lineTo(.28, .05); fork.lineTo(.34, -.06); fork.lineTo(.02, -.06); fork.lineTo(-.04, -.3); fork.lineTo(-.12, -.3); fork.lineTo(-.06, -.06); fork.lineTo(-.38, -.06); fork.closePath();
+  const forkM = mesh(ext(fork, .04, .005), M.steel, -.15, -1.22, 0); gearsG.add(forkM);
+  // volant amb espiral
+  const balance = new THREE.Group(); balance.position.set(-.86, -.86, .02); gearsG.add(balance);
+  const rimM = mesh(new THREE.TorusGeometry(.48, .045, 16, 96), M.brass); balance.add(rimM);
+  for (let k = 0; k < 3; k++){ const sp = mesh(new THREE.BoxGeometry(.04, .48, .03), M.brass); sp.position.set(Math.sin(k * 2.094) * .24, Math.cos(k * 2.094) * .24, 0); sp.rotation.z = -k * 2.094; balance.add(sp); }
+  for (let k = 0; k < 8; k++){ const sc = mesh(new THREE.CylinderGeometry(.035, .035, .08, 12), M.brass, Math.cos(k * .785) * .5, Math.sin(k * .785) * .5, 0); sc.rotation.x = Math.PI / 2; balance.add(sc); }
+  const spiral = []; for (let i = 0; i <= 260; i++){ const a = i / 260 * Math.PI * 2 * 8, r = .06 + i / 260 * .3; spiral.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, .05)); }
+  balance.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(spiral), 400, .006, 6, false), M.blued));
+  const bJewel = mesh(new THREE.SphereGeometry(.06, 16, 12), M.ruby, 0, 0, .06); balance.add(bJewel);
+
+  // ponts amb Côtes de Genève i cargols blavejats
+  const bridgesG = layer('bridges');
+  function bridge(points, x, y){
+    const s = new THREE.Shape(); points.forEach(([px, py], i) => i ? s.lineTo(px, py) : s.moveTo(px, py)); s.closePath();
+    const b = mesh(ext(s, .07, .02), M.bridge, x, y, 0); bridgesG.add(b); return b;
+  }
+  bridge([[-1.7, .1], [-.2, 1.3], [.2, 1.1], [-1.3, -.2]], 0, 0);
+  bridge([[.1, 1.5], [1.6, .9], [1.5, -.85], [1.15, -.9], [1.2, .6], [.05, 1.15]], 0, 0);
+  bridge([[-1.5, -1.1], [-.7, -.55], [-.55, -.75], [-1.3, -1.35]], 0, 0);
+  [[-1.2, .55], [.85, 1.15], [1.45, -.6], [-1.05, -1.05], [-.3, .95]].forEach(([x, y]) => {
+    const sc = mesh(new THREE.CylinderGeometry(.075, .075, .05, 24), M.blued, x, y, .1); sc.rotation.x = Math.PI / 2; bridgesG.add(sc);
+    const slot = mesh(new THREE.BoxGeometry(.12, .018, .02), new THREE.MeshStandardMaterial({ color: 0x0b1530, metalness: 1, roughness: .4 }), x, y, .13); slot.rotation.z = x * 3; bridgesG.add(slot);
+  });
+  [[-.72, .56], [.95, .62], [.92, -.42]].forEach(([x, y]) => { const j = mesh(new THREE.SphereGeometry(.06, 16, 12), M.ruby, x, y, .1); j.scale.z = .5; bridgesG.add(j); });
+
+  // rotor d'or
+  const rotorG = layer('rotor');
+  const rs = new THREE.Shape(); rs.absarc(0, 0, 1.86, 0, Math.PI, false); rs.absarc(0, 0, .3, Math.PI, 0, true);
+  const rotorGeo = ext(rs, .06, .01);
+  // coordenades UV per mostrar el gravat
+  (function(){ const p = rotorGeo.attributes.position, uv = rotorGeo.attributes.uv; for (let i = 0; i < p.count; i++) uv.setXY(i, p.getX(i) / 4 + .5, p.getY(i) / 4 + .5); })();
+  const rotor = mesh(rotorGeo, M.gold); rotorG.add(rotor);
+  const hub = mesh(new THREE.CylinderGeometry(.3, .3, .1, 32), M.steel); hub.rotation.x = Math.PI / 2; rotorG.add(hub);
+  // fons de safir
+  const backG = layer('caseback'); const back = mesh(new THREE.CircleGeometry(2.04, 96), M.sapphire); back.rotation.y = Math.PI; backG.add(back);
+  const backRing = mesh(new THREE.TorusGeometry(2.1, .07, 12, 128), M.steel); backG.add(backRing);
+
+  // posicions muntat / explosionat (eix z)
+  const Z = { crystal: [.42, 4.0], hands: [.27, 3.1], dial: [.2, 2.2], plate: [.04, 1.2], gears: [-.06, .3], bridges: [-.16, -.6], rotor: [-.3, -1.6], caseback: [-.37, -2.6], case: [0, 0], strap: [0, 0] };
+
+  /* ---------- etiquetes ---------- */
+  const TAGS = [['crystal', 'Vidre de safir antireflex'], ['hands', "Agulles d'acer polit"], ['dial', 'Esfera de raigs de sol'], ['plate', 'Platina amb perlat'], ['gears', "Tren d'engranatges i volant"], ['bridges', 'Ponts amb Côtes de Genève'], ['rotor', "Rotor d'or de 18 quirats"]];
+  const tagsEl = document.getElementById('tags');
+  const tagEls = TAGS.map(([, t]) => { const d = document.createElement('div'); d.className = 'tag'; d.innerHTML = `<span>${t}</span>`; tagsEl.appendChild(d); return d; });
+
+  /* ---------- configurador ---------- */
+  const STRAPS = [0x6b4026, 0x1b1a1a, 0x1d2a48, 0x2f4a36];
+  drawDial(DIALS[0]);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => drawDial(DIALS[curDial]));
+  let curDial = 0;
+  document.querySelectorAll('[data-dial]').forEach(b => b.addEventListener('click', () => { curDial = +b.dataset.dial; drawDial(DIALS[curDial]); document.querySelectorAll('[data-dial]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }));
+  document.querySelectorAll('[data-strap]').forEach(b => b.addEventListener('click', () => { M.strap.color.setHex(STRAPS[+b.dataset.strap]); document.querySelectorAll('[data-strap]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }));
+
+  /* ---------- scroll i càmera ---------- */
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const ss = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  let target = 0, prog = 0, mx = 0, my = 0;
+  const instant = location.hash === '#instant';
+  const readScroll = () => { const max = document.documentElement.scrollHeight - innerHeight; target = max > 0 ? clamp(scrollY / max) : 0; };
+  addEventListener('scroll', readScroll, { passive: true });
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+  let portrait = false;
+  function resize(){ renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; portrait = innerWidth < innerHeight; camera.fov = portrait ? 44 : 30; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize); resize(); readScroll();
+
+  const CAM = [
+    { p: 0,   th: 0,    ph: .04, d: 13,  t: [0, 0, 0] },
+    { p: .12, th: 0,    ph: .04, d: 10,  t: [0, 0, 0] },
+    { p: .3,  th: .5,   ph: .22, d: 13,  t: [0, 0, .5] },
+    { p: .5,  th: 1.1,  ph: .32, d: 17,  t: [0, 0, .7] },
+    { p: .66, th: .62,  ph: .18, d: 6.2, t: [-.3, -.5, .3] },
+    { p: .82, th: Math.PI, ph: .12, d: 11, t: [0, 0, 0] },
+    { p: 1,   th: Math.PI * 2 - .38, ph: .22, d: 15, t: [0, -.6, 0] }
+  ];
+  const chapters = [...document.querySelectorAll('.ch')], cfg = document.getElementById('cfg');
+  const clock = new THREE.Clock(); let first = true;
+  const tmp = new THREE.Vector3();
+  function frame(){
+    const t = clock.getElapsedTime();
+    prog = instant ? target : prog + (target - prog) * .07;
+    const p = prog;
+    // explosió de capes
+    const e = ss(.16, .46, p) * (1 - ss(.68, .82, p));
+    watch.children.forEach(g => { const z = Z[g.name]; if (z) g.position.z = lerp(z[0], z[1], e); });
+    strap.visible = e < .5; strap.scale.setScalar(1 - e * .9);
+    caseG.scale.setScalar(1 - e * .08);
+    // moviment: hora real, engranatges, volant i rotor
+    const now = new Date(), sec = now.getSeconds() + now.getMilliseconds() / 1000, min = now.getMinutes() + sec / 60, hr = (now.getHours() % 12) + min / 60;
+    hS.rotation.z = -sec / 60 * Math.PI * 2; hM.rotation.z = -min / 60 * Math.PI * 2; hH.rotation.z = -hr / 12 * Math.PI * 2;
+    G.forEach(g => { g.m.rotation.z = g.tick ? Math.floor(t * 8) * (Math.PI * 2 / 15) * -.25 : t * g.speed; });
+    balance.rotation.z = Math.sin(t * Math.PI * 2 * 1.2) * 2.4;
+    forkM.rotation.z = Math.sign(Math.sin(t * Math.PI * 2 * 1.2)) * .12;
+    rotor.rotation.z = t * .6 + Math.sin(t * .9) * .8;
+    // càmera en òrbita
+    let a = CAM[0], b = CAM[CAM.length - 1];
+    for (let i = 0; i < CAM.length - 1; i++) if (p <= CAM[i + 1].p){ a = CAM[i]; b = CAM[i + 1]; break; }
+    const k = ss(a.p, b.p, p);
+    const th = lerp(a.th, b.th, k) + mx * .25, ph = lerp(a.ph, b.ph, k) - my * .12, d = lerp(a.d, b.d, k) * (portrait ? 1.45 : 1);
+    const tx = lerp(a.t[0], b.t[0], k), ty = lerp(a.t[1], b.t[1], k), tz = lerp(a.t[2], b.t[2], k);
+    camera.position.set(tx + Math.sin(th) * Math.cos(ph) * d, ty + Math.sin(ph) * d, tz + Math.cos(th) * Math.cos(ph) * d);
+    camera.lookAt(tx, ty, tz);
+    // presentació: el rellotge flota lleugerament
+    watch.rotation.x = Math.sin(t * .5) * .03; watch.rotation.y = Math.sin(t * .4) * .04;
+
+    // etiquetes a la vista explosionada
+    const tagO = ss(.38, .46, p) * (1 - ss(.56, .62, p));
+    TAGS.forEach(([name], i) => {
+      const g = watch.getObjectByName(name), el = tagEls[i];
+      tmp.set(2.1, .2, 0); g.localToWorld(tmp); tmp.project(camera);
+      el.style.left = ((tmp.x * .5 + .5) * innerWidth + 14) + 'px';
+      el.style.top = ((-tmp.y * .5 + .5) * innerHeight) + 'px';
+      el.style.opacity = tagO.toFixed(3);
+    });
+    chapters.forEach(c => {
+      const a1 = +c.dataset.a, b1 = +c.dataset.b, f = .03;
+      const o = Math.min(ss(a1 - f, a1 + f, p), 1 - ss(b1 - f, b1 + f, p));
+      c.style.opacity = o.toFixed(3);
+    });
+    const co = ss(.9, .95, p); cfg.style.opacity = co.toFixed(3); cfg.classList.toggle('on', co > .5);
+
+    renderer.render(scene, camera);
+    if (first){ first = false; setTimeout(() => document.getElementById('load').classList.add('done'), 400); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
