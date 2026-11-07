@@ -562,17 +562,19 @@
     const card = (p, i, sec) => {
       if (p.tipus === 'alt') return `<article class="pk alt" style="--i:${i}"><div class="pk-body"><h3>${esc(L(p.nom))}</h3><p class="pk-d">${esc(L(p.desc))}</p><a href="contacte.html" class="btn">${esc(L(p.boto))}</a></div></article>`;
       const m = (p.exemple && p.exemple.maqueta) || {}, opts = p.opcions || [];
-      const mock = m.mock ? `<div class="mock" ${Object.entries(m).map(([k, v]) => `data-${k.replace(/[A-Z]/g, c => '-' + c.toLowerCase())}="${esc(String(v))}"`).join(' ')}></div>` : '';
+      const img = p.exemple && p.exemple.imatge ? `<img src="${esc(p.exemple.imatge)}" alt="${esc(p.exemple.marca)}" loading="lazy">` : "";
+      const mensual = p.unitat === "mes" || (p.preu2 && p.preu2.unitat === "mes");
+      const mock = img || (m.mock ? `<div class="mock" ${Object.entries(m).map(([k, v]) => `data-${k.replace(/[A-Z]/g, c => '-' + c.toLowerCase())}="${esc(String(v))}"`).join(' ')}></div>` : '');
       const p2 = p.preu2 ? { ...p.preu2, preu: opts.length ? opts[0].preu : p.preu2.preu } : null;
       const extra = p.extra || (p2 && p2.extra);
       return `<article class="pk${p.recomanat ? ' top' : ''}${opts.length ? ' pk-combo' : ''}" style="--i:${i}" data-id="${esc(p.id)}">
-        <div class="pk-ex">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(p.exemple ? p.exemple.marca : '')}</b></span></div>
+        <div class="pk-ex${img ? ' pk-ex-img' : ''}">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(p.exemple ? p.exemple.marca : '')}</b></span></div>
         <div class="pk-body">
           ${p.recomanat ? `<span class="pk-tag">${esc(tr('Recomanat'))}</span>` : ''}
           <h3>${esc(L(p.nom))}</h3>
           <p class="pk-d">${esc(L(p.desc))}</p>
           ${opts.length ? `<div class="pk-opts" role="group" aria-label="${esc(tr('Tria les xarxes'))}">${opts.map((o, j) => `<button type="button" data-o="${j}" aria-pressed="${j === 0}">${esc(L(o.etiqueta))}</button>`).join('')}</div>` : ''}
-          ${price(p)}${p2 ? price(p2, ' sm') : ''}
+          ${price(p)}${p2 ? price(p2, ' sm') : ''}${mensual ? `<p class="pk-promo">${esc(tr('El primer mes, 50% de descompte per conèixer-nos'))}</p>` : ''}
           <div class="pk-meta">${(p.meta || []).map(t => `<span>${esc(L(t))}</span>`).join('')}</div>
           <a class="btn" data-pk data-tipus="${esc(p.tipus || 'Web')}" href="contacte.html">${esc(tr('Vull aquest paquet'))}</a>
           <ul>${(p.inclou || []).map(t => `<li>${esc(L(t))}</li>`).join('')}${opts.map((o, j) => `<li data-o="${j}"${j === 0 ? ' class="on"' : ''}>${esc(L(o.linia))}</li>`).join('')}${extra ? `<li class="pk-all">${esc(L(DATA.plataformes.linia))}</li>` : ''}</ul>

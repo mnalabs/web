@@ -420,3 +420,10 @@ body[data-page="mostres"]{background:var(--black)}
 .lg-tile .acts .yes{background:#00bfa5}
 .lg-tile .lphone{box-shadow:0 40px 80px -30px rgba(0,80,70,.45)}
 .lg-tile .lphone .acts .yes,.lg-tile .acts span.yes{background:#00bfa5!important;color:#fff}
+.pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}
+.pk-promo{font-size:13px;font-weight:600;color:var(--blue);background:rgba(107,78,255,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
+.pk-ex-img{background:#eafaf6;display:flex;align-items:flex-start}
+.pk-ex-img > img{height:auto;width:100%;object-fit:contain}
+.pk-ex-img::after{display:none}
+.pk-ex-img .pk-ex-c{color:#111827}
+.pk-ex-img .pk-ex-c small{color:#4b5563}

@@ -367,7 +367,7 @@ window.PAQUETS_DEFAULT = {
       "en": "Posts with professional graphic design and high-quality stock photos."
      },
      "recomanat": false,
-     "preu": 150,
+     "preu": 70,
      "unitat": "mes",
      "extra": true,
      "preu2": null,
@@ -509,16 +509,8 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Xarxes socials",
      "exemple": {
-      "marca": "Gimnàs Nau 7",
-      "maqueta": {
-       "mock": "reel",
-       "handle": "nau7.gym",
-       "t": "Classe de les 7. Qui s'apunta demà?",
-       "likes": "1.204",
-       "c1": "#ff5a36",
-       "c2": "#2b2b2b",
-       "c3": "#ffb199"
-      }
+      "marca": "lliga.cat",
+      "imatge": "img/lliga-og.png"
      }
     },
     {
@@ -711,7 +703,7 @@ window.PAQUETS_DEFAULT = {
      "unitat": "web",
      "extra": false,
      "preu2": {
-      "preu": 150,
+      "preu": 70,
       "unitat": "mes",
       "extra": true
      },
@@ -761,7 +753,7 @@ window.PAQUETS_DEFAULT = {
         "es": "Diseño",
         "en": "Design"
        },
-       "preu": 150,
+       "preu": 70,
        "linia": {
         "ca": "Paquet Disseny gràfic i fotos d'stock",
         "es": "Paquete Diseño gráfico y fotos de stock",

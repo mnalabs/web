@@ -121,3 +121,5 @@ Object.assign(window.I18N.en, {
 "Web de la marca inventada Trevok, mecanitzats de precisió, amb el nom omplert de vídeo":"Website of the invented brand Trevok, precision machining, with its name filled with video",
 "Més idees i novetats a Instagram:":"More ideas and news on Instagram:","Instagram @mna_labs":"Instagram @mna_labs","O parla'ns per Instagram: @mna_labs":"Or message us on Instagram: @mna_labs"
 });
+Object.assign(window.I18N.es, {"El primer mes, 50% de descompte per conèixer-nos":"El primer mes, 50% de descuento para conocernos"});
+Object.assign(window.I18N.en, {"El primer mes, 50% de descompte per conèixer-nos":"First month at 50% off, so we can get to know each other"});
