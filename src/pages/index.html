@@ -1,0 +1,137 @@
+<!--meta {"title":"MNA LABS · Estudi de desenvolupament","desc":"Estudi de desenvolupament a Catalunya. Dissenyem, programem i mantenim webs, botigues en línia, apps i programari de gestió.","page":"inici","dark":true}-->
+
+  <!-- PORTADA: l'esfera de partícules forma el nom -->
+  <section class="hero nav-dark" id="hero">
+    <div class="hero-pin">
+      <canvas id="orb" aria-hidden="true"></canvas>
+      <div class="hero-copy wide" id="heroCopy">
+        <h1 class="h-hero"><span class="line"><span>Programem el que</span></span><span class="line"><span>la teva empresa necessita.</span></span></h1>
+        <p class="sub fade-up" style="animation-delay:.35s">Som un estudi petit de desenvolupament. Dissenyem i programem webs, botigues, apps i eines de gestió, i després les mantenim.</p>
+        <div class="links fade-up" style="animation-delay:.5s">
+          <a href="contacte.html" class="btn mag">Explica'ns el projecte</a>
+          <a href="#build" class="more">Mira com treballem</a>
+        </div>
+      </div>
+      <div class="hero-cap" id="heroCap"><p>Baixa i mira com neix una web.</p></div>
+      <div class="hint" id="hint" aria-hidden="true"><i></i>Desplaça</div>
+    </div>
+  </section>
+
+  <!-- DE L'ESBÓS AL PRODUCTE: seqüència fixada a la pantalla -->
+  <section class="build" id="build" data-step="0" aria-label="Com fem una web, de l'esbós a la publicació">
+    <div class="bd-pin">
+      <div class="wide bd-grid">
+        <div class="bd-caps">
+          <div class="bd-rail" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="bd-cap on"><h2>Comença amb un esbós.</h2><p>Primer escoltem. Què vens, a qui, i què ha de passar quan algú entra a la web. Ho dibuixem abans d'obrir l'editor.</p></div>
+          <div class="bd-cap"><h2>Després, el disseny.</h2><p>Tipografia, color i fotos pensats per a la teva marca. Res de plantilles comprades.</p></div>
+          <div class="bd-cap"><h2>El programem a mà.</h2><p>Codi net i ràpid, que qualsevol programador pot entendre. El codi és teu des del primer dia.</p></div>
+          <div class="bd-cap"><h2>I el mantenim viu.</h2><p>Web, app i panell de gestió parlen entre ells. Quan entra una comanda, ho saps al moment.</p></div>
+        </div>
+
+        <div class="bd-stage" aria-hidden="true">
+          <pre class="bd-code"><code><span><b class="k">&lt;Nav</b> marca=<b class="s">"Forn de la Plaça"</b> <b class="k">/&gt;</b></span>
+<span><b class="k">&lt;h1&gt;</b>Pa de pagès, fet cada matí.<b class="k">&lt;/h1&gt;</b></span>
+<span><b class="k">&lt;p&gt;</b>Massa mare i forn de llenya.<b class="k">&lt;/p&gt;</b></span>
+<span><b class="k">&lt;Boto</b> a=<b class="s">"/encarrecs"</b><b class="k">&gt;</b>Encarrega<b class="k">&lt;/Boto&gt;</b></span>
+<span><b class="k">&lt;Foto</b> src=<b class="s">"pa-de-pages.avif"</b> <b class="k">/&gt;</b></span>
+<span>{productes.<b class="f">map</b>(p =&gt; <b class="k">&lt;Fitxa</b> {...p} <b class="k">/&gt;</b>)}</span>
+<span><b class="k">await</b> pagaments.<b class="f">cobra</b>(comanda)</span>
+<span><b class="f">avisa</b>(forn, <b class="s">'Comanda nova'</b>)</span></code></pre>
+
+          <div class="bd-win">
+            <div class="bd-bar"><i></i><i></i><i></i><span>forndelaplaca.cat</span></div>
+            <div class="bd-site">
+              <svg class="bd-wf" viewBox="0 0 800 500">
+                <path data-o="0" d="M32 18h120v14H32z"/><path data-o=".04" d="M470 25h40M530 25h40M590 25h40"/><path data-o=".06" d="M690 14h80v24h-80z"/>
+                <path data-o=".1" d="M32 100h330v30H32zM32 140h260v30H32z"/>
+                <path data-o=".18" d="M32 200h300M32 222h240"/>
+                <path data-o=".24" d="M32 258h130v36H32z"/>
+                <path data-o=".28" d="M420 90h348v230H420zM420 90l348 230M768 90L420 320"/>
+                <path data-o=".38" d="M32 350h232v120H32z"/><path data-o=".44" d="M284 350h232v120H284z"/><path data-o=".5" d="M536 350h232v120H536z"/>
+              </svg>
+              <div class="bd-ds">
+                <div class="b-nav" data-r="0" data-ping="0"><b>Forn de la Plaça</b><span>Pa</span><span>Pastisseria</span><span>On som</span><em>Encarrega</em></div>
+                <h3 class="b-h" data-r=".08" data-ping="1">Pa de pagès, fet cada matí a les cinc.</h3>
+                <p class="b-p" data-r=".16" data-ping="2">Massa mare, farina del Lluçanès i forn de llenya. Encarrega'l avui i passa a buscar-lo demà.</p>
+                <span class="b-btn" data-r=".22" data-ping="3">Encarrega el teu pa</span>
+                <div class="b-img" data-r=".28" data-ping="4"><i class="loaf"></i><i class="loaf l2"></i></div>
+                <div class="b-card c1" data-r=".38" data-ping="5"><i></i><b>Pa de pagès 1 kg</b><small>4,20 €</small></div>
+                <div class="b-card c2" data-r=".44" data-ping="5"><i></i><b>Coca de recapte</b><small>6,50 €</small></div>
+                <div class="b-card c3" data-r=".5" data-ping="5"><i></i><b>Croissant de mantega</b><small>1,60 €</small></div>
+              </div>
+            </div>
+            <div class="bd-toast"><i></i><div><b>Comanda nova · 8,40 €</b><small>2 × Pa de pagès · recollida demà a les 8</small></div></div>
+          </div>
+
+          <div class="bd-phone">
+            <div class="bd-scr">
+              <b class="ap-brand">Forn de la Plaça</b>
+              <p class="ap-h">La teva comanda</p>
+              <div class="ap-line"><span>Pa de pagès 1 kg</span><span>× 2</span></div>
+              <div class="ap-line"><span>Recollida</span><span>Demà, 8.00</span></div>
+              <div class="ap-tot"><span>Total</span><b>8,40 €</b></div>
+              <em class="ap-btn">Pagat</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÈ FEM: llista gran amb previsualització que segueix el cursor -->
+  <section class="sec svc" id="svcList" data-pv="web">
+    <div class="wide">
+      <div class="svc-head">
+        <h2 class="h-sec split">Què fem</h2>
+        <p class="sub">Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.</p>
+      </div>
+      <div class="svc-rows">
+        <a class="svc-row" href="serveis.html#webs" data-pv="web"><span class="svc-n">Webs</span><span class="svc-d">Webs d'empresa ràpides, ben escrites i fàcils de trobar a Google.</span><span class="svc-p">des de 500 €</span></a>
+        <a class="svc-row" href="serveis.html#botigues" data-pv="shop"><span class="svc-n">Botigues en línia</span><span class="svc-d">La teva botiga, sense pagar comissions a cap plataforma per cada venda.</span><span class="svc-p">des de 2.000 €</span></a>
+        <a class="svc-row" href="serveis.html#apps" data-pv="app"><span class="svc-n">Apps mòbils</span><span class="svc-d">Per a iPhone i Android, publicades a les botigues i connectades a la teva web.</span><span class="svc-p">des de 4.000 €</span></a>
+        <a class="svc-row" href="serveis.html#programari" data-pv="soft"><span class="svc-n">Programari de gestió</span><span class="svc-d">Comandes, estoc, tècnics o factures: el procés de la teva empresa, en una sola eina.</span><span class="svc-p">des de 800 €</span></a>
+        <a class="svc-row" href="serveis.html#amazon" data-pv="shop"><span class="svc-n">Venda a Amazon</span><span class="svc-d">Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.</span><span class="svc-p">sense quota fixa</span></a>
+        <a class="svc-row" href="serveis.html#xarxes" data-pv="ig"><span class="svc-n">Xarxes socials</span><span class="svc-d">Publicacions cada setmana, amb disseny gràfic o gravant a la teva empresa.</span><span class="svc-p">des de 150 € al mes</span></a>
+      </div>
+      <div class="svc-pv" aria-hidden="true">
+        <div class="mock" data-pv="web" data-mock="web" data-brand="Arrels" data-url="arrelsfisio.cat" data-t="Tornar a moure't sense dolor." data-btn="Demana hora" data-c1="#2f6f5e" data-c2="#dfeae4"></div>
+        <div class="mock" data-pv="shop" data-mock="shop" data-brand="Oli de la Serra" data-url="olidelaserra.cat" data-items="Arbequina 500 ml|9,80 €;Lot degustació|24 €;Garrafa 5 l|58 €;Olives trencades|4,50 €" data-c1="#5d6b2f" data-c2="#efe9d6"></div>
+        <div class="mock" data-pv="app" data-mock="duo" data-base="web" data-brand="Pàdel Lluna" data-url="padellluna.cat" data-t="Reserva pista en dos tocs." data-btn="Reserva" data-a1="Pista 1 · 18.00" data-a2="Pista 3 · 19.30" data-a3="Pista 2 · 21.00" data-c1="#1f4fd1" data-c2="#e3e9fb"></div>
+        <div class="mock" data-pv="soft" data-mock="app" data-brand="Costa Manteniments" data-url="app.costamanteniments.cat" data-k1="Avisos oberts" data-v1="14" data-k2="Tècnics en ruta" data-v2="6" data-rows="Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"></div>
+        <div class="mock" data-pv="ig" data-mock="ig" data-handle="cafe.olla" data-bio="Cafè d'especialitat · Vic" data-posts="Nou cafè d'Etiòpia;Dissabte, brunch;Tornem dilluns;Latte de tardor;Obrim a les 8;Gràcies, 1.000!;Pastís del dia;Grans a granel;Fins diumenge" data-c1="#7a4b2a" data-c2="#efe2d0" data-c3="#d9a46a"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTES PROPIS -->
+  <section class="sec own nav-dark" id="propis">
+    <div class="wide">
+      <div class="own-head">
+        <h2 class="h-sec split">També fem els nostres.</h2>
+        <p class="sub">Portem lliga.cat i Fundicat. Sabem què vol dir tenir clients reals, factures i un servidor que no pot caure un dissabte a la nit. Això és el que posem a cada projecte.</p>
+      </div>
+      <div class="own-grid">
+        <a class="own-card rv" href="projectes.html#lligacat"><span class="own-k">App de cites en català</span><b>lliga.cat</b><span class="own-l">Veure el projecte</span></a>
+        <a class="own-card rv" href="projectes.html#fundicat"><span class="own-k">Botiga de materials de fundició</span><b>Fundicat</b><span class="own-l">Veure el projecte</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREUS -->
+  <section class="sec paper prices" id="preus">
+    <div class="wide">
+      <div class="sec-intro">
+        <h2 class="h-sec split">Quant costa?</h2>
+        <p class="sub">Per als projectes més habituals tenim paquets amb preu tancat. Per a la resta, et donem un pressupost per escrit abans de començar.</p>
+      </div>
+      <div class="price-row">
+        <a class="price rv" href="paquets.html#webs"><span>Web d'empresa</span><b>500 €</b><small>des de, pagament únic</small></a>
+        <a class="price rv" href="paquets.html#webs"><span>Botiga en línia</span><b>2.000 €</b><small>des de, pagament únic</small></a>
+        <a class="price rv" href="paquets.html#xarxes"><span>Xarxes socials</span><b>150 €</b><small>al mes, sense permanència</small></a>
+      </div>
+      <p class="price-more rv"><a class="more" href="paquets.html">Veure tots els paquets</a></p>
+    </div>
+  </section>
+
+{{> statement}}

@@ -1,0 +1,36 @@
+# Web de MNA LABS
+
+Web pública de MNA LABS a https://mnalabs.eu. Aquest repositori (`mnalabs/web`) és alhora el codi font i la web publicada: GitHub Pages serveix la carpeta arrel de la branca `main`.
+
+Parla sempre en català amb l'equip.
+
+## Com està feta
+
+- HTML, CSS i JavaScript sense frameworks ni dependències. L'únic que cal és Node.js per generar les pàgines.
+- Les pàgines **no s'editen directament** a l'arrel (`index.html`, `serveis.html`…): es generen.
+  - `src/pages/*.html`: el contingut de cada pàgina. La primera línia és un comentari `<!--meta {...}-->` amb el títol, la descripció i el nom de la pàgina.
+  - `src/sections/*.html`: apartats reutilitzables, inclosos amb `{{> nom}}`.
+  - `src/partials/nav.html` i `footer.html`: menú i peu, comuns a totes les pàgines.
+  - `src/build.js`: munta les pàgines, el `sitemap.xml`, el `robots.txt` i el `CNAME`. Llegeix el domini de `src/domini.txt`.
+- `assets/site.css` i `assets/pages.css`: estils. `assets/site.js`: totes les animacions i la lògica, un mòdul per apartat que només s'activa si l'element existeix.
+- Idiomes: català (original), castellà i anglès. Els textos es tradueixen amb un diccionari on la clau és el text català: `assets/i18n.js`, `i18n-pages.js` i `i18n-noves.js`. **Cada text nou necessita la traducció ES i EN**, o sortirà en català.
+- Paquets i preus: es pinten des de `assets/paquets-dades.js` o, si s'han desat des del panell, des de Supabase. Per canviar paquets, millor fer-ho des del panell (`/admin.html`).
+- Panell d'administració: `admin.html` + `assets/admin.js`, amb Supabase (`assets/config.js`). Instruccions a `CONFIGURAR-PANELL.md`. Mai posis contrasenyes ni la clau `service_role` al codi.
+- `mostres/`: demos 3D independents (Three.js), marques inventades.
+
+## Com fer un canvi i publicar-lo
+
+1. Edita els fitxers de `src/` (o `assets/`).
+2. Genera les pàgines: `node src/build.js`
+3. Comprova-ho obrint l'`index.html` al navegador.
+4. `git add -A`, `git commit` amb un missatge en català, i `git push`. La web s'actualitza a mnalabs.eu en un o dos minuts.
+
+Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet canvis.
+
+## Normes de disseny
+
+- Estètica professional i sòbria, que no sembli feta amb IA: res de textures de gra, segells, etiquetes en monoespai en majúscules, numeracions «01/02» ni paraules de colors dins dels títols.
+- Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent violeta `#6b4eff` (`#a796ff` sobre fosc), només per a les accions principals.
+- Textos planers i concrets, sense eslògans buits.
+- Els exemples i les mostres són sempre de **marques inventades**, mai de clients reals.
+- Comprova-ho sempre a mòbil (390 px) i a ordinador (1440 px), i que no hi hagi errors a la consola.
