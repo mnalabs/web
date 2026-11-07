@@ -421,3 +421,4 @@ body[data-page="mostres"]{background:var(--black)}
 .own-logo{display:block;font-size:0}
 .own-logo img{display:block;width:min(100%,520px);height:auto;transition:transform .8s var(--ease-out)}
 .own-card:hover .own-logo img{transform:translateY(-8px)}
+.pk-ex > img{object-position:50% 0%}

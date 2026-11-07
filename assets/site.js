@@ -568,7 +568,7 @@
       const p2 = p.preu2 ? { ...p.preu2, preu: opts.length ? opts[0].preu : p.preu2.preu } : null;
       const extra = p.extra || (p2 && p2.extra);
       return `<article class="pk${p.recomanat ? ' top' : ''}${opts.length ? ' pk-combo' : ''}" style="--i:${i}" data-id="${esc(p.id)}">
-        <div class="pk-ex${img ? ' pk-ex-img' : ''}">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(p.exemple ? p.exemple.marca : '')}</b></span></div>
+        <div class="pk-ex${img && p.exemple.clar ? ' pk-ex-img' : ''}">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(p.exemple ? p.exemple.marca : '')}</b></span></div>
         <div class="pk-body">
           ${p.recomanat ? `<span class="pk-tag">${esc(tr('Recomanat'))}</span>` : ''}
           <h3>${esc(L(p.nom))}</h3>

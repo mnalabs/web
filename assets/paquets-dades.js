@@ -509,8 +509,8 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Xarxes socials",
      "exemple": {
-      "marca": "lliga.cat",
-      "imatge": "img/lliga-og.png"
+      "marca": "Instagram de lliga.cat",
+      "imatge": "img/ex-lliga-instagram.jpg"
      }
     },
     {
