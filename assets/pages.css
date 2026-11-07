@@ -405,21 +405,6 @@ body[data-page="mostres"]{background:var(--black)}
   ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
 
-/* projectes: logo de lliga.cat */
-.lg-name{display:flex;align-items:center;gap:18px}
-.lg-name img{width:clamp(52px,5vw,72px);height:auto;border-radius:18px;box-shadow:0 12px 30px -10px rgba(0,190,160,.55)}
-.lg-name span{color:#00bfa5}
-.lg-name b{font-weight:inherit}
-/* targeta de lliga.cat amb els colors de la marca */
-.ptile.lg-tile{background:radial-gradient(70% 90% at 92% 0%,#b6ebe0 0%,rgba(182,235,224,0) 60%),linear-gradient(140deg,#ffffff 35%,#e3f7f2);color:#111827}
-.ptile.lg-tile .sub{color:#4b5563}
-.ptile.lg-tile .tag{background:rgba(0,191,165,.12);color:#00806e}
-.ptile.lg-tile .more{color:#00806e}
-.ptile.lg-tile .lg-name span{color:#00bfa5}
-.ptile.lg-tile .lg-name img{box-shadow:0 14px 34px -12px rgba(0,128,110,.5)}
-.lg-tile .acts .yes{background:#00bfa5}
-.lg-tile .lphone{box-shadow:0 40px 80px -30px rgba(0,80,70,.45)}
-.lg-tile .lphone .acts .yes,.lg-tile .acts span.yes{background:#00bfa5!important;color:#fff}
 .pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}
 .pk-promo{font-size:13px;font-weight:600;color:var(--blue);background:rgba(107,78,255,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
 .pk-ex-img{background:#eafaf6;display:flex;align-items:flex-start}
@@ -427,3 +412,12 @@ body[data-page="mostres"]{background:var(--black)}
 .pk-ex-img::after{display:none}
 .pk-ex-img .pk-ex-c{color:#111827}
 .pk-ex-img .pk-ex-c small{color:#4b5563}
+
+/* lliga.cat: el logo real sobre fons fosc amb un toc verd de la marca */
+.lg-logo{margin:0}
+.lg-logo img{display:block;width:min(100%,440px);height:auto}
+.ptile.lg-tile{background:radial-gradient(70% 90% at 92% 0%,rgba(55,217,191,.25),rgba(55,217,191,0) 60%),var(--night)}
+.lg-tile .acts .yes,.lg-tile .acts span.yes{background:#37d9bf!important;color:#06312b}
+.own-logo{display:block;font-size:0}
+.own-logo img{display:block;width:min(100%,520px);height:auto;transition:transform .8s var(--ease-out)}
+.own-card:hover .own-logo img{transform:translateY(-8px)}
