@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trevok Mecanitzats</title>
+<meta name="description" content="Trevok Mecanitzats. Tornejat CNC, fresat, soldadura i peces de precisió a Vallsorell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><a href="../../mostres.html" style="position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:99;font:500 13px Arial,sans-serif;color:#fff;background:rgba(0,0,0,.55);padding:8px 14px;border-radius:99px;text-decoration:none">← MNA LABS · Mostres</a>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader__num"><span id="loaderNum">000</span><small>%</small></div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+  <div class="loader__label">Calibrant eixos</div>
+</div>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"><span id="cursorText"></span></div>
+
+<!-- Nav -->
+<header class="nav">
+  <a href="#top" class="nav__logo" aria-label="TREVOK, inici">TREVOK<b>.</b></a>
+  <nav class="nav__links" aria-label="Seccions">
+    <a href="#peca">Peça</a>
+    <a href="#serveis">Serveis</a>
+    <a href="#taller">Taller</a>
+  </nav>
+  <a href="#contacte" class="btn btn--red nav__cta" data-cursor="Fem-ho">Demana pressupost</a>
+</header>
+<div class="progress"><i id="progress"></i></div>
+
+<main id="top">
+
+  <!-- 1. HERO: vídeo dins de les lletres -->
+  <section class="hero" id="hero">
+    <div class="hero__pin">
+      <video class="hero__video" src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline></video>
+      <svg class="hero__mask" id="heroSvg" aria-hidden="true">
+        <defs>
+          <mask id="heroMask" maskUnits="userSpaceOnUse">
+            <rect id="maskBg" fill="#fff"/>
+            <g id="heroLetters"><text id="heroText" text-anchor="middle">TREVOK</text></g>
+          </mask>
+        </defs>
+        <rect id="heroCover" fill="var(--ink)" mask="url(#heroMask)"/>
+      </svg>
+      <div class="hero__top">
+        <p>Mecanitzats de precisió<br>Vallsorell</p>
+        <p class="hero__scroll">Fes scroll <span>↓</span></p>
+      </div>
+      <h1 class="hero__claim" id="heroClaim">
+        <span class="line"><span>Peces que</span></span>
+        <span class="line"><span>encaixen</span></span>
+        <span class="line"><span class="red">a la primera.</span></span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- 2. Manifest -->
+  <section class="manifest">
+    <p class="manifest__text" id="manifest">
+      Som un taller familiar de Vallsorell. Tornegem, fresem i soldem peces <em>úniques</em> o en sèrie per a la indústria que no es pot permetre <em>ni una dècima</em> de marge.
+    </p>
+  </section>
+
+  <!-- 3. Peça 3D -->
+  <section class="piece" id="peca">
+    <div class="piece__pin">
+      <div class="piece__bgword" aria-hidden="true">PRECISIÓ</div>
+      <canvas id="pieceCanvas" aria-label="Peça mecanitzada en 3D: eix, engranatge i brida"></canvas>
+      <div class="piece__shadow" aria-hidden="true"></div>
+      <div class="piece__head">
+        <span class="tag">Peça 001</span>
+        <h2>Eix amb pinyó<br>i brida</h2>
+      </div>
+      <div class="callout" data-anchor="shaft"><b>01</b> Tornejat CNC<small>Eix d'acer F-114</small></div>
+      <div class="callout" data-anchor="gear"><b>02</b> Fresat de dents<small>Pinyó de 24 dents</small></div>
+      <div class="callout" data-anchor="flange"><b>03</b> Brida mecanitzada<small>6 forats passants</small></div>
+      <div class="callout" data-anchor="bolt"><b>04</b> Cargols M8<small>Muntatge al taller</small></div>
+      <div class="piece__step" id="pieceStep">Muntat</div>
+    </div>
+  </section>
+
+  <!-- 4. Comptador de tolerància -->
+  <section class="tol" id="tol">
+    <div class="tol__pin">
+      <video class="tol__video" src="media/tornejat.mp4" poster="media/tornejat.jpg" muted loop playsinline data-lazyplay></video>
+      <p class="tol__kicker">La tolerància amb què treballem</p>
+      <div class="tol__num"><span id="tolPm" class="tol__pm">±</span><span id="tolNum">10.000</span><span class="tol__unit">mm</span></div>
+      <p class="tol__foot">Un cabell humà fa uns 0,07 mm. Nosaltres treballem 14 vegades més fi.</p>
+    </div>
+  </section>
+
+  <!-- 5. Serveis en horitzontal -->
+  <section class="services" id="serveis">
+    <div class="services__pin">
+      <div class="services__intro">
+        <span class="tag">Serveis</span>
+        <h2>Tot el que<br>el teu plànol<br><span class="red">demana.</span></h2>
+      </div>
+      <div class="services__track" id="track">
+        <article class="svc" data-cursor="Torn">
+          <video src="media/torn.mp4" poster="media/torn.jpg" muted loop playsinline data-lazyplay></video>
+          <div class="svc__body"><span>01</span><h3>Tornejat CNC</h3><p>Eixos, casquets i peces de revolució, d'una unitat a sèries llargues.</p></div>
+        </article>
+        <article class="svc" data-cursor="Fresat">
+          <video src="media/fresat.mp4" poster="media/fresat.jpg" muted loop playsinline data-lazyplay></video>
+          <div class="svc__body"><span>02</span><h3>Fresat 5 eixos</h3><p>3, 4 i 5 eixos: geometries complexes en una sola subjecció.</p></div>
+        </article>
+        <article class="svc" data-cursor="Soldar">
+          <video src="media/soldadura.mp4" poster="media/soldadura.jpg" muted loop playsinline data-lazyplay></video>
+          <div class="svc__body"><span>03</span><h3>Soldadura i conjunts</h3><p>Estructures i muntatges soldats, llestos per instal·lar.</p></div>
+        </article>
+        <article class="svc" data-cursor="Peces">
+          <video src="media/cigonyal.mp4" poster="media/cigonyal.jpg" muted loop playsinline data-lazyplay></video>
+          <div class="svc__body"><span>04</span><h3>Fabricació de peces</h3><p>Del plànol (DWG, STEP, PDF) a la peça acabada i verificada.</p></div>
+        </article>
+        <article class="svc" data-cursor="Reparar">
+          <video src="media/tornejat.mp4" poster="media/tornejat.jpg" muted loop playsinline data-lazyplay></video>
+          <div class="svc__body"><span>05</span><h3>Reparació industrial</h3><p>Recanvis i reparacions perquè la línia no s'aturi.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Cintes -->
+  <section class="tapes" aria-hidden="true">
+    <div class="tape tape--red"><div class="tape__row" data-dir="-1"></div></div>
+    <div class="tape tape--black"><div class="tape__row" data-dir="1"></div></div>
+  </section>
+
+  <!-- 7. Xifres -->
+  <section class="stats">
+    <div class="stat"><div class="stat__n">+<span data-count="18">0</span></div><p>anys d'ofici</p></div>
+    <div class="stat"><div class="stat__n"><span data-count="48">0</span>h</div><p>per respondre</p></div>
+    <div class="stat"><div class="stat__n"><span data-count="5">0</span></div><p>serveis sota un sostre</p></div>
+    <div class="stat"><div class="stat__n"><span data-count="2008">0</span></div><p>empresa familiar des de</p></div>
+  </section>
+
+  <!-- 8. Taller -->
+  <section class="shop" id="taller">
+    <div class="shop__pin">
+      <div class="shop__word shop__word--l" aria-hidden="true">AL</div>
+      <div class="shop__word shop__word--r" aria-hidden="true">TALLER</div>
+      <figure class="shop__img" id="shopImg" data-cursor="Taller">
+        <img src="media/fresadora.jpg" alt="Centre de fresat vertical del taller amb dues mordasses a la taula">
+        <figcaption>Centre de fresat vertical · Pol. Ind. Les Forges</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 9. CTA -->
+  <section class="cta" id="contacte">
+    <h2 class="cta__big" id="ctaBig"><span>FEM</span><span>-HO.</span></h2>
+    <div class="cta__grid">
+      <p class="cta__lead">Envia'ns el plànol.<br>Et responem en 48 hores.</p>
+      <div class="cta__actions">
+        <a class="btn btn--ink" href="mailto:hola@trevok.example?subject=Pressupost" data-cursor="Envia">hola@trevok.example</a>
+        <a class="btn btn--line" href="tel:+34930000000" data-cursor="Truca">93 000 00 00</a>
+      </div>
+      <address>Carrer de l'Enclusa, 42<br>Pol. Ind. Les Forges<br>Vallsorell</address>
+    </div>
+    <footer class="foot">
+      <span>© 2026 Trevok Mecanitzats · Empresa fictícia, web de demostració</span>
+      <span>Acceptem PDF, DWG, DXF, STEP i IGES</span>
+    </footer>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="piece.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -111,3 +111,13 @@ Object.assign(window.I18N.en, {
 "Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.":"We sell your products on Amazon for a small percentage of each sale.",
 "Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Six things, done well. If your project doesn't fit, let's talk anyway."
 });
+Object.assign(window.I18N.es, {
+"Indústria · vídeo i 3D amb l'scroll":"Industria · vídeo y 3D con el scroll","Un taller de mecanitzats on el nom es plena de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"Un taller de mecanizados donde el nombre se llena de vídeo y una pieza en 3D gira y se desmonta mientras bajas.",
+"Web de la marca inventada Trevok, mecanitzats de precisió, amb el nom omplert de vídeo":"Web de la marca inventada Trevok, mecanizados de precisión, con el nombre relleno de vídeo",
+"Més idees i novetats a Instagram:":"Más ideas y novedades en Instagram:","Instagram @mna_labs":"Instagram @mna_labs","O parla'ns per Instagram: @mna_labs":"O háblanos por Instagram: @mna_labs"
+});
+Object.assign(window.I18N.en, {
+"Indústria · vídeo i 3D amb l'scroll":"Industry · video and 3D on scroll","Un taller de mecanitzats on el nom es plena de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"A machining workshop where the name fills with video and a 3D part spins and comes apart as you scroll.",
+"Web de la marca inventada Trevok, mecanitzats de precisió, amb el nom omplert de vídeo":"Website of the invented brand Trevok, precision machining, with its name filled with video",
+"Més idees i novetats a Instagram:":"More ideas and news on Instagram:","Instagram @mna_labs":"Instagram @mna_labs","O parla'ns per Instagram: @mna_labs":"Or message us on Instagram: @mna_labs"
+});
