@@ -354,16 +354,62 @@
     });
   }
 
-  /* =============== PANELL QUE S'AMPLIA AMB EL SCROLL (captura real del panell) =============== */
-  const zoom = $('#programari');
+  /* =============== PANELL QUE S'AMPLIA =============== */
+  const zoom = $('#programari'); let dashStarted = false;
+  const dash = $('#dash'), feed = $('#feed');
+  const feedPool = [
+    ['#30d158','Pagament rebut','Escola Bressol Sol · 318,50 €'],
+    ['var(--accent)','Nova comanda','#10483 · Restaurant La Plaça'],
+    ['#ff9f0a','Estoc baix','Pomes Fuji 5 kg · 8 unitats'],
+    ['var(--accent)','Factura emesa','F-2026-0912 · enviada per correu'],
+    ['#30d158','Enviament lliurat','#10476 · Cal Roure'],
+    ['#7fd8c4','Client nou','Registrat des de l\'app'],
+    ['var(--accent)','Sincronització','Comptabilitat actualitzada'],
+  ];
+  let feedI = 0;
+  function pushFeed(){
+    const [c, a, b] = feedPool[feedI++ % feedPool.length];
+    const li = document.createElement('li'); li.innerHTML = `<i style="background:${c}"></i><div>${tr(a)}<small>${tr(b)} · ${tr('ara')}</small></div>`;
+    feed.prepend(li); while (feed.children.length > 4) feed.lastElementChild.remove();
+  }
+  function countUp(el, to, suf, dur){
+    const s = performance.now();
+    (function step(n){ const k = reduce ? 1 : easeOut(clamp((n - s)/dur)); el.textContent = Math.round(to*k).toLocaleString(LOC()) + suf; if (k < 1) requestAnimationFrame(step); })(s);
+  }
   if (zoom){
-    const dash = $('#dash'), zHead = $('#zoomHead');
+    const zHead = $('#zoomHead'), nota = $('.demo-note', zoom);
+    (function(){
+      const svg = $('#lineChart'), pts = [];
+      for (let i = 0; i < 30; i++){ const v = 95 - i*1.6 - Math.sin(i*.7)*14 - Math.sin(i*1.9)*7 + Math.cos(i*.33)*6; pts.push([i*(600/29), v + 20]); }
+      let dl = `M${pts[0][0]},${pts[0][1]}`;
+      for (let i = 1; i < pts.length; i++){ const [x0,y0] = pts[i-1], [x1,y1] = pts[i], cxp = (x0+x1)/2; dl += ` C${cxp},${y0} ${cxp},${y1} ${x1},${y1}`; }
+      svg.innerHTML = `<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d12730" stop-opacity=".22"/><stop offset="1" stop-color="#d12730" stop-opacity="0"/></linearGradient></defs>
+        ${[40,90,140].map(y => `<line class="gl" x1="0" x2="600" y1="${y}" y2="${y}"/>`).join('')}
+        <path class="ar" d="${dl} L600,180 L0,180 Z" fill="url(#ga)"/>
+        <path class="ln" id="ln" d="${dl}"/>
+        <circle id="lnDot" r="4.5" fill="var(--accent)" stroke="#fff" stroke-width="2" cx="${pts[29][0]}" cy="${pts[29][1]}" opacity="0"/>`;
+      const ln = $('#ln'), L = ln.getTotalLength();
+      ln.style.strokeDasharray = L; ln.style.strokeDashoffset = L; ln.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)';
+    })();
+    for (let i = 0; i < 4; i++) pushFeed();
+    const startDash = () => {
+      dashStarted = true; dash.classList.add('go');
+      $('#ln').style.strokeDashoffset = 0;
+      setTimeout(() => $('#lnDot').setAttribute('opacity', 1), 1800);
+      $$('.bars i', dash).forEach((b, i) => setTimeout(() => b.style.height = b.dataset.h + '%', i*120));
+      $$('[data-count]', dash).forEach(el => countUp(el, +el.dataset.count, el.dataset.suf || '', 1800));
+      if (!reduce) setInterval(() => { if (onScreen(dash)){ pushFeed(); const nb = $('#navBadge'); nb.textContent = +nb.textContent + 1; } }, 2200);
+    };
     draws.push(() => {
       if (!onScreen(zoom)) return;
       const p = progSuau(zoom), small = innerWidth < 860, k = easeOut(clamp(p / .5));
-      dash.style.transform = `translateY(${lerp(innerHeight * (small ? .3 : .2), 0, k)}px) scale(${lerp(small ? .86 : .56, 1, k)})`;
-      zHead.style.opacity = 1 - clamp(p / .3); zHead.style.transform = `translateY(${-clamp(p/.3)*40}px)`;
+      dash.style.transform = `translateY(${lerp(innerHeight * (small ? .6 : .34), 0, k)}px) scale(${lerp(small ? .78 : .56, 1, k)})`;
+      dash.style.borderRadius = lerp(34, 18, k) + 'px';
+      zHead.style.opacity = 1 - clamp(p / (small ? .1 : .16)); zHead.style.transform = `translateY(${-clamp(p / (small ? .1 : .16)) * 40}px)`;
+      nota.style.opacity = clamp((p - .4) / .2);
+      if (!dashStarted && p > .32) startDash();
     });
+    onLang.push(() => { feed.innerHTML = ''; for (let i = 0; i < 4; i++) pushFeed(); if (dashStarted) $$('[data-count]', dash).forEach(el => el.textContent = (+el.dataset.count).toLocaleString(LOC()) + (el.dataset.suf || '')); });
   }
 
   /* =============== ARQUITECTURA =============== */
