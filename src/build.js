@@ -18,6 +18,15 @@ const part = name => {
 };
 const expand = s => s.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => expand(part(n)));
 
+// Marca de versió als estils, al codi i a les icones (?v=…): canvia quan canvia el fitxer,
+// i així el navegador no fa servir una còpia antiga desada a la memòria cau.
+const crypto = require('crypto');
+const versions = {};
+const versio = fitxer => versions[fitxer] ??= crypto.createHash('sha1').update(fs.readFileSync(path.join(out, fitxer))).digest('hex').slice(0, 8);
+const ambVersions = html => html
+  .replace(/(href|src)="((?:assets\/[\w.-]+\.(?:css|js))|favicon\.svg|apple-touch-icon\.png)"/g, (_, attr, fitxer) => `${attr}="${fitxer}?v=${versio(fitxer)}"`)
+  .replace(/(content="[^"]*\/)og\.png"/g, (_, inici) => `${inici}og.png?v=${versio('og.png')}"`);
+
 for (const file of fs.readdirSync(path.join(here, 'pages')).filter(f => f.endsWith('.html'))) {
   const raw = fs.readFileSync(path.join(here, 'pages', file), 'utf8');
   const meta = JSON.parse(raw.match(/<!--meta([\s\S]*?)-->/)[1]);
@@ -63,7 +72,7 @@ ${meta.page === 'paquets' ? '<script src="assets/config.js"></script>\n<script s
 </body>
 </html>
 `;
-  fs.writeFileSync(path.join(out, file), html);
+  fs.writeFileSync(path.join(out, file), ambVersions(html));
   if (!meta.base) pages.push(file);
   console.log('ok', file);
 }
