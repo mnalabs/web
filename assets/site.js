@@ -243,7 +243,7 @@
       const p = reduce ? .999 : progSuau(build), small = innerWidth < 900;
       const A = clamp(p / .2), B = clamp((p - .2) / .24), C = clamp((p - .44) / .26), D = clamp((p - .7) / .26);
       const ci = Math.min(3, Math.floor(p * 4.02));
-      caps.forEach((c, i) => c.classList.toggle('on', i === ci));
+      caps.forEach((c, i) => { c.classList.toggle('on', i === ci); c.classList.toggle('passat', i < ci); });
       rail.forEach((r, i) => r.style.setProperty('--f', clamp(p * 4 - i).toFixed(3)));
       // esbós
       wfPaths.forEach(el => { el.style.strokeDashoffset = 1 - easeOut(clamp((A - +el.dataset.o) / .45)); });
@@ -287,7 +287,7 @@
       const p = reduce ? .999 : progSuau(proto);
       const A = clamp(p / .22), B = clamp((p - .22) / .22), C = clamp((p - .44) / .28), D = clamp((p - .72) / .24);
       const ci = Math.min(3, Math.floor(p * 4.02));
-      caps.forEach((c, i) => c.classList.toggle('on', i === ci));
+      caps.forEach((c, i) => { c.classList.toggle('on', i === ci); c.classList.toggle('passat', i < ci); });
       rail.forEach((r, i) => r.style.setProperty('--f', clamp(p * 4 - i).toFixed(3)));
       grid.style.opacity = .5 * (1 - B);
       lines.forEach((l, i) => { l.style.strokeDashoffset = 1 - easeOut(clamp(A * 1.4 - (i % 6) * .08)); l.style.opacity = 1 - B * .75; });
