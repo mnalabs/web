@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=8209a739">
-<link rel="stylesheet" href="assets/pages.css?v=cbbccfd9">
+<link rel="stylesheet" href="assets/pages.css?v=24dbb816">
 </head>
 <body data-page="prototipatge">
 <a class="skip" href="#main">Salta al contingut</a>
@@ -94,23 +94,24 @@
             </g>
             <!-- peces del Brot renderitzades amb Blender (src/3d/brot.py, mode web): cada imatge ocupa tot el viewBox
                  i encaixa exactament amb les altres; data-separacio = quant es desplaça en desmuntar-se -->
-            <g class="pr-layer" data-peca="base" data-separacio="43.4">
+            <g class="pr-layer" data-peca="base" data-separacio="43.4" data-unio="-22.8">
               <image class="pr-esbos" href="img/prototip/brot-base-esbos.webp" width="640" height="560"/>
               <image class="pr-render" href="img/prototip/brot-base.webp" width="640" height="560"/>
             </g>
-            <g class="pr-layer" data-peca="bateria" data-separacio="19.2">
+            <g class="pr-layer" data-peca="bateria" data-separacio="19.2" data-unio="0.0">
               <image class="pr-esbos" href="img/prototip/brot-bateria-esbos.webp" width="640" height="560"/>
               <image class="pr-render" href="img/prototip/brot-bateria.webp" width="640" height="560"/>
             </g>
-            <g class="pr-layer" data-peca="placa" data-separacio="-19.3">
+            <g class="pr-layer" data-peca="placa" data-separacio="-19.3" data-unio="74.6">
               <image class="pr-esbos" href="img/prototip/brot-placa-esbos.webp" width="640" height="560"/>
               <image class="pr-render" href="img/prototip/brot-placa.webp" width="640" height="560"/>
             </g>
-            <g class="pr-layer" data-peca="carcassa" data-separacio="-53.0">
+            <g class="pr-layer" data-peca="carcassa" data-separacio="-53.0" data-unio="127.3">
               <image class="pr-esbos" href="img/prototip/brot-carcassa-esbos.webp" width="640" height="560"/>
               <image class="pr-render" href="img/prototip/brot-carcassa.webp" width="640" height="560"/>
-              <circle class="pr-led" cx="297.6" cy="98.2" r="22" fill="url(#prLed)"/>
             </g>
+            <image class="pr-producte" href="img/prototip/brot-producte.webp" width="640" height="560"/>
+            <circle class="pr-led" cx="297.6" cy="225.6" r="22" fill="url(#prLed)"/>
             <!-- etiquetes de les peces -->
             <g class="pr-labels">
               <g data-peca="carcassa"><path d="M399 137h91"/><text x="500" y="133">Carcassa</text><text class="s" x="500" y="151">PETG imprès en 3D</text></g>
@@ -175,6 +176,6 @@
 <script src="assets/i18n-pages.js?v=43c9617c"></script>
 <script src="assets/i18n-noves.js?v=e7489807"></script>
 
-<script src="assets/site.js?v=de4c30b1"></script>
+<script src="assets/site.js?v=d1313c63"></script>
 </body>
 </html>

@@ -285,8 +285,10 @@
     const ORDRE = ['carcassa', 'placa', 'bateria', 'base'];
     const peces = ORDRE.map(nom => {
       const capa = $(`.pr-layer[data-peca="${nom}"]`, proto);
-      return { capa, separacio: +capa.dataset.separacio, esbos: $('.pr-esbos', capa), render: $('.pr-render', capa), etiqueta: $(`.pr-labels [data-peca="${nom}"]`, proto) };
+      return { nom, capa, separacio: +capa.dataset.separacio, unio: +capa.dataset.unio, esbos: $('.pr-esbos', capa), render: $('.pr-render', capa), etiqueta: $(`.pr-labels [data-peca="${nom}"]`, proto) };
     });
+    const producte = $('.pr-producte', proto);
+    const AMAGADES_A_DINS = ['placa', 'bateria'];   // al producte muntat no es veuen
     draws.push(now => {
       if (!onScreen(proto)) return;
       const p = reduce ? .999 : progSuau(proto);
@@ -295,8 +297,14 @@
       caps.forEach((c, i) => { c.classList.toggle('on', i === ci); c.classList.toggle('passat', i < ci); });
       rail.forEach((r, i) => r.style.setProperty('--f', clamp(p * 4 - i).toFixed(3)));
       grid.style.opacity = .5 * (1 - B);
-      // desmuntatge: cada peça es desplaça el que ha calculat Blender; al final es torna a ajuntar una mica
-      const k = ease(C) * (1 - ease(clamp((D - .55) / .45)) * .35);
+      // desmuntatge: cada peça se separa el que ha calculat Blender (C)
+      const k = ease(C);
+      // muntatge final (D): les etiquetes marxen, les peces s'ajunten (ease-in-out, com tot moviment d'un lloc a un altre)
+      // i es fonen amb el render del producte muntat; el producte apareix una mica abans que les peces marxin (sense buit)
+      const ajuntat = ease(clamp((D - .1) / .5));
+      const producteVisible = easeOut(clamp((D - .55) / .15));
+      const pecesVisibles = 1 - clamp((D - .62) / .12);
+      producte.style.opacity = producteVisible.toFixed(3);
       peces.forEach((peca, i) => {
         // esbós: es dibuixa de dalt a baix amb una màscara, peça per peça
         const dibuixat = easeOut(clamp(A * 1.5 - i * .15));
@@ -304,17 +312,21 @@
         // disseny: l'esbós es fon amb la peça acabada, que s'enfoca a mesura que apareix (les dues se superposen)
         const acabat = easeOut(clamp(B * 1.3 - i * .1));
         peca.esbos.style.opacity = (1 - acabat).toFixed(3);
-        peca.render.style.opacity = acabat.toFixed(3);
+        // la placa i la bateria s'esvaeixen mentre entren dins de la carcassa
+        const dins = AMAGADES_A_DINS.includes(peca.nom) ? 1 - clamp((ajuntat - .55) / .4) : 1;
+        peca.render.style.opacity = (acabat * dins * pecesVisibles).toFixed(3);
         peca.render.style.filter = acabat < 1 ? `blur(${((1 - acabat) * 3).toFixed(2)}px)` : '';
-        const desplacament = `translateY(${(peca.separacio * k).toFixed(1)}px)`;
-        peca.capa.style.transform = desplacament;
+        const y = peca.separacio * k * (1 - ajuntat) + peca.unio * ajuntat;
+        peca.capa.style.transform = `translateY(${y.toFixed(1)}px)`;
+        // etiquetes: entren escalonades en desmuntar-se i marxen (més de pressa) quan comença el muntatge
         const t = clamp(C * 1.6 - i * .15);
-        peca.etiqueta.style.opacity = t * (1 - clamp((D - .7) / .3));
-        peca.etiqueta.style.transform = desplacament;
+        peca.etiqueta.style.opacity = t * (1 - clamp(D / .12));
+        peca.etiqueta.style.transform = `translateY(${(peca.separacio * k).toFixed(1)}px)`;
       });
-      const on = clamp(D / .4);
-      led.style.opacity = on * (.75 + Math.sin(now / 320) * .25);
-      const tk = clamp((D - .45) / .3); toast.style.opacity = tk; toast.style.transform = `translateY(${(1 - tk) * 16}px)`;
+      // el producte ja muntat s'encén i arriba l'avís
+      const on = clamp((D - .72) / .18);
+      led.style.opacity = reduce ? on : on * (.75 + Math.sin(now / 320) * .25);
+      const tk = clamp((D - .8) / .15); toast.style.opacity = tk; toast.style.transform = `translateY(${(1 - tk) * 16}px)`;
     });
   }
 

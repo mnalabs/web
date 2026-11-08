@@ -327,6 +327,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .pr-layer{transition:none;will-change:transform}
 .pr-esbos{clip-path:inset(0 0 100% 0)}
 .pr-render{opacity:0}
+.pr-producte{opacity:0}
 .pr-led{opacity:0}
 .pr-labels path{stroke:var(--accent);stroke-width:1.5;fill:none}
 .pr-labels text{font:600 15px Geist,Arial,sans-serif;fill:var(--ink)}

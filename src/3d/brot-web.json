@@ -11,7 +11,8 @@
     387.1,
     180.7
    ],
-   "separacio": -53.0
+   "separacio": -53.0,
+   "unio": 127.3
   },
   "placa": {
    "caixa": [
@@ -20,7 +21,8 @@
     390.9,
     228.0
    ],
-   "separacio": -19.3
+   "separacio": -19.3,
+   "unio": 74.6
   },
   "bateria": {
    "caixa": [
@@ -29,7 +31,8 @@
     369.6,
     285.9
    ],
-   "separacio": 19.2
+   "separacio": 19.2,
+   "unio": 0.0
   },
   "base": {
    "caixa": [
@@ -38,11 +41,12 @@
     386.2,
     472.0
    ],
-   "separacio": 43.4
+   "separacio": 43.4,
+   "unio": -22.8
   }
  },
  "led": [
   297.6,
-  98.2
+  225.6
  ]
 }

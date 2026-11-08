@@ -218,6 +218,8 @@ if 'web' in arguments[2:]:
     # (amb 1,6 cm entre peces no se solapen vistes des de la càmera, que mira una mica des de dalt)
     POSICIO = [4.29, 2.25, -.35, -2.35]
     SEPARACIO = [2.2, .8, -.8, -1.8]
+    # el producte muntat, tal com es compra: la carcassa encaixada sobre la base; la placa i la bateria, a dins
+    MUNTAT = [-1.0, -.85, -.35, -1.4]
 
     # el LED no brilla al render: la web l'encén al final amb una llum pròpia
     nodes = LED.node_tree.nodes['Principled BSDF']
@@ -258,8 +260,15 @@ if 'web' in arguments[2:]:
             'caixa': [min(xs), min(ys), max(xs), max(ys)],
             'separacio': round(desplacada[1] - origen[1], 1),   # unitats de l'SVG (negatiu = amunt)
         }
+    # quant es desplaça cada peça (unitats de l'SVG) per anar de la seva posició a la del producte muntat
+    for peca, nom, z_muntat in zip(PECES, NOMS, MUNTAT):
+        origen = a_svg(peca.location)
+        muntada = a_svg(Vector((peca.location.x, peca.location.y, z_muntat)))
+        dades['peces'][nom]['unio'] = round(muntada[1] - origen[1], 1)
     led = [o for o in carcassa.children if o.data.materials and o.data.materials[0] == LED][0]
-    dades['led'] = a_svg(led.matrix_world.translation)
+    col_loca(MUNTAT); bpy.context.view_layer.update()
+    dades['led'] = a_svg(led.matrix_world.translation)   # on queda el LED al producte muntat
+    col_loca(POSICIO); bpy.context.view_layer.update()
 
     def nomes(peca):
         for altra in PECES:
@@ -276,6 +285,15 @@ if 'web' in arguments[2:]:
         except RuntimeError:
             escena.cycles.use_denoising = False
             bpy.ops.render.render(write_still=True)
+
+    # el producte muntat, tal com es compra (la placa i la bateria no es veuen: són a dins)
+    col_loca(MUNTAT)
+    for peca in PECES:
+        for o in peca.children:
+            o.hide_render = peca in (placa, bateria)
+    escena.render.filepath = os.path.join(SORTIDA, 'brot-producte.png')
+    bpy.ops.render.render(write_still=True)
+    col_loca(POSICIO)
 
     # esbossos: tots els materials passen a ser transparents (holdout) i només queden les línies de Freestyle
     transparent = bpy.data.materials.new('Transparent'); transparent.use_nodes = True
