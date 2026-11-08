@@ -15,6 +15,16 @@
   const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
   const easeOut = t => 1 - Math.pow(1 - t, 3);
   const prog = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+  // el mateix progrés, però amb inèrcia: segueix el scroll uns 200 ms per darrere perquè no vagi a salts
+  // (amb la roda del ratolí). Amb moviment reduït, el progrés és directe.
+  const progressosSuaus = new WeakMap();
+  const progSuau = el => {
+    const objectiu = prog(el), ara = performance.now(), estat = progressosSuaus.get(el);
+    if (reduce || !estat){ progressosSuaus.set(el, { valor: objectiu, temps: ara }); return objectiu; }
+    const segons = Math.min(.1, (ara - estat.temps) / 1000);
+    estat.valor += (objectiu - estat.valor) * (1 - Math.pow(1 - .12, segons * 60)); estat.temps = ara;
+    return estat.valor;
+  };
   const onScreen = el => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const draws = [];          // funcions que es criden a cada fotograma
@@ -117,7 +127,6 @@
     // ordreLectura: 0 per als punts que van a la M i 1 per als de la S, perquè el nom es formi d'esquerra a dreta
     // naixement: d'on surt cada punt a l'entrada (angle i distància dins de la bola)
     let W, H, N, sph = [], txt = [], ordreLectura = [], naixement = [], delay = [], off = [], mx = 0, my = 0, tmx = 0, tmy = 0, px = -9999, py = -9999;
-    let progresSuau = null, darrerFotograma = 0;
     const buildText = () => {
       const o = document.createElement('canvas'); o.width = W; o.height = H; const g = o.getContext('2d');
       const two = W < 760, fs = two ? Math.min(W * .3, H * .2) : Math.min(W * .15, H * .3);
@@ -147,9 +156,7 @@
     draws.push(now => {
       if (!onScreen(hero)) return;
       const t = (now - t0)/1000, p = prog(hero);
-      // la transformació en lletres segueix el scroll amb una mica d'inèrcia (~200 ms), i no a salts amb la roda del ratolí
-      const dt = Math.min(.1, (now - (darrerFotograma || now))/1000); darrerFotograma = now;
-      progresSuau = (progresSuau === null || reduce) ? p : progresSuau + (p - progresSuau)*(1 - Math.pow(1 - .12, dt*60));
+      const progresSuau = progSuau(hero);
       const intro = reduce ? 1 : clamp(t / 1.2);
       const fade = clamp(p / .22), m = ease(clamp((progresSuau - .18) / .5)), cap = clamp((p - .7) / .15);
       heroCopy.style.opacity = 1 - fade;
@@ -233,7 +240,7 @@
     };
     draws.push(() => {
       if (!onScreen(build)) return;
-      const p = reduce ? .999 : prog(build), small = innerWidth < 900;
+      const p = reduce ? .999 : progSuau(build), small = innerWidth < 900;
       const A = clamp(p / .2), B = clamp((p - .2) / .24), C = clamp((p - .44) / .26), D = clamp((p - .7) / .26);
       const ci = Math.min(3, Math.floor(p * 4.02));
       caps.forEach((c, i) => c.classList.toggle('on', i === ci));
@@ -277,7 +284,7 @@
     lines.forEach(l => { l.setAttribute('pathLength', 1); l.style.strokeDasharray = 1; });
     draws.push(now => {
       if (!onScreen(proto)) return;
-      const p = reduce ? .999 : prog(proto);
+      const p = reduce ? .999 : progSuau(proto);
       const A = clamp(p / .22), B = clamp((p - .22) / .22), C = clamp((p - .44) / .28), D = clamp((p - .72) / .24);
       const ci = Math.min(3, Math.floor(p * 4.02));
       caps.forEach((c, i) => c.classList.toggle('on', i === ci));
@@ -294,61 +301,16 @@
     });
   }
 
-  /* =============== PANELL QUE S'AMPLIA =============== */
-  const zoom = $('#programari'); let dashStarted = false;
-  const dash = $('#dash'), feed = $('#feed');
-  const feedPool = [
-    ['#30d158','Pagament rebut','Tallers Puig · 318,50 €'],
-    ['#c94a17','Nova comanda','#10483 · Metall Girona'],
-    ['#ff9f0a','Estoc baix','Sorra PetroBond 5 kg · 8 unitats'],
-    ['#c94a17','Factura emesa','F-2026-0912 · enviada per correu'],
-    ['#30d158','Enviament lliurat','#10476 · Fundició del Vallès'],
-    ['#7fd8c4','Client nou','Registrat des de l\'app'],
-    ['#c94a17','Sincronització','Comptabilitat actualitzada'],
-  ];
-  let feedI = 0;
-  function pushFeed(){
-    const [c, a, b] = feedPool[feedI++ % feedPool.length];
-    const li = document.createElement('li'); li.innerHTML = `<i style="background:${c}"></i><div>${tr(a)}<small>${tr(b)} · ${tr('ara')}</small></div>`;
-    feed.prepend(li); while (feed.children.length > 4) feed.lastElementChild.remove();
-  }
-  function countUp(el, to, suf, dur){
-    const s = performance.now();
-    (function step(n){ const k = reduce ? 1 : easeOut(clamp((n - s)/dur)); el.textContent = Math.round(to*k).toLocaleString(LOC()) + suf; if (k < 1) requestAnimationFrame(step); })(s);
-  }
+  /* =============== PANELL QUE S'AMPLIA AMB EL SCROLL (captura real del panell) =============== */
+  const zoom = $('#programari');
   if (zoom){
-    const zHead = $('#zoomHead');
-    (function(){
-      const svg = $('#lineChart'), pts = [];
-      for (let i = 0; i < 30; i++){ const v = 95 - i*1.6 - Math.sin(i*.7)*14 - Math.sin(i*1.9)*7 + Math.cos(i*.33)*6; pts.push([i*(600/29), v + 20]); }
-      let dl = `M${pts[0][0]},${pts[0][1]}`;
-      for (let i = 1; i < pts.length; i++){ const [x0,y0] = pts[i-1], [x1,y1] = pts[i], cxp = (x0+x1)/2; dl += ` C${cxp},${y0} ${cxp},${y1} ${x1},${y1}`; }
-      svg.innerHTML = `<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c94a17" stop-opacity=".22"/><stop offset="1" stop-color="#c94a17" stop-opacity="0"/></linearGradient></defs>
-        ${[40,90,140].map(y => `<line class="gl" x1="0" x2="600" y1="${y}" y2="${y}"/>`).join('')}
-        <path class="ar" d="${dl} L600,180 L0,180 Z" fill="url(#ga)"/>
-        <path class="ln" id="ln" d="${dl}"/>
-        <circle id="lnDot" r="4.5" fill="#c94a17" stroke="#fff" stroke-width="2" cx="${pts[29][0]}" cy="${pts[29][1]}" opacity="0"/>`;
-      const ln = $('#ln'), L = ln.getTotalLength();
-      ln.style.strokeDasharray = L; ln.style.strokeDashoffset = L; ln.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)';
-    })();
-    for (let i = 0; i < 4; i++) pushFeed();
-    const startDash = () => {
-      dashStarted = true; dash.classList.add('go');
-      $('#ln').style.strokeDashoffset = 0;
-      setTimeout(() => $('#lnDot').setAttribute('opacity', 1), 1800);
-      $$('.bars i', dash).forEach((b, i) => setTimeout(() => b.style.height = b.dataset.h + '%', i*120));
-      $$('[data-count]', dash).forEach(el => countUp(el, +el.dataset.count, el.dataset.suf || '', 1800));
-      if (!reduce) setInterval(() => { if (onScreen(dash)){ pushFeed(); const nb = $('#navBadge'); nb.textContent = +nb.textContent + 1; } }, 2200);
-    };
+    const dash = $('#dash'), zHead = $('#zoomHead');
     draws.push(() => {
       if (!onScreen(zoom)) return;
-      const p = prog(zoom), small = innerWidth < 860, k = easeOut(clamp(p / .5));
-      dash.style.transform = `translateY(${lerp(innerHeight * (small ? .22 : .2), 0, k)}px) scale(${lerp(small ? .78 : .56, 1, k)})`;
-      dash.style.borderRadius = lerp(34, 18, k) + 'px';
+      const p = progSuau(zoom), small = innerWidth < 860, k = easeOut(clamp(p / .5));
+      dash.style.transform = `translateY(${lerp(innerHeight * (small ? .3 : .2), 0, k)}px) scale(${lerp(small ? .86 : .56, 1, k)})`;
       zHead.style.opacity = 1 - clamp(p / .3); zHead.style.transform = `translateY(${-clamp(p/.3)*40}px)`;
-      if (!dashStarted && p > .32) startDash();
     });
-    onLang.push(() => { feed.innerHTML = ''; for (let i = 0; i < 4; i++) pushFeed(); if (dashStarted) $$('[data-count]', dash).forEach(el => el.textContent = (+el.dataset.count).toLocaleString(LOC()) + (el.dataset.suf || '')); });
   }
 
   /* =============== ARQUITECTURA =============== */
@@ -415,7 +377,7 @@
     const track = $('#hTrack'), hBar = $('#hBar'); let hDist = 0;
     const layoutH = () => { hDist = Math.max(0, track.scrollWidth - innerWidth); hs.style.height = (innerHeight + hDist * 1.1) + 'px'; };
     layoutH(); addEventListener('load', layoutH); onResize.push(layoutH); onLang.push(layoutH);
-    draws.push(() => { if (!onScreen(hs)) return; const p = prog(hs); track.style.transform = `translate3d(${-p*hDist}px,0,0)`; hBar.style.transform = `scaleX(${p})`; });
+    draws.push(() => { if (!onScreen(hs)) return; const p = progSuau(hs); track.style.transform = `translate3d(${-p*hDist}px,0,0)`; hBar.style.transform = `scaleX(${p})`; });
   }
 
   /* =============== FRASE QUE S'IL·LUMINA PARAULA A PARAULA =============== */
@@ -424,7 +386,7 @@
     const qsec = q.closest('.statement'), qOrig = q.textContent; let ws = [];
     const splitQuote = () => { q.innerHTML = tr(qOrig).split(' ').map(w => `<span class="w">${esc(w)}</span>`).join(' '); ws = $$('.w', q); };
     splitQuote(); onLang.push(splitQuote);
-    draws.push(() => { if (!onScreen(qsec)) return; const p = prog(qsec), k = reduce ? ws.length : Math.round(p*1.2*ws.length); ws.forEach((w, i) => w.classList.toggle('on', i < k)); });
+    draws.push(() => { if (!onScreen(qsec)) return; const p = progSuau(qsec), k = reduce ? ws.length : Math.round(p*1.2*ws.length); ws.forEach((w, i) => w.classList.toggle('on', i < k)); });
   }
 
   /* =============== EMPRENEDORIA: línia de passos =============== */
@@ -497,7 +459,7 @@
       ['', '→ Desplegant a producció (UE)…', 'dim'],
       ['', '  ✓ Verificació de salut: 200 OK', 'ok'],
       ['', '', ''],
-      ['', '✓ Versió 4.12.0 en línia. Zero temps d\'aturada.', 'hl'],
+      ['', '✓ Versió 4.12.0 en línia.', 'hl'],
     ];
     let termDone = false, termLang = 'ca';
     const caret = '<span class="caret"></span>';
@@ -742,7 +704,7 @@
   const textNodes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => {
     const p = n.parentElement;
-    if (!p || !n.textContent.trim() || p.closest('script,style,#quote,#term,#feed,#arch,.pk-n,#vState,.vault dd,.split,.mock,.bd-code,.pk-app')) return NodeFilter.FILTER_REJECT;
+    if (!p || !n.textContent.trim() || p.closest('script,style,#quote,#term,#arch,.pk-n,#vState,.vault dd,.split,.mock,.bd-code,.pk-app')) return NodeFilter.FILTER_REJECT;
     return NodeFilter.FILTER_ACCEPT;
   } });
   for (let n; (n = walker.nextNode()); ) textNodes.push([n, n.textContent]);

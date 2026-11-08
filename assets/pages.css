@@ -124,16 +124,34 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
 .servei-exemple .mock[data-mock="duo"]{left:7%;right:7%;top:9%}
 .servei-exemple .mock[data-mock="ig"]{inset:0;border-radius:0}
-.servei:hover .servei-exemple .mock:not([data-mock="ig"]),.servei:hover .exemple-mobil,.servei:hover .exemple-finestra{transform:translateY(-2%)}
-/* exemples reals: una web vista en un mòbil i un panell dins d'una finestra */
-.exemple-mobil{position:absolute;left:50%;top:9%;width:31%;margin-left:-15.5%;aspect-ratio:390/844;padding:1.6%;border-radius:18px;background:#111;box-shadow:0 20px 40px -18px rgba(0,0,0,.45);transition:transform 1.2s var(--ease-out)}
-.exemple-mobil img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:13px}
-.exemple-finestra{position:absolute;left:8%;right:8%;top:10%;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 36px -18px rgba(0,0,0,.35);transition:transform 1.2s var(--ease-out)}
+.servei:hover .servei-exemple .mock:not([data-mock="ig"]){transform:translateY(-2%)}
+/* ---------- EXEMPLES REALS: una web dins d'una finestra i una app dins d'un mòbil ---------- */
+.exemple-finestra{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 36px -18px rgba(0,0,0,.35);transition:transform 1.2s var(--ease-out)}
 .exemple-finestra-barra{height:18px;display:flex;align-items:center;gap:5px;padding:0 8px;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
 .exemple-finestra-barra i{width:7px;height:7px;border-radius:50%;background:#ff5f57}
 .exemple-finestra-barra i:nth-child(2){background:#febc2e}
 .exemple-finestra-barra i:nth-child(3){background:#28c840}
 .exemple-finestra img{display:block;width:100%;height:auto}
+.dash .exemple-finestra-barra{height:30px;gap:7px;padding:0 14px}
+.dash .exemple-finestra-barra i{width:11px;height:11px}
+/* mòbil actual: vores fines, cantonades del mateix radi que la pantalla, illa a dalt i barra d'estat */
+.exemple-mobil{position:relative;container-type:inline-size;aspect-ratio:393/852;padding:1.6%;border-radius:15.5% / 7.15%;background:#0d0d0f;
+  box-shadow:0 0 0 1px #9a9a9f,0 0 0 2px #2b2b2e,inset 0 0 0 1px rgba(255,255,255,.08),0 28px 56px -24px rgba(0,0,0,.5)}
+.exemple-mobil::before,.exemple-mobil::after{content:"";position:absolute;width:.9%;border-radius:2px;background:#8a8a8f}
+.exemple-mobil::before{right:-1.2%;top:24%;height:11%}
+.exemple-mobil::after{left:-1.2%;top:19%;height:7%;box-shadow:0 260% 0 #8a8a8f}
+.exemple-mobil-pantalla{position:relative;height:100%;border-radius:14% / 6.45%;overflow:hidden;background:var(--fons,#000);padding-top:12.5cqw;color:#fff}
+.exemple-mobil-pantalla::before{content:"";position:absolute;z-index:2;top:2.6cqw;left:50%;width:31cqw;height:8.6cqw;margin-left:-15.5cqw;border-radius:99px;background:#000}
+.exemple-mobil-hora{position:absolute;z-index:2;top:4.2cqw;left:10cqw;font-size:4cqw;font-weight:600;letter-spacing:-.01em}
+.exemple-mobil-estat{position:absolute;z-index:2;top:4.6cqw;right:8cqw;width:15cqw;height:auto}
+.exemple-mobil img{display:block;width:100%;height:auto}
+/* a les targetes de «Què fem» */
+.servei-exemple > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%}
+.servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
+.servei:hover .servei-exemple > .exemple-mobil,.servei:hover .servei-exemple > .exemple-finestra{transform:translateY(-2%)}
+/* a Serveis */
+.sv-vis-mobil{display:flex;justify-content:center}
+.sv-vis-mobil .exemple-mobil{width:min(300px,62%)}
 .servei-text{display:flex;flex-direction:column;gap:10px;flex:1;padding:24px 26px 26px}
 .servei-text h3{font-size:clamp(24px,2.2vw,30px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
 .servei-text p{color:var(--ink-2);font-size:16px;line-height:1.45}
