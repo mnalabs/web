@@ -1,5 +1,11 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"Web d'un supermercat":"Web de un supermercado",
+"Panell d'un supermercat":"Panel de un supermercado",
+"Web d'un supermercat i app de lliga.cat":"Web de un supermercado y app de lliga.cat",
+"Fundicat i app de lliga.cat":"Fundicat y app de lliga.cat",
+"Projectes":"Proyectos",
+"lliga.cat i Fundicat":"lliga.cat y Fundicat",
 "Web":"Web","Arquitectura":"Arquitectura","RGPD":"RGPD",
 "Web caiguda o piratejada":"Web caída o pirateada",
 "Pomes Fuji 5 kg · 8 unitats":"Manzanas Fuji 5 kg · 8 unidades",
@@ -52,6 +58,11 @@ Object.assign(window.I18N.es, {
 "Afiliacions · MNA LABS":"Afiliaciones · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"Web d'un supermercat":"A supermarket's website",
+"Panell d'un supermercat":"A supermarket's admin panel",
+"Web d'un supermercat i app de lliga.cat":"A supermarket's website and the lliga.cat app",
+"Fundicat i app de lliga.cat":"Fundicat and the lliga.cat app",
+"lliga.cat i Fundicat":"lliga.cat and Fundicat",
 "Web caiguda o piratejada":"Website down or hacked",
 "Pomes Fuji 5 kg · 8 unitats":"Fuji apples 5 kg · 8 units",
 "Prototipatge":"Prototyping","Mostres":"Showcase","Programes":"Programmes","Afiliacions":"Affiliates","+ comissió per venda":"+ commission per sale",

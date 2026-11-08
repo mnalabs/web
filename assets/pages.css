@@ -521,3 +521,10 @@ body[data-page="mostres"]{background:var(--black)}
 
 /* Paquets es pinten amb JS: reservem l'espai perquè el peu no surti a la vista i després salti cap avall */
 .pkgs-page{min-height:100svh}
+
+/* Exemples reals dins les targetes de Paquets (captures, no maquetes) */
+.pk-ex > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%;transition:transform 1.2s var(--ease-out)}
+.pk-ex > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
+.pk-ex-duo > .exemple-finestra{left:6%;right:30%;top:12%}
+.pk-ex-duo > .exemple-mobil{left:auto;right:7%;top:16%;width:21%;margin-left:0}
+.pk:hover .pk-ex > .exemple-finestra,.pk:hover .pk-ex > .exemple-mobil{transform:translateY(-2%)}

@@ -662,16 +662,36 @@
     let DATA = window.PAQUETS_DEFAULT, tab = null;
     const money = v => new Intl.NumberFormat(LOC(), { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v);
     const price = (p, cls) => `<div class="pk-p${cls || ''}"><span class="pk-from">${cls ? '+' : p.desDe === false ? '' : esc(tr('des de'))}</span><span class="pk-n" data-v="${+p.preu || 0}"${p.extra ? ` data-x="${+DATA.plataformes.preu || 0}"` : ''}>${money(+p.preu || 0)}</span><span class="pk-u">${esc(tr(UNIT[p.unitat] || ''))}</span></div>`;
+    /* Exemples reals dels paquets: captures de projectes que ensenyem (mai amb el nom ni el logotip del client).
+       Van per l'identificador del paquet, així es veuen també quan els paquets venen de Supabase. */
+    const finestraReal = src => `<div class="exemple-finestra"><div class="exemple-finestra-barra"><i></i><i></i><i></i></div><img src="${src}" alt="" width="1440" height="900" loading="lazy"></div>`;
+    const estatIphone = '<svg class="exemple-mobil-estat" viewBox="0 0 44 12" aria-hidden="true"><path d="M1 9h2v2H1zM5 7h2v4H5zM9 5h2v6H9zM13 3h2v8h-2z" fill="currentColor"/><rect x="21.5" y="1.5" width="19" height="9" rx="2.6" fill="none" stroke="currentColor" opacity=".45"/><rect x="23" y="3" width="14" height="6" rx="1.4" fill="currentColor"/><path d="M42 4.5v3" stroke="currentColor" stroke-linecap="round" opacity=".45"/></svg>';
+    const estatPixel = '<svg class="exemple-mobil-estat" viewBox="0 0 52 12" aria-hidden="true"><path d="M7 11.4 .9 4.9a8.7 8.7 0 0 1 12.2 0z" fill="currentColor"/><path d="M30 11.4V2L19.6 11.4z" fill="currentColor"/><rect x="35" y="2.2" width="14" height="8.2" rx="2.2" fill="currentColor"/><rect x="49.4" y="4.6" width="1.4" height="3.4" rx=".7" fill="currentColor" opacity=".6"/></svg>';
+    const iphoneReal = src => `<div class="exemple-mobil"><div class="exemple-mobil-pantalla" style="--fons:#0c1115"><span class="exemple-mobil-hora">9:41</span>${estatIphone}<img src="${src}" alt="" width="390" height="844" loading="lazy"></div></div>`;
+    const pixelReal = src => `<div class="exemple-mobil exemple-mobil-pixel"><div class="exemple-mobil-pantalla" style="--fons:#0d1014"><span class="exemple-mobil-hora">9:41</span>${estatPixel}<img src="${src}" alt="" width="640" height="1270" loading="lazy"></div></div>`;
+    const IMG = 'img/exemples-serveis/', FUND = 'img/exemple-fundicat/';
+    const EXEMPLES_REALS = {
+      'webs-0': { marca: "Web d'un supermercat", html: finestraReal(IMG + 'web-supermercat.jpg') },
+      'webs-1': { marca: 'Fundicat', html: finestraReal(FUND + 'botiga.webp') },
+      'webs-2': { marca: 'Fundicat', html: finestraReal(FUND + 'producte.webp') },
+      'webs-3': { marca: "Panell d'un supermercat", html: finestraReal(IMG + 'panell-supermercat.jpg') },
+      'xarxes-0': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
+      'combinats-0': { marca: "Web d'un supermercat i app de lliga.cat", html: finestraReal(IMG + 'web-supermercat.jpg') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
+      'combinats-1': { marca: 'Fundicat i app de lliga.cat', html: finestraReal(FUND + 'botiga.webp') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
+      'gratuits-0': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
+      'gratuits-1': { marca: 'Fundicat', html: finestraReal(FUND + 'producte.webp') },
+    };
     const card = (p, i, sec) => {
       if (p.tipus === 'alt') return `<article class="pk alt" style="--i:${i}"><div class="pk-body"><h3>${esc(L(p.nom))}</h3><p class="pk-d">${esc(L(p.desc))}</p><a href="contacte.html" class="btn">${esc(L(p.boto))}</a></div></article>`;
       const m = (p.exemple && p.exemple.maqueta) || {}, opts = p.opcions || [];
       const img = p.exemple && p.exemple.imatge ? `<img src="${esc(p.exemple.imatge)}" alt="${esc(p.exemple.marca)}" loading="lazy">` : "";
       const mensual = p.unitat === "mes" || (p.preu2 && p.preu2.unitat === "mes");
-      const mock = img || (m.mock ? `<div class="mock" ${Object.entries(m).map(([k, v]) => `data-${k.replace(/[A-Z]/g, c => '-' + c.toLowerCase())}="${esc(String(v))}"`).join(' ')}></div>` : '');
+      const real = EXEMPLES_REALS[p.id];
+      const mock = real ? real.html : img || (m.mock ? `<div class="mock" ${Object.entries(m).map(([k, v]) => `data-${k.replace(/[A-Z]/g, c => '-' + c.toLowerCase())}="${esc(String(v))}"`).join(' ')}></div>` : '');
       const p2 = p.preu2 ? { ...p.preu2, preu: opts.length ? opts[0].preu : p.preu2.preu } : null;
       const extra = p.extra || (p2 && p2.extra);
       return `<article class="pk${p.recomanat ? ' top' : ''}${opts.length ? ' pk-combo' : ''}" style="--i:${i}" data-id="${esc(p.id)}">
-        <div class="pk-ex${img && p.exemple.clar ? ' pk-ex-img' : ''}">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(p.exemple ? p.exemple.marca : '')}</b></span></div>
+        <div class="pk-ex${!real && img && p.exemple.clar ? ' pk-ex-img' : ''}${real && real.duo ? ' pk-ex-duo' : ''}">${mock}<span class="pk-ex-c"><small>${esc(tr('Exemple'))}</small><b>${esc(real ? tr(real.marca) : p.exemple ? p.exemple.marca : '')}</b></span></div>
         <div class="pk-body">
           ${p.recomanat ? `<span class="pk-tag">${esc(tr('Recomanat'))}</span>` : ''}
           <h3>${esc(L(p.nom))}</h3>
