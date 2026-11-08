@@ -93,10 +93,11 @@
 
         <div class="bd-stage" aria-hidden="true">
           <pre class="bd-code"><code><span><b class="k">&lt;Capcalera</b> menu={seccions} <b class="k">/&gt;</b></span>
-<span><b class="k">&lt;h1&gt;</b>Cada dia treballem per tu.<b class="k">&lt;/h1&gt;</b></span>
-<span><b class="k">&lt;p&gt;</b>{subtitol}<b class="k">&lt;/p&gt;</b></span>
-<span><b class="k">&lt;Boto</b> href=<b class="s">"/botiga"</b><b class="k">&gt;</b>Fes la compra<b class="k">&lt;/Boto&gt;</b></span>
-<span><b class="k">&lt;Foto</b> src=<b class="s">"fruita.jpg"</b> <b class="k">/&gt;</b></span>
+<span><b class="k">&lt;Portada</b> foto=<b class="s">"fruita.jpg"</b><b class="k">&gt;</b></span>
+<span>  <b class="k">&lt;h1&gt;</b>Cada dia treballem per tu<b class="k">&lt;/h1&gt;</b></span>
+<span>  <b class="k">&lt;p&gt;</b>{subtitol}<b class="k">&lt;/p&gt;</b></span>
+<span>  <b class="k">&lt;Boto</b> href=<b class="s">"/botiga"</b><b class="k">&gt;</b>Fes la compra<b class="k">&lt;/Boto&gt;</b></span>
+<span><b class="k">&lt;/Portada&gt;</b></span>
 <span>{ofertes.<b class="f">map</b>(o =&gt; <b class="k">&lt;Fitxa</b> {...o} <b class="k">/&gt;</b>)}</span>
 <span><b class="k">&lt;Cistella</b> enPagar={<b class="f">avisaLaBotiga</b>} <b class="k">/&gt;</b></span></code></pre>
 
@@ -104,22 +105,31 @@
             <div class="bd-bar"><i></i><i></i><i></i><span class="domini-amagat"></span></div>
             <div class="bd-site">
               <svg class="bd-wf" viewBox="0 0 800 500">
-                <path data-o="0" d="M32 18h120v14H32z"/><path data-o=".04" d="M470 25h40M530 25h40M590 25h40"/><path data-o=".06" d="M690 14h80v24h-80z"/>
-                <path data-o=".1" d="M32 100h330v30H32zM32 140h260v30H32z"/>
-                <path data-o=".18" d="M32 200h300M32 222h240"/>
-                <path data-o=".24" d="M32 258h130v36H32z"/>
-                <path data-o=".28" d="M420 90h348v230H420zM420 90l348 230M768 90L420 320"/>
-                <path data-o=".38" d="M32 350h232v120H32z"/><path data-o=".44" d="M284 350h232v120H284z"/><path data-o=".5" d="M536 350h232v120H536z"/>
+                <!-- capçalera: logotip, botó vermell, enllaços i cistella -->
+                <path data-o="0" data-r="0" d="M40 14h88v18H40V14"/>
+                <path data-o=".03" data-r="0" d="M398 12h88v22h-88V12"/>
+                <path data-o=".05" data-r="0" d="M500 23h38M556 23h76M648 23h46"/>
+                <path data-o=".07" data-r="0" d="M712 12h60v22h-60V12"/>
+                <!-- portada: foto a tota l'amplada amb el text i els botons a sobre -->
+                <path data-o=".1" data-r=".06" d="M2 46h796v258H2V46"/>
+                <path data-o=".16" data-r=".12" d="M40 110h312M40 146h100"/>
+                <path data-o=".2" data-r=".18" d="M40 186h296M40 204h34"/>
+                <path data-o=".24" data-r=".24" d="M40 229h148v30H40V229"/>
+                <path data-o=".27" data-r=".24" d="M200 229h152v30H200V229"/>
+                <!-- fitxes de producte -->
+                <path data-o=".34" data-r=".34" d="M40 330h226v140H40V330"/>
+                <path data-o=".4" data-r=".4" d="M287 330h226v140H287V330"/>
+                <path data-o=".46" data-r=".46" d="M534 330h226v140H534V330"/>
               </svg>
               <div class="bd-ds supermercat">
                 <div class="b-nav" data-r="0" data-ping="0"><span class="logo-amagat"></span><em class="b-nav-botiga">Botiga online</em><span>Ofertes</span><span>Fresc de mercat</span><span>Botigues</span><em class="b-nav-cistella">Cistella</em></div>
-                <h3 class="b-h" data-r=".08" data-ping="1">Cada dia treballem per tu.</h3>
-                <p class="b-p" data-r=".16" data-ping="2">Perquè puguis fer una compra completa, ara també des de casa.</p>
-                <span class="b-btn" data-r=".22" data-ping="3">Fes la compra online</span>
-                <div class="b-img" data-r=".28" data-ping="4"><img src="img/exemple-supermercat/fruita-de-temporada.jpg" alt="" width="900" height="506" loading="lazy"></div>
-                <div class="b-card c1" data-r=".38" data-ping="5"><img src="img/exemple-supermercat/pomes.jpg" alt="" width="320" height="240" loading="lazy"><b>Pomes Fuji</b><small>1,95 €/kg</small></div>
-                <div class="b-card c2" data-r=".44" data-ping="5"><img src="img/exemple-supermercat/maduixes.jpg" alt="" width="320" height="240" loading="lazy"><b>Maduixes del Maresme</b><small>2,95 €</small></div>
-                <div class="b-card c3" data-r=".5" data-ping="5"><img src="img/exemple-supermercat/pa-de-pasta-mare.jpg" alt="" width="320" height="240" loading="lazy"><b>Pa de pasta mare</b><small>3,20 €</small></div>
+                <div class="b-img" data-r=".06" data-ping="1"><img src="img/exemple-supermercat/fruita-de-temporada.jpg" alt="" width="900" height="506" loading="lazy"></div>
+                <h3 class="b-h" data-r=".12" data-ping="2">Cada dia treballem per tu</h3>
+                <p class="b-p" data-r=".18" data-ping="3">Perquè puguis fer una compra completa, ara també des de casa.</p>
+                <div class="b-botons" data-r=".24" data-ping="4"><span class="b-btn">Fes la compra online</span><span class="b-btn b-btn-verd">Enganxa la teva llista</span></div>
+                <div class="b-card c1" data-r=".34" data-ping="6"><img src="img/exemple-supermercat/pomes.jpg" alt="" width="320" height="240" loading="lazy"><b>Pomes Fuji</b><small>1,95 €/kg</small></div>
+                <div class="b-card c2" data-r=".4" data-ping="6"><img src="img/exemple-supermercat/maduixes.jpg" alt="" width="320" height="240" loading="lazy"><b>Maduixes del Maresme</b><small>2,95 €</small></div>
+                <div class="b-card c3" data-r=".46" data-ping="6"><img src="img/exemple-supermercat/pa-de-pasta-mare.jpg" alt="" width="320" height="240" loading="lazy"><b>Pa de pasta mare</b><small>3,20 €</small></div>
               </div>
             </div>
             <div class="bd-toast"><i></i><div><b>Comanda nova · 8,10 €</b><small>Pomes, maduixes i pa · entrega demà de 10 a 12</small></div></div>
@@ -235,7 +245,7 @@
   <div class="wide">
     <div class="foot-cta">
       <p class="foot-big split">Tens un projecte entre mans?</p>
-      <a href="contacte.html" class="btn btn-light mag">Explica-nos-el</a>
+      <a href="contacte.html" class="btn btn-light mag">Explica'ns-el</a>
     </div>
     <div class="fcols">
       <div><h4>Serveis</h4><a href="serveis.html#webs">Webs</a><a href="serveis.html#botigues">Botigues en línia</a><a href="serveis.html#apps">Apps mòbils</a><a href="serveis.html#programari">Programari de gestió</a><a href="serveis.html#xarxes">Xarxes socials</a><a href="serveis.html#amazon">Venda a Amazon</a></div>

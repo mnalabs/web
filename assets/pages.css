@@ -50,29 +50,38 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .bd-stage{position:relative;container-type:inline-size}
 .bd-win{position:relative;z-index:1;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 50px 100px -50px rgba(0,0,0,.4);transform-origin:50% 60%;will-change:transform}
 .bd-bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
-.bd-bar i{width:9px;height:9px;border-radius:50%;background:#d2d2d7}
+.bd-bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}
+.bd-bar i:nth-child(2){background:#febc2e}
+.bd-bar i:nth-child(3){background:#28c840}
 .bd-bar span{margin:0 auto;font-size:11px;color:var(--ink-2);background:#fff;padding:3px 26px;border-radius:6px}
 .bd-site{position:relative;aspect-ratio:8/5;container-type:inline-size;background:#fbf8f2;color:#262626}
-.bd-wf{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#2a1a0f;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;z-index:2;pointer-events:none}
-.bd-wf path{vector-effect:non-scaling-stroke}
+/* esbós de la portada: el gruix escala amb la finestra (sense «non-scaling-stroke», que desquadrava
+   la longitud del traç i deixava les caixes obertes); a mòbil el fem més gruixut perquè no quedi massa fi */
+.bd-wf{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#2a1a0f;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;z-index:2;pointer-events:none}
+@media (max-width:900px){.bd-wf{stroke-width:2.6}}
 .bd-ds > *{position:absolute;opacity:0}
-/* web d'exemple de la portada: un supermercat amb botiga en línia (el logotip i el domini queden amagats) */
-.logo-amagat{display:block;width:11cqw;height:3.4cqw;border-radius:.8cqw;background:#e4ddd0}
+/* web d'exemple de la portada: un supermercat amb botiga en línia, amb la mateixa disposició que el web real
+   (capçalera blanca, foto a tota l'amplada amb el text a sobre i fitxes de producte). El logotip i el domini queden amagats */
+.logo-amagat{display:block;width:11cqw;height:2.3cqw;border-radius:.6cqw;background:#e4ddd0}
 .domini-amagat{display:block;width:120px;height:14px;margin:0 auto;border-radius:6px;background:#fff}
-.b-nav{left:4%;right:3.75%;top:2.6%;height:7.4%;display:flex;align-items:center;gap:2cqw;font-size:1.45cqw;font-weight:600;color:#262626}
+.b-nav{left:0;right:0;top:0;height:9.2%;padding:0 3.5% 0 5%;display:flex;align-items:center;gap:1.8cqw;font-size:1.4cqw;font-weight:600;color:#262626;background:#fff;box-shadow:0 1px 0 #ece6da}
 .b-nav .logo-amagat{margin-right:auto}
-.b-nav em{font-style:normal;color:#fff;padding:.7cqw 1.5cqw;border-radius:.9cqw;font-weight:700}
+.b-nav em{font-style:normal;color:#fff;padding:.6cqw 1.4cqw;border-radius:.8cqw;font-weight:700}
 .b-nav-botiga{background:#f7403a}
 .b-nav-cistella{background:#8cc63f;color:#1d2a0a!important}
-.b-h{left:4%;top:18%;width:45%;font-size:4.6cqw;font-weight:800;line-height:1.02;letter-spacing:-.03em;color:#262626}
-.b-p{left:4%;top:41%;width:40%;font-size:1.55cqw;line-height:1.5;color:#5c5c5c}
-.b-btn{left:4%;top:51.6%;padding:1.2cqw 2.4cqw;background:#f7403a;color:#fff;border-radius:1cqw;font-size:1.6cqw;font-weight:700}
-.b-img{left:52.5%;top:18%;width:43.5%;height:46%;border-radius:1.4cqw;overflow:hidden;background:#262626}
-.b-img img,.b-card img{display:block;width:100%;height:100%;object-fit:cover}
-.b-card{top:70%;width:29%;height:25%;background:#fff;border-radius:1cqw;padding:1cqw;box-shadow:0 0 0 1px #ece6da;display:flex;flex-direction:column;gap:.4cqw;font-size:1.3cqw;color:#262626}
-.b-card img{flex:1;min-height:0;height:auto;border-radius:.7cqw}
+.b-img{left:0;top:9.2%;width:100%;height:51.6%;overflow:hidden;background:#262626}
+.b-img img{display:block;width:100%;height:100%;object-fit:cover}
+.b-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.18) 70%)}
+.b-h,.b-p,.b-botons{z-index:1}
+.b-h{left:5%;top:19%;width:46%;font-size:4.4cqw;font-weight:800;line-height:1.02;letter-spacing:-.03em;color:#fff}
+.b-p{left:5%;top:35.5%;width:38%;font-size:1.5cqw;line-height:1.5;color:rgba(255,255,255,.88)}
+.b-botons{left:5%;top:45.6%;display:flex;gap:1.5cqw}
+.b-btn{padding:1.1cqw 2.2cqw;background:#f7403a;color:#fff;border-radius:1cqw;font-size:1.5cqw;font-weight:700;white-space:nowrap}
+.b-btn-verd{background:#8cc63f;color:#1d2a0a}
+.b-card{top:66%;width:28.25%;height:28%;background:#fff;border-radius:1cqw;padding:1cqw;box-shadow:0 0 0 1px #ece6da;display:flex;flex-direction:column;gap:.4cqw;font-size:1.3cqw;color:#262626}
+.b-card img{display:block;flex:1;min-height:0;width:100%;object-fit:cover;border-radius:.7cqw}
 .b-card small{color:#c4231d;font-weight:700}
-.b-card.c1{left:4%}.b-card.c2{left:35.5%}.b-card.c3{left:67%}
+.b-card.c1{left:5%}.b-card.c2{left:35.875%}.b-card.c3{left:66.75%}
 .bd-ds .ping{outline:2px solid var(--blue);outline-offset:4px;border-radius:6px}
 .bd-code{position:absolute;z-index:2;left:-7%;top:10%;width:56%;margin:0;background:#0d0d0f;color:#d1d1d6;border-radius:14px;padding:22px 24px;white-space:normal;font:12.5px/1.8 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px -30px rgba(0,0,0,.6);opacity:0;will-change:transform}
 .bd-code code > span{display:block;white-space:pre;min-height:1.8em;overflow:hidden}
@@ -109,7 +118,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .que-fem-capcalera{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 64px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,72px)}
 .que-fem-capcalera .sub{max-width:34ch;color:var(--ink-2)}
 .que-fem-graella{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
-.servei{display:flex;flex-direction:column;border-radius:var(--r-tile);background:var(--paper);overflow:hidden;transition:transform .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.servei{display:flex;flex-direction:column;border-radius:var(--r-tile);background:var(--paper);overflow:hidden;transition:transform .6s var(--ease-out),box-shadow .6s var(--ease-out),scale .16s var(--ease-out)}
 .servei:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.25)}
 .servei-exemple{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(160deg,#f1f2f6,#e2e5ec)}
 .servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
@@ -141,7 +150,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 
 /* ---------- PORTADA: preus ---------- */
 .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.price{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px var(--line-2);transition:box-shadow .5s var(--ease-out),transform .5s var(--ease-out)}
+.price{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px var(--line-2);transition:box-shadow .5s var(--ease-out),transform .5s var(--ease-out),scale .16s var(--ease-out)}
 .price:hover{box-shadow:0 0 0 1px var(--line-2),0 30px 60px -34px rgba(0,0,0,.3);transform:translateY(-4px)}
 .price span{font-size:17px;font-weight:600}
 .price b{font-size:clamp(52px,6vw,88px);font-weight:700;letter-spacing:-.055em;line-height:1;margin-top:28px}
@@ -366,9 +375,10 @@ body[data-page="mostres"]{background:var(--black)}
 .nav-dd-m a small{font-size:13px;font-weight:400;color:var(--ink-2)}
 .nav-dd-m a:hover,.nav-dd-m a.on{background:var(--paper);color:var(--ink)}
 @media (max-width:1240px){
-  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 60px -20px rgba(0,0,0,.3);font-size:19px;font-weight:600;color:var(--ink);max-height:calc(100vh - 90px);overflow:auto}
+  /* menú del mòbil: en lloc d'aparèixer de cop, creix des del botó del menú (dalt a la dreta) i es tanca més de pressa */
+  .nav-links{display:flex;opacity:0;visibility:hidden;transform:scale(.97);transform-origin:calc(100% - 28px) -12px;transition:opacity .15s var(--ease-out),transform .15s var(--ease-out),visibility 0s .15s;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 60px -20px rgba(0,0,0,.3);font-size:19px;font-weight:600;color:var(--ink);max-height:calc(100vh - 90px);overflow:auto}
   .nav.on-dark .nav-links{background:#1c1c1e;color:var(--on-night)}
-  .nav.open .nav-links{display:flex}
+  .nav.open .nav-links{opacity:1;visibility:visible;transform:none;transition:opacity .2s var(--ease-out),transform .2s var(--ease-out),visibility 0s}
   .nav-links a{padding:12px 14px}
   .nav-ind{display:none}
   .nav-burger{display:flex}
@@ -438,3 +448,5 @@ body[data-page="mostres"]{background:var(--black)}
 .rescat-accio{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
 .rescat-accio p{color:var(--ink-2);font-size:15px}
 @media (max-width:860px){.rescat-passos{grid-template-columns:1fr}}
+
+@media (max-width:1240px) and (prefers-reduced-motion:reduce){.nav-links,.nav.open .nav-links{transform:none}}

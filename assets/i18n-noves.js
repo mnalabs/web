@@ -14,13 +14,13 @@ Object.assign(window.I18N.es, {
 "Brot · Hort de casa":"Brot · Huerto de casa","Cal regar els tomàquets: humitat al 18%":"Hay que regar los tomates: humedad al 18%",
 "Tot el que cal sota un mateix sostre.":"Todo lo necesario bajo un mismo techo.","Un sol equip per al disseny, l'electrònica i el programari. No has d'anar a tres llocs diferents ni fer de traductor entre ells.":"Un solo equipo para el diseño, la electrónica y el software. No tienes que ir a tres sitios distintos ni hacer de traductor entre ellos.",
 "Disseny de producte":"Diseño de producto","Esbossos, model 3D i plànols de cada peça, pensats perquè després es puguin fabricar.":"Bocetos, modelo 3D y planos de cada pieza, pensados para que luego se puedan fabricar.",
-"Impressió 3D i mecanitzat":"Impresión 3D y mecanizado","Peces en plàstic per provar ràpid i en metall quan cal resistència o precisió.":"Piezas en plástico para probar rápido y en metal cuando hace falta resistencia o precisión.",
+"Impressió 3D i mecanitzat":"Impresión 3D y mecanizado","Peces en plàstic per provar de pressa i en metall quan cal resistència o precisió.":"Piezas en plástico para probar rápido y en metal cuando hace falta resistencia o precisión.",
 "Electrònica":"Electrónica","Sensors, motors, bateries i plaques a mida, del primer muntatge a la placa definitiva.":"Sensores, motores, baterías y placas a medida, del primer montaje a la placa definitiva.",
 "Programari i app":"Software y app","El codi que fa funcionar l'aparell i l'app per controlar-lo o veure'n les dades.":"El código que hace funcionar el aparato y la app para controlarlo o ver sus datos.",
 "Proves reals":"Pruebas reales","El provem on s'ha de fer servir, apuntem què falla i en fem la versió següent.":"Lo probamos donde se tiene que usar, apuntamos qué falla y hacemos la versión siguiente.",
 "Camí a fàbrica":"Camino a fábrica","Materials, costos per unitat i proveïdors, perquè la primera sèrie no sigui una sorpresa.":"Materiales, costes por unidad y proveedores, para que la primera serie no sea una sorpresa.",
 "Amb Free Developing":"Con Free Developing","Si l'invent ens convenç, no cal que paguis ara.":"Si el invento nos convence, no hace falta que pagues ahora.",
-"Prototipem el producte a canvi d'una participació a l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"Prototipamos el producto a cambio de una participación en la empresa o de un pago cuando empiece a vender. Estudiamos cada invento y lo dejamos todo por escrito antes de empezar.",
+"Prototipem el producte a canvi d'una participació en l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"Prototipamos el producto a cambio de una participación en la empresa o de un pago cuando empiece a vender. Estudiamos cada invento y lo dejamos todo por escrito antes de empezar.",
 "Presenta l'invent":"Presenta el invento","Com funciona Free Developing":"Cómo funciona Free Developing","Prototipatge · MNA LABS":"Prototipado · MNA LABS",
 "Webs que no s'obliden.":"Webs que no se olvidan.",
 "Experiments sense client darrere: marques inventades on provem fins on pot arribar una web. Objectes en 3D que es mouen amb l'scroll, s'obren peça a peça o se serveixen sols. Obre-les en un ordinador per veure-les com toca.":"Experimentos sin cliente detrás: marcas inventadas donde probamos hasta dónde puede llegar una web. Objetos en 3D que se mueven con el scroll, se abren pieza a pieza o se sirven solos. Ábrelas en un ordenador para verlas como toca.",
@@ -36,7 +36,7 @@ Object.assign(window.I18N.es, {
 "Ens dius què necessites":"Nos dices qué necesitas","Un programa, un ordinador, el domini de l'empresa o material per al taller.":"Un programa, un ordenador, el dominio de la empresa o material para el taller.",
 "Et passem l'enllaç":"Te pasamos el enlace","De la botiga on surt més bé de preu, amb el descompte que hi tens.":"De la tienda donde sale mejor de precio, con el descuento que tienes.",
 "Compres com sempre":"Compras como siempre","Pagues directament a la botiga, amb les seves garanties i la teva factura.":"Pagas directamente a la tienda, con sus garantías y tu factura.",
-"Rebs el descompte":"Recibes el descuento","Quan la botiga ens confirma la venda, et retornem la part de comissió acordada.":"Cuando la tienda nos confirma la venta, te devolvemos la parte de comisión acordada.",
+"Reps el descompte":"Recibes el descuento","Quan la botiga ens confirma la venda, et retornem la part de comissió acordada.":"Cuando la tienda nos confirma la venta, te devolvemos la parte de comisión acordada.",
 "On pots estalviar.":"Dónde puedes ahorrar.","Les categories on treballem. Les botigues concretes i els descomptes de cada moment te'ls passem quan ens escrius.":"Las categorías en las que trabajamos. Las tiendas concretas y los descuentos de cada momento te los pasamos cuando nos escribes.",
 "Programari i subscripcions":"Software y suscripciones","Eines de disseny, ofimàtica, comptabilitat i gestió.":"Herramientas de diseño, ofimática, contabilidad y gestión.",
 "Allotjament, dominis i correu":"Alojamiento, dominios y correo","El domini de l'empresa, servidors i correu professional.":"El dominio de la empresa, servidores y correo profesional.",
@@ -63,13 +63,13 @@ Object.assign(window.I18N.en, {
 "Brot · Hort de casa":"Brot · Home garden","Cal regar els tomàquets: humitat al 18%":"Time to water the tomatoes: moisture at 18%",
 "Tot el que cal sota un mateix sostre.":"Everything under one roof.","Un sol equip per al disseny, l'electrònica i el programari. No has d'anar a tres llocs diferents ni fer de traductor entre ells.":"One team for design, electronics and software. No running between three suppliers and translating between them.",
 "Disseny de producte":"Product design","Esbossos, model 3D i plànols de cada peça, pensats perquè després es puguin fabricar.":"Sketches, 3D models and drawings for every part, designed so they can be manufactured.",
-"Impressió 3D i mecanitzat":"3D printing and machining","Peces en plàstic per provar ràpid i en metall quan cal resistència o precisió.":"Plastic parts to test fast, and metal when strength or precision matters.",
+"Impressió 3D i mecanitzat":"3D printing and machining","Peces en plàstic per provar de pressa i en metall quan cal resistència o precisió.":"Plastic parts to test fast, and metal when strength or precision matters.",
 "Electrònica":"Electronics","Sensors, motors, bateries i plaques a mida, del primer muntatge a la placa definitiva.":"Sensors, motors, batteries and custom boards, from the first build to the final board.",
 "Programari i app":"Software and app","El codi que fa funcionar l'aparell i l'app per controlar-lo o veure'n les dades.":"The code that runs the device and the app to control it or see its data.",
 "Proves reals":"Real-world tests","El provem on s'ha de fer servir, apuntem què falla i en fem la versió següent.":"We test it where it will be used, note what fails and build the next version.",
 "Camí a fàbrica":"Road to the factory","Materials, costos per unitat i proveïdors, perquè la primera sèrie no sigui una sorpresa.":"Materials, unit costs and suppliers, so the first batch holds no surprises.",
 "Amb Free Developing":"With Free Developing","Si l'invent ens convenç, no cal que paguis ara.":"If the invention convinces us, you don't pay now.",
-"Prototipem el producte a canvi d'una participació a l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"We prototype the product in exchange for a stake in the company or a payment once it starts selling. We review every invention and put everything in writing before we start.",
+"Prototipem el producte a canvi d'una participació en l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"We prototype the product in exchange for a stake in the company or a payment once it starts selling. We review every invention and put everything in writing before we start.",
 "Presenta l'invent":"Pitch the invention","Com funciona Free Developing":"How Free Developing works","Prototipatge · MNA LABS":"Prototyping · MNA LABS",
 "Webs que no s'obliden.":"Websites people remember.",
 "Experiments sense client darrere: marques inventades on provem fins on pot arribar una web. Objectes en 3D que es mouen amb l'scroll, s'obren peça a peça o se serveixen sols. Obre-les en un ordinador per veure-les com toca.":"Experiments with no client behind them: invented brands where we push how far a website can go. 3D objects that move as you scroll, open up piece by piece or pour themselves. Open them on a computer to see them properly.",
@@ -85,7 +85,7 @@ Object.assign(window.I18N.en, {
 "Ens dius què necessites":"Tell us what you need","Un programa, un ordinador, el domini de l'empresa o material per al taller.":"A piece of software, a computer, your company domain or workshop supplies.",
 "Et passem l'enllaç":"We send you the link","De la botiga on surt més bé de preu, amb el descompte que hi tens.":"From the shop with the best price, with your discount.",
 "Compres com sempre":"Buy as usual","Pagues directament a la botiga, amb les seves garanties i la teva factura.":"You pay the shop directly, with its warranty and your invoice.",
-"Rebs el descompte":"Get your discount","Quan la botiga ens confirma la venda, et retornem la part de comissió acordada.":"Once the shop confirms the sale, we pay you back the agreed share of the commission.",
+"Reps el descompte":"Get your discount","Quan la botiga ens confirma la venda, et retornem la part de comissió acordada.":"Once the shop confirms the sale, we pay you back the agreed share of the commission.",
 "On pots estalviar.":"Where you can save.","Les categories on treballem. Les botigues concretes i els descomptes de cada moment te'ls passem quan ens escrius.":"The categories we cover. We'll send you the specific shops and current discounts when you get in touch.",
 "Programari i subscripcions":"Software and subscriptions","Eines de disseny, ofimàtica, comptabilitat i gestió.":"Design, office, accounting and management tools.",
 "Allotjament, dominis i correu":"Hosting, domains and email","El domini de l'empresa, servidors i correu professional.":"Your company domain, servers and business email.",
@@ -112,12 +112,12 @@ Object.assign(window.I18N.en, {
 "Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Six things, done well. If your project doesn't fit, let's talk anyway."
 });
 Object.assign(window.I18N.es, {
-"Indústria · vídeo i 3D amb l'scroll":"Industria · vídeo y 3D con el scroll","Un taller de mecanitzats on el nom es plena de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"Un taller de mecanizados donde el nombre se llena de vídeo y una pieza en 3D gira y se desmonta mientras bajas.",
+"Indústria · vídeo i 3D amb l'scroll":"Industria · vídeo y 3D con el scroll","Un taller de mecanitzats on el nom s'omple de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"Un taller de mecanizados donde el nombre se llena de vídeo y una pieza en 3D gira y se desmonta mientras bajas.",
 "Web de la marca inventada Trevok, mecanitzats de precisió, amb el nom omplert de vídeo":"Web de la marca inventada Trevok, mecanizados de precisión, con el nombre relleno de vídeo",
 "Més idees i novetats a Instagram:":"Más ideas y novedades en Instagram:","Instagram @mna_labs":"Instagram @mna_labs","O parla'ns per Instagram: @mna_labs":"O háblanos por Instagram: @mna_labs"
 });
 Object.assign(window.I18N.en, {
-"Indústria · vídeo i 3D amb l'scroll":"Industry · video and 3D on scroll","Un taller de mecanitzats on el nom es plena de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"A machining workshop where the name fills with video and a 3D part spins and comes apart as you scroll.",
+"Indústria · vídeo i 3D amb l'scroll":"Industry · video and 3D on scroll","Un taller de mecanitzats on el nom s'omple de vídeo i una peça en 3D gira i es desmunta mentre baixes.":"A machining workshop where the name fills with video and a 3D part spins and comes apart as you scroll.",
 "Web de la marca inventada Trevok, mecanitzats de precisió, amb el nom omplert de vídeo":"Website of the invented brand Trevok, precision machining, with its name filled with video",
 "Més idees i novetats a Instagram:":"More ideas and news on Instagram:","Instagram @mna_labs":"Instagram @mna_labs","O parla'ns per Instagram: @mna_labs":"Or message us on Instagram: @mna_labs"
 });
@@ -134,7 +134,7 @@ Object.assign(window.I18N.es, {
 "La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"La página principal, el contacto y, si tienes, la tienda y los pagos vuelven a estar en línea.",
 "Després, la deixem segura.":"Después, la dejamos segura.",
 "Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Actualizaciones, copias de seguridad automáticas y un aviso que nos llega a nosotros si alguna vez vuelve a fallar.",
-"La meva web no funciona":"Mi web no funciona","Web caiguda":"Web caída","Escriu-nos i et responem el mateix dia.":"Escríbenos y te respondemos el mismo día.",
+"La meva web no funciona":"Mi web no funciona","Web caiguda":"Web caída","Comerç electrònic":"Comercio electrónico","Empreses emergents":"Startups","Escriu-nos i et responem el mateix dia.":"Escríbenos y te respondemos el mismo día.",
 });
 Object.assign(window.I18N.en, {
 "pagament per fases":"paid in stages","des de, pagament per fases":"from, paid in stages",
@@ -146,5 +146,5 @@ Object.assign(window.I18N.en, {
 "La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"Your home page, contact details and, if you have them, your shop and payments are back online.",
 "Després, la deixem segura.":"Then, we make it secure.",
 "Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Updates, automatic backups and an alert that reaches us if it ever fails again.",
-"La meva web no funciona":"My website isn't working","Web caiguda":"Website down","Escriu-nos i et responem el mateix dia.":"Write to us and we'll reply the same day.",
+"La meva web no funciona":"My website isn't working","Web caiguda":"Website down","Comerç electrònic":"E-commerce","Empreses emergents":"Start-ups","Escriu-nos i et responem el mateix dia.":"Write to us and we'll reply the same day.",
 });

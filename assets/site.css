@@ -44,7 +44,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.028em;line-height:1.07}
 .center{text-align:center}
 
 .links{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:10px;background:var(--ink);color:#fff;font-size:16px;font-weight:500;border:0;cursor:pointer;font-family:inherit;letter-spacing:-.022em;transition:background .2s,transform .3s var(--ease-out)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:10px;background:var(--ink);color:#fff;font-size:16px;font-weight:500;border:0;cursor:pointer;font-family:inherit;letter-spacing:-.022em;transition:background .2s,transform .3s var(--ease-out),scale .16s var(--ease-out)}
 .btn:hover{background:#000}
 .hero .btn{background:#fff;color:#000}
 .hero .btn:hover{background:#e8e8ed}
@@ -71,7 +71,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.028em;line-height:1.07}
 .nav.on-dark .nav-links{color:rgba(245,245,247,.72)}
 .nav.on-dark .nav-links a:hover,.nav.on-dark .nav-links a.on{color:#fff}
 .nav.on-dark .nav-ind{background:rgba(255,255,255,.12)}
-.nav-cta{font-size:14px;font-weight:600;background:var(--blue);color:#fff;padding:9px 16px;border-radius:11px;white-space:nowrap;transition:background .3s,transform .3s var(--ease-out)}
+.nav-cta{font-size:14px;font-weight:600;background:var(--blue);color:#fff;padding:9px 16px;border-radius:11px;white-space:nowrap;transition:background .3s,transform .3s var(--ease-out),scale .16s var(--ease-out)}
 .nav-cta:hover{background:var(--blue-hover);transform:translateY(-1px)}
 .nav-prog{position:absolute;left:16px;right:16px;bottom:0;height:2px;border-radius:2px;background:var(--blue);transform-origin:0 50%;transform:scaleX(0)}
 .nav.on-dark .nav-prog{background:var(--link-night)}
@@ -601,4 +601,13 @@ footer{background:var(--black);color:var(--on-night-2);font-size:13px;line-heigh
   .rv{opacity:1;transform:none}
   .line > span,.fade-up{transform:none;opacity:1}
   html{scroll-behavior:auto}
+}
+
+/* ---------- RESPOSTA EN PRÉMER ----------
+   El botó o la targeta s'enfonsa una mica mentre el prems, perquè es noti que la web t'ha fet cas.
+   Fem servir la propietat «scale» i no «transform», perquè els botons magnètics ja mouen el transform des del JavaScript. */
+.btn:active,.nav-cta:active{scale:.97}
+.servei:active,.price:active{scale:.985}
+@media (prefers-reduced-motion:reduce){
+  .btn:active,.nav-cta:active,.servei:active,.price:active{scale:none;opacity:.85}
 }

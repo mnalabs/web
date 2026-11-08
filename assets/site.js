@@ -179,7 +179,7 @@
   const build = $('#build');
   if (build){
     const stage = $('.bd-stage', build), caps = $$('.bd-cap', build), rail = $$('.bd-rail i', build);
-    const wfPaths = $$('.bd-wf [data-o]', build), dsBlocks = $$('.bd-ds [data-r]', build), wf = $('.bd-wf', build);
+    const wfPaths = $$('.bd-wf [data-o]', build), dsBlocks = $$('.bd-ds [data-r]', build);
     const code = $('.bd-code', build), codeLines = $$('.bd-code code > span', build), win = $('.bd-win', build), phone = $('.bd-phone', build), toast = $('.bd-toast', build);
     const pings = $$('[data-ping]', build);
     wfPaths.forEach(p => { p.setAttribute('pathLength', 1); p.style.strokeDasharray = 1; });
@@ -209,7 +209,8 @@
       rail.forEach((r, i) => r.style.setProperty('--f', clamp(p * 4 - i).toFixed(3)));
       // esbós
       wfPaths.forEach(el => { el.style.strokeDashoffset = 1 - easeOut(clamp((A - +el.dataset.o) / .45)); });
-      wf.style.opacity = 1 - B;
+      // cada traç de l'esbós s'esvaeix de pressa just quan comença a aparèixer la seva peça del disseny
+      wfPaths.forEach(el => { el.style.opacity = 1 - clamp((B - +el.dataset.r) / .15); });
       // disseny
       dsBlocks.forEach(el => { const k = easeOut(clamp((B - +el.dataset.r) / .4)); el.style.opacity = k; el.style.transform = `translateY(${(1 - k) * 16}px)`; });
       // codi
@@ -672,12 +673,22 @@
     const qs = new URLSearchParams(location.search), tipus = qs.get('tipus'), paquet = qs.get('paquet');
     if (tipus && [...form.tipus.options].some(o => o.value === tipus)) form.tipus.value = tipus;
     if (paquet && !form.missatge.value) form.missatge.value = tr("M'interessa el paquet:") + ' ' + paquet + '. ';
+    // l'avís de sota el botó entra suaument; si és un error, fa una petita sacsejada perquè no passi desapercebut
+    const avis = $('#note');
+    const mostraAvis = (text, esError) => {
+      avis.textContent = text;
+      if (reduce){ avis.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' }); return; }
+      const entrada = esError
+        ? [{ opacity: 0, transform: 'none' }, { opacity: 1, transform: 'translateX(-3px)', offset: .3 }, { transform: 'translateX(3px)', offset: .55 }, { transform: 'translateX(-2px)', offset: .8 }, { opacity: 1, transform: 'none' }]
+        : [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }];
+      avis.animate(entrada, { duration: esError ? 250 : 200, easing: 'cubic-bezier(.16,1,.3,1)' });
+    };
     form.addEventListener('submit', e => {
-      e.preventDefault(); const note = $('#note');
-      if (!form.nom.value.trim() || !/^\S+@\S+\.\S+$/.test(form.email.value) || !form.missatge.value.trim()){ note.textContent = tr('Omple el nom, un correu vàlid i el missatge.'); return; }
+      e.preventDefault();
+      if (!form.nom.value.trim() || !/^\S+@\S+\.\S+$/.test(form.email.value) || !form.missatge.value.trim()){ mostraAvis(tr('Omple el nom, un correu vàlid i el missatge.'), true); return; }
       const body = `${form.missatge.value}\n\n— ${form.nom.value} (${form.email.value})`;
       location.href = `mailto:labs.mna@gmail.com?subject=${encodeURIComponent('Projecte: ' + form.tipus.value)}&body=${encodeURIComponent(body)}`;
-      note.textContent = tr("S'està obrint el teu correu per enviar la proposta.");
+      mostraAvis(tr("S'està obrint el teu correu per enviar la proposta."), false);
     });
   }
 

@@ -85,7 +85,7 @@ window.PAQUETS_DEFAULT = {
        "en": "Contact form and WhatsApp"
       },
       {
-       "ca": "Textos legals, cookies i RGPD",
+       "ca": "Textos legals, galetes i RGPD",
        "es": "Textos legales, cookies y RGPD",
        "en": "Legal pages, cookies and GDPR"
       },
@@ -357,12 +357,12 @@ window.PAQUETS_DEFAULT = {
     {
      "id": "xarxes-0",
      "nom": {
-      "ca": "Disseny gràfic i fotos d'stock",
+      "ca": "Disseny gràfic i fotos d'estoc",
       "es": "Diseño gráfico y fotos de stock",
       "en": "Graphic design and stock photos"
      },
      "desc": {
-      "ca": "Publicacions amb disseny gràfic professional i fotos d'stock d'alta qualitat.",
+      "ca": "Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.",
       "es": "Publicaciones con diseño gráfico profesional y fotos de stock de alta calidad.",
       "en": "Posts with professional graphic design and high-quality stock photos."
      },
@@ -395,7 +395,7 @@ window.PAQUETS_DEFAULT = {
        "en": "Custom graphic design for every post"
       },
       {
-       "ca": "Fotos d'stock d'alta qualitat amb llicència",
+       "ca": "Fotos d'estoc d'alta qualitat amb llicència",
        "es": "Fotos de stock de alta calidad con licencia",
        "en": "Licensed high-quality stock photos"
       },
@@ -755,7 +755,7 @@ window.PAQUETS_DEFAULT = {
        },
        "preu": 70,
        "linia": {
-        "ca": "Paquet Disseny gràfic i fotos d'stock",
+        "ca": "Paquet Disseny gràfic i fotos d'estoc",
         "es": "Paquete Diseño gráfico y fotos de stock",
         "en": "Graphic design and stock photos package"
        }
@@ -875,7 +875,7 @@ window.PAQUETS_DEFAULT = {
        "en": "Strategy and posting calendar"
       },
       {
-       "ca": "Disseny gràfic i fotos d'stock",
+       "ca": "Disseny gràfic i fotos d'estoc",
        "es": "Diseño gráfico y fotos de stock",
        "en": "Graphic design and stock photos"
       },
@@ -1066,7 +1066,7 @@ window.PAQUETS_DEFAULT = {
       "en": "Got a different idea?"
      },
      "desc": {
-      "ca": "Som flexibles. Si tens una manera diferent de treballar plegats, explica-nos-la i en parlem.",
+      "ca": "Som flexibles. Si tens una manera diferent de treballar plegats, explica'ns-la i en parlem.",
       "es": "Somos flexibles. Si tienes otra forma de trabajar juntos, cuéntanosla y lo hablamos.",
       "en": "We're flexible. If you have another way we could work together, tell us and let's talk."
      },
