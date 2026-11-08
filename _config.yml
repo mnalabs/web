@@ -1,0 +1,7 @@
+# GitHub Pages fa servir Jekyll per publicar la web.
+# Aquests fitxers són només per a l'equip: es queden al repositori però NO es publiquen a mnalabs.eu.
+exclude:
+  - CLAUDE.md
+  - CONFIGURAR-PANELL.md
+  - src/
+  - _config.yml

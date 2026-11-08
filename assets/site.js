@@ -657,6 +657,16 @@
     }
   }
 
+  /* =============== CORREU: l'adreça es munta en carregar la pàgina =============== */
+  // Al codi només hi ha les dues meitats per separat, perquè els robots que recullen adreces no la trobin.
+  // Enllaç: <a data-usuari="…" data-domini="…">; si té un .correu-text, l'adreça s'escriu allà.
+  const correuEquip = ['labs.mna', 'gmail.com'].join('@');
+  $$('[data-usuari][data-domini]').forEach(enllac => {
+    const correu = enllac.dataset.usuari + '@' + enllac.dataset.domini;
+    enllac.href = 'mailto:' + correu;
+    ($('.correu-text', enllac) || enllac).textContent = correu;
+  });
+
   /* =============== FORMULARI DE CONTACTE =============== */
   const form = $('#form');
   if (form){
@@ -678,7 +688,7 @@
       e.preventDefault();
       if (!form.nom.value.trim() || !/^\S+@\S+\.\S+$/.test(form.email.value) || !form.missatge.value.trim()){ mostraAvis(tr('Omple el nom, un correu vàlid i el missatge.'), true); return; }
       const body = `${form.missatge.value}\n\n— ${form.nom.value} (${form.email.value})`;
-      location.href = `mailto:labs.mna@gmail.com?subject=${encodeURIComponent('Projecte: ' + form.tipus.value)}&body=${encodeURIComponent(body)}`;
+      location.href = `mailto:${correuEquip}?subject=${encodeURIComponent('Projecte: ' + form.tipus.value)}&body=${encodeURIComponent(body)}`;
       mostraAvis(tr("S'està obrint el teu correu per enviar la proposta."), false);
     });
   }

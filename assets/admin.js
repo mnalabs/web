@@ -202,7 +202,6 @@
   (async () => {
     if (testMode) return enter('');
     if (!configured) return show('vSetup');
-    $('#lEmail').value = CFG.adminEmail || '';
     const { data } = await sb.auth.getSession();
     if (data.session) enter(data.session.user.email); else show('vLogin');
   })();

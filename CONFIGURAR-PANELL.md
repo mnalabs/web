@@ -54,9 +54,10 @@ Enganxa-les a `assets/config.js`:
 window.MNA_CONFIG = {
   supabaseUrl: 'https://xxxxxxxx.supabase.co',
   supabaseAnonKey: 'eyJ...',
-  adminEmail: 'labs.mna@gmail.com',
 };
 ```
+
+No hi poseu el correu del compte d'administració: el fitxer és públic i seria regalar la meitat de l'accés. El navegador ja el recorda quan hi entreu.
 
 Torna a publicar la web. Ja podeu entrar a `https://lligacat.github.io/mna-labs/admin.html` amb el correu i la contrasenya.
 
