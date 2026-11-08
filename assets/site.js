@@ -442,7 +442,7 @@
         edges.push({ path, L });
         for (let k = 0; k < 2; k++){
           const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', 3.6);
-          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#ff7a80');
+          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#ff4a50');
           if (!back) c.setAttribute('filter', 'url(#glow)');
           gP.append(c); packets.push({ c, path, L, back, sp: .28 + Math.random()*.22, ph: Math.random() });
         }

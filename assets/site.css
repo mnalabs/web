@@ -14,10 +14,10 @@
   --on-night-2:#a1a1a6;
   --accent:#d12730;
   --accent-hover:#b81f28;
-  --accent-soft:rgba(209,39,48,.11);
+  --accent-soft:rgba(209,39,48,.07);
   --link:#c4161c;
-  --link-night:#ff7a80;
-  --accent-night:#f2555a;  /* accent sobre fons fosc per al logotip (4,2:1 sobre #1c1c1e) */
+  --link-night:#ff4a50;
+  --accent-night:#ee3b41;  /* accent sobre fons fosc per al logotip (4,2:1 sobre #1c1c1e) */
   --green:#30d158;
   --orange:#ff9f0a;
   --r-tile:16px;

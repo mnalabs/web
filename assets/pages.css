@@ -103,7 +103,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .bd-code{position:absolute;z-index:2;left:-7%;top:10%;width:56%;margin:0;background:#0d0d0f;color:#d1d1d6;border-radius:14px;padding:22px 24px;white-space:normal;font:12.5px/1.8 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px -30px rgba(0,0,0,.6);opacity:0;will-change:transform}
 .bd-code code > span{display:block;white-space:pre;min-height:1.8em;overflow:hidden}
 .bd-code b{font-weight:400}
-.bd-code .k{color:#ff7a80}.bd-code .s{color:#f2d58a}.bd-code .f{color:#7fd8c4}
+.bd-code .k{color:#ff4a50}.bd-code .s{color:#f2d58a}.bd-code .f{color:#7fd8c4}
 .bd-code .typing::after{content:"";display:inline-block;width:7px;height:1.1em;vertical-align:-2px;background:#f5f5f7;margin-left:1px}
 /* iPhone de la portada: el mateix mòbil modern que a «Què fem» (vegeu .exemple-mobil), amb un tros del web que baixa amb el scroll */
 .bd-phone{position:absolute;z-index:3;right:0;bottom:-8%;width:24%;opacity:0;will-change:transform}
@@ -234,7 +234,7 @@ a.servei-text{color:inherit}
 @media (max-width:860px){.sv-grid,#botigues .sv-grid{grid-template-columns:1fr}#botigues .sv-copy{order:0}}
 
 /* ---------- MAQUETES (marques inventades) ---------- */
-.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#d12730;--c2:#fde8e9;--c3:#f6b3b6}
+.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#d12730;--c2:#f5f5f7;--c3:#d2d2d7}
 .mock:is([data-mock="web"],[data-mock="shop"],[data-mock="app"]),.mk-win{border-radius:2cqw;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 4cqw 8cqw -4cqw rgba(0,0,0,.35)}
 .mk-bar{height:5.4cqw;display:flex;align-items:center;gap:1cqw;padding:0 2cqw;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
 .mk-bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:#d2d2d7}
@@ -484,7 +484,7 @@ body[data-page="mostres"]{background:var(--black)}
 }
 
 .pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}
-.pk-promo{font-size:13px;font-weight:600;color:var(--accent);background:rgba(209,39,48,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
+.pk-promo{font-size:13px;font-weight:600;color:var(--accent);background:rgba(209,39,48,.07);padding:7px 12px;border-radius:10px;margin-top:-6px}
 .pk-ex-img{background:#eafaf6;display:flex;align-items:flex-start}
 .pk-ex-img > img{height:auto;width:100%;object-fit:contain}
 .pk-ex-img::after{display:none}
