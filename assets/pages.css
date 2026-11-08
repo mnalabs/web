@@ -124,7 +124,16 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
 .servei-exemple .mock[data-mock="duo"]{left:7%;right:7%;top:9%}
 .servei-exemple .mock[data-mock="ig"]{inset:0;border-radius:0}
-.servei:hover .servei-exemple .mock:not([data-mock="ig"]){transform:translateY(-2%)}
+.servei:hover .servei-exemple .mock:not([data-mock="ig"]),.servei:hover .exemple-mobil,.servei:hover .exemple-finestra{transform:translateY(-2%)}
+/* exemples reals: una web vista en un mòbil i un panell dins d'una finestra */
+.exemple-mobil{position:absolute;left:50%;top:9%;width:31%;margin-left:-15.5%;aspect-ratio:390/844;padding:1.6%;border-radius:18px;background:#111;box-shadow:0 20px 40px -18px rgba(0,0,0,.45);transition:transform 1.2s var(--ease-out)}
+.exemple-mobil img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:13px}
+.exemple-finestra{position:absolute;left:8%;right:8%;top:10%;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 36px -18px rgba(0,0,0,.35);transition:transform 1.2s var(--ease-out)}
+.exemple-finestra-barra{height:18px;display:flex;align-items:center;gap:5px;padding:0 8px;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
+.exemple-finestra-barra i{width:7px;height:7px;border-radius:50%;background:#ff5f57}
+.exemple-finestra-barra i:nth-child(2){background:#febc2e}
+.exemple-finestra-barra i:nth-child(3){background:#28c840}
+.exemple-finestra img{display:block;width:100%;height:auto}
 .servei-text{display:flex;flex-direction:column;gap:10px;flex:1;padding:24px 26px 26px}
 .servei-text h3{font-size:clamp(24px,2.2vw,30px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
 .servei-text p{color:var(--ink-2);font-size:16px;line-height:1.45}
