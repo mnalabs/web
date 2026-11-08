@@ -378,14 +378,15 @@ body[data-page="mostres"]{background:var(--black)}
 .nav-dd.open .nav-dd-b::after{transform:translateY(1px) rotate(-135deg)}
 .nav-dd-b:hover,.nav-dd-b.on{color:var(--ink)}
 .nav.on-dark .nav-dd-b:hover,.nav.on-dark .nav-dd-b.on{color:#fff}
-.nav-dd-m{position:absolute;top:calc(100% + 10px);left:50%;min-width:250px;transform:translate(-50%,-6px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;background:#fff;color:var(--ink);border-radius:16px;padding:8px;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 50px -20px rgba(0,0,0,.35);display:grid}
-.nav-dd.open .nav-dd-m{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* desplegable «Programes»: surt del botó (escala 0,95 → 1) en 200 ms i hi torna en 160 ms */
+.nav-dd-m{position:absolute;top:calc(100% + 10px);left:50%;min-width:250px;transform:translate(-50%,0) scale(.95);transform-origin:50% -10px;opacity:0;visibility:hidden;transition:opacity .16s var(--ease-out),transform .16s var(--ease-out),visibility 0s .16s;background:#fff;color:var(--ink);border-radius:16px;padding:8px;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 50px -20px rgba(0,0,0,.35);display:grid}
+.nav-dd.open .nav-dd-m{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s var(--ease-out),transform .2s var(--ease-out),visibility 0s}
 .nav-dd-m a{display:grid;gap:2px;padding:10px 12px;border-radius:10px;font-size:15px;font-weight:600}
 .nav-dd-m a small{font-size:13px;font-weight:400;color:var(--ink-2)}
 .nav-dd-m a:hover,.nav-dd-m a.on{background:var(--paper);color:var(--ink)}
 @media (max-width:1240px){
-  /* menú del mòbil: en lloc d'aparèixer de cop, creix des del botó del menú (dalt a la dreta) i es tanca més de pressa */
-  .nav-links{display:flex;opacity:0;visibility:hidden;transform:scale(.97);transform-origin:calc(100% - 28px) -12px;transition:opacity .15s var(--ease-out),transform .15s var(--ease-out),visibility 0s .15s;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 60px -20px rgba(0,0,0,.3);font-size:19px;font-weight:600;color:var(--ink);max-height:calc(100vh - 90px);overflow:auto}
+  /* menú del mòbil: surt del botó del menú (dalt a la dreta) en 200 ms i hi torna en 160 ms */
+  .nav-links{display:flex;opacity:0;visibility:hidden;transform:scale(.95);transform-origin:calc(100% - 28px) -12px;transition:opacity .16s var(--ease-out),transform .16s var(--ease-out),visibility 0s .16s;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 60px -20px rgba(0,0,0,.3);font-size:19px;font-weight:600;color:var(--ink);max-height:calc(100vh - 90px);overflow:auto}
   .nav.on-dark .nav-links{background:#1c1c1e;color:var(--on-night)}
   .nav.open .nav-links{opacity:1;visibility:visible;transform:none;transition:opacity .2s var(--ease-out),transform .2s var(--ease-out),visibility 0s}
   .nav-links a{padding:12px 14px}

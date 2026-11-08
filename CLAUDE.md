@@ -34,3 +34,28 @@ Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet 
 - Textos planers i concrets, sense eslògans buits.
 - Els exemples i les mostres són sempre de **marques inventades**, mai de clients reals.
 - Comprova-ho sempre a mòbil (390 px) i a ordinador (1440 px), i que no hi hagi errors a la consola.
+
+## Guia d'animacions
+
+Totes les animacions de la web segueixen aquestes regles. Corba d'entrada: `var(--ease-out)`. Anima només `transform`, `opacity` (i `clip-path` per a màscares). Amb `prefers-reduced-motion`, versió més suau (fos), no zero; els efectes de cursor, només amb `(hover:hover) and (pointer:fine)`.
+
+- **Entrades amb ease-out.** Res que entri amb ease-in.
+- **Desplegables: 150–200 ms.**
+- **Files de llistes: 30 ms de diferència** entre una i la següent.
+- **Botons premuts: escala 0,97.**
+- **Interruptors i tiradors que es mouen: s'estiren un 12 %** durant el recorregut.
+- **Els detalls s'assenten un darrere l'altre** (escalonat) quan l'element principal ja és al lloc.
+- **Arcs per als objectes que es desplacen**, no línies rectes.
+- **Un pols per confirmar un èxit.**
+- **Ease-in-out per als moviments** d'un lloc a un altre de la pantalla.
+- **Les finestretes emergents comencen a escala 0,95.**
+- **Entren des del botó que les obre i hi tornen en tancar-se** (`transform-origin` al botó).
+- **Sense rebot a la interfície de cada dia.** El rebot només per a moments excepcionals.
+- **No animar mentre es manté premut**: l'element segueix el dit o el ratolí directament.
+- **Les sortides són un 20 % més curtes que les entrades** (p. ex. 200 ms entrar, 160 ms sortir).
+- **L'estat antic i el nou se superposen** (fos creuat), sense un buit entre tots dos.
+- **Màscares per a les aparicions i els canvis de color** (`clip-path`), en lloc de fer aparèixer de cop.
+- **Icones que canvien: fos creuat amb una mica de desenfocament.**
+- **Elasticitat en passar dels límits**: en arrossegar més enllà del final, l'element cedeix amb resistència i torna.
+- **Mateix element, mateixa identitat**: quan una peça passa d'un lloc a un altre (per exemple, d'una llista a un detall), és el mateix element que es transforma, no un de nou.
+- **Botons**: en passar-hi el cursor, com a molt 2 px de desplaçament cap al cursor (molt subtil).

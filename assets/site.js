@@ -517,8 +517,25 @@
     onLang.push(() => { if (termDone){ termLang = null; termStatic(); } });
   }
 
+  /* =============== BOTONS: un desplaçament molt lleuger cap al cursor =============== */
+  // Com a molt 2 px en horitzontal i 1,5 px en vertical. Només amb ratolí (no al mòbil) i mai amb moviment reduït.
+  // Mentre el botó està premut no el movem («no animar mentre es manté premut»).
+  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const DESPLACAMENT_MAXIM_X = 2, DESPLACAMENT_MAXIM_Y = 1.5;
+    $$('.btn, .nav-cta').forEach(boto => {
+      boto.addEventListener('pointerenter', () => boto.classList.remove('tornant'));
+      boto.addEventListener('pointermove', e => {
+        if (e.buttons) return;
+        const caixa = boto.getBoundingClientRect();
+        const x = ((e.clientX - caixa.left) / caixa.width - .5) * 2, y = ((e.clientY - caixa.top) / caixa.height - .5) * 2;
+        boto.style.translate = `${(x * DESPLACAMENT_MAXIM_X).toFixed(2)}px ${(y * DESPLACAMENT_MAXIM_Y).toFixed(2)}px`;
+      });
+      // la tornada al lloc és un 20 % més curta que l'anada (vegeu .tornant al CSS)
+      boto.addEventListener('pointerleave', () => { boto.classList.add('tornant'); boto.style.translate = ''; });
+    });
+  }
+
   /* =============== INCLINACIÓ DE LES TARGETES .tilt =============== */
-  // (els botons no es mouen quan hi passes el cursor: només canvien de color)
   if (!reduce && hover){
     $$('.tilt').forEach(el => {
       el.addEventListener('pointerenter', () => { el.style.transition = 'transform .25s ease-out'; el.style.transitionDelay = '0s'; });
@@ -708,8 +725,9 @@
       if (reduce){ avis.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' }); return; }
       const entrada = esError
         ? [{ opacity: 0, transform: 'none' }, { opacity: 1, transform: 'translateX(-3px)', offset: .3 }, { transform: 'translateX(3px)', offset: .55 }, { transform: 'translateX(-2px)', offset: .8 }, { opacity: 1, transform: 'none' }]
-        : [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }];
-      avis.animate(entrada, { duration: esError ? 250 : 200, easing: 'cubic-bezier(.16,1,.3,1)' });
+        // èxit: entra i fa un pols suau per confirmar-ho
+        : [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none', offset: .55 }, { transform: 'scale(1.03)', offset: .78 }, { opacity: 1, transform: 'none' }];
+      avis.animate(entrada, { duration: esError ? 250 : 360, easing: 'cubic-bezier(.16,1,.3,1)' });
     };
     form.addEventListener('submit', e => {
       e.preventDefault();
