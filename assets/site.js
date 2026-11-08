@@ -479,25 +479,8 @@
     onLang.push(() => { if (termDone){ termLang = null; termStatic(); } });
   }
 
-  /* =============== BOTONS: un desplaçament molt lleuger cap al cursor =============== */
-  // Com a molt 2 px en horitzontal i 1,5 px en vertical. Només amb ratolí (no al mòbil) i mai amb moviment reduït.
-  // Mentre el botó està premut no el movem («no animar mentre es manté premut»).
-  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches){
-    const DESPLACAMENT_MAXIM_X = 2, DESPLACAMENT_MAXIM_Y = 1.5;
-    $$('.btn, .nav-cta').forEach(boto => {
-      boto.addEventListener('pointerenter', () => boto.classList.remove('tornant'));
-      boto.addEventListener('pointermove', e => {
-        if (e.buttons) return;
-        const caixa = boto.getBoundingClientRect();
-        const x = ((e.clientX - caixa.left) / caixa.width - .5) * 2, y = ((e.clientY - caixa.top) / caixa.height - .5) * 2;
-        boto.style.translate = `${(x * DESPLACAMENT_MAXIM_X).toFixed(2)}px ${(y * DESPLACAMENT_MAXIM_Y).toFixed(2)}px`;
-      });
-      // la tornada al lloc és un 20 % més curta que l'anada (vegeu .tornant al CSS)
-      boto.addEventListener('pointerleave', () => { boto.classList.add('tornant'); boto.style.translate = ''; });
-    });
-  }
-
   /* =============== INCLINACIÓ DE LES TARGETES .tilt =============== */
+  // (els botons no es mouen en passar-hi el cursor: només canvien de color; vegeu la guia d'animacions al CLAUDE.md)
   if (!reduce && hover){
     $$('.tilt').forEach(el => {
       el.addEventListener('pointerenter', () => { el.style.transition = 'transform .25s ease-out'; el.style.transitionDelay = '0s'; });

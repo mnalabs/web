@@ -58,4 +58,4 @@ Totes les animacions de la web segueixen aquestes regles. **Si una skill d'anima
 - **Icones que canvien: fos creuat amb una mica de desenfocament.**
 - **Elasticitat en passar dels límits**: en arrossegar més enllà del final, l'element cedeix amb resistència i torna.
 - **Mateix element, mateixa identitat**: quan una peça passa d'un lloc a un altre (per exemple, d'una llista a un detall), és el mateix element que es transforma, no un de nou.
-- **Botons**: en passar-hi el cursor, com a molt 2 px de desplaçament cap al cursor (molt subtil).
+- **Botons**: no es mouen en passar-hi el cursor; només canvien de color. En prémer, s'enfonsen (escala 0,97). Un desplaçament cap al cursor és decoració en un element que es fa servir sovint, i a les vores fa tremolar el botó.
