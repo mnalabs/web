@@ -37,7 +37,7 @@ Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet 
 
 ## Guia d'animacions
 
-Totes les animacions de la web segueixen aquestes regles. Corba d'entrada: `var(--ease-out)`. Anima només `transform`, `opacity` (i `clip-path` per a màscares). Amb `prefers-reduced-motion`, versió més suau (fos), no zero; els efectes de cursor, només amb `(hover:hover) and (pointer:fine)`.
+Totes les animacions de la web segueixen aquestes regles. **Si una skill d'animació (per exemple `animate`, `review-animations` o `improve-animations`) diu una altra cosa, mana aquesta guia.** En concret: les sortides són un 20 % més curtes que les entrades encara que una recepta les faci iguals, i no s'anima res mentre es manté premut (tampoc el «mantén premut per confirmar» que proposa la skill). Corba d'entrada: `var(--ease-out)`. Anima només `transform`, `opacity` (i `clip-path` per a màscares). Amb `prefers-reduced-motion`, versió més suau (fos), no zero; els efectes de cursor, només amb `(hover:hover) and (pointer:fine)`.
 
 - **Entrades amb ease-out.** Res que entri amb ease-in.
 - **Desplegables: 150–200 ms.**
