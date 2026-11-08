@@ -30,6 +30,8 @@ const ambVersions = html => html
 for (const file of fs.readdirSync(path.join(here, 'pages')).filter(f => f.endsWith('.html'))) {
   const raw = fs.readFileSync(path.join(here, 'pages', file), 'utf8');
   const meta = JSON.parse(raw.match(/<!--meta([\s\S]*?)-->/)[1]);
+  // Si la pàgina comença amb un apartat fosc, el menú ja surt fosc des del primer instant (sense esperar el JS)
+  const menuInicial = (menu, cos) => /^\s*(<!--[\s\S]*?-->\s*)*<[a-z]+[^>]*class="[^"]*\bnav-dark\b/.test(cos) ? menu.replace('class="nav"', 'class="nav on-dark"') : menu;
   const body = expand(raw.replace(/<!--meta[\s\S]*?-->\s*/, ''));
   const html = `<!doctype html>
 <html lang="ca">
@@ -60,7 +62,7 @@ ${meta.base ? `<base href="${ROOT}">\n<meta name="robots" content="noindex">` : 
 <link rel="stylesheet" href="assets/pages.css">
 </head>
 <body data-page="${meta.page}">
-${part('nav')}
+${menuInicial(part('nav'), body)}
 <main id="main">
 ${body.trim()}
 </main>
