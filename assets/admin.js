@@ -60,6 +60,7 @@
       </div>
       <div class="sub"><h3>Exemple</h3>
         <div class="grid2"><label class="field"><span>Nom de la marca (inventada)</span><input type="text" data-r="${P}.exemple.marca" value="${esc(p.exemple ? p.exemple.marca : '')}"></label>${fSel('Tipus de maqueta', P + '.exemple.maqueta.mock', MOCKS)}</div>
+        <label class="field"><span>Imatge de l'exemple (opcional)</span><input type="text" data-r="${P}.exemple.imatge" value="${esc(p.exemple && p.exemple.imatge || '')}"><span class="hint">Si hi poses una imatge, es veu en lloc de la maqueta. Per exemple: img/ex-disseny-instagram.jpg</span></label>
         <label class="field"><span>Contingut de la maqueta</span><textarea data-kv="${P}.exemple.maqueta">${esc(kv)}</textarea><span class="hint">Un camp per línia, amb el format <code>nom=valor</code>. Els colors són c1, c2 i c3; les llistes es separen amb «;» i el preu amb «|».</span></label>
       </div>
       ${acts}

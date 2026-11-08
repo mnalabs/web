@@ -1,0 +1,107 @@
+<!doctype html><html lang="ca"><head><meta charset="utf-8"><title>Escenes de les mostres de xarxes (marca inventada: Cim & Riu)</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1f4d3a;--g2:#163a2b;--cream:#f3ece0;--or:#e8742c;--ink:#16211b}
+*{box-sizing:border-box;margin:0}
+body{font-family:Geist,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.scene{display:none;width:1600px;height:1000px;position:relative;overflow:hidden}
+body[data-s="mur"] #mur,body[data-s="reals"] #reals{display:block}
+.photo{background-size:cover;background-position:center}
+
+/* ---------- MUR: perfil d'Instagram amb fotos d'stock i publicacions dissenyades ---------- */
+#mur{background:#fff}
+.bar{height:150px;display:flex;align-items:center;gap:36px;padding:0 56px;background:#fff;border-bottom:1px solid #e6e6e6}
+.av{width:92px;height:92px;border-radius:50%;background:var(--g);display:grid;place-items:center;flex:none}
+.av svg{width:50px;height:50px}
+.id b{font-size:34px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.id b i{width:26px;height:26px;border-radius:50%;background:#3897f0;display:grid;place-items:center;color:#fff;font-size:15px;font-style:normal}
+.id span{font-size:21px;color:#555;margin-top:2px;display:block}
+.stats{margin-left:auto;display:flex;gap:54px;font-size:20px;color:#555}
+.stats b{display:block;font-size:34px;color:var(--ink);font-weight:700;letter-spacing:-.02em}
+.btn{background:#0095f6;color:#fff;font-weight:600;font-size:21px;padding:14px 34px;border-radius:12px}
+.wall{display:grid;grid-template-columns:repeat(4,400px);grid-template-rows:repeat(2,400px);gap:0}
+.wall>div{position:relative;overflow:hidden}
+.d{padding:38px;display:flex;flex-direction:column}
+.tag{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.hl{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.04}
+.d1{background:var(--g);color:var(--cream);justify-content:space-between}
+.d1 .hl{font-size:58px}.d1 .hl em{font-style:italic;color:#f4a261}
+.d1 .tag{color:#f4a261}
+.d2{background:var(--cream);color:var(--g);justify-content:space-between}
+.d2 .hl{font-size:46px}
+.badge{align-self:flex-start;background:var(--or);color:#fff;border-radius:50%;width:150px;height:150px;display:grid;place-items:center;font:800 48px Geist;letter-spacing:-.03em;transform:rotate(-8deg)}
+.d3{background:var(--or);color:#fff;justify-content:space-between}
+.d3 .hl{font-size:56px;font-style:italic}
+.q{font-size:120px;line-height:.5;font-family:Fraunces,Georgia,serif}
+.d4{background:var(--g2);color:var(--cream);justify-content:space-between}
+.d4 .hl{font-size:40px}
+.cal{display:grid;gap:12px}
+.cal div{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.09);border-radius:14px;padding:14px 18px;font-size:21px;font-weight:600}
+.cal em{font-style:normal;font-size:15px;font-weight:700;color:#1f4d3a;background:#f4a261;padding:4px 10px;border-radius:99px}
+.dots{position:absolute;right:16px;top:16px;width:34px;height:34px;color:#fff;font-size:26px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+
+/* ---------- REALS: reel, story i post ---------- */
+#reals{background:linear-gradient(135deg,#efe6d6,#dfe9e1)}
+.ph{position:absolute;top:48px;width:410px;height:830px;background:#0b0b0c;border-radius:62px;padding:12px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.ph .sc{position:relative;width:100%;height:100%;border-radius:50px;overflow:hidden;background-color:#fff}
+.ph.a{left:150px;transform:rotate(-3deg) translateY(14px)}.ph.b{left:595px}.ph.c{left:1040px;transform:rotate(3deg) translateY(14px)}
+.sc .ui{position:absolute;inset:0;color:#fff}
+.sc .shade{position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.65))}
+.top{position:absolute;left:22px;right:22px;top:46px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:19px}
+.top i{width:42px;height:42px;border-radius:50%;background:var(--g);border:2px solid #fff;display:grid;place-items:center;font-style:normal;font-size:15px;font-weight:800;color:#fff}
+.cap{position:absolute;left:24px;right:96px;bottom:48px;font-size:21px;line-height:1.35}
+.cap b{display:block;font-size:22px;margin-bottom:4px}
+.side{position:absolute;right:20px;bottom:56px;display:grid;gap:26px;text-align:center;font-size:30px}
+.side small{display:block;font-size:16px;font-weight:600}
+.prog{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.3)}.prog i{display:block;height:100%;width:42%;background:#fff}
+.stk{position:absolute;left:30px;right:30px;top:300px;background:#fff;color:var(--ink);border-radius:22px;padding:24px;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);transform:rotate(-2deg)}
+.stk small{font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--or)}
+.stk b{display:block;font:600 34px/1.1 Fraunces,Georgia,serif;margin:8px 0 14px;color:var(--g)}
+.stk div{display:flex;gap:10px}.stk span{background:var(--cream);border-radius:99px;padding:9px 16px;font-weight:600;font-size:18px}.stk span.on{background:var(--g);color:#fff}
+.bars{position:absolute;left:18px;right:18px;top:20px;display:flex;gap:6px}.bars i{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.4)}.bars i:first-child{background:#fff}
+.post .head{display:flex;align-items:center;gap:12px;padding:46px 18px 12px;font-weight:600;font-size:19px;background:#fff}
+.post .head i{width:42px;height:42px;border-radius:50%;background:var(--g);display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;font-weight:800}
+.post .img{height:380px}
+.post .row{display:flex;gap:20px;padding:14px 18px 6px;font-size:30px}
+.post .txt{padding:0 18px;font-size:19px;line-height:1.4}.post .txt small{display:block;color:#777;margin-top:8px;font-size:15px}
+.lbl{position:absolute;left:0;right:0;bottom:36px;text-align:center;font-size:21px;color:#4b4b4b;font-weight:500}
+</style></head><body data-s="mur">
+<svg width="0" height="0" style="position:absolute"><symbol id="m" viewBox="0 0 24 24" fill="none" stroke="#f3ece0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M2 20l7-12 4 7 3-4 6 9z"/><circle cx="17" cy="6" r="1.6" fill="#f3ece0"/></symbol></svg>
+
+<section class="scene" id="mur">
+  <div class="bar">
+    <div class="av"><svg><use href="#m"/></svg></div>
+    <div class="id"><b>cimiriu.aventura <i>✓</i></b><span>Cim &amp; Riu · Rutes i aventura al Pirineu</span></div>
+    <div class="stats"><div><b>186</b>publicacions</div><div><b>4.812</b>seguidors</div><div><b>213</b>seguint</div></div>
+    <div class="btn">Segueix</div>
+  </div>
+  <div class="wall">
+    <div class="d d1"><span class="tag">Cim &amp; Riu</span><div class="hl">Surt de l'ordinador.<br><em>Entra a la muntanya.</em></div><span class="tag">Rutes guiades · tot l'any</span></div>
+    <div class="photo" style="background-image:url(fotos/1011.jpg)"></div>
+    <div class="d d2"><div class="badge">-15%</div><div class="hl">Cap de setmana de tardor</div><span class="tag" style="color:#e8742c">Reserva fins al 30 d'octubre</span></div>
+    <div class="photo" style="background-image:url(fotos/1037.jpg)"></div>
+
+    <div class="photo" style="background-image:url(fotos/1015.jpg)"></div>
+    <div class="d d3"><div class="q">“</div><div class="hl">El silenci també s'escolta.</div><span class="tag">Cim &amp; Riu</span></div>
+    <div class="photo" style="background-image:url(fotos/1036.jpg)"></div>
+    <div class="d d4"><div class="hl">Properes sortides</div><div class="cal"><div>Dissabte 15 <em>3 places</em></div><div>Dissabte 22 <em>Complet</em></div><div>Dissabte 29 <em>8 places</em></div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="reals">
+  <div class="ph a"><div class="sc photo" style="background-image:url(fotos/1011.jpg)"><div class="shade"></div><div class="ui">
+    <div class="top"><i>C&amp;R</i>cimiriu.aventura · Reel</div>
+    <div class="cap"><b>cimiriu.aventura</b>Matí de rem al llac. Surt amb nosaltres aquest cap de setmana.</div>
+    <div class="side"><div>♥<small>2.341</small></div><div>💬<small>86</small></div><div>↗</div></div><div class="prog"><i></i></div></div></div></div>
+  <div class="ph b"><div class="sc photo" style="background-image:url(fotos/1037.jpg);background-position:70% center"><div class="shade"></div><div class="ui">
+    <div class="bars"><i></i><i></i><i></i><i></i></div>
+    <div class="top" style="top:50px"><i>C&amp;R</i>cimiriu.aventura · 2 h</div>
+    <div class="stk"><small>Demà · 7:30</small><b>Sortida a l'estany. Queden 3 places.</b><div><span class="on">Hi vinc</span><span>Un altre dia</span></div></div></div></div></div>
+  <div class="ph c"><div class="sc post">
+    <div class="head"><i>C&amp;R</i>cimiriu.aventura</div>
+    <div class="img photo" style="background-image:url(fotos/1035.jpg)"></div>
+    <div class="row"><span>♡</span><span>💬</span><span>↗</span></div>
+    <div class="txt"><b>1.208 m'agrada</b><br><b>cimiriu.aventura</b> Cascada del Riu Clar, a una hora a peu del refugi. Porta botes i ganes.<small>Fa 3 dies</small></div></div></div>
+  <div class="lbl">Reel, story i publicació, gravats i publicats al ritme que pactem</div>
+</section>
+</body></html>
