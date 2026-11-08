@@ -32,7 +32,7 @@ Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet 
 - Estètica professional i sòbria, que no sembli feta amb IA: res de textures de gra, segells, etiquetes en monoespai en majúscules, numeracions «01/02» ni paraules de colors dins dels títols.
 - Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent taronja teula `#c94a17` (`#ff9a6b` sobre fosc), només per a les accions principals. Variables CSS: `--accent`, `--accent-hover`, `--accent-soft`, `--link`, `--link-night`.
 - Textos planers i concrets, sense eslògans buits.
-- Els exemples i les mostres són sempre de **marques inventades**, mai de clients reals.
+- Els exemples i les mostres són de **marques inventades** o de **projectes reals que l'equip ha decidit ensenyar**: lliga.cat i Fundicat (productes propis) i el supermercat (web i panell), sempre **sense el nom ni el logotip del client**. Les captures reals són a `img/exemples-serveis/` i `img/exemple-supermercat/`. Cap altre client real sense que ho digui l'equip.
 - Comprova-ho sempre a mòbil (390 px) i a ordinador (1440 px), i que no hi hagi errors a la consola.
 
 ## Guia d'animacions
