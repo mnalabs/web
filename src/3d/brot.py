@@ -1,6 +1,7 @@
 # Model 3D del «Brot», el sensor de reg per a horts que surt a Prototipatge.
 # Es genera amb Blender des de la línia d'ordres:
 #   blender -b -P src/3d/brot.py -- <carpeta de sortida> [mostres]
+#   blender -b -P src/3d/brot.py -- <carpeta de sortida> [mostres] web   (imatges per peça per a la web)
 # Desa brot.blend i dues imatges amb fons transparent: el prototip muntat i la vista desmuntada.
 # Unitats: 1 unitat de Blender = 1 cm. Mides aproximades a partir del dibuix de la web (7,2 cm de diàmetre).
 import bpy, bmesh, math, os, sys
@@ -201,6 +202,114 @@ def renderitza(nom, amplada, alcada, posicio_camera, mira_a):
             raise
         escena.cycles.use_denoising = False  # sense eliminació de soroll: cal pujar les mostres
         bpy.ops.render.render(write_still=True)
+
+if 'web' in arguments[2:]:
+    # ---------- MODE WEB: una imatge per peça per a l'animació de Prototipatge ----------
+    # Totes amb la mateixa càmera ortogràfica, de manera que encaixen exactament quan es posen una sobre l'altra
+    # dins de l'SVG de la web (viewBox 640 × 560). Per a cada peça: el render i l'esbós (només línies, amb Freestyle).
+    # També escriu brot-web.json amb on queda cada peça a l'SVG i quant s'ha de desplaçar quan es desmunta.
+    import json
+    from bpy_extras.object_utils import world_to_camera_view
+    from mathutils import Vector
+
+    VIEWBOX = (640, 560)
+    NOMS = ['carcassa', 'placa', 'bateria', 'base']
+    # peces lleugerament separades (com al dibuix de la web) i quant se separen més en desmuntar-se (cm)
+    # (amb 1,6 cm entre peces no se solapen vistes des de la càmera, que mira una mica des de dalt)
+    POSICIO = [4.29, 2.25, -.35, -2.35]
+    SEPARACIO = [2.2, .8, -.8, -1.8]
+
+    # el LED no brilla al render: la web l'encén al final amb una llum pròpia
+    nodes = LED.node_tree.nodes['Principled BSDF']
+    nodes.inputs['Emission Strength'].default_value = 0
+    nodes.inputs['Base Color'].default_value = (*srgb('#1e6b3a'), 1)
+
+    camera.constraints.clear()
+    camera.data.type = 'ORTHO'
+    camera.data.ortho_scale = 26          # amplada visible en cm
+    camera.data.sensor_fit = 'HORIZONTAL'
+    camera.data.shift_x = .035            # la peça una mica a l'esquerra, per deixar lloc a les etiquetes
+    elevacio, azimut = math.radians(12), math.radians(-22)
+    direccio = Vector((math.sin(azimut) * math.cos(elevacio), -math.cos(azimut) * math.cos(elevacio), math.sin(elevacio)))
+    camera.location = Vector((0, 0, -.6)) + direccio * 60
+    camera.rotation_euler = (-direccio).to_track_quat('-Z', 'Y').to_euler()
+    escena.render.resolution_x, escena.render.resolution_y = VIEWBOX[0] * 2, VIEWBOX[1] * 2
+
+    def a_svg(punt):
+        u = world_to_camera_view(escena, camera, Vector(punt))
+        return (round(u.x * VIEWBOX[0], 1), round((1 - u.y) * VIEWBOX[1], 1))
+
+    def vertexs_mon(peca):
+        bpy.context.view_layer.update()
+        punts = []
+        for o in peca.children:
+            if o.type == 'MESH' and not o.hide_render:
+                punts += [o.matrix_world @ v.co for v in o.data.vertices]
+        return punts
+
+    col_loca(POSICIO)
+    bpy.context.view_layer.update()
+    dades = {'viewBox': VIEWBOX, 'peces': {}}
+    for peca, nom, separacio in zip(PECES, NOMS, SEPARACIO):
+        punts = [a_svg(p) for p in vertexs_mon(peca)]
+        xs, ys = [p[0] for p in punts], [p[1] for p in punts]
+        origen, desplacada = a_svg(peca.location), a_svg(peca.location + Vector((0, 0, separacio)))
+        dades['peces'][nom] = {
+            'caixa': [min(xs), min(ys), max(xs), max(ys)],
+            'separacio': round(desplacada[1] - origen[1], 1),   # unitats de l'SVG (negatiu = amunt)
+        }
+    led = [o for o in carcassa.children if o.data.materials and o.data.materials[0] == LED][0]
+    dades['led'] = a_svg(led.matrix_world.translation)
+
+    def nomes(peca):
+        for altra in PECES:
+            for o in altra.children:
+                o.hide_render = altra is not peca
+
+    # renders
+    for peca, nom in zip(PECES, NOMS):
+        nomes(peca)
+        escena.render.filepath = os.path.join(SORTIDA, f'brot-{nom}.png')
+        escena.render.use_freestyle = False
+        try:
+            bpy.ops.render.render(write_still=True)
+        except RuntimeError:
+            escena.cycles.use_denoising = False
+            bpy.ops.render.render(write_still=True)
+
+    # esbossos: tots els materials passen a ser transparents (holdout) i només queden les línies de Freestyle
+    transparent = bpy.data.materials.new('Transparent'); transparent.use_nodes = True
+    arbre = transparent.node_tree; arbre.nodes.clear()
+    sortida_material = arbre.nodes.new('ShaderNodeOutputMaterial')
+    arbre.links.new(arbre.nodes.new('ShaderNodeHoldout').outputs[0], sortida_material.inputs['Surface'])
+    for peca in PECES:
+        for o in peca.children:
+            if o.type == 'MESH':
+                o.data.materials.clear(); o.data.materials.append(transparent)
+    escena.render.use_freestyle = True
+    escena.render.line_thickness_mode = 'ABSOLUTE'
+    escena.render.line_thickness = 2.6
+    capa = escena.view_layers[0]
+    capa.use_freestyle = True
+    conjunt = capa.freestyle_settings.linesets[0] if capa.freestyle_settings.linesets else capa.freestyle_settings.linesets.new('Línies')
+    conjunt.select_by_visibility = True
+    conjunt.select_silhouette = conjunt.select_border = conjunt.select_crease = True
+    conjunt.select_external_contour = True
+    capa.freestyle_settings.crease_angle = math.radians(130)
+    if conjunt.linestyle is None:
+        conjunt.linestyle = bpy.data.linestyles.new('Esbós')
+    conjunt.linestyle.color = srgb('#1d1d1f')
+    conjunt.linestyle.thickness = 2.6
+    escena.cycles.samples = 8
+    for peca, nom in zip(PECES, NOMS):
+        nomes(peca)
+        escena.render.filepath = os.path.join(SORTIDA, f'brot-{nom}-esbos.png')
+        bpy.ops.render.render(write_still=True)
+
+    with open(os.path.join(SORTIDA, 'brot-web.json'), 'w') as fitxer:
+        json.dump(dades, fitxer, indent=1)
+    print('FET (web):', SORTIDA)
+    sys.exit(0)
 
 # muntat: les peces una sobre l'altra (la bateria i la placa queden amagades dins)
 col_loca([.4, 1.25, -.05, -.4])

@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=8209a739">
-<link rel="stylesheet" href="assets/pages.css?v=16e22f4d">
+<link rel="stylesheet" href="assets/pages.css?v=cbbccfd9">
 </head>
 <body data-page="prototipatge">
 <a class="skip" href="#main">Salta al contingut</a>
@@ -87,49 +87,36 @@
           <p class="pr-name"><b>Exemple</b> Brot, sensor de reg per a horts</p>
           <svg class="pr-svg" viewBox="0 0 640 560">
             <defs>
-              <linearGradient id="prShell" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfbfd"/><stop offset="1" stop-color="#d9dbe2"/></linearGradient>
-              <linearGradient id="prBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c4a3f"/><stop offset="1" stop-color="#1f2a22"/></linearGradient>
               <radialGradient id="prLed"><stop offset="0" stop-color="#b8ffcf"/><stop offset=".4" stop-color="#30d158"/><stop offset="1" stop-color="#30d158" stop-opacity="0"/></radialGradient>
             </defs>
             <g class="pr-grid-lines">
               <path d="M40 40h560M40 120h560M40 200h560M40 280h560M40 360h560M40 440h560M40 520h560M80 20v520M160 20v520M240 20v520M320 20v520M400 20v520M480 20v520M560 20v520"/>
             </g>
-            <!-- carcassa superior -->
-            <g class="pr-layer" data-l="0">
-              <path class="pr-fill" fill="url(#prShell)" d="M200 170c0-40 50-62 120-62s120 22 120 62v26H200z"/>
-              <path class="pr-line" d="M200 170c0-40 50-62 120-62s120 22 120 62v26H200z"/>
-              <path class="pr-line" d="M262 150h116"/>
-              <circle class="pr-led" cx="320" cy="132" r="26" fill="url(#prLed)"/>
-              <circle class="pr-fill" cx="320" cy="132" r="5" fill="#30d158"/>
+            <!-- peces del Brot renderitzades amb Blender (src/3d/brot.py, mode web): cada imatge ocupa tot el viewBox
+                 i encaixa exactament amb les altres; data-separacio = quant es desplaça en desmuntar-se -->
+            <g class="pr-layer" data-peca="base" data-separacio="43.4">
+              <image class="pr-esbos" href="img/prototip/brot-base-esbos.webp" width="640" height="560"/>
+              <image class="pr-render" href="img/prototip/brot-base.webp" width="640" height="560"/>
             </g>
-            <!-- placa electrònica -->
-            <g class="pr-layer" data-l="1">
-              <path class="pr-fill" fill="#1f6f4a" d="M210 212h220v30H210z"/>
-              <path class="pr-line" d="M210 212h220v30H210z"/>
-              <path class="pr-fill" fill="#111" d="M300 216h40v22h-40z"/>
-              <path class="pr-fill" fill="#c9a24a" d="M228 220h18v14h-18zM392 220h22v14h-22z"/>
-              <path class="pr-line pr-trace" d="M246 227h54M340 227h52M260 238v-6h30"/>
+            <g class="pr-layer" data-peca="bateria" data-separacio="19.2">
+              <image class="pr-esbos" href="img/prototip/brot-bateria-esbos.webp" width="640" height="560"/>
+              <image class="pr-render" href="img/prototip/brot-bateria.webp" width="640" height="560"/>
             </g>
-            <!-- bateria -->
-            <g class="pr-layer" data-l="2">
-              <path class="pr-fill" fill="#2b2b2e" d="M236 258h168v34H236z"/>
-              <path class="pr-line" d="M236 258h168v34H236z"/>
-              <path class="pr-fill" fill="#ff9f0a" d="M236 258h30v34h-30z"/>
-              <path class="pr-line pr-plus" d="M374 275h14M381 268v14"/>
+            <g class="pr-layer" data-peca="placa" data-separacio="-19.3">
+              <image class="pr-esbos" href="img/prototip/brot-placa-esbos.webp" width="640" height="560"/>
+              <image class="pr-render" href="img/prototip/brot-placa.webp" width="640" height="560"/>
             </g>
-            <!-- base i punxa que va a terra -->
-            <g class="pr-layer" data-l="3">
-              <path class="pr-fill" fill="url(#prBase)" d="M200 306h240v22c0 20-40 34-120 34s-120-14-120-34z"/>
-              <path class="pr-line" d="M200 306h240v22c0 20-40 34-120 34s-120-14-120-34z"/>
-              <path class="pr-fill" fill="#9aa39c" d="M308 362h24l-6 100h-12z"/>
-              <path class="pr-line" d="M308 362h24l-6 100h-12z"/>
+            <g class="pr-layer" data-peca="carcassa" data-separacio="-53.0">
+              <image class="pr-esbos" href="img/prototip/brot-carcassa-esbos.webp" width="640" height="560"/>
+              <image class="pr-render" href="img/prototip/brot-carcassa.webp" width="640" height="560"/>
+              <circle class="pr-led" cx="297.6" cy="98.2" r="22" fill="url(#prLed)"/>
             </g>
             <!-- etiquetes de les peces -->
             <g class="pr-labels">
-              <g data-t="0"><path d="M450 150h40"/><text x="500" y="146">Carcassa</text><text class="s" x="500" y="164">PETG imprès en 3D</text></g>
-              <g data-t="1"><path d="M440 227h50"/><text x="500" y="223">Placa</text><text class="s" x="500" y="241">ESP32 · Wi-Fi i Bluetooth</text></g>
-              <g data-t="2"><path d="M414 275h76"/><text x="500" y="271">Bateria</text><text class="s" x="500" y="289">1 any de durada</text></g>
-              <g data-t="3"><path d="M440 330h50"/><text x="500" y="326">Base i sonda</text><text class="s" x="500" y="344">Humitat del sòl</text></g>
+              <g data-peca="carcassa"><path d="M399 137h91"/><text x="500" y="133">Carcassa</text><text class="s" x="500" y="151">PETG imprès en 3D</text></g>
+              <g data-peca="placa"><path d="M403 210h87"/><text x="500" y="206">Placa</text><text class="s" x="500" y="224">ESP32 · Wi-Fi i Bluetooth</text></g>
+              <g data-peca="bateria"><path d="M382 262h108"/><text x="500" y="258">Bateria</text><text class="s" x="500" y="276">1 any de durada</text></g>
+              <g data-peca="base"><path d="M398 320h92"/><text x="500" y="316">Base i sonda</text><text class="s" x="500" y="334">Humitat del sòl</text></g>
             </g>
           </svg>
           <div class="pr-toast"><i></i><div><b>Brot · Hort de casa</b><small>Cal regar els tomàquets: humitat al 18%</small></div></div>
@@ -188,6 +175,6 @@
 <script src="assets/i18n-pages.js?v=43c9617c"></script>
 <script src="assets/i18n-noves.js?v=e7489807"></script>
 
-<script src="assets/site.js?v=75d28d4b"></script>
+<script src="assets/site.js?v=de4c30b1"></script>
 </body>
 </html>

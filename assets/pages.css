@@ -323,11 +323,10 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .pr-name b{font-weight:600;color:var(--ink);margin-right:6px}
 .pr-svg{display:block;width:100%;height:auto;overflow:visible}
 .pr-grid-lines path{stroke:#e3e5ea;stroke-width:1;fill:none}
+/* peces del Brot fetes amb Blender: l'esbós es dibuixa amb una màscara i després es fon amb la peça acabada (site.js) */
 .pr-layer{transition:none;will-change:transform}
-.pr-line{fill:none;stroke:#1d1d1f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.pr-trace{stroke:#c9a24a;stroke-width:2.5}
-.pr-plus{stroke:#fff}
-.pr-fill{opacity:0}
+.pr-esbos{clip-path:inset(0 0 100% 0)}
+.pr-render{opacity:0}
 .pr-led{opacity:0}
 .pr-labels path{stroke:var(--accent);stroke-width:1.5;fill:none}
 .pr-labels text{font:600 15px Geist,Arial,sans-serif;fill:var(--ink)}
@@ -341,7 +340,10 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
   .proto{height:400vh}
   .pr-pin{align-items:flex-start;padding-top:96px}
   .pr-grid{grid-template-columns:1fr;gap:20px}
-  .pr-labels text{font-size:20px}.pr-labels text.s{font-size:17px}
+  /* al mòbil: espai a dalt perquè la carcassa no toqui «Exemple» i etiquetes més a l'esquerra perquè no es tallin */
+  .pr-stage{padding-top:34px}
+  .pr-labels{transform:translateX(-26px)}
+  .pr-labels text{font-size:20px}.pr-labels text.s{font-size:15px}
   .pr-toast{left:12px;right:12px;bottom:12px}
 }
 .pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}

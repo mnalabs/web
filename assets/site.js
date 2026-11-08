@@ -278,10 +278,15 @@
   /* =============== PROTOTIPATGE: l'invent passa d'esbós a peces i s'encén =============== */
   const proto = $('#proto');
   if (proto){
-    const caps = $$('.bd-cap', proto), rail = $$('.bd-rail i', proto), lines = $$('.pr-line', proto), fills = $$('.pr-fill', proto);
-    const layers = $$('.pr-layer', proto), labels = $$('.pr-labels > g', proto), led = $('.pr-led', proto), toast = $('.pr-toast', proto), grid = $('.pr-grid-lines', proto);
-    const SPREAD = [-96, -32, 32, 80];
-    lines.forEach(l => { l.setAttribute('pathLength', 1); l.style.strokeDasharray = 1; });
+    // Les peces són renders de Blender (src/3d/brot.py, mode web): un esbós de línies i la peça acabada, apilats.
+    const caps = $$('.bd-cap', proto), rail = $$('.bd-rail i', proto);
+    const led = $('.pr-led', proto), toast = $('.pr-toast', proto), grid = $('.pr-grid-lines', proto);
+    // ordre de dalt a baix (carcassa, placa, bateria, base): així s'esbossen, s'acaben i s'etiqueten
+    const ORDRE = ['carcassa', 'placa', 'bateria', 'base'];
+    const peces = ORDRE.map(nom => {
+      const capa = $(`.pr-layer[data-peca="${nom}"]`, proto);
+      return { capa, separacio: +capa.dataset.separacio, esbos: $('.pr-esbos', capa), render: $('.pr-render', capa), etiqueta: $(`.pr-labels [data-peca="${nom}"]`, proto) };
+    });
     draws.push(now => {
       if (!onScreen(proto)) return;
       const p = reduce ? .999 : progSuau(proto);
@@ -290,11 +295,23 @@
       caps.forEach((c, i) => { c.classList.toggle('on', i === ci); c.classList.toggle('passat', i < ci); });
       rail.forEach((r, i) => r.style.setProperty('--f', clamp(p * 4 - i).toFixed(3)));
       grid.style.opacity = .5 * (1 - B);
-      lines.forEach((l, i) => { l.style.strokeDashoffset = 1 - easeOut(clamp(A * 1.4 - (i % 6) * .08)); l.style.opacity = 1 - B * .75; });
-      fills.forEach(f => { f.style.opacity = easeOut(B); });
+      // desmuntatge: cada peça es desplaça el que ha calculat Blender; al final es torna a ajuntar una mica
       const k = ease(C) * (1 - ease(clamp((D - .55) / .45)) * .35);
-      layers.forEach((g, i) => { g.style.transform = `translateY(${SPREAD[i] * k}px)`; });
-      labels.forEach((g, i) => { const t = clamp(C * 1.6 - i * .15); g.style.opacity = t * (1 - clamp((D - .7) / .3)); g.style.transform = `translateY(${SPREAD[i] * k}px)`; });
+      peces.forEach((peca, i) => {
+        // esbós: es dibuixa de dalt a baix amb una màscara, peça per peça
+        const dibuixat = easeOut(clamp(A * 1.5 - i * .15));
+        peca.esbos.style.clipPath = `inset(0 0 ${((1 - dibuixat) * 100).toFixed(1)}% 0)`;
+        // disseny: l'esbós es fon amb la peça acabada, que s'enfoca a mesura que apareix (les dues se superposen)
+        const acabat = easeOut(clamp(B * 1.3 - i * .1));
+        peca.esbos.style.opacity = (1 - acabat).toFixed(3);
+        peca.render.style.opacity = acabat.toFixed(3);
+        peca.render.style.filter = acabat < 1 ? `blur(${((1 - acabat) * 3).toFixed(2)}px)` : '';
+        const desplacament = `translateY(${(peca.separacio * k).toFixed(1)}px)`;
+        peca.capa.style.transform = desplacament;
+        const t = clamp(C * 1.6 - i * .15);
+        peca.etiqueta.style.opacity = t * (1 - clamp((D - .7) / .3));
+        peca.etiqueta.style.transform = desplacament;
+      });
       const on = clamp(D / .4);
       led.style.opacity = on * (.75 + Math.sin(now / 320) * .25);
       const tk = clamp((D - .45) / .3); toast.style.opacity = tk; toast.style.transform = `translateY(${(1 - tk) * 16}px)`;
