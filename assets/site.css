@@ -28,7 +28,7 @@
   --ease-out:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%;transition:background-color .3s var(--ease-out)}
 body{background:var(--white);color:var(--ink);font-family:Geist,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.47;letter-spacing:-.022em;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -68,7 +68,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.028em;line-height:1.07}
 .nav-links{position:relative;display:flex;gap:2px;font-size:14px;font-weight:500;color:var(--ink-2)}
 .nav-links a{position:relative;z-index:1;padding:8px 13px;border-radius:10px;white-space:nowrap;transition:color .3s}
 .nav-links a:hover,.nav-links a.on{color:var(--ink)}
-.nav-ind{position:absolute;top:0;left:0;height:100%;width:0;border-radius:10px;background:rgba(0,0,0,.06);opacity:0;transition:transform .5s var(--ease-out),width .5s var(--ease-out),opacity .3s}
+.nav-ind{position:absolute;top:0;left:0;height:100%;width:0;border-radius:10px;background:rgba(0,0,0,.06);opacity:0;transition:transform .3s var(--ease-in-out),width .3s var(--ease-in-out),opacity .2s var(--ease-out)}
 .nav.on-dark .nav-links{color:rgba(245,245,247,.72)}
 .nav.on-dark .nav-links a:hover,.nav.on-dark .nav-links a.on{color:#fff}
 .nav.on-dark .nav-ind{background:rgba(255,255,255,.12)}

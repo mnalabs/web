@@ -55,6 +55,7 @@ ${meta.base ? `<base href="${ROOT}">\n<meta name="robots" content="noindex">` : 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>try{var f=sessionStorage.getItem('mna-fons');if(f){sessionStorage.removeItem('mna-fons');document.documentElement.style.backgroundColor=f;document.documentElement.className='arribant'}}catch(e){}</script>
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/pages.css">
 </head>

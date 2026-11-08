@@ -2,13 +2,26 @@
    MNA LABS · web de diverses pàgines (complementa site.css)
    ===================================================================== */
 
-/* transició entre pàgines */
+/* ---------- TRANSICIÓ ENTRE PÀGINES ----------
+   Chrome, Edge i Safari: fos creuat. La pàgina antiga i la nova se superposen, sense un buit enmig que ensenyaria
+   el blanc del navegador (el tall brusc d'una pàgina blanca a una de negra).
+   - Les dues capes duren EXACTAMENT el mateix i fan servir la mateixa corba: així cada instant sumen el 100 % i no hi ha buit
+     (si la vella sortís abans, entre les dues hi sortiria el fons blanc). Per això aquí no s'aplica «la sortida un 20 % més curta».
+   - Corba suau al principi i al final (--ease-in-out): amb una d'entrada forta, el canvi es feia en 40 ms i es veia com un tall.
+   - Només opacitat: amb moviment, a les vores es veuria una franja del fons quan una pàgina és negra. */
 @view-transition{navigation:auto}
-::view-transition-old(root){animation:vtOut .28s var(--ease) both}
-::view-transition-new(root){animation:vtIn .55s var(--ease-out) both}
-@keyframes vtOut{to{opacity:0;transform:translateY(-12px)}}
-@keyframes vtIn{from{opacity:0;transform:translateY(18px)}}
-html.leaving body{opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s}
+::view-transition-old(root),::view-transition-new(root),
+::view-transition-old(menu),::view-transition-new(menu){animation-duration:.32s;animation-timing-function:var(--ease-in-out);animation-fill-mode:both}
+::view-transition-old(root),::view-transition-old(menu){animation-name:vtSortida}
+::view-transition-new(root),::view-transition-new(menu){animation-name:vtEntrada}
+@keyframes vtSortida{to{opacity:0}}
+@keyframes vtEntrada{from{opacity:0}}
+/* el menú no es fon amb la pàgina: es queda al seu lloc i només canvia de color */
+.nav{view-transition-name:menu}
+::view-transition-group(menu){animation-duration:.32s;animation-timing-function:var(--ease-in-out)}
+/* Altres navegadors (sense View Transitions): la pàgina nova entra amb un fos des del color de la pàgina anterior (vegeu site.js) */
+html.arribant body{opacity:0}
+html body{transition:opacity .3s var(--ease-out)}
 body[data-page="free-developing"]{background:var(--black)}
 body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:calc(clamp(96px,13vw,180px) + 68px)}
 @media (max-width:760px){.hero .h-hero .line{display:inline}}
@@ -450,7 +463,6 @@ body[data-page="mostres"]{background:var(--black)}
 
 @media (prefers-reduced-motion:reduce){
   .sw > span{transform:none;transition:none}
-  ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
 
 .pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}

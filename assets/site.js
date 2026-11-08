@@ -72,7 +72,21 @@
   });
   navBurger.addEventListener('click', () => { const o = navEl.classList.toggle('open'); navBurger.setAttribute('aria-expanded', String(o)); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && navEl.classList.contains('open')){ navEl.classList.remove('open'); navBurger.setAttribute('aria-expanded', 'false'); navBurger.focus(); } });
-  requestAnimationFrame(navMove); onLang.push(navMove); onResize.push(navMove);
+  // Petit gest en canviar de pàgina: l'indicador del menú comença on era a la pàgina anterior i llisca fins a l'enllaç nou.
+  // La posició anterior es desa en sortir i es llegeix en arribar (8 s de marge). Espera que acabi el fos de la pàgina (320 ms).
+  addEventListener('pagehide', () => {
+    try { if (navInd.style.transform) sessionStorage.setItem('mna-indicador', JSON.stringify({ moviment: navInd.style.transform, ample: navInd.style.width, quan: Date.now() })); } catch (e) {}
+  });
+  let indicadorAnterior = null;
+  try { const d = JSON.parse(sessionStorage.getItem('mna-indicador')); if (d && Date.now() - d.quan < 8000) indicadorAnterior = d; sessionStorage.removeItem('mna-indicador'); } catch (e) {}
+  if (indicadorAnterior && !reduce){
+    navInd.style.transition = 'none';
+    navInd.style.transform = indicadorAnterior.moviment; navInd.style.width = indicadorAnterior.ample; navInd.style.opacity = 1;
+    navInd.getBoundingClientRect();           // força que el navegador pinti la posició antiga abans d'activar el moviment
+    navInd.style.transition = '';
+    setTimeout(navMove, 320);
+  } else requestAnimationFrame(navMove);
+  onLang.push(navMove); onResize.push(navMove);
   // el menú es torna fosc quan passa per sobre d'un apartat marcat amb .nav-dark
   const darkSecs = $$('.nav-dark');
   draws.push(() => {
@@ -96,6 +110,7 @@
   };
   let colorDeFonsActual = '';
   function actualitzaColorDeFons(){
+    if (document.documentElement.classList.contains('arribant')) return;   // la pàgina encara arriba des de l'anterior: el fons es fon més tard
     const recorregutMaxim = arrelDocument.scrollHeight - innerHeight;
     const somALaMeitatDeDalt = scrollY < recorregutMaxim / 2;
     // mirem just a la vora de dalt o de baix de la pantalla, al costat esquerre (on no hi ha el menú)
@@ -109,14 +124,18 @@
   actualitzaColorDeFons();
 
   /* =============== TRANSICIÓ ENTRE PÀGINES =============== */
-  // els navegadors amb View Transitions ho fan sols (vegeu @view-transition al CSS); la resta fan un fos
-  if (!reduce && !('onpagereveal' in window)){
+  // Chrome, Edge i Safari fan un fos creuat sols (vegeu @view-transition al CSS).
+  // La resta (sense View Transitions): en sortir desem el color de fons de la pàgina; la pàgina nova comença
+  // pintada d'aquell color (vegeu el petit script del <head>) i la seva part visible entra amb un fos,
+  // mentre el fons passa del color antic al nou. Així no hi ha tall entre una pàgina blanca i una de negra.
+  const teViewTransitions = 'onpagereveal' in window;
+  if (!teViewTransitions){
     document.addEventListener('click', e => {
       const a = e.target.closest('a'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank') return;
       const href = a.getAttribute('href'); if (!href || href.startsWith('#') || href.startsWith('mailto:') || /^https?:/.test(href)) return;
-      e.preventDefault(); document.documentElement.classList.add('leaving'); setTimeout(() => location.href = href, 260);
+      try { sessionStorage.setItem('mna-fons', getComputedStyle(document.documentElement).backgroundColor); } catch (e) {}
     });
-    addEventListener('pageshow', () => document.documentElement.classList.remove('leaving'));
+    addEventListener('pageshow', e => { if (e.persisted) document.documentElement.classList.remove('arribant'); });
   }
 
   /* =============== HERO: esfera de partícules → MNA LABS =============== */
@@ -744,6 +763,12 @@
   $$('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
   let savedLang = null; try { savedLang = localStorage.getItem('mna-lang'); } catch (_) {}
   if (savedLang && savedLang !== 'ca' && I18N[savedLang]) setLang(savedLang);
+
+  // en arribar sense View Transitions: traiem la classe .arribant (el contingut s'encén amb un fos) i el fons passa al color de la pàgina
+  if (document.documentElement.classList.contains('arribant')){
+    // dos fotogrames: el primer pinta la pàgina nova amb el color antic; el segon activa el fos
+    requestAnimationFrame(() => requestAnimationFrame(() => { document.documentElement.classList.remove('arribant'); actualitzaColorDeFons(); }));
+  }
 
   /* =============== BUCLE =============== */
   let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => onResize.forEach(f => f()), 150); });
