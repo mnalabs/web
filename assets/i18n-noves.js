@@ -6,7 +6,7 @@ Object.assign(window.I18N.es, {
 "Fundicat i app de lliga.cat":"Fundicat y app de lliga.cat",
 "Projectes":"Proyectos",
 "lliga.cat i Fundicat":"lliga.cat y Fundicat",
-"Web":"Web","Arquitectura":"Arquitectura","RGPD":"RGPD",
+"Web":"Web","RGPD":"RGPD",
 "Web caiguda o piratejada":"Web caída o pirateada",
 "Pomes Fuji 5 kg · 8 unitats":"Manzanas Fuji 5 kg · 8 unidades",
 "Prototipatge":"Prototipado","Mostres":"Muestras","Programes":"Programas","Afiliacions":"Afiliaciones","+ comissió per venda":"+ comisión por venta",

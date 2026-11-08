@@ -1,7 +1,7 @@
 /* Traduccions dels textos nous de la web de diverses pàgines. La clau és el text en català. */
 Object.assign(window.I18N.es, {
 "Salta al contingut":"Saltar al contenido","Principal":"Principal","L'estudi":"El estudio","Contacte":"Contacto",
-"Programem el que la teva empresa necessita.":"Programamos lo que tu empresa necesita.",
+
 "Programem el que":"Programamos lo que","la teva empresa necessita.":"tu empresa necesita.",
 "Som un estudi petit de desenvolupament. Dissenyem i programem webs, botigues, apps i eines de gestió, i després les mantenim.":"Somos un estudio pequeño de desarrollo. Diseñamos y programamos webs, tiendas, apps y herramientas de gestión, y después las mantenemos.",
 "Explica'ns el projecte":"Cuéntanos el proyecto","Mira com treballem":"Mira cómo trabajamos","Baixa i mira com neix una web.":"Baja y mira cómo nace una web.",
@@ -14,7 +14,7 @@ Object.assign(window.I18N.es, {
 "Codi net i ràpid, que qualsevol programador pot entendre. El codi és teu des del primer dia.":"Código limpio y rápido, que cualquier programador puede entender. El código es tuyo desde el primer día.",
 "I el mantenim viu.":"Y lo mantenemos vivo.",
 "Web, app i panell de gestió parlen entre ells. Quan entra una comanda, ho saps al moment.":"Web, app y panel de gestión hablan entre ellos. Cuando entra un pedido, lo sabes al momento.",
-"Què fem":"Qué hacemos","Cinc coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Cinco cosas, y las hacemos bien. Si tu proyecto no encaja, también hablamos.",
+"Què fem":"Qué hacemos",
 "Webs":"Webs","Webs d'empresa ràpides, ben escrites i fàcils de trobar a Google.":"Webs de empresa rápidas, bien escritas y fáciles de encontrar en Google.",
 "Botigues en línia":"Tiendas online","La teva botiga, sense pagar comissions a cap plataforma per cada venda.":"Tu tienda, sin pagar comisiones a ninguna plataforma por cada venta.",
 "Per a iPhone i Android, publicades a les botigues i connectades a la teva web.":"Para iPhone y Android, publicadas en las tiendas y conectadas a tu web.",
@@ -25,9 +25,9 @@ Object.assign(window.I18N.es, {
 "Portem lliga.cat i Fundicat. Sabem què vol dir tenir clients reals, factures i un servidor que no pot caure un dissabte a la nit. Això és el que posem a cada projecte.":"Llevamos lliga.cat y Fundicat. Sabemos qué significa tener clientes reales, facturas y un servidor que no puede caerse un sábado por la noche. Eso es lo que ponemos en cada proyecto.",
 "App de cites en català":"App de citas en catalán","Veure el projecte":"Ver el proyecto","Botiga de materials de fundició":"Tienda de materiales de fundición",
 "Quant costa?":"¿Cuánto cuesta?","Per als projectes més habituals tenim paquets amb preu tancat. Per a la resta, et donem un pressupost per escrit abans de començar.":"Para los proyectos más habituales tenemos paquetes con precio cerrado. Para el resto, te damos un presupuesto por escrito antes de empezar.",
-"Web d'empresa":"Web de empresa","des de, pagament únic":"desde, pago único","Botiga en línia":"Tienda online","al mes, sense permanència":"al mes, sin permanencia","Veure tots els paquets":"Ver todos los paquetes",
+"Web d'empresa":"Web de empresa","Botiga en línia":"Tienda online","al mes, sense permanència":"al mes, sin permanencia","Veure tots els paquets":"Ver todos los paquetes",
 "Tens un projecte entre mans?":"¿Tienes un proyecto entre manos?","Explica'ns-el":"Cuéntanoslo",
-"Com treballem":"Cómo trabajamos","Paquets i preus":"Paquetes y precios","Qui som":"Quiénes somos","Privacitat":"Privacidad","Demana pressupost":"Pide presupuesto",
+"Com treballem":"Cómo trabajamos","Paquets i preus":"Paquetes y precios","Privacitat":"Privacidad","Demana pressupost":"Pide presupuesto",
 "Estudi de desenvolupament amb Estudi 95, Aatsin i Clouding":"Estudio de desarrollo con Estudi 95, Aatsin y Clouding",
 "MNA LABS · Estudi de desenvolupament":"MNA LABS · Estudio de desarrollo",
 "Del primer esbós a la publicació, i després.":"Del primer boceto a la publicación, y después.",
@@ -50,23 +50,23 @@ Object.assign(window.I18N.es, {
 "Serveis · MNA LABS":"Servicios · MNA LABS",
 "Saber què costa abans de començar.":"Saber qué cuesta antes de empezar.",
 "Aquests són els projectes que ens demanen més sovint, amb preu tancat. Si el teu no hi surt, et fem un pressupost a mida, també per escrit.":"Estos son los proyectos que más nos piden, con precio cerrado. Si el tuyo no aparece, te hacemos un presupuesto a medida, también por escrito.",
-"Preu tancat per als projectes més habituals, amb un exemple de cada. El pressupost final te'l donem per escrit.":"Precio cerrado para los proyectos más habituales, con un ejemplo de cada uno. El presupuesto final te lo damos por escrito.",
+
 "Exemple":"Ejemplo","Recomanat":"Recomendado","Paquets i preus · MNA LABS":"Paquetes y precios · MNA LABS",
 "El que fem quan el client som nosaltres.":"Lo que hacemos cuando el cliente somos nosotros.",
 "Portem dos productes propis amb usuaris i vendes reals. Tot el que hi aprenem, ho apliquem als projectes dels nostres clients.":"Llevamos dos productos propios con usuarios y ventas reales. Todo lo que aprendemos lo aplicamos a los proyectos de nuestros clientes.",
-"Els nostres productes.":"Nuestros productos.","Abans de fer-ho per a altres, ho vam fer per a nosaltres. Portem dos productes propis i en som responsables cada dia.":"Antes de hacerlo para otros, lo hicimos para nosotros. Llevamos dos productos propios y somos responsables de ellos cada día.",
+
 "Amb qui treballem.":"Con quién trabajamos.","Amb qui treballem":"Con quién trabajamos","Tres equips amb qui compartim projectes, de la idea fins al mercat.":"Tres equipos con los que compartimos proyectos, de la idea al mercado.",
 "Projectes · MNA LABS":"Proyectos · MNA LABS",
-"Un estudi petit, a propòsit.":"Un estudio pequeño, a propósito.",
-"Som l'equip que va fundar lliga.cat i Fundicat. Agafem pocs projectes alhora perquè cadascun tingui algú que se'l miri cada dia, i treballem amb Estudi 95, Aatsin i Clouding quan un projecte ho demana.":"Somos el equipo que fundó lliga.cat y Fundicat. Cogemos pocos proyectos a la vez para que cada uno tenga a alguien que lo mire cada día, y trabajamos con Estudi 95, Aatsin y Clouding cuando un proyecto lo pide.",
-"Com publiquem":"Cómo publicamos","Com treballem.":"Cómo trabajamos.",
-"Entregues petites, cada dues setmanes, que pots provar tu mateix. Sempre saps en quin punt està el projecte.":"Entregas pequeñas, cada dos semanas, que puedes probar tú mismo. Siempre sabes en qué punto está el proyecto.",
-"Com publiquem.":"Cómo publicamos.",
-"Cada canvi passa per proves automàtiques abans d'arribar als teus clients. Fem servir eines estàndard: si un dia canvies d'equip, qualsevol programador podrà continuar.":"Cada cambio pasa por pruebas automáticas antes de llegar a tus clientes. Usamos herramientas estándar: si un día cambias de equipo, cualquier programador podrá continuar.",
+
+
+
+
+
+
 "Les dades, ben guardades.":"Los datos, bien guardados.",
 "Protegir les dades dels teus clients no és un afegit d'última hora. Cada projecte compleix el RGPD i la LOPDGDD des del primer dia.":"Proteger los datos de tus clientes no es un añadido de última hora. Cada proyecto cumple el RGPD y la LOPDGDD desde el primer día.",
-"L'estudi · MNA LABS":"El estudio · MNA LABS","Free Developing · MNA LABS":"Free Developing · MNA LABS","Emprenedoria aplicada · MNA LABS":"Emprendimiento aplicado · MNA LABS",
-"Explica'ns el projecte.":"Cuéntanos el proyecto.","Et responem en dos dies feiners amb una primera valoració. Sense compromís.":"Te respondemos en dos días laborables con una primera valoración. Sin compromiso.",
+"Free Developing · MNA LABS":"Free Developing · MNA LABS","Emprenedoria aplicada · MNA LABS":"Emprendimiento aplicado · MNA LABS",
+"Explica'ns el projecte.":"Cuéntanos el proyecto.",
 "Plataforma SaaS":"Plataforma SaaS","Contacte · MNA LABS":"Contacto · MNA LABS",
 "Et responem nosaltres dos, en dos dies feiners, amb una primera valoració. Sense compromís.":"Te respondemos nosotros dos, en dos días laborables, con una primera valoración. Sin compromiso.",
 "Programador de producció i emprenedor":"Programador de producción y emprendedor","Estudiant de matemàtiques":"Estudiante de matemáticas",
@@ -76,7 +76,7 @@ Object.assign(window.I18N.es, {
 });
 Object.assign(window.I18N.en, {
 "Salta al contingut":"Skip to content","Principal":"Main","L'estudi":"The studio","Contacte":"Contact",
-"Programem el que la teva empresa necessita.":"We build the software your business needs.",
+
 "Programem el que":"We build the software","la teva empresa necessita.":"your business needs.",
 "Som un estudi petit de desenvolupament. Dissenyem i programem webs, botigues, apps i eines de gestió, i després les mantenim.":"We're a small development studio. We design and build websites, online shops, apps and management tools, and then we look after them.",
 "Explica'ns el projecte":"Tell us about the project","Mira com treballem":"See how we work","Baixa i mira com neix una web.":"Scroll down and watch a website come to life.",
@@ -89,7 +89,7 @@ Object.assign(window.I18N.en, {
 "Codi net i ràpid, que qualsevol programador pot entendre. El codi és teu des del primer dia.":"Clean, fast code that any developer can read. The code is yours from day one.",
 "I el mantenim viu.":"And we keep it running.",
 "Web, app i panell de gestió parlen entre ells. Quan entra una comanda, ho saps al moment.":"Website, app and admin panel all talk to each other. When an order comes in, you know straight away.",
-"Què fem":"What we do","Cinc coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.":"Five things, done well. If your project doesn't fit, let's talk anyway.",
+"Què fem":"What we do",
 "Webs":"Websites","Webs d'empresa ràpides, ben escrites i fàcils de trobar a Google.":"Fast, well-written business websites that are easy to find on Google.",
 "Botigues en línia":"Online shops","La teva botiga, sense pagar comissions a cap plataforma per cada venda.":"Your own shop, with no platform taking a cut of every sale.",
 "Per a iPhone i Android, publicades a les botigues i connectades a la teva web.":"For iPhone and Android, published on the stores and connected to your website.",
@@ -100,9 +100,9 @@ Object.assign(window.I18N.en, {
 "Portem lliga.cat i Fundicat. Sabem què vol dir tenir clients reals, factures i un servidor que no pot caure un dissabte a la nit. Això és el que posem a cada projecte.":"We run lliga.cat and Fundicat. We know what it means to have real customers, invoices and a server that can't go down on a Saturday night. That's what we bring to every project.",
 "App de cites en català":"Dating app in Catalan","Veure el projecte":"See the project","Botiga de materials de fundició":"Foundry supplies shop",
 "Quant costa?":"What does it cost?","Per als projectes més habituals tenim paquets amb preu tancat. Per a la resta, et donem un pressupost per escrit abans de començar.":"For the most common projects we have fixed-price packages. For everything else, you get a written quote before we start.",
-"Web d'empresa":"Business website","des de, pagament únic":"from, one-off","Botiga en línia":"Online shop","al mes, sense permanència":"a month, no lock-in","Veure tots els paquets":"See all packages",
+"Web d'empresa":"Business website","Botiga en línia":"Online shop","al mes, sense permanència":"a month, no lock-in","Veure tots els paquets":"See all packages",
 "Tens un projecte entre mans?":"Got a project in mind?","Explica'ns-el":"Tell us about it",
-"Com treballem":"How we work","Paquets i preus":"Packages and prices","Qui som":"About us","Privacitat":"Privacy","Demana pressupost":"Request a quote",
+"Com treballem":"How we work","Paquets i preus":"Packages and prices","Privacitat":"Privacy","Demana pressupost":"Request a quote",
 "Estudi de desenvolupament amb Estudi 95, Aatsin i Clouding":"Development studio working with Estudi 95, Aatsin and Clouding",
 "MNA LABS · Estudi de desenvolupament":"MNA LABS · Development studio",
 "Del primer esbós a la publicació, i després.":"From the first sketch to launch, and beyond.",
@@ -125,24 +125,24 @@ Object.assign(window.I18N.en, {
 "Serveis · MNA LABS":"Services · MNA LABS",
 "Saber què costa abans de començar.":"Know the cost before you start.",
 "Aquests són els projectes que ens demanen més sovint, amb preu tancat. Si el teu no hi surt, et fem un pressupost a mida, també per escrit.":"These are the projects we're asked for most, at a fixed price. If yours isn't here, we'll give you a tailored quote, also in writing.",
-"Preu tancat per als projectes més habituals, amb un exemple de cada. El pressupost final te'l donem per escrit.":"Fixed prices for the most common projects, with an example of each. You get the final quote in writing.",
+
 "Exemple":"Example","Recomanat":"Recommended","Paquets i preus · MNA LABS":"Packages and prices · MNA LABS",
 "El que fem quan el client som nosaltres.":"What we build when we're the client.",
 "Portem dos productes propis amb usuaris i vendes reals. Tot el que hi aprenem, ho apliquem als projectes dels nostres clients.":"We run two products of our own, with real users and real sales. Everything we learn there goes into our clients' projects.",
-"Els nostres productes.":"Our products.","Abans de fer-ho per a altres, ho vam fer per a nosaltres. Portem dos productes propis i en som responsables cada dia.":"Before doing it for others, we did it for ourselves. We run two products of our own and answer for them every day.",
+
 "Amb qui treballem.":"Who we work with.","Amb qui treballem":"Who we work with","Tres equips amb qui compartim projectes, de la idea fins al mercat.":"Three teams we share projects with, from idea to market.",
 "Projectes · MNA LABS":"Projects · MNA LABS",
-"Un estudi petit, a propòsit.":"A small studio, on purpose.",
-"Som l'equip que va fundar lliga.cat i Fundicat. Agafem pocs projectes alhora perquè cadascun tingui algú que se'l miri cada dia, i treballem amb Estudi 95, Aatsin i Clouding quan un projecte ho demana.":"We're the team that founded lliga.cat and Fundicat. We take on a few projects at a time so each one has someone looking after it every day, and we work with Estudi 95, Aatsin and Clouding when a project calls for it.",
-"Com publiquem":"How we ship","Com treballem.":"How we work.",
-"Entregues petites, cada dues setmanes, que pots provar tu mateix. Sempre saps en quin punt està el projecte.":"Small deliveries every two weeks that you can try yourself. You always know where the project stands.",
-"Com publiquem.":"How we ship.",
-"Cada canvi passa per proves automàtiques abans d'arribar als teus clients. Fem servir eines estàndard: si un dia canvies d'equip, qualsevol programador podrà continuar.":"Every change goes through automated tests before it reaches your customers. We use standard tools: if you ever change teams, any developer can pick it up.",
+
+
+
+
+
+
 "Les dades, ben guardades.":"Data, kept safe.",
 "Protegir les dades dels teus clients no és un afegit d'última hora. Cada projecte compleix el RGPD i la LOPDGDD des del primer dia.":"Protecting your customers' data isn't a last-minute add-on. Every project complies with the GDPR and Spanish data protection law from day one.",
 "RGPD":"GDPR",
-"L'estudi · MNA LABS":"The studio · MNA LABS","Free Developing · MNA LABS":"Free Developing · MNA LABS","Emprenedoria aplicada · MNA LABS":"Applied entrepreneurship · MNA LABS",
-"Explica'ns el projecte.":"Tell us about the project.","Et responem en dos dies feiners amb una primera valoració. Sense compromís.":"We'll reply within two working days with a first assessment. No commitment.",
+"Free Developing · MNA LABS":"Free Developing · MNA LABS","Emprenedoria aplicada · MNA LABS":"Applied entrepreneurship · MNA LABS",
+"Explica'ns el projecte.":"Tell us about the project.",
 "Plataforma SaaS":"SaaS platform","Contacte · MNA LABS":"Contact · MNA LABS",
 "Et responem nosaltres dos, en dos dies feiners, amb una primera valoració. Sense compromís.":"The two of us will reply within two working days with a first assessment. No commitment.",
 "Programador de producció i emprenedor":"Production software developer and entrepreneur","Estudiant de matemàtiques":"Mathematics student",

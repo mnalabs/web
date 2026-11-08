@@ -94,3 +94,13 @@ test('les captures de Fundicat es veuen a Què fem, Serveis i Projectes', async 
     await pagina.close();
   }
 });
+
+test('en anar de Prototipatge a la portada, l\'indicador del menú no es queda uns instants sobre «Prototipatge»', async () => {
+  const { pagina } = await obre('/prototipatge.html');
+  await pagina.hover('#navLinks a[data-page="prototipatge"]');
+  await pagina.waitForTimeout(500);
+  await Promise.all([pagina.waitForURL(/index\.html$|\/$/), pagina.click('.logo')]);
+  const opacitats = [];
+  for (let i = 0; i < 6; i++) { opacitats.push(await pagina.evaluate(() => parseFloat(getComputedStyle(document.querySelector('#navInd')).opacity))); await pagina.waitForTimeout(60); }
+  assert.ok(opacitats.every(o => o === 0), `l'indicador s'ha vist: ${opacitats}`);
+});

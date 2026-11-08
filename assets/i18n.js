@@ -1,40 +1,40 @@
 /* Traduccions de la web d'MNA LABS. La clau és el text original en català. */
 window.I18N = {
 es: {
-"Serveis":"Servicios","Programari":"Software","Emprenedoria":"Emprendimiento","Projectes":"Proyectos","Contacte":"Contacto","Comencem":"Empecemos",
-"Programari.":"Software.","Fet amb precisió.":"Hecho con precisión.",
-"Apps, webs, ecommerce i programari complex per a tot tipus de negocis. Dissenyat i construït per l'equip que va fundar lliga.cat i Fundicat.":"Apps, webs, ecommerce y software complejo para todo tipo de negocios. Diseñado y construido por el equipo que fundó lliga.cat y Fundicat.",
-"Explica'ns el teu projecte":"Cuéntanos tu proyecto","Veure projectes":"Ver proyectos","Enginyeria digital.":"Ingeniería digital.","Des de Catalunya, per a tot arreu.":"Desde Cataluña, para todo el mundo.","Desplaça":"Desliza",
-"Tot el que cal per construir en digital.":"Todo lo necesario para construir en digital.",
-"Un sol equip, del primer esbós fins a producció. Sense plantilles i sense intermediaris.":"Un solo equipo, del primer boceto a producción. Sin plantillas y sin intermediarios.",
-"Programari a mida":"Software a medida","Fet per a com treballeu.":"Hecho para cómo trabajáis.",
-"Plataformes, ERP i automatitzacions que encaixen amb la vostra empresa, per complex que sigui el procés.":"Plataformas, ERP y automatizaciones que encajan con vuestra empresa, por complejo que sea el proceso.",
-"Veure'n un exemple":"Ver un ejemplo","// comandes pendents d'avui":"// pedidos pendientes de hoy",
-"Apps mòbils":"Apps móviles","A la butxaca de tothom.":"En el bolsillo de todos.",
-"Apps per a iOS i Android amb comptes, pagaments, notificacions i temps real.":"Apps para iOS y Android con cuentas, pagos, notificaciones y tiempo real.",
-"Parlem-ne":"Hablemos","Comanda enviada":"Pedido enviado","Arribarà dijous entre les 9 i les 13 h.":"Llegará el jueves entre las 9 y las 13 h.","Nou missatge":"Nuevo mensaje","Hola! Quan podem quedar?":"¡Hola! ¿Cuándo quedamos?",
-"Webs":"Webs","Ràpides. Clares. Vostres.":"Rápidas. Claras. Vuestras.",
-"Webs d'empresa que carreguen a l'instant, es troben a Google i expliquen bé què feu.":"Webs de empresa que cargan al instante, aparecen en Google y explican bien lo que hacéis.",
-"laVostraEmpresa.cat":"tuEmpresa.es","El que feu,":"Lo que hacéis,","explicat en una frase.":"explicado en una frase.","Demana pressupost":"Pide presupuesto",
-"La vostra botiga. Sense quotes.":"Vuestra tienda. Sin cuotas.",
-"Botigues pròpies amb catàleg, pagaments i enviaments. Sense dependre de cap plataforma.":"Tiendas propias con catálogo, pagos y envíos. Sin depender de ninguna plataforma.",
-"Producte":"Producto","Afegeix":"Añadir",
-"Tecnologia que parla l'idioma del teu sector.":"Tecnología que habla el idioma de tu sector.",
-"De la indústria al comerç de barri. Entenem com funciona cada sector i construïm la tecnologia que necessita.":"De la industria al comercio de barrio. Entendemos cómo funciona cada sector y construimos la tecnología que necesita.",
+"Serveis":"Servicios","Programari":"Software","Emprenedoria":"Emprendimiento","Projectes":"Proyectos","Contacte":"Contacto",
+
+
+"Desplaça":"Desliza",
+
+
+"Programari a mida":"Software a medida",
+
+
+"Apps mòbils":"Apps móviles",
+
+"Parlem-ne":"Hablemos",
+"Webs":"Webs",
+
+"Demana pressupost":"Pide presupuesto",
+
+
+"Afegeix":"Añadir",
+
+
 "Indústria i fabricació":"Industria y fabricación","Comerç al detall":"Comercio y retail","Restauració i hostaleria":"Restauración y hostelería","Salut i benestar":"Salud y bienestar","Serveis professionals":"Servicios profesionales","Logística i transport":"Logística y transporte","Educació i formació":"Educación y formación","Immobiliària":"Inmobiliaria","Construcció":"Construcción","Turisme":"Turismo","Associacions i entitats":"Asociaciones y entidades","Sectors":"Sectores",
-"Programari complex.":"Software complejo.","Interfície simple.":"Interfaz simple.",
-"Construïm els sistemes que fan funcionar una empresa per dins: comandes, estoc, facturació, clients i dades en temps real.":"Construimos los sistemas que hacen funcionar una empresa por dentro: pedidos, stock, facturación, clientes y datos en tiempo real.",
+
+
 "Gestió":"Gestión","Resum":"Resumen","Comandes":"Pedidos","Clients":"Clientes","Inventari":"Inventario","Factures":"Facturas","Informes":"Informes","Administració":"Administración","Rol: gerència":"Rol: gerencia",
 "Resum d'avui":"Resumen de hoy","Totes les botigues · tots els canals":"Todas las tiendas · todos los canales","En directe":"En directo","▲ 12% més que ahir":"▲ 12% vs ayer","Facturació":"Facturación","Clients actius":"Clientes activos","Temps de resposta":"Tiempo de respuesta","● Estable":"● Estable",
-"últims 30 dies":"últimos 30 días","Per canal":"Por canal","Botiga":"Tienda","Últimes comandes":"Últimos pedidos","sincronitzat ara":"sincronizado ahora","Enviada":"Enviado","Pagada":"Pagado","Preparant":"Preparando","Client particular":"Cliente particular","Activitat":"Actividad","en directe":"en directo",
+"últims 30 dies":"últimos 30 días","Per canal":"Por canal","Botiga":"Tienda","Últimes comandes":"Últimos pedidos","sincronitzat ara":"sincronizado ahora","Enviada":"Enviado","Pagada":"Pagado","Preparant":"Preparando","Activitat":"Actividad","en directe":"en directo",
 "Exemple il·lustratiu amb dades de demostració.":"Ejemplo ilustrativo con datos de demostración.",
-"Arquitectura pensada per créixer.":"Arquitectura pensada para crecer.",
-"Apps, webs i eines internes connectades a una sola API: segura, observable i preparada per escalar quan el negoci ho demani.":"Apps, webs y herramientas internas conectadas a una sola API: segura, observable y preparada para escalar cuando el negocio lo pida.",
+
+
 "Petició":"Petición","Resposta":"Respuesta","Segura per defecte.":"Segura por defecto.",
 "Autenticació, rols i permisos, xifratge i còpies de seguretat automàtiques des del primer dia.":"Autenticación, roles y permisos, cifrado y copias de seguridad automáticas desde el primer día.",
 "Registres, alertes i mètriques: sabem que alguna cosa falla abans que ho noti cap usuari.":"Registros, alertas y métricas: sabemos que algo falla antes de que lo note ningún usuario.",
 "Del primer client als primers milers sense reescriure res. Infraestructura que creix amb vosaltres.":"Del primer cliente a los primeros miles sin reescribir nada. Infraestructura que crece con vosotros.",
-"Què construïm.":"Qué construimos.","Projectes on la tecnologia és el negoci, no un complement.":"Proyectos donde la tecnología es el negocio, no un complemento.",
+
 "Plataformes SaaS":"Plataformas SaaS","Multiusuari, subscripcions, rols i permisos, facturació recurrent i panells d'administració.":"Multiusuario, suscripciones, roles y permisos, facturación recurrente y paneles de administración.",
 "ERP i gestió interna":"ERP y gestión interna","Comandes, estoc, producció, facturació i informes en un sol lloc, fet a mida del vostre procés.":"Pedidos, stock, producción, facturación e informes en un solo lugar, a medida de vuestro proceso.",
 "Apps en temps real":"Apps en tiempo real","Xat, geolocalització, notificacions push i sincronització fora de línia per a iOS i Android.":"Chat, geolocalización, notificaciones push y sincronización sin conexión para iOS y Android.",
@@ -42,15 +42,15 @@ es: {
 "Integracions i API":"Integraciones y API","Connectem ERP, CRM, pagaments, logística i comptabilitat perquè les dades flueixin soles.":"Conectamos ERP, CRM, pagos, logística y contabilidad para que los datos fluyan solos.",
 "IA aplicada":"IA aplicada","Assistents, lectura automàtica de documents i cerca intel·ligent sobre les dades de la vostra empresa.":"Asistentes, lectura automática de documentos y búsqueda inteligente sobre los datos de vuestra empresa.",
 "Comerç electrònic B2B i B2C":"Ecommerce B2B y B2C","Tarifes per client, estoc en temps real, enviaments automatitzats i botiga sense quotes.":"Tarifas por cliente, stock en tiempo real, envíos automatizados y tienda sin cuotas.",
-"No només fem apps.":"No solo hacemos apps.","En som fundadors.":"Somos sus fundadores.",
-"Construïm i operem els nostres propis productes. Per això pensem cada decisió tècnica com a empresa, no només com a proveïdor.":"Construimos y operamos nuestros propios productos. Por eso pensamos cada decisión técnica como empresa, no solo como proveedor.",
+
+
 "App · Comunitat":"App · Comunidad",
 "L'app de cites pensada per a Catalunya. Perfils, coincidències i xat en temps real, sobre una infraestructura pròpia que hem migrat i escalat nosaltres mateixos.":"La app de citas pensada para Cataluña. Perfiles, coincidencias y chat en tiempo real, sobre una infraestructura propia que hemos migrado y escalado nosotros mismos.",
 "Visita lliga.cat":"Visita lliga.cat","A prop teu":"Cerca de ti","Botiga en línia · Indústria":"Ecommerce · Industria",
 "Botiga en línia de materials per a fundició. Comerç electrònic propi, amb catàleg tècnic i gestió de comandes integrada, sense dependre de plataformes de tercers.":"Tienda online de materiales para fundición. Ecommerce propio, con catálogo técnico y gestión de pedidos integrada, sin depender de plataformas de terceros.",
-"Vull una botiga així":"Quiero una tienda así","Fundicat · Botiga":"Fundicat · Tienda","Materials de fundició":"Materiales de fundición","Cistella":"Cesta","Coure":"Cobre","Lingot":"Lingote","Alumini":"Aluminio","Aliatge":"Aleación","Sorra 5 kg":"Arena 5 kg",
-"Empreses col·laboradores.":"Empresas colaboradoras.","Treballem colze a colze amb altres equips per portar cada projecte de la idea al mercat.":"Trabajamos codo con codo con otros equipos para llevar cada proyecto de la idea al mercado.",
-"Col·labora amb MNA LABS en el desenvolupament i el creixement dels projectes.":"Colabora con MNA LABS en el desarrollo y el crecimiento de los proyectos.","Col·laborador":"Colaborador","Col·laboradors":"Colaboradores",
+"Vull una botiga així":"Quiero una tienda así","Cistella":"Cesta",
+
+"Col·labora amb MNA LABS en el desenvolupament i el creixement dels projectes.":"Colabora con MNA LABS en el desarrollo y el crecimiento de los proyectos.","Col·laborador":"Colaborador",
 "La teva idea, construïda sense pagar ara.":"Tu idea, construida sin pagar ahora.",
 "Si tens un projecte amb potencial, però no el pressupost per desenvolupar-lo, el construïm igualment. Ens pagues més endavant o entrem com a socis.":"Si tienes un proyecto con potencial pero no el presupuesto para desarrollarlo, lo construimos igualmente. Nos pagas más adelante o entramos como socios.",
 "0 € d'entrada":"0 € de entrada","Desenvolupament":"Desarrollo","Llançament · pagaments":"Lanzamiento · pagos","Pagament futur":"Pago futuro",
@@ -74,67 +74,67 @@ es: {
 "Ho fem des de l'experiència: fundem i portem els nostres propis negocis.":"Lo hacemos desde la experiencia: fundamos y dirigimos nuestros propios negocios.",
 "lliga.cat i Fundicat en són la prova. Apliquem a la vostra empresa el que hem après llançant-los.":"lliga.cat y Fundicat son la prueba. Aplicamos a vuestra empresa lo que hemos aprendido lanzándolos.",
 "Parlem del vostre projecte":"Hablemos de vuestro proyecto",
-"Quatre passos. Cap sorpresa.":"Cuatro pasos. Ninguna sorpresa.","Iteracions curtes i entregues que podeu provar des de la primera setmana.":"Iteraciones cortas y entregas que podéis probar desde la primera semana.",
-"Descobriment":"Descubrimiento","Entenem el negoci i el problema. Sortim amb abast, terminis i pressupost tancat.":"Entendemos el negocio y el problema. Salimos con alcance, plazos y presupuesto cerrado.",
-"Disseny":"Diseño","Prototips navegables abans d'escriure codi, validats amb gent real.":"Prototipos navegables antes de escribir código, validados con gente real.",
-"Sprints de dues setmanes i entorn de proves sempre actiu. El codi és vostre.":"Sprints de dos semanas y entorno de pruebas siempre activo. El código es vuestro.",
-"Llançament":"Lanzamiento","Publiquem, mesurem i millorem, amb suport i temps de resposta pactats.":"Publicamos, medimos y mejoramos, con soporte y tiempos de respuesta pactados.",
-"Del codi a producció.":"Del código a producción.","Cada dia.":"Cada día.",
-"Proves automàtiques, desplegaments sense aturades i tecnologia estàndard, perquè el vostre producte no depengui mai d'una sola persona.":"Pruebas automáticas, despliegues sin interrupciones y tecnología estándar, para que vuestro producto nunca dependa de una sola persona.",
-"desplegament — producció":"despliegue — producción",
-"Tens una idea?":"¿Tienes una idea?","Fem-la realitat.":"Hagámosla realidad.",
-"Explica'ns què vols construir. Et responem en menys de 48 hores amb una primera valoració, sense compromís.":"Cuéntanos qué quieres construir. Te respondemos en menos de 48 horas con una primera valoración, sin compromiso.",
+
+
+"Disseny":"Diseño",
+
+"Llançament":"Lanzamiento",
+
+
+
+
+
 "Nom":"Nombre","Correu electrònic":"Correo electrónico","App mòbil":"App móvil","Encara no ho sé":"Aún no lo sé","Què necessites?":"¿Qué necesitas?","El projecte, en poques línies":"El proyecto, en pocas líneas",
-"Envia la proposta":"Enviar la propuesta","Copia la proposta":"Copiar la propuesta","O escriu a":"O escribe a","O escriu a":"O escribe a",
-"MNA LABS és l'estudi de desenvolupament digital dels fundadors de lliga.cat i Fundicat, amb la col·laboració d'Estudi 95, Aatsin i Clouding.":"MNA LABS es el estudio de desarrollo digital de los fundadores de lliga.cat y Fundicat, con la colaboración de Estudi 95, Aatsin y Clouding.",
-"Capacitats":"Capacidades","Sistemes de gestió":"Sistemas de gestión","Què construïm":"Qué construimos","L'estudi":"El estudio","Procés":"Proceso","Tecnologia":"Tecnología",
-"Copyright © 2026 MNA LABS. Tots els drets reservats.":"Copyright © 2026 MNA LABS. Todos los derechos reservados.","Catalunya":"Cataluña",
+"Envia la proposta":"Enviar la propuesta","O escriu a":"O escribe a","O escriu a":"O escribe a",
+
+"L'estudi":"El estudio",
+"Catalunya":"Cataluña",
 "MNA LABS, inici":"MNA LABS, inicio","Idioma":"Idioma",
 "Exemple de panell de gestió fet a mida (dades de demostració)":"Ejemplo de panel de gestión a medida (datos de demostración)",
 "Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, IA, base de dades i notificacions.":"Diagrama: las apps iOS y Android, la web y el panel interno se conectan a una API central, que habla con autenticación, pagos, IA, base de datos y notificaciones.",
-"Com pensem":"Cómo pensamos","Exemple d'un desplegament automàtic":"Ejemplo de un despliegue automático",
+"Com pensem":"Cómo pensamos",
 "Programem cada línia com si l'haguéssim de mantenir nosaltres deu anys.":"Programamos cada línea como si tuviéramos que mantenerla nosotros diez años.",
-"Pagament rebut":"Pago recibido","Nova comanda":"Nuevo pedido","Estoc baix":"Stock bajo","Sorra PetroBond 5 kg · 8 unitats":"Arena PetroBond 5 kg · 8 unidades","Factura emesa":"Factura emitida","F-2026-0912 · enviada per correu":"F-2026-0912 · enviada por correo","Enviament lliurat":"Envío entregado","Client nou":"Cliente nuevo","Registrat des de l'app":"Registrado desde la app","Sincronització":"Sincronización","Comptabilitat actualitzada":"Contabilidad actualizada","ara":"ahora",
+"Pagament rebut":"Pago recibido","Nova comanda":"Nuevo pedido","Estoc baix":"Stock bajo","Factura emesa":"Factura emitida","F-2026-0912 · enviada per correu":"F-2026-0912 · enviada por correo","Enviament lliurat":"Envío entregado","Client nou":"Cliente nuevo","Sincronització":"Sincronización","Comptabilitat actualitzada":"Contabilidad actualizada","ara":"ahora",
 "Panell intern":"Panel interno","Gestió a mida":"Gestión a medida","A mida":"A medida","Autenticació":"Autenticación","Rols i permisos":"Roles y permisos","Rols":"Roles","Pagaments":"Pagos","Models i cerca":"Modelos y búsqueda","Models":"Modelos","Base de dades":"Base de datos","Notificacions":"Notificaciones","Push · correu":"Push · correo",
-"→ Executant les proves automàtiques…":"→ Ejecutando las pruebas automáticas…","✓ 248 proves superades":"✓ 248 pruebas superadas","→ Compilant l'aplicació…":"→ Compilando la aplicación…","✓ Compilat en 2,1 s":"✓ Compilado en 2,1 s","→ Migrant la base de dades…":"→ Migrando la base de datos…","✓ 2 migracions aplicades":"✓ 2 migraciones aplicadas","→ Desplegant a producció (UE)…":"→ Desplegando a producción (UE)…","✓ Verificació de salut: 200 OK":"✓ Verificación de salud: 200 OK","✓ Versió 4.12.0 en línia.":"✓ Versión 4.12.0 en línea.",
+
 "Omple el nom, un correu vàlid i el missatge.":"Rellena el nombre, un correo válido y el mensaje.","S'està obrint el teu correu per enviar la proposta.":"Se está abriendo tu correo para enviar la propuesta.",
 
-"Paquets":"Paquetes","Paquets clars. Preus clars.":"Paquetes claros. Precios claros.",
-"Tria el punt de partida. Cada paquet inclou tot el que cal per arrencar, i el pressupost final el tanquem amb tu per escrit.":"Elige el punto de partida. Cada paquete incluye todo lo necesario para arrancar, y el presupuesto final lo cerramos contigo por escrito.",
+"Paquets":"Paquetes",
+
 "Tipus de paquet":"Tipo de paquete","Webs i apps":"Webs y apps","Xarxes socials":"Redes sociales","Combinats":"Combinados","Totes les plataformes":"Todas las plataformas",
 "Per només 20 €/mes més, també publiquem a TikTok, LinkedIn, YouTube, X, Pinterest i Google Business.":"Por solo 20 €/mes más, también publicamos en TikTok, LinkedIn, YouTube, X, Pinterest y Google Business.",
-"des de":"desde","pagament únic":"pago único","/mes":"/mes","web":"web","Exemple":"Ejemplo","Vull aquest paquet":"Quiero este paquete","El més demanat":"El más pedido","M'interessa el paquet:":"Me interesa el paquete:",
+"des de":"desde","/mes":"/mes","web":"web","Exemple":"Ejemplo","Vull aquest paquet":"Quiero este paquete","M'interessa el paquet:":"Me interesa el paquete:",
 "Web informativa":"Web informativa","La teva empresa ben explicada a internet.":"Tu empresa bien explicada en internet.",
-"+ manteniment i allotjament 25 €/mes":"+ mantenimiento y alojamiento 25 €/mes","+ manteniment i allotjament 35 €/mes":"+ mantenimiento y alojamiento 35 €/mes","+ manteniment i allotjament 49 €/mes":"+ mantenimiento y alojamiento 49 €/mes","+ manteniment i allotjament 79 €/mes":"+ mantenimiento y alojamiento 79 €/mes","+ manteniment i allotjament 99 €/mes":"+ mantenimiento y alojamiento 99 €/mes",
+
 "Llesta en 2–3 setmanes":"Lista en 2–3 semanas","Llesta en 3–4 setmanes":"Lista en 3–4 semanas","Llesta en 4–6 setmanes":"Lista en 4–6 semanas","Llesta en 8–12 setmanes":"Lista en 8–12 semanas","Llesta en 10–14 setmanes":"Lista en 10–14 semanas",
 "Disseny a mida, sense plantilles":"Diseño a medida, sin plantillas","Fins a 6 pàgines":"Hasta 6 páginas","Adaptada a mòbil i tauleta":"Adaptada a móvil y tableta","SEO bàsic i fitxa de Google Business":"SEO básico y ficha de Google Business","Formulari de contacte i WhatsApp":"Formulario de contacto y WhatsApp","Textos legals, galetes i RGPD":"Textos legales, cookies y RGPD","Domini i allotjament el primer any":"Dominio y alojamiento el primer año",
-"Una clínica de fisioteràpia que vol explicar els tractaments, mostrar l'equip i rebre consultes des del mòbil.":"Una clínica de fisioterapia que quiere explicar sus tratamientos, mostrar el equipo y recibir consultas desde el móvil.",
-"Web amb compres integrades":"Web con compras integradas","Ven serveis, reserves o vals regal des de la teva web.":"Vende servicios, reservas o vales regalo desde tu web.",
+
+"Web amb compres integrades":"Web con compras integradas",
 "Tot el de la web informativa":"Todo lo de la web informativa","Pagament amb targeta, Bizum, Apple Pay i Google Pay":"Pago con tarjeta, Bizum, Apple Pay y Google Pay","Fins a 20 productes, serveis o reserves":"Hasta 20 productos, servicios o reservas","Correus de confirmació automàtics":"Correos de confirmación automáticos","Panell per veure i gestionar les vendes":"Panel para ver y gestionar las ventas","Factura automàtica a cada compra":"Factura automática en cada compra",
-"Un restaurant que ven vals regal i menús per emportar sense passar per cap plataforma de tercers.":"Un restaurante que vende vales regalo y menús para llevar sin pasar por ninguna plataforma de terceros.",
+
 "Una botiga en línia completa, teva i sense comissions per venda.":"Una tienda online completa, tuya y sin comisiones por venta.",
 "Catàleg il·limitat amb variants i estoc":"Catálogo ilimitado con variantes y stock","Enviaments amb tarifes per zona":"Envíos con tarifas por zona","Comptes de client, cupons i descomptes":"Cuentas de cliente, cupones y descuentos","Factures i correus automàtics":"Facturas y correos automáticos","Connexió amb Google Shopping i Meta":"Conexión con Google Shopping y Meta","Panell de gestió fet per a la teva botiga":"Panel de gestión hecho para tu tienda","Sense quotes mensuals de plataforma":"Sin cuotas mensuales de plataforma",
-"Una botiga de vins que vol vendre a tot l'Estat sense pagar quotes ni comissions a Shopify.":"Una tienda de vinos que quiere vender en toda España sin pagar cuotas ni comisiones a Shopify.",
+
 "Aplicació web":"Aplicación web","Programari a mida que funciona al navegador, des de qualsevol dispositiu.":"Software a medida que funciona en el navegador, desde cualquier dispositivo.",
 "Anàlisi del procés i prototip navegable":"Análisis del proceso y prototipo navegable","Usuaris, rols i permisos":"Usuarios, roles y permisos","Base de dades i panell de gestió":"Base de datos y panel de gestión","Integració amb facturació, ERP o altres eines":"Integración con facturación, ERP u otras herramientas","Informes i exportació de dades":"Informes y exportación de datos","El codi és teu":"El código es tuyo",
-"Una empresa de manteniment que vol gestionar avisos, tècnics i albarans des del mòbil, en temps real.":"Una empresa de mantenimiento que quiere gestionar avisos, técnicos y albaranes desde el móvil, en tiempo real.",
-"Xarxes amb IA":"Redes con IA","Publicacions fetes amb intel·ligència artificial d'alt rendiment i revisades per un dissenyador gràfic.":"Publicaciones hechas con inteligencia artificial de alto rendimiento y revisadas por un diseñador gráfico.",
+
+
 "Gestió semiautomatitzada":"Gestión semiautomatizada","Sense permanència":"Sin permanencia",
-"12 publicacions al mes":"12 publicaciones al mes","Imatges i textos generats amb IA":"Imágenes y textos generados con IA","Revisió de cada peça per un dissenyador gràfic":"Revisión de cada pieza por un diseñador gráfico","Calendari mensual que aproves tu":"Calendario mensual que apruebas tú","Programació automàtica de les publicacions":"Programación automática de las publicaciones","Informe mensual de resultats":"Informe mensual de resultados","Instagram i Facebook":"Instagram y Facebook","+ TikTok, LinkedIn, YouTube, X, Pinterest i Google Business":"+ TikTok, LinkedIn, YouTube, X, Pinterest y Google Business",
-"Una perruqueria que vol publicar cada setmana sense dedicar-hi ni una hora.":"Una peluquería que quiere publicar cada semana sin dedicarle ni una hora.",
+"12 publicacions al mes":"12 publicaciones al mes","Calendari mensual que aproves tu":"Calendario mensual que apruebas tú","Programació automàtica de les publicacions":"Programación automática de las publicaciones","Informe mensual de resultats":"Informe mensual de resultados","Instagram i Facebook":"Instagram y Facebook","+ TikTok, LinkedIn, YouTube, X, Pinterest i Google Business":"+ TikTok, LinkedIn, YouTube, X, Pinterest y Google Business",
+
 "Xarxes mixtes":"Redes mixtas","Contingut audiovisual real, gravat a la teva empresa, combinat amb IA.":"Contenido audiovisual real, grabado en tu empresa, combinado con IA.","Mitja jornada de rodatge al mes":"Media jornada de rodaje al mes",
 "Una sessió mensual de vídeo i fotografia":"Una sesión mensual de vídeo y fotografía","4 reels editats amb imatges reals":"4 reels editados con imágenes reales","12 publicacions entre material real i IA":"12 publicaciones entre material real e IA","Stories setmanals":"Stories semanales","Revisió de dissenyador gràfic":"Revisión de diseñador gráfico",
-"Un gimnàs que vol ensenyar les instal·lacions, les classes i l'equip de debò.":"Un gimnasio que quiere enseñar sus instalaciones, sus clases y su equipo de verdad.",
+
 "Xarxes full real":"Redes full real","Tot gravat i fotografiat per professionals. Sense IA a la imatge.":"Todo grabado y fotografiado por profesionales. Sin IA en la imagen.","Dues jornades de rodatge al mes":"Dos jornadas de rodaje al mes",
 "Guions i planificació de continguts":"Guiones y planificación de contenidos","8 reels amb edició professional":"8 reels con edición profesional","16 publicacions amb fotografia pròpia":"16 publicaciones con fotografía propia","Stories diàries":"Stories diarias","Gestió de comentaris i missatges":"Gestión de comentarios y mensajes","Reunió i informe mensual":"Reunión e informe mensual",
-"Un hotel rural que vol transmetre l'experiència real de les estades i omplir els caps de setmana.":"Un hotel rural que quiere transmitir la experiencia real de sus estancias y llenar los fines de semana.",
+
 "Web + app":"Web + app","La teva web i la teva app per a iOS i Android, connectades entre elles.":"Tu web y tu app para iOS y Android, conectadas entre sí.",
 "Web informativa o amb compres":"Web informativa o con compras","App per a iOS i Android publicada a les botigues":"App para iOS y Android publicada en las tiendas","Un sol compte d'usuari per a web i app":"Una sola cuenta de usuario para web y app","Notificacions push":"Notificaciones push","Pagaments dins l'app":"Pagos dentro de la app","Panell de gestió compartit":"Panel de gestión compartido",
-"Un club esportiu on els socis reserven pista des de l'app o la web, amb el mateix compte.":"Un club deportivo donde los socios reservan pista desde la app o la web, con la misma cuenta.",
+
 "Web + xarxes":"Web + redes","Presència completa des del primer dia, amb la mateixa imatge a tot arreu.":"Presencia completa desde el primer día, con la misma imagen en todas partes.",
-"Estalvies 200 € a la web":"Ahorras 200 € en la web","Permanència de 6 mesos a les xarxes":"Permanencia de 6 meses en las redes",
-"Web informativa completa":"Web informativa completa","Paquet Xarxes amb IA":"Paquete Redes con IA","Imatge coherent entre web i xarxes":"Imagen coherente entre web y redes","Biografies i enllaços optimitzats":"Biografías y enlaces optimizados","Estadístiques de web i xarxes en un sol informe":"Estadísticas de web y redes en un solo informe",
-"Una botiga de roba que obre local i necessita ser visible des del primer dia.":"Una tienda de ropa que abre local y necesita ser visible desde el primer día.",
+"Permanència de 6 mesos a les xarxes":"Permanencia de 6 meses en las redes",
+"Web informativa completa":"Web informativa completa","Imatge coherent entre web i xarxes":"Imagen coherente entre web y redes","Biografies i enllaços optimitzats":"Biografías y enlaces optimizados","Estadístiques de web i xarxes en un sol informe":"Estadísticas de web y redes en un solo informe",
+
 "Necessites una altra combinació?":"¿Necesitas otra combinación?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"Combinamos cualquier paquete y lo ajustamos a tu negocio. También puedes hacerlo con Free Developing, sin pagar ahora.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Precios sin IVA. Son precios de partida: el presupuesto final lo cerramos por escrito tras la primera reunión.",
 "Manteniment opcional: 25 €/mes":"Mantenimiento opcional: 25 €/mes","Manteniment opcional: 35 €/mes":"Mantenimiento opcional: 35 €/mes","Manteniment opcional: 49 €/mes":"Mantenimiento opcional: 49 €/mes","Manteniment opcional: 79 €/mes":"Mantenimiento opcional: 79 €/mes","Manteniment opcional: 99 €/mes":"Mantenimiento opcional: 99 €/mes",
@@ -142,58 +142,58 @@ es: {
 "Què inclou el manteniment opcional":"Qué incluye el mantenimiento opcional","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Puedes contratarlo cuando quieras y darlo de baja cuando quieras.",
 "Allotjament i domini":"Alojamiento y dominio","Certificat de seguretat SSL":"Certificado de seguridad SSL","Actualitzacions i còpies de seguretat":"Actualizaciones y copias de seguridad","Petits canvis de contingut cada mes":"Pequeños cambios de contenido cada mes","Suport per correu i WhatsApp":"Soporte por correo y WhatsApp",
 "Subscripcions":"Suscripciones","Multiusuari":"Multiusuario","Estoc":"Stock","Producció":"Producción","Notificacions":"Notificaciones","Pagaments dividits":"Pagos divididos","Valoracions":"Valoraciones","Assistents":"Asistentes","Cerca semàntica":"Búsqueda semántica","Sense quotes":"Sin cuotas",
-"La privacitat, al nucli.":"La privacidad, en el núcleo.",
-"Protegir les dades no és un afegit d'última hora: és com construïm des del primer dia. Cada projecte compleix el RGPD i la LOPDGDD des de l'inici.":"Proteger los datos no es un añadido de última hora: es cómo construimos desde el primer día. Cada proyecto cumple el RGPD y la LOPDGDD desde el inicio.",
+
+
 "Privacitat des del disseny":"Privacidad desde el diseño","Decidim quines dades calen, on es guarden i qui hi accedeix abans d'escriure la primera línia.":"Decidimos qué datos hacen falta, dónde se guardan y quién accede a ellos antes de escribir la primera línea.",
 "Dades xifrades":"Datos cifrados","Xifratge en trànsit i en repòs, contrasenyes mai en text pla i accessos per rols.":"Cifrado en tránsito y en reposo, contraseñas nunca en texto plano y accesos por roles.",
 "Servidors a Europa":"Servidores en Europa","Allotjament a la Unió Europea i còpies de seguretat amb proveïdors que compleixen el RGPD.":"Alojamiento en la Unión Europea y copias de seguridad con proveedores que cumplen el RGPD.",
 "Tot en regla des de l'inici":"Todo en regla desde el inicio","Textos legals, consentiments, registre d'activitats i contractes d'encàrrec de tractament.":"Textos legales, consentimientos, registro de actividades y contratos de encargo de tratamiento.",
 "Fitxa de client":"Ficha de cliente","Dades en clar":"Datos en claro","Xifrat":"Cifrado","Nom":"Nombre","Correu":"Correo","Telèfon":"Teléfono","Adreça":"Dirección","Targeta":"Tarjeta",
 "Animació: les dades d'un client es xifren":"Animación: los datos de un cliente se cifran",
-"Tria el teu paquet.":"Elige tu paquete.","Preus clars i un exemple real de cada paquet. El pressupost final el tanquem amb tu per escrit.":"Precios claros y un ejemplo real de cada paquete. El presupuesto final lo cerramos contigo por escrito.",
-"Exemple real":"Ejemplo real","Instagram d'MNA LABS":"Instagram de MNA LABS","Ben aviat":"Muy pronto","MNA LABS: web i Instagram":"MNA LABS: web e Instagram",
+
+
 "Ven serveis, reserves o encàrrecs des de la teva web.":"Vende servicios, reservas o encargos desde tu web.",
 "Disseny gràfic i fotos d'estoc":"Diseño gráfico y fotos de stock","Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.":"Publicaciones con diseño gráfico profesional y fotos de stock de alta calidad.",
 "Disseny gràfic a mida per a cada publicació":"Diseño gráfico a medida para cada publicación","Fotos d'estoc d'alta qualitat amb llicència":"Fotos de stock de alta calidad con licencia","Textos pensats per a cada xarxa":"Textos pensados para cada red",
 "Disseny":"Diseño","Paquet Disseny gràfic i fotos d'estoc":"Paquete Diseño gráfico y fotos de stock","Menú":"Menú"
 },
 en: {
-"Serveis":"Services","Programari":"Software","Emprenedoria":"Entrepreneurship","Projectes":"Projects","Contacte":"Contact","Comencem":"Get started",
-"Programari.":"Software.","Fet amb precisió.":"Built with precision.",
-"Apps, webs, ecommerce i programari complex per a tot tipus de negocis. Dissenyat i construït per l'equip que va fundar lliga.cat i Fundicat.":"Apps, websites, ecommerce and complex software for every kind of business. Designed and built by the team that founded lliga.cat and Fundicat.",
-"Explica'ns el teu projecte":"Tell us about your project","Veure projectes":"See projects","Enginyeria digital.":"Digital engineering.","Des de Catalunya, per a tot arreu.":"From Catalonia, for everywhere.","Desplaça":"Scroll",
-"Tot el que cal per construir en digital.":"Everything you need to build digital.",
-"Un sol equip, del primer esbós fins a producció. Sense plantilles i sense intermediaris.":"One team, from first sketch to production. No templates and no middlemen.",
-"Programari a mida":"Custom software","Fet per a com treballeu.":"Built for how you work.",
-"Plataformes, ERP i automatitzacions que encaixen amb la vostra empresa, per complex que sigui el procés.":"Platforms, ERPs and automations that fit your company, however complex the process.",
-"Veure'n un exemple":"See an example","// comandes pendents d'avui":"// today's pending orders",
-"Apps mòbils":"Mobile apps","A la butxaca de tothom.":"In everyone's pocket.",
-"Apps per a iOS i Android amb comptes, pagaments, notificacions i temps real.":"iOS and Android apps with accounts, payments, notifications and real-time features.",
-"Parlem-ne":"Let's talk","Comanda enviada":"Order shipped","Arribarà dijous entre les 9 i les 13 h.":"Arriving Thursday between 9 am and 1 pm.","Nou missatge":"New message","Hola! Quan podem quedar?":"Hi! When can we meet?",
-"Webs":"Websites","Ràpides. Clares. Vostres.":"Fast. Clear. Yours.",
-"Webs d'empresa que carreguen a l'instant, es troben a Google i expliquen bé què feu.":"Company websites that load instantly, rank on Google and explain clearly what you do.",
-"laVostraEmpresa.cat":"yourCompany.com","El que feu,":"What you do,","explicat en una frase.":"explained in one sentence.","Demana pressupost":"Request a quote",
-"La vostra botiga. Sense quotes.":"Your store. No fees.",
-"Botigues pròpies amb catàleg, pagaments i enviaments. Sense dependre de cap plataforma.":"Your own store with catalogue, payments and shipping. No platform lock-in.",
-"Producte":"Product","Afegeix":"Add",
-"Tecnologia que parla l'idioma del teu sector.":"Technology that speaks your industry's language.",
-"De la indústria al comerç de barri. Entenem com funciona cada sector i construïm la tecnologia que necessita.":"From heavy industry to the corner shop. We understand how each sector works and build the technology it needs.",
+"Serveis":"Services","Programari":"Software","Emprenedoria":"Entrepreneurship","Projectes":"Projects","Contacte":"Contact",
+
+
+"Desplaça":"Scroll",
+
+
+"Programari a mida":"Custom software",
+
+
+"Apps mòbils":"Mobile apps",
+
+"Parlem-ne":"Let's talk",
+"Webs":"Websites",
+
+"Demana pressupost":"Request a quote",
+
+
+"Afegeix":"Add",
+
+
 "Indústria i fabricació":"Industry and manufacturing","Comerç al detall":"Retail","Restauració i hostaleria":"Restaurants and hospitality","Salut i benestar":"Health and wellness","Serveis professionals":"Professional services","Logística i transport":"Logistics and transport","Educació i formació":"Education and training","Immobiliària":"Real estate","Construcció":"Construction","Turisme":"Tourism","Associacions i entitats":"Associations and non-profits","Sectors":"Sectors",
-"Programari complex.":"Complex software.","Interfície simple.":"Simple interface.",
-"Construïm els sistemes que fan funcionar una empresa per dins: comandes, estoc, facturació, clients i dades en temps real.":"We build the systems that run a company from the inside: orders, stock, invoicing, customers and real-time data.",
+
+
 "Gestió":"Operations","Resum":"Overview","Comandes":"Orders","Clients":"Customers","Inventari":"Inventory","Factures":"Invoices","Informes":"Reports","Administració":"Admin","Rol: gerència":"Role: management",
 "Resum d'avui":"Today's overview","Totes les botigues · tots els canals":"All stores · all channels","En directe":"Live","▲ 12% més que ahir":"▲ 12% vs yesterday","Facturació":"Revenue","Clients actius":"Active customers","Temps de resposta":"Response time","● Estable":"● Stable",
-"últims 30 dies":"last 30 days","Per canal":"By channel","Botiga":"Store","Últimes comandes":"Latest orders","sincronitzat ara":"synced just now","Enviada":"Shipped","Pagada":"Paid","Preparant":"Preparing","Client particular":"Private customer","Activitat":"Activity","en directe":"live",
+"últims 30 dies":"last 30 days","Per canal":"By channel","Botiga":"Store","Últimes comandes":"Latest orders","sincronitzat ara":"synced just now","Enviada":"Shipped","Pagada":"Paid","Preparant":"Preparing","Activitat":"Activity","en directe":"live",
 "Exemple il·lustratiu amb dades de demostració.":"Illustrative example with demo data.",
-"Arquitectura pensada per créixer.":"Architecture built to grow.",
-"Apps, webs i eines internes connectades a una sola API: segura, observable i preparada per escalar quan el negoci ho demani.":"Apps, websites and internal tools connected to a single API: secure, observable and ready to scale when the business needs it.",
+
+
 "Petició":"Request","Resposta":"Response","Segura per defecte.":"Secure by default.",
 "Autenticació, rols i permisos, xifratge i còpies de seguretat automàtiques des del primer dia.":"Authentication, roles and permissions, encryption and automatic backups from day one.",
 "Observable.":"Observable.",
 "Registres, alertes i mètriques: sabem que alguna cosa falla abans que ho noti cap usuari.":"Logs, alerts and metrics: we know something is wrong before any user notices.",
 "Escalable.":"Scalable.",
 "Del primer client als primers milers sense reescriure res. Infraestructura que creix amb vosaltres.":"From the first customer to the first thousands without rewriting anything. Infrastructure that grows with you.",
-"Què construïm.":"What we build.","Projectes on la tecnologia és el negoci, no un complement.":"Projects where technology is the business, not an add-on.",
+
 "Plataformes SaaS":"SaaS platforms","Multiusuari, subscripcions, rols i permisos, facturació recurrent i panells d'administració.":"Multi-user, subscriptions, roles and permissions, recurring billing and admin dashboards.",
 "ERP i gestió interna":"ERP and internal tools","Comandes, estoc, producció, facturació i informes en un sol lloc, fet a mida del vostre procés.":"Orders, stock, production, invoicing and reports in one place, built around your process.",
 "Apps en temps real":"Real-time apps","Xat, geolocalització, notificacions push i sincronització fora de línia per a iOS i Android.":"Chat, geolocation, push notifications and offline sync for iOS and Android.",
@@ -201,15 +201,15 @@ en: {
 "Integracions i API":"Integrations and APIs","Connectem ERP, CRM, pagaments, logística i comptabilitat perquè les dades flueixin soles.":"We connect ERP, CRM, payments, logistics and accounting so data flows on its own.",
 "IA aplicada":"Applied AI","Assistents, lectura automàtica de documents i cerca intel·ligent sobre les dades de la vostra empresa.":"Assistants, automatic document reading and smart search across your company's data.",
 "Comerç electrònic B2B i B2C":"B2B and B2C ecommerce","Tarifes per client, estoc en temps real, enviaments automatitzats i botiga sense quotes.":"Per-customer pricing, real-time stock, automated shipping and a store with no fees.",
-"No només fem apps.":"We don't just build apps.","En som fundadors.":"We found our own.",
-"Construïm i operem els nostres propis productes. Per això pensem cada decisió tècnica com a empresa, no només com a proveïdor.":"We build and run our own products. That's why we make every technical decision as a business owner, not just as a supplier.",
+
+
 "App · Comunitat":"App · Community",
 "L'app de cites pensada per a Catalunya. Perfils, coincidències i xat en temps real, sobre una infraestructura pròpia que hem migrat i escalat nosaltres mateixos.":"The dating app made for Catalonia. Profiles, matches and real-time chat, on our own infrastructure that we migrated and scaled ourselves.",
 "Visita lliga.cat":"Visit lliga.cat","A prop teu":"Near you","Botiga en línia · Indústria":"Ecommerce · Industry",
 "Botiga en línia de materials per a fundició. Comerç electrònic propi, amb catàleg tècnic i gestió de comandes integrada, sense dependre de plataformes de tercers.":"Online store for foundry supplies. Our own ecommerce, with a technical catalogue and built-in order management, independent of third-party platforms.",
-"Vull una botiga així":"I want a store like this","Fundicat · Botiga":"Fundicat · Store","Materials de fundició":"Foundry supplies","Cistella":"Cart","Coure":"Copper","Lingot":"Ingot","Alumini":"Aluminium","Aliatge":"Alloy","Sorra 5 kg":"Sand 5 kg",
-"Empreses col·laboradores.":"Partner companies.","Treballem colze a colze amb altres equips per portar cada projecte de la idea al mercat.":"We work side by side with other teams to take every project from idea to market.",
-"Col·labora amb MNA LABS en el desenvolupament i el creixement dels projectes.":"Works with MNA LABS on developing and growing projects.","Col·laborador":"Partner","Col·laboradors":"Partners",
+"Vull una botiga així":"I want a store like this","Cistella":"Cart",
+
+"Col·labora amb MNA LABS en el desenvolupament i el creixement dels projectes.":"Works with MNA LABS on developing and growing projects.","Col·laborador":"Partner",
 "La teva idea, construïda sense pagar ara.":"Your idea, built with nothing to pay now.",
 "Si tens un projecte amb potencial, però no el pressupost per desenvolupar-lo, el construïm igualment. Ens pagues més endavant o entrem com a socis.":"If you have a project with potential but not the budget to build it, we build it anyway. You pay us later or we come in as partners.",
 "0 € d'entrada":"€0 upfront","Desenvolupament":"Development","Llançament · pagaments":"Launch · payments","Pagament futur":"Deferred payment",
@@ -233,67 +233,67 @@ en: {
 "Ho fem des de l'experiència: fundem i portem els nostres propis negocis.":"We speak from experience: we found and run our own businesses.",
 "lliga.cat i Fundicat en són la prova. Apliquem a la vostra empresa el que hem après llançant-los.":"lliga.cat and Fundicat are the proof. We bring to your company what we learned launching them.",
 "Parlem del vostre projecte":"Let's talk about your project",
-"Quatre passos. Cap sorpresa.":"Four steps. No surprises.","Iteracions curtes i entregues que podeu provar des de la primera setmana.":"Short iterations and deliveries you can try from week one.",
-"Descobriment":"Discovery","Entenem el negoci i el problema. Sortim amb abast, terminis i pressupost tancat.":"We understand the business and the problem. We leave with a fixed scope, timeline and budget.",
-"Disseny":"Design","Prototips navegables abans d'escriure codi, validats amb gent real.":"Clickable prototypes before writing code, validated with real people.",
-"Sprints de dues setmanes i entorn de proves sempre actiu. El codi és vostre.":"Two-week sprints and an always-on staging environment. The code is yours.",
-"Llançament":"Launch","Publiquem, mesurem i millorem, amb suport i temps de resposta pactats.":"We ship, measure and improve, with agreed support and response times.",
-"Del codi a producció.":"From code to production.","Cada dia.":"Every day.",
-"Proves automàtiques, desplegaments sense aturades i tecnologia estàndard, perquè el vostre producte no depengui mai d'una sola persona.":"Automated tests, zero-downtime deployments and standard technology, so your product never depends on a single person.",
-"desplegament — producció":"deploy — production",
-"Tens una idea?":"Have an idea?","Fem-la realitat.":"Let's make it real.",
-"Explica'ns què vols construir. Et responem en menys de 48 hores amb una primera valoració, sense compromís.":"Tell us what you want to build. We'll reply within 48 hours with a first assessment, no strings attached.",
+
+
+"Disseny":"Design",
+
+"Llançament":"Launch",
+
+
+
+
+
 "Nom":"Name","Correu electrònic":"Email","Plataforma SaaS":"SaaS platform","App mòbil":"Mobile app","Web":"Website","Encara no ho sé":"Not sure yet","Què necessites?":"What do you need?","El projecte, en poques línies":"Your project, in a few lines",
-"Envia la proposta":"Send proposal","Copia la proposta":"Copy proposal","O escriu a":"Or write to","O escriu a":"Or write to",
-"MNA LABS és l'estudi de desenvolupament digital dels fundadors de lliga.cat i Fundicat, amb la col·laboració d'Estudi 95, Aatsin i Clouding.":"MNA LABS is the digital development studio of the founders of lliga.cat and Fundicat, in partnership with Estudi 95, Aatsin and Clouding.",
-"Capacitats":"Capabilities","Sistemes de gestió":"Management systems","Arquitectura":"Architecture","Què construïm":"What we build","L'estudi":"The studio","Procés":"Process","Tecnologia":"Technology",
-"Copyright © 2026 MNA LABS. Tots els drets reservats.":"Copyright © 2026 MNA LABS. All rights reserved.","Catalunya":"Catalonia",
+"Envia la proposta":"Send proposal","O escriu a":"Or write to","O escriu a":"Or write to",
+
+"L'estudi":"The studio",
+"Catalunya":"Catalonia",
 "MNA LABS, inici":"MNA LABS, home","Principal":"Main","Idioma":"Language",
 "Exemple de panell de gestió fet a mida (dades de demostració)":"Example of a custom management dashboard (demo data)",
 "Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, IA, base de dades i notificacions.":"Diagram: the iOS and Android apps, the website and the internal dashboard connect to a central API, which talks to authentication, payments, AI, the database and notifications.",
-"Com pensem":"How we think","Exemple d'un desplegament automàtic":"Example of an automated deployment",
+"Com pensem":"How we think",
 "Programem cada línia com si l'haguéssim de mantenir nosaltres deu anys.":"We write every line as if we had to maintain it ourselves for ten years.",
-"Pagament rebut":"Payment received","Nova comanda":"New order","Estoc baix":"Low stock","Sorra PetroBond 5 kg · 8 unitats":"PetroBond sand 5 kg · 8 units","Factura emesa":"Invoice issued","F-2026-0912 · enviada per correu":"F-2026-0912 · sent by email","Enviament lliurat":"Shipment delivered","Client nou":"New customer","Registrat des de l'app":"Signed up via the app","Sincronització":"Sync","Comptabilitat actualitzada":"Accounting updated","ara":"now",
+"Pagament rebut":"Payment received","Nova comanda":"New order","Estoc baix":"Low stock","Factura emesa":"Invoice issued","F-2026-0912 · enviada per correu":"F-2026-0912 · sent by email","Enviament lliurat":"Shipment delivered","Client nou":"New customer","Sincronització":"Sync","Comptabilitat actualitzada":"Accounting updated","ara":"now",
 "Panell intern":"Internal dashboard","Gestió a mida":"Custom operations","A mida":"Custom","IA":"AI","Autenticació":"Authentication","Rols i permisos":"Roles and permissions","Rols":"Roles","Pagaments":"Payments","Models i cerca":"Models and search","Models":"Models","Base de dades":"Database","Notificacions":"Notifications","Push · correu":"Push · email",
-"→ Executant les proves automàtiques…":"→ Running automated tests…","✓ 248 proves superades":"✓ 248 tests passed","→ Compilant l'aplicació…":"→ Building the app…","✓ Compilat en 2,1 s":"✓ Built in 2.1 s","→ Migrant la base de dades…":"→ Migrating the database…","✓ 2 migracions aplicades":"✓ 2 migrations applied","→ Desplegant a producció (UE)…":"→ Deploying to production (EU)…","✓ Verificació de salut: 200 OK":"✓ Health check: 200 OK","✓ Versió 4.12.0 en línia.":"✓ Version 4.12.0 is live.",
+
 "Omple el nom, un correu vàlid i el missatge.":"Please enter your name, a valid email and a message.","S'està obrint el teu correu per enviar la proposta.":"Opening your email app to send the proposal.",
 
-"Paquets":"Packages","Paquets clars. Preus clars.":"Clear packages. Clear prices.",
-"Tria el punt de partida. Cada paquet inclou tot el que cal per arrencar, i el pressupost final el tanquem amb tu per escrit.":"Pick a starting point. Each package includes everything you need to get going, and we agree the final quote with you in writing.",
+"Paquets":"Packages",
+
 "Tipus de paquet":"Package type","Webs i apps":"Websites & apps","Xarxes socials":"Social media","Combinats":"Bundles","Totes les plataformes":"All platforms",
 "Per només 20 €/mes més, també publiquem a TikTok, LinkedIn, YouTube, X, Pinterest i Google Business.":"For just €20 a month more, we also post on TikTok, LinkedIn, YouTube, X, Pinterest and Google Business.",
-"des de":"from","pagament únic":"one-off","/mes":"/month","web":"website","Exemple":"Example","Vull aquest paquet":"I want this package","El més demanat":"Most popular","M'interessa el paquet:":"I'm interested in the package:",
+"des de":"from","/mes":"/month","web":"website","Exemple":"Example","Vull aquest paquet":"I want this package","M'interessa el paquet:":"I'm interested in the package:",
 "Web informativa":"Informative website","La teva empresa ben explicada a internet.":"Your business, clearly explained online.",
-"+ manteniment i allotjament 25 €/mes":"+ maintenance and hosting €25/month","+ manteniment i allotjament 35 €/mes":"+ maintenance and hosting €35/month","+ manteniment i allotjament 49 €/mes":"+ maintenance and hosting €49/month","+ manteniment i allotjament 79 €/mes":"+ maintenance and hosting €79/month","+ manteniment i allotjament 99 €/mes":"+ maintenance and hosting €99/month",
+
 "Llesta en 2–3 setmanes":"Ready in 2–3 weeks","Llesta en 3–4 setmanes":"Ready in 3–4 weeks","Llesta en 4–6 setmanes":"Ready in 4–6 weeks","Llesta en 8–12 setmanes":"Ready in 8–12 weeks","Llesta en 10–14 setmanes":"Ready in 10–14 weeks",
 "Disseny a mida, sense plantilles":"Custom design, no templates","Fins a 6 pàgines":"Up to 6 pages","Adaptada a mòbil i tauleta":"Mobile and tablet ready","SEO bàsic i fitxa de Google Business":"Basic SEO and Google Business profile","Formulari de contacte i WhatsApp":"Contact form and WhatsApp","Textos legals, galetes i RGPD":"Legal pages, cookies and GDPR","Domini i allotjament el primer any":"Domain and hosting for the first year",
-"Una clínica de fisioteràpia que vol explicar els tractaments, mostrar l'equip i rebre consultes des del mòbil.":"A physiotherapy clinic that wants to explain its treatments, introduce the team and receive enquiries from mobile.",
-"Web amb compres integrades":"Website with built-in payments","Ven serveis, reserves o vals regal des de la teva web.":"Sell services, bookings or gift vouchers from your website.",
+
+"Web amb compres integrades":"Website with built-in payments",
 "Tot el de la web informativa":"Everything in the informative website","Pagament amb targeta, Bizum, Apple Pay i Google Pay":"Card, Bizum, Apple Pay and Google Pay","Fins a 20 productes, serveis o reserves":"Up to 20 products, services or bookings","Correus de confirmació automàtics":"Automatic confirmation emails","Panell per veure i gestionar les vendes":"Dashboard to view and manage sales","Factura automàtica a cada compra":"Automatic invoice on every purchase",
-"Un restaurant que ven vals regal i menús per emportar sense passar per cap plataforma de tercers.":"A restaurant selling gift vouchers and takeaway menus without going through any third-party platform.",
+
 "Una botiga en línia completa, teva i sense comissions per venda.":"A complete online shop of your own, with no commission on sales.",
 "Catàleg il·limitat amb variants i estoc":"Unlimited catalogue with variants and stock","Enviaments amb tarifes per zona":"Shipping with rates by zone","Comptes de client, cupons i descomptes":"Customer accounts, coupons and discounts","Factures i correus automàtics":"Automatic invoices and emails","Connexió amb Google Shopping i Meta":"Google Shopping and Meta integration","Panell de gestió fet per a la teva botiga":"Admin panel built for your shop","Sense quotes mensuals de plataforma":"No monthly platform fees",
-"Una botiga de vins que vol vendre a tot l'Estat sense pagar quotes ni comissions a Shopify.":"A wine shop that wants to sell nationwide without paying fees or commissions to Shopify.",
+
 "Aplicació web":"Web application","Programari a mida que funciona al navegador, des de qualsevol dispositiu.":"Custom software that runs in the browser, on any device.",
 "Anàlisi del procés i prototip navegable":"Process analysis and clickable prototype","Usuaris, rols i permisos":"Users, roles and permissions","Base de dades i panell de gestió":"Database and admin panel","Integració amb facturació, ERP o altres eines":"Integration with invoicing, ERP or other tools","Informes i exportació de dades":"Reports and data export","El codi és teu":"You own the code",
-"Una empresa de manteniment que vol gestionar avisos, tècnics i albarans des del mòbil, en temps real.":"A maintenance company that wants to manage call-outs, technicians and delivery notes from mobile, in real time.",
-"Xarxes amb IA":"AI social media","Publicacions fetes amb intel·ligència artificial d'alt rendiment i revisades per un dissenyador gràfic.":"Posts created with high-performance AI and reviewed by a graphic designer.",
+
+
 "Gestió semiautomatitzada":"Semi-automated management","Sense permanència":"No lock-in",
-"12 publicacions al mes":"12 posts a month","Imatges i textos generats amb IA":"AI-generated images and copy","Revisió de cada peça per un dissenyador gràfic":"Every piece reviewed by a graphic designer","Calendari mensual que aproves tu":"Monthly calendar for your approval","Programació automàtica de les publicacions":"Automatic post scheduling","Informe mensual de resultats":"Monthly performance report","Instagram i Facebook":"Instagram and Facebook","+ TikTok, LinkedIn, YouTube, X, Pinterest i Google Business":"+ TikTok, LinkedIn, YouTube, X, Pinterest and Google Business",
-"Una perruqueria que vol publicar cada setmana sense dedicar-hi ni una hora.":"A hair salon that wants to post every week without spending an hour on it.",
+"12 publicacions al mes":"12 posts a month","Calendari mensual que aproves tu":"Monthly calendar for your approval","Programació automàtica de les publicacions":"Automatic post scheduling","Informe mensual de resultats":"Monthly performance report","Instagram i Facebook":"Instagram and Facebook","+ TikTok, LinkedIn, YouTube, X, Pinterest i Google Business":"+ TikTok, LinkedIn, YouTube, X, Pinterest and Google Business",
+
 "Xarxes mixtes":"Hybrid social media","Contingut audiovisual real, gravat a la teva empresa, combinat amb IA.":"Real video and photos shot at your business, combined with AI.","Mitja jornada de rodatge al mes":"Half a day of filming a month",
 "Una sessió mensual de vídeo i fotografia":"One video and photo session a month","4 reels editats amb imatges reals":"4 edited reels with real footage","12 publicacions entre material real i IA":"12 posts mixing real footage and AI","Stories setmanals":"Weekly stories","Revisió de dissenyador gràfic":"Graphic designer review",
-"Un gimnàs que vol ensenyar les instal·lacions, les classes i l'equip de debò.":"A gym that wants to show its real facilities, classes and team.",
+
 "Xarxes full real":"Fully real social media","Tot gravat i fotografiat per professionals. Sense IA a la imatge.":"Everything filmed and photographed by professionals. No AI imagery.","Dues jornades de rodatge al mes":"Two filming days a month",
 "Guions i planificació de continguts":"Scripts and content planning","8 reels amb edició professional":"8 professionally edited reels","16 publicacions amb fotografia pròpia":"16 posts with original photography","Stories diàries":"Daily stories","Gestió de comentaris i missatges":"Comment and message management","Reunió i informe mensual":"Monthly meeting and report",
-"Un hotel rural que vol transmetre l'experiència real de les estades i omplir els caps de setmana.":"A rural hotel that wants to show what a stay really feels like and fill its weekends.",
+
 "Web + app":"Website + app","La teva web i la teva app per a iOS i Android, connectades entre elles.":"Your website and your iOS and Android app, connected to each other.",
 "Web informativa o amb compres":"Informative website or one with payments","App per a iOS i Android publicada a les botigues":"iOS and Android app published on the stores","Un sol compte d'usuari per a web i app":"One user account across website and app","Notificacions push":"Push notifications","Pagaments dins l'app":"In-app payments","Panell de gestió compartit":"Shared admin panel",
-"Un club esportiu on els socis reserven pista des de l'app o la web, amb el mateix compte.":"A sports club where members book courts from the app or the website with the same account.",
+
 "Web + xarxes":"Website + social media","Presència completa des del primer dia, amb la mateixa imatge a tot arreu.":"Full presence from day one, with the same look everywhere.",
-"Estalvies 200 € a la web":"Save €200 on the website","Permanència de 6 mesos a les xarxes":"6-month minimum on social media",
-"Web informativa completa":"Complete informative website","Paquet Xarxes amb IA":"AI social media package","Imatge coherent entre web i xarxes":"Consistent look across website and social","Biografies i enllaços optimitzats":"Optimised bios and links","Estadístiques de web i xarxes en un sol informe":"Website and social stats in one report",
-"Una botiga de roba que obre local i necessita ser visible des del primer dia.":"A clothing shop opening its doors that needs to be visible from day one.",
+"Permanència de 6 mesos a les xarxes":"6-month minimum on social media",
+"Web informativa completa":"Complete informative website","Imatge coherent entre web i xarxes":"Consistent look across website and social","Biografies i enllaços optimitzats":"Optimised bios and links","Estadístiques de web i xarxes en un sol informe":"Website and social stats in one report",
+
 "Necessites una altra combinació?":"Need a different combination?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"We combine any packages and tailor them to your business. You can also do it through Free Developing, without paying now.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Prices exclude VAT. They are starting prices: we agree the final quote in writing after the first meeting.",
 "Manteniment opcional: 25 €/mes":"Optional maintenance: €25/month","Manteniment opcional: 35 €/mes":"Optional maintenance: €35/month","Manteniment opcional: 49 €/mes":"Optional maintenance: €49/month","Manteniment opcional: 79 €/mes":"Optional maintenance: €79/month","Manteniment opcional: 99 €/mes":"Optional maintenance: €99/month",
@@ -301,16 +301,16 @@ en: {
 "Què inclou el manteniment opcional":"What optional maintenance includes","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Add it whenever you like and cancel whenever you like.",
 "Allotjament i domini":"Hosting and domain","Certificat de seguretat SSL":"SSL security certificate","Actualitzacions i còpies de seguretat":"Updates and backups","Petits canvis de contingut cada mes":"Small content changes every month","Suport per correu i WhatsApp":"Email and WhatsApp support",
 "Subscripcions":"Subscriptions","Multiusuari":"Multi-user","Estoc":"Stock","Producció":"Production","Informes":"Reports","Notificacions":"Notifications","Pagaments dividits":"Split payments","Valoracions":"Reviews","Assistents":"Assistants","Cerca semàntica":"Semantic search","Sense quotes":"No fees",
-"La privacitat, al nucli.":"Privacy at the core.",
-"Protegir les dades no és un afegit d'última hora: és com construïm des del primer dia. Cada projecte compleix el RGPD i la LOPDGDD des de l'inici.":"Protecting data isn't a last-minute add-on: it's how we build from day one. Every project complies with the GDPR and Spanish data protection law from the start.",
+
+
 "Privacitat des del disseny":"Privacy by design","Decidim quines dades calen, on es guarden i qui hi accedeix abans d'escriure la primera línia.":"We decide what data is needed, where it is stored and who can access it before writing the first line.",
 "Dades xifrades":"Encrypted data","Xifratge en trànsit i en repòs, contrasenyes mai en text pla i accessos per rols.":"Encryption in transit and at rest, passwords never in plain text, and role-based access.",
 "Servidors a Europa":"Servers in Europe","Allotjament a la Unió Europea i còpies de seguretat amb proveïdors que compleixen el RGPD.":"Hosting in the European Union and backups with GDPR-compliant providers.",
 "Tot en regla des de l'inici":"Compliant from the start","Textos legals, consentiments, registre d'activitats i contractes d'encàrrec de tractament.":"Legal pages, consent, records of processing and data processing agreements.",
 "Fitxa de client":"Customer record","Dades en clar":"Plain text","Xifrat":"Encrypted","Nom":"Name","Correu":"Email","Telèfon":"Phone","Adreça":"Address","Targeta":"Card",
 "Animació: les dades d'un client es xifren":"Animation: a customer's data being encrypted",
-"Tria el teu paquet.":"Choose your package.","Preus clars i un exemple real de cada paquet. El pressupost final el tanquem amb tu per escrit.":"Clear prices and a real example of every package. We agree the final quote with you in writing.",
-"Exemple real":"Real example","Instagram d'MNA LABS":"MNA LABS on Instagram","Ben aviat":"Coming soon","MNA LABS: web i Instagram":"MNA LABS: website and Instagram",
+
+
 "Ven serveis, reserves o encàrrecs des de la teva web.":"Sell services, bookings or orders from your website.",
 "Disseny gràfic i fotos d'estoc":"Graphic design and stock photos","Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.":"Posts with professional graphic design and high-quality stock photos.",
 "Disseny gràfic a mida per a cada publicació":"Custom graphic design for every post","Fotos d'estoc d'alta qualitat amb llicència":"Licensed high-quality stock photos","Textos pensats per a cada xarxa":"Copy written for each platform",

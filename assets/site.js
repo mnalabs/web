@@ -79,7 +79,8 @@
   });
   let indicadorAnterior = null;
   try { const d = JSON.parse(sessionStorage.getItem('mna-indicador')); if (d && Date.now() - d.quan < 8000) indicadorAnterior = d; sessionStorage.removeItem('mna-indicador'); } catch (e) {}
-  if (indicadorAnterior && !reduce){
+  // Només hi ha gest si la pàgina nova té un enllaç al menú on aterrar; si no, l'indicador antic es veuria uns instants i desapareixeria.
+  if (indicadorAnterior && !reduce && navOn){
     navInd.style.transition = 'none';
     navInd.style.transform = indicadorAnterior.moviment; navInd.style.width = indicadorAnterior.ample; navInd.style.opacity = 1;
     navInd.getBoundingClientRect();           // força que el navegador pinti la posició antiga abans d'activar el moviment
@@ -508,16 +509,6 @@
     io.observe(el);
   });
 
-  /* Anell de l'app */
-  const ring = $('#ring');
-  if (ring){
-    const ringN = $('#ringN');
-    ring.closest('.tile').addEventListener('reveal', () => {
-      const s = performance.now();
-      (function st(n){ const k = reduce ? 1 : easeOut(clamp((n - s)/1800)); const v = Math.round(72*k); ring.style.background = `conic-gradient(var(--accent) 0 ${v}%, #e5e5ea 0)`; ringN.textContent = v + '%'; if (k < 1) requestAnimationFrame(st); })(s);
-    });
-  }
-
   /* lliga.cat: la targeta fa "match" en bucle */
   const lStack = $('#lStack');
   if (lStack && !reduce){
@@ -530,52 +521,6 @@
       front.classList.add('out'); back.classList.remove('back');
       setTimeout(() => { front.remove(); const [n, s] = people[pI++ % people.length]; const nc = document.createElement('div'); nc.className = 'card back'; nc.innerHTML = `<span class="match">LLIGA!</span><div class="who"><b>${n}</b><small>${s}</small></div>`; lStack.prepend(nc); }, 750);
     }, 3000);
-  }
-
-  /* Fundicat: s'afegeix un producte a la cistella */
-  const fGrid = $('#fGrid');
-  if (fGrid && !reduce){
-    const fCart = $('#fCart'); let fI = 0;
-    setInterval(() => {
-      if (!onScreen(fGrid)) return;
-      const items = fGrid.children; [...items].forEach(x => x.classList.remove('sel'));
-      items[fI++ % items.length].classList.add('sel');
-      setTimeout(() => { fCart.textContent = +fCart.textContent + 1; fCart.classList.add('bump'); setTimeout(() => fCart.classList.remove('bump'), 300); }, 500);
-    }, 2600);
-  }
-
-  /* =============== TERMINAL =============== */
-  const term = $('#term');
-  if (term){
-    const script = [
-      ['$ ', 'git push origin main', 'cmd'],
-      ['', '→ Executant les proves automàtiques…', 'dim'],
-      ['', '  ✓ 248 proves superades', 'ok'],
-      ['', '→ Compilant l\'aplicació…', 'dim'],
-      ['', '  ✓ Compilat en 2,1 s', 'ok'],
-      ['', '→ Migrant la base de dades…', 'dim'],
-      ['', '  ✓ 2 migracions aplicades', 'ok'],
-      ['', '→ Desplegant a producció (UE)…', 'dim'],
-      ['', '  ✓ Verificació de salut: 200 OK', 'ok'],
-      ['', '', ''],
-      ['', '✓ Versió 4.12.0 en línia.', 'hl'],
-    ];
-    let termDone = false, termLang = 'ca';
-    const caret = '<span class="caret"></span>';
-    const termStatic = () => { term.innerHTML = script.map(([pre, text, cls]) => cls === 'cmd' ? `<span class="pr">${pre}</span>${text}` : `<span class="${cls}">${tr(text)}</span>`).join('\n') + `\n<span class="pr">$ </span>${caret}`; };
-    term.closest('.term').addEventListener('reveal', async () => {
-      if (termDone) return; termDone = true; termLang = LANG;
-      const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
-      let html = '';
-      for (const [pre, text, cls] of script){
-        if (cls === 'cmd'){
-          for (let i = 0; i <= text.length; i++){ if (termLang !== LANG) break; term.innerHTML = html + `<span class="pr">${pre}</span>${text.slice(0, i)}${caret}`; await wait(45); }
-          html += `<span class="pr">${pre}</span>${text}\n`; await wait(400);
-        } else { if (termLang !== LANG) break; html += `<span class="${cls}">${tr(text)}</span>\n`; term.innerHTML = html + caret; await wait(cls === 'dim' ? 520 : 260); }
-      }
-      if (termLang === LANG) termStatic();
-    });
-    onLang.push(() => { if (termDone){ termLang = null; termStatic(); } });
   }
 
   /* =============== INCLINACIÓ DE LES TARGETES .tilt =============== */
@@ -816,7 +761,7 @@
   const textNodes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => {
     const p = n.parentElement;
-    if (!p || !n.textContent.trim() || p.closest('script,style,#quote,#term,#arch,.pk-n,#vState,.vault dd,.split,.mock,.bd-code,.pk-app')) return NodeFilter.FILTER_REJECT;
+    if (!p || !n.textContent.trim() || p.closest('script,style,#quote,#arch,.pk-n,#vState,.vault dd,.split,.mock,.bd-code,.pk-app')) return NodeFilter.FILTER_REJECT;
     return NodeFilter.FILTER_ACCEPT;
   } });
   for (let n; (n = walker.nextNode()); ) textNodes.push([n, n.textContent]);
