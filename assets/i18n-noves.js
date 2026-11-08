@@ -123,3 +123,28 @@ Object.assign(window.I18N.en, {
 });
 Object.assign(window.I18N.es, {"El primer mes, 50% de descompte per conèixer-nos":"El primer mes, 50% de descuento para conocernos"});
 Object.assign(window.I18N.en, {"El primer mes, 50% de descompte per conèixer-nos":"First month at 50% off, so we can get to know each other"});
+/* Traduccions dels preus per fases i de l'apartat «Web caiguda o piratejada?» de la portada */
+Object.assign(window.I18N.es, {
+"pagament per fases":"pago por fases","des de, pagament per fases":"desde, pago por fases",
+"Web caiguda o piratejada?":"¿Web caída o pirateada?",
+"En 48 hores tornem a posar en marxa el que és bàsic: que la web es vegi, que els clients et puguin contactar i, si tens botiga, que torni a vendre. Després, amb calma, refem la resta i la protegim perquè no torni a passar.":"En 48 horas volvemos a poner en marcha lo básico: que la web se vea, que los clientes puedan contactarte y, si tienes tienda, que vuelva a vender. Después, con calma, rehacemos el resto y la protegemos para que no vuelva a pasar.",
+"Primer, tanquem la porta.":"Primero, cerramos la puerta.",
+"Traiem l'accés a qui hi ha entrat, canviem les contrasenyes i guardem una còpia del que hi ha, perquè no es perdi res.":"Quitamos el acceso a quien ha entrado, cambiamos las contraseñas y guardamos una copia de lo que hay, para que no se pierda nada.",
+"En 48 hores, el bàsic funciona.":"En 48 horas, lo básico funciona.",
+"La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"La página principal, el contacto y, si tienes, la tienda y los pagos vuelven a estar en línea.",
+"Després, la deixem segura.":"Después, la dejamos segura.",
+"Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Actualizaciones, copias de seguridad automáticas y un aviso que nos llega a nosotros si alguna vez vuelve a fallar.",
+"La meva web no funciona":"Mi web no funciona","Escriu-nos i et responem el mateix dia.":"Escríbenos y te respondemos el mismo día.",
+});
+Object.assign(window.I18N.en, {
+"pagament per fases":"paid in stages","des de, pagament per fases":"from, paid in stages",
+"Web caiguda o piratejada?":"Website down or hacked?",
+"En 48 hores tornem a posar en marxa el que és bàsic: que la web es vegi, que els clients et puguin contactar i, si tens botiga, que torni a vendre. Després, amb calma, refem la resta i la protegim perquè no torni a passar.":"Within 48 hours we get the basics running again: your site loads, customers can reach you and, if you have a shop, it sells again. Then, without rushing, we rebuild the rest and secure it so it doesn't happen again.",
+"Primer, tanquem la porta.":"First, we lock the door.",
+"Traiem l'accés a qui hi ha entrat, canviem les contrasenyes i guardem una còpia del que hi ha, perquè no es perdi res.":"We cut off whoever got in, change the passwords and save a copy of everything, so nothing is lost.",
+"En 48 hores, el bàsic funciona.":"Within 48 hours, the basics work.",
+"La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"Your home page, contact details and, if you have them, your shop and payments are back online.",
+"Després, la deixem segura.":"Then, we make it secure.",
+"Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Updates, automatic backups and an alert that reaches us if it ever fails again.",
+"La meva web no funciona":"My website isn't working","Escriu-nos i et responem el mateix dia.":"Write to us and we'll reply the same day.",
+});

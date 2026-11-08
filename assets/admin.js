@@ -28,7 +28,7 @@
   const fBool = (label, path) => `<label class="check"><input type="checkbox" data-b="${path}"${get(path) ? ' checked' : ''}>${label}</label>`;
   const fLines = (label, path, hint) => `<label class="field"><span>${label}</span><textarea data-l="${path}">${esc((get(path) || []).map(tx).join('\n'))}</textarea><span class="hint">${hint || 'Una línia per element.'}</span></label>`;
   const fSel = (label, path, options) => `<label class="field"><span>${label}</span><select data-s="${path}">${options.map(([v, t]) => `<option value="${esc(v)}"${get(path) === v ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select></label>`;
-  const UNITS = [['unic', 'pagament únic'], ['mes', '/mes'], ['web', 'web'], ['comissio', '+ comissió per venda']];
+  const UNITS = [['unic', 'pagament per fases'], ['mes', '/mes'], ['web', 'web'], ['comissio', '+ comissió per venda']];
   const TIPUS = ['Programari a mida', 'Plataforma SaaS', 'App mòbil', 'Web', 'Ecommerce', 'Xarxes socials', 'Free Developing', 'Emprenedoria aplicada', 'Encara no ho sé'].map(v => [v, v]);
   const MOCKS = [['web', 'Web'], ['shop', 'Botiga'], ['app', 'Aplicació de gestió'], ['ig', 'Instagram'], ['reel', 'Vídeo (reel)'], ['duo', 'Web + mòbil']];
 

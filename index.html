@@ -141,27 +141,38 @@
     </div>
   </section>
 
-  <!-- QUÈ FEM: llista gran amb previsualització que segueix el cursor -->
-  <section class="sec svc" id="svcList" data-pv="web">
+  <!-- QUÈ FEM: una targeta per servei, cadascuna amb un exemple de marca inventada -->
+  <section class="sec que-fem" id="que-fem">
     <div class="wide">
-      <div class="svc-head">
+      <div class="que-fem-capcalera">
         <h2 class="h-sec split">Què fem</h2>
         <p class="sub">Sis coses, i les fem bé. Si el teu projecte no hi encaixa, també en parlem.</p>
       </div>
-      <div class="svc-rows">
-        <a class="svc-row" href="serveis.html#webs" data-pv="web"><span class="svc-n">Webs</span><span class="svc-d">Webs d'empresa ràpides, ben escrites i fàcils de trobar a Google.</span><span class="svc-p">des de 500 €</span></a>
-        <a class="svc-row" href="serveis.html#botigues" data-pv="shop"><span class="svc-n">Botigues en línia</span><span class="svc-d">La teva botiga, sense pagar comissions a cap plataforma per cada venda.</span><span class="svc-p">des de 2.000 €</span></a>
-        <a class="svc-row" href="serveis.html#apps" data-pv="app"><span class="svc-n">Apps mòbils</span><span class="svc-d">Per a iPhone i Android, publicades a les botigues i connectades a la teva web.</span><span class="svc-p">des de 4.000 €</span></a>
-        <a class="svc-row" href="serveis.html#programari" data-pv="soft"><span class="svc-n">Programari de gestió</span><span class="svc-d">Comandes, estoc, tècnics o factures: el procés de la teva empresa, en una sola eina.</span><span class="svc-p">des de 800 €</span></a>
-        <a class="svc-row" href="serveis.html#amazon" data-pv="shop"><span class="svc-n">Venda a Amazon</span><span class="svc-d">Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.</span><span class="svc-p">sense quota fixa</span></a>
-        <a class="svc-row" href="serveis.html#xarxes" data-pv="ig"><span class="svc-n">Xarxes socials</span><span class="svc-d">Publicacions cada setmana, amb disseny gràfic o gravant a la teva empresa.</span><span class="svc-p">des de 150 € al mes</span></a>
-      </div>
-      <div class="svc-pv" aria-hidden="true">
-        <div class="mock" data-pv="web" data-mock="web" data-brand="Arrels" data-url="arrelsfisio.cat" data-t="Tornar a moure't sense dolor." data-btn="Demana hora" data-c1="#2f6f5e" data-c2="#dfeae4"></div>
-        <div class="mock" data-pv="shop" data-mock="shop" data-brand="Oli de la Serra" data-url="olidelaserra.cat" data-items="Arbequina 500 ml|9,80 €;Lot degustació|24 €;Garrafa 5 l|58 €;Olives trencades|4,50 €" data-c1="#5d6b2f" data-c2="#efe9d6"></div>
-        <div class="mock" data-pv="app" data-mock="duo" data-base="web" data-brand="Pàdel Lluna" data-url="padellluna.cat" data-t="Reserva pista en dos tocs." data-btn="Reserva" data-a1="Pista 1 · 18.00" data-a2="Pista 3 · 19.30" data-a3="Pista 2 · 21.00" data-c1="#1f4fd1" data-c2="#e3e9fb"></div>
-        <div class="mock" data-pv="soft" data-mock="app" data-brand="Costa Manteniments" data-url="app.costamanteniments.cat" data-k1="Avisos oberts" data-v1="14" data-k2="Tècnics en ruta" data-v2="6" data-rows="Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"></div>
-        <div class="mock" data-pv="ig" data-mock="ig" data-handle="cafe.olla" data-bio="Cafè d'especialitat · Vic" data-posts="Nou cafè d'Etiòpia;Dissabte, brunch;Tornem dilluns;Latte de tardor;Obrim a les 8;Gràcies, 1.000!;Pastís del dia;Grans a granel;Fins diumenge" data-c1="#7a4b2a" data-c2="#efe2d0" data-c3="#d9a46a"></div>
+      <div class="que-fem-graella">
+        <a class="servei rv" href="serveis.html#webs">
+          <div class="servei-exemple"><div class="mock" data-mock="web" data-brand="Arrels" data-url="arrelsfisio.cat" data-t="Tornar a moure't sense dolor." data-btn="Demana hora" data-c1="#2f6f5e" data-c2="#dfeae4"></div></div>
+          <div class="servei-text"><h3>Webs</h3><p>Webs d'empresa ràpides, ben escrites i fàcils de trobar a Google.</p><span class="servei-preu">des de 500 €</span></div>
+        </a>
+        <a class="servei rv" href="serveis.html#botigues">
+          <div class="servei-exemple"><div class="mock" data-mock="shop" data-brand="Oli de la Serra" data-url="olidelaserra.cat" data-items="Arbequina 500 ml|9,80 €;Lot degustació|24 €;Garrafa 5 l|58 €;Olives trencades|4,50 €" data-c1="#5d6b2f" data-c2="#efe9d6"></div></div>
+          <div class="servei-text"><h3>Botigues en línia</h3><p>La teva botiga, sense pagar comissions a cap plataforma per cada venda.</p><span class="servei-preu">des de 2.000 €</span></div>
+        </a>
+        <a class="servei rv" href="serveis.html#apps">
+          <div class="servei-exemple"><div class="mock" data-mock="duo" data-base="web" data-brand="Pàdel Lluna" data-url="padellluna.cat" data-t="Reserva pista en dos tocs." data-btn="Reserva" data-a1="Pista 1 · 18.00" data-a2="Pista 3 · 19.30" data-a3="Pista 2 · 21.00" data-c1="#1f4fd1" data-c2="#e3e9fb"></div></div>
+          <div class="servei-text"><h3>Apps mòbils</h3><p>Per a iPhone i Android, publicades a les botigues i connectades a la teva web.</p><span class="servei-preu">des de 4.000 €</span></div>
+        </a>
+        <a class="servei rv" href="serveis.html#programari">
+          <div class="servei-exemple"><div class="mock" data-mock="app" data-brand="Costa Manteniments" data-url="app.costamanteniments.cat" data-k1="Avisos oberts" data-v1="14" data-k2="Tècnics en ruta" data-v2="6" data-rows="Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"></div></div>
+          <div class="servei-text"><h3>Programari de gestió</h3><p>Comandes, estoc, tècnics o factures: el procés de la teva empresa, en una sola eina.</p><span class="servei-preu">des de 800 €</span></div>
+        </a>
+        <a class="servei rv" href="serveis.html#amazon">
+          <div class="servei-exemple"><div class="mock" data-mock="shop" data-brand="Mel de Bresca" data-url="amazon.es/meldebresca" data-items="Mel de romaní 500 g|8,90 €;Mel de bruc 1 kg|15 €;Lot de tres mels|22 €;Pol·len 250 g|7,50 €" data-c1="#b5761b" data-c2="#f6ead3"></div></div>
+          <div class="servei-text"><h3>Venda a Amazon</h3><p>Venem els teus productes a Amazon a canvi d'un petit percentatge de cada venda.</p><span class="servei-preu">sense quota fixa</span></div>
+        </a>
+        <a class="servei rv" href="serveis.html#xarxes">
+          <div class="servei-exemple"><div class="mock" data-mock="ig" data-handle="cafe.olla" data-bio="Cafè d'especialitat · Vic" data-posts="Nou cafè d'Etiòpia;Dissabte, brunch;Tornem dilluns;Latte de tardor;Obrim a les 8;Gràcies, 1.000!;Pastís del dia;Grans a granel;Fins diumenge" data-c1="#7a4b2a" data-c2="#efe2d0" data-c3="#d9a46a"></div></div>
+          <div class="servei-text"><h3>Xarxes socials</h3><p>Publicacions cada setmana, amb disseny gràfic o gravant a la teva empresa.</p><span class="servei-preu">des de 150 € al mes</span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -188,13 +199,33 @@
         <p class="sub">Per als projectes més habituals tenim paquets amb preu tancat. Per a la resta, et donem un pressupost per escrit abans de començar.</p>
       </div>
       <div class="price-row">
-        <a class="price rv" href="paquets.html#webs"><span>Web d'empresa</span><b>500 €</b><small>des de, pagament únic</small></a>
-        <a class="price rv" href="paquets.html#webs"><span>Botiga en línia</span><b>2.000 €</b><small>des de, pagament únic</small></a>
+        <a class="price rv" href="paquets.html#webs"><span>Web d'empresa</span><b>500 €</b><small>des de, pagament per fases</small></a>
+        <a class="price rv" href="paquets.html#webs"><span>Botiga en línia</span><b>2.000 €</b><small>des de, pagament per fases</small></a>
         <a class="price rv" href="paquets.html#xarxes"><span>Xarxes socials</span><b>150 €</b><small>al mes, sense permanència</small></a>
       </div>
       <p class="price-more rv"><a class="more" href="paquets.html">Veure tots els paquets</a></p>
     </div>
   </section>
+
+<!-- WEB CAIGUDA O PIRATEJADA: en 48 hores torna a funcionar el bàsic -->
+  <section class="sec rescat" id="web-caiguda">
+    <div class="wide">
+      <div class="rescat-capcalera">
+        <h2 class="h-sec split">Web caiguda o piratejada?</h2>
+        <p class="sub">En 48 hores tornem a posar en marxa el que és bàsic: que la web es vegi, que els clients et puguin contactar i, si tens botiga, que torni a vendre. Després, amb calma, refem la resta i la protegim perquè no torni a passar.</p>
+      </div>
+      <ol class="rescat-passos">
+        <li class="rescat-pas rv"><h3>Primer, tanquem la porta.</h3><p>Traiem l'accés a qui hi ha entrat, canviem les contrasenyes i guardem una còpia del que hi ha, perquè no es perdi res.</p></li>
+        <li class="rescat-pas rv"><h3>En 48 hores, el bàsic funciona.</h3><p>La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.</p></li>
+        <li class="rescat-pas rv"><h3>Després, la deixem segura.</h3><p>Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.</p></li>
+      </ol>
+      <div class="rescat-accio rv">
+        <a href="contacte.html" class="btn mag">La meva web no funciona</a>
+        <p>Escriu-nos i et responem el mateix dia.</p>
+      </div>
+    </div>
+  </section>
+
 
 <!-- STATEMENT -->
   <section class="statement nav-dark" aria-label="Com pensem">

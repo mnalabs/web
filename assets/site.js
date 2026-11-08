@@ -72,6 +72,32 @@
     navProg.style.transform = `scaleX(${docH > 0 ? clamp(scrollY / docH) : 0})`;
   });
 
+  /* =============== COLOR DEL FONS EN ESTIRAR LA PÀGINA =============== */
+  // Quan estires la pàgina més enllà de dalt o de baix (sobretot amb el mòbil), el navegador
+  // ensenya el fons de l'<html>. El pintem del color de l'apartat que hi ha a la vora,
+  // perquè no surti una tira blanca damunt d'un apartat fosc.
+  const arrelDocument = document.documentElement;
+  const colorDeFons = element => {
+    for (let actual = element; actual && actual !== arrelDocument; actual = actual.parentElement){
+      const color = getComputedStyle(actual).backgroundColor;
+      if (color && color !== 'transparent' && !/rgba\(.*,\s*0\)$/.test(color)) return color;
+    }
+    return getComputedStyle(document.body).backgroundColor;
+  };
+  let colorDeFonsActual = '';
+  function actualitzaColorDeFons(){
+    const recorregutMaxim = arrelDocument.scrollHeight - innerHeight;
+    const somALaMeitatDeDalt = scrollY < recorregutMaxim / 2;
+    // mirem just a la vora de dalt o de baix de la pantalla, al costat esquerre (on no hi ha el menú)
+    const elementALaVora = document.elementFromPoint(2, somALaMeitatDeDalt ? 0 : innerHeight - 1);
+    const color = colorDeFons(elementALaVora);
+    if (color !== colorDeFonsActual){ arrelDocument.style.backgroundColor = color; colorDeFonsActual = color; }
+  }
+  addEventListener('scroll', actualitzaColorDeFons, { passive: true });
+  addEventListener('load', actualitzaColorDeFons);
+  onResize.push(actualitzaColorDeFons);
+  actualitzaColorDeFons();
+
   /* =============== TRANSICIÓ ENTRE PÀGINES =============== */
   // els navegadors amb View Transitions ho fan sols (vegeu @view-transition al CSS); la resta fan un fos
   if (!reduce && !('onpagereveal' in window)){
@@ -234,19 +260,6 @@
       led.style.opacity = on * (.75 + Math.sin(now / 320) * .25);
       const tk = clamp((D - .45) / .3); toast.style.opacity = tk; toast.style.transform = `translateY(${(1 - tk) * 16}px)`;
     });
-  }
-
-  /* =============== LLISTA DE SERVEIS AMB PREVISUALITZACIÓ QUE SEGUEIX EL CURSOR =============== */
-  const svc = $('#svcList');
-  if (svc && hover && !reduce){
-    const pv = $('.svc-pv', svc), rows = $$('.svc-row', svc);
-    let x = 0, y = 0, tx = 0, ty = 0, on = false;
-    rows.forEach(r => {
-      r.addEventListener('pointerenter', () => { on = true; svc.dataset.pv = r.dataset.pv; pv.classList.add('on'); });
-      r.addEventListener('pointerleave', () => { on = false; pv.classList.remove('on'); });
-    });
-    svc.addEventListener('pointermove', e => { const b = svc.getBoundingClientRect(); tx = e.clientX - b.left; ty = e.clientY - b.top; });
-    draws.push(() => { if (!on && !pv.classList.contains('on')) return; x += (tx - x) * .14; y += (ty - y) * .14; pv.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%) rotate(${(tx - x) * .04}deg)`; });
   }
 
   /* =============== PANELL QUE S'AMPLIA =============== */
@@ -555,7 +568,7 @@
   if (pkgs && $('#pkApp')){
     const app = $('#pkApp'), CFG = window.MNA_CONFIG || {};
     const L = t => !t ? '' : typeof t === 'string' ? t : (t[LANG] || t.ca || '');
-    const UNIT = { unic: 'pagament únic', mes: '/mes', web: 'web', comissio: '+ comissió per venda' };
+    const UNIT = { unic: 'pagament per fases', mes: '/mes', web: 'web', comissio: '+ comissió per venda' };
     let DATA = window.PAQUETS_DEFAULT, tab = null;
     const money = v => new Intl.NumberFormat(LOC(), { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v);
     const price = (p, cls) => `<div class="pk-p${cls || ''}"><span class="pk-from">${cls ? '+' : p.desDe === false ? '' : esc(tr('des de'))}</span><span class="pk-n" data-v="${+p.preu || 0}"${p.extra ? ` data-x="${+DATA.plataformes.preu || 0}"` : ''}>${money(+p.preu || 0)}</span><span class="pk-u">${esc(tr(UNIT[p.unitat] || ''))}</span></div>`;

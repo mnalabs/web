@@ -17,7 +17,8 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .skip:focus{top:12px}
 
 /* títols que entren paraula a paraula */
-.sw{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+/* cada paraula d'un títol .split: amaga la paraula mentre puja; el marge lateral evita tallar l'última lletra */
+.sw{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .12em .1em;margin:0 -.12em -.1em}
 .sw > span{display:inline-block;transform:translateY(108%);transition:transform 1.1s var(--ease-out);transition-delay:var(--d)}
 .split.in .sw > span{transform:none}
 
@@ -102,25 +103,26 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 }
 
 /* ---------- PORTADA: llista de serveis ---------- */
-.svc{position:relative;background:var(--white)}
-.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 64px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
-.svc-head .sub{max-width:34ch;color:var(--ink-2)}
-.svc-rows{border-top:1px solid var(--line)}
-.svc-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 190px;gap:12px 48px;align-items:center;padding:clamp(24px,3vw,40px) 0;border-bottom:1px solid var(--line);transition:opacity .4s}
-.svc-n{font-size:clamp(34px,4.6vw,70px);font-weight:700;letter-spacing:-.05em;line-height:1;transition:transform .7s var(--ease-out)}
-.svc-d{color:var(--ink-2);font-size:17px;line-height:1.45;max-width:40ch}
-.svc-p{font-size:15px;font-weight:600;white-space:nowrap;display:flex;align-items:center;justify-content:flex-end;gap:14px}
-.svc-p::after{content:"→";font-size:22px;font-weight:400;transition:transform .5s var(--ease-out)}
-.svc-row:hover .svc-n{transform:translateX(18px)}
-.svc-row:hover .svc-p::after{transform:translateX(6px)}
-@media (hover:hover){.svc-rows:hover .svc-row:not(:hover){opacity:.32}}
-.svc-pv{position:absolute;left:0;top:0;z-index:5;width:min(440px,32vw);pointer-events:none;opacity:0;transition:opacity .35s}
-.svc-pv.on{opacity:1}
-.svc-pv > .mock{display:none!important}
-.svc[data-pv="web"] .svc-pv > .mock[data-pv="web"],.svc[data-pv="shop"] .svc-pv > .mock[data-pv="shop"],.svc[data-pv="app"] .svc-pv > .mock[data-pv="app"],.svc[data-pv="soft"] .svc-pv > .mock[data-pv="soft"]{display:block!important}
-.svc[data-pv="ig"] .svc-pv > .mock[data-pv="ig"]{display:grid!important}
-@media (hover:none),(max-width:900px){.svc-pv{display:none}}
-@media (max-width:760px){.svc-row{grid-template-columns:1fr;gap:10px}.svc-p{justify-content:space-between}}
+/* ---------- QUÈ FEM: una targeta per servei amb el seu exemple ---------- */
+.que-fem{background:var(--white)}
+.que-fem-capcalera{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 64px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,72px)}
+.que-fem-capcalera .sub{max-width:34ch;color:var(--ink-2)}
+.que-fem-graella{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.servei{display:flex;flex-direction:column;border-radius:var(--r-tile);background:var(--paper);overflow:hidden;transition:transform .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.servei:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.25)}
+.servei-exemple{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(160deg,#f1f2f6,#e2e5ec)}
+.servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
+.servei-exemple .mock[data-mock="duo"]{left:7%;right:7%;top:9%}
+.servei-exemple .mock[data-mock="ig"]{inset:0;border-radius:0}
+.servei:hover .servei-exemple .mock:not([data-mock="ig"]){transform:translateY(-2%)}
+.servei-text{display:flex;flex-direction:column;gap:10px;flex:1;padding:24px 26px 26px}
+.servei-text h3{font-size:clamp(24px,2.2vw,30px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
+.servei-text p{color:var(--ink-2);font-size:16px;line-height:1.45}
+.servei-preu{margin-top:auto;padding-top:8px;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.servei-preu::after{content:"→";font-size:22px;font-weight:400;transition:transform .5s var(--ease-out)}
+.servei:hover .servei-preu::after{transform:translateX(6px)}
+@media (max-width:1060px){.que-fem-graella{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.que-fem-graella{grid-template-columns:1fr}.servei-text{padding:20px 20px 22px}}
 
 /* ---------- PORTADA: productes propis ---------- */
 .own{background:var(--black);color:var(--on-night)}
@@ -422,3 +424,16 @@ body[data-page="mostres"]{background:var(--black)}
 .own-logo img{display:block;width:min(100%,520px);height:auto;transition:transform .8s var(--ease-out)}
 .own-card:hover .own-logo img{transform:translateY(-8px)}
 .pk-ex > img{object-position:50% 0%}
+
+
+/* ---------- WEB CAIGUDA O PIRATEJADA: rescat en 48 hores ---------- */
+.rescat{background:var(--white)}
+.rescat-capcalera{max-width:760px;margin-bottom:clamp(40px,5vw,64px)}
+.rescat-capcalera .sub{color:var(--ink-2);margin-top:20px;max-width:58ch}
+.rescat-passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none}
+.rescat-pas{padding:28px 26px 30px;border-radius:var(--r-tile);background:var(--paper)}
+.rescat-pas h3{font-size:clamp(21px,1.8vw,25px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px}
+.rescat-pas p{color:var(--ink-2);font-size:16px;line-height:1.45}
+.rescat-accio{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.rescat-accio p{color:var(--ink-2);font-size:15px}
+@media (max-width:860px){.rescat-passos{grid-template-columns:1fr}}
