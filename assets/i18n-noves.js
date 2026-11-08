@@ -134,7 +134,7 @@ Object.assign(window.I18N.es, {
 "La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"La página principal, el contacto y, si tienes, la tienda y los pagos vuelven a estar en línea.",
 "Després, la deixem segura.":"Después, la dejamos segura.",
 "Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Actualizaciones, copias de seguridad automáticas y un aviso que nos llega a nosotros si alguna vez vuelve a fallar.",
-"La meva web no funciona":"Mi web no funciona","Escriu-nos i et responem el mateix dia.":"Escríbenos y te respondemos el mismo día.",
+"La meva web no funciona":"Mi web no funciona","Web caiguda":"Web caída","Escriu-nos i et responem el mateix dia.":"Escríbenos y te respondemos el mismo día.",
 });
 Object.assign(window.I18N.en, {
 "pagament per fases":"paid in stages","des de, pagament per fases":"from, paid in stages",
@@ -146,5 +146,5 @@ Object.assign(window.I18N.en, {
 "La pàgina principal, el contacte i, si en tens, la botiga i els pagaments tornen a estar en línia.":"Your home page, contact details and, if you have them, your shop and payments are back online.",
 "Després, la deixem segura.":"Then, we make it secure.",
 "Actualitzacions, còpies de seguretat automàtiques i un avís que ens arriba a nosaltres si mai torna a fallar.":"Updates, automatic backups and an alert that reaches us if it ever fails again.",
-"La meva web no funciona":"My website isn't working","Escriu-nos i et responem el mateix dia.":"Write to us and we'll reply the same day.",
+"La meva web no funciona":"My website isn't working","Web caiguda":"Website down","Escriu-nos i et responem el mateix dia.":"Write to us and we'll reply the same day.",
 });

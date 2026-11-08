@@ -30,17 +30,16 @@
         </div>
 
         <div class="bd-stage" aria-hidden="true">
-          <pre class="bd-code"><code><span><b class="k">&lt;Nav</b> marca=<b class="s">"Forn de la Plaça"</b> <b class="k">/&gt;</b></span>
-<span><b class="k">&lt;h1&gt;</b>Pa de pagès, fet cada matí.<b class="k">&lt;/h1&gt;</b></span>
-<span><b class="k">&lt;p&gt;</b>Massa mare i forn de llenya.<b class="k">&lt;/p&gt;</b></span>
-<span><b class="k">&lt;Boto</b> a=<b class="s">"/encarrecs"</b><b class="k">&gt;</b>Encarrega<b class="k">&lt;/Boto&gt;</b></span>
-<span><b class="k">&lt;Foto</b> src=<b class="s">"pa-de-pages.avif"</b> <b class="k">/&gt;</b></span>
-<span>{productes.<b class="f">map</b>(p =&gt; <b class="k">&lt;Fitxa</b> {...p} <b class="k">/&gt;</b>)}</span>
-<span><b class="k">await</b> pagaments.<b class="f">cobra</b>(comanda)</span>
-<span><b class="f">avisa</b>(forn, <b class="s">'Comanda nova'</b>)</span></code></pre>
+          <pre class="bd-code"><code><span><b class="k">&lt;Capcalera</b> menu={seccions} <b class="k">/&gt;</b></span>
+<span><b class="k">&lt;h1&gt;</b>Cada dia treballem per tu.<b class="k">&lt;/h1&gt;</b></span>
+<span><b class="k">&lt;p&gt;</b>{subtitol}<b class="k">&lt;/p&gt;</b></span>
+<span><b class="k">&lt;Boto</b> href=<b class="s">"/botiga"</b><b class="k">&gt;</b>Fes la compra<b class="k">&lt;/Boto&gt;</b></span>
+<span><b class="k">&lt;Foto</b> src=<b class="s">"fruita.jpg"</b> <b class="k">/&gt;</b></span>
+<span>{ofertes.<b class="f">map</b>(o =&gt; <b class="k">&lt;Fitxa</b> {...o} <b class="k">/&gt;</b>)}</span>
+<span><b class="k">&lt;Cistella</b> enPagar={<b class="f">avisaLaBotiga</b>} <b class="k">/&gt;</b></span></code></pre>
 
           <div class="bd-win">
-            <div class="bd-bar"><i></i><i></i><i></i><span>forndelaplaca.cat</span></div>
+            <div class="bd-bar"><i></i><i></i><i></i><span class="domini-amagat"></span></div>
             <div class="bd-site">
               <svg class="bd-wf" viewBox="0 0 800 500">
                 <path data-o="0" d="M32 18h120v14H32z"/><path data-o=".04" d="M470 25h40M530 25h40M590 25h40"/><path data-o=".06" d="M690 14h80v24h-80z"/>
@@ -50,27 +49,27 @@
                 <path data-o=".28" d="M420 90h348v230H420zM420 90l348 230M768 90L420 320"/>
                 <path data-o=".38" d="M32 350h232v120H32z"/><path data-o=".44" d="M284 350h232v120H284z"/><path data-o=".5" d="M536 350h232v120H536z"/>
               </svg>
-              <div class="bd-ds">
-                <div class="b-nav" data-r="0" data-ping="0"><b>Forn de la Plaça</b><span>Pa</span><span>Pastisseria</span><span>On som</span><em>Encarrega</em></div>
-                <h3 class="b-h" data-r=".08" data-ping="1">Pa de pagès, fet cada matí a les cinc.</h3>
-                <p class="b-p" data-r=".16" data-ping="2">Massa mare, farina del Lluçanès i forn de llenya. Encarrega'l avui i passa a buscar-lo demà.</p>
-                <span class="b-btn" data-r=".22" data-ping="3">Encarrega el teu pa</span>
-                <div class="b-img" data-r=".28" data-ping="4"><i class="loaf"></i><i class="loaf l2"></i></div>
-                <div class="b-card c1" data-r=".38" data-ping="5"><i></i><b>Pa de pagès 1 kg</b><small>4,20 €</small></div>
-                <div class="b-card c2" data-r=".44" data-ping="5"><i></i><b>Coca de recapte</b><small>6,50 €</small></div>
-                <div class="b-card c3" data-r=".5" data-ping="5"><i></i><b>Croissant de mantega</b><small>1,60 €</small></div>
+              <div class="bd-ds supermercat">
+                <div class="b-nav" data-r="0" data-ping="0"><span class="logo-amagat"></span><em class="b-nav-botiga">Botiga online</em><span>Ofertes</span><span>Fresc de mercat</span><span>Botigues</span><em class="b-nav-cistella">Cistella</em></div>
+                <h3 class="b-h" data-r=".08" data-ping="1">Cada dia treballem per tu.</h3>
+                <p class="b-p" data-r=".16" data-ping="2">Perquè puguis fer una compra completa, ara també des de casa.</p>
+                <span class="b-btn" data-r=".22" data-ping="3">Fes la compra online</span>
+                <div class="b-img" data-r=".28" data-ping="4"><img src="img/exemple-supermercat/fruita-de-temporada.jpg" alt="" width="900" height="506" loading="lazy"></div>
+                <div class="b-card c1" data-r=".38" data-ping="5"><img src="img/exemple-supermercat/pomes.jpg" alt="" width="320" height="240" loading="lazy"><b>Pomes Fuji</b><small>1,95 €/kg</small></div>
+                <div class="b-card c2" data-r=".44" data-ping="5"><img src="img/exemple-supermercat/maduixes.jpg" alt="" width="320" height="240" loading="lazy"><b>Maduixes del Maresme</b><small>2,95 €</small></div>
+                <div class="b-card c3" data-r=".5" data-ping="5"><img src="img/exemple-supermercat/pa-de-pasta-mare.jpg" alt="" width="320" height="240" loading="lazy"><b>Pa de pasta mare</b><small>3,20 €</small></div>
               </div>
             </div>
-            <div class="bd-toast"><i></i><div><b>Comanda nova · 8,40 €</b><small>2 × Pa de pagès · recollida demà a les 8</small></div></div>
+            <div class="bd-toast"><i></i><div><b>Comanda nova · 8,10 €</b><small>Pomes, maduixes i pa · entrega demà de 10 a 12</small></div></div>
           </div>
 
           <div class="bd-phone">
             <div class="bd-scr">
-              <b class="ap-brand">Forn de la Plaça</b>
+              <span class="logo-amagat"></span>
               <p class="ap-h">La teva comanda</p>
-              <div class="ap-line"><span>Pa de pagès 1 kg</span><span>× 2</span></div>
-              <div class="ap-line"><span>Recollida</span><span>Demà, 8.00</span></div>
-              <div class="ap-tot"><span>Total</span><b>8,40 €</b></div>
+              <div class="ap-line"><span>Productes</span><span>3</span></div>
+              <div class="ap-line"><span>Entrega</span><span>Demà, 10–12</span></div>
+              <div class="ap-tot"><span>Total</span><b>8,10 €</b></div>
               <em class="ap-btn">Pagat</em>
             </div>
           </div>
