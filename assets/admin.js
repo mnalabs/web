@@ -142,7 +142,7 @@
       case 'secdel': if (!confirm('Vols eliminar tota la secció i els seus paquets?')) return; list().splice(idx, 1); break;
       case 'delopt': list().splice(idx, 1); break;
       case 'addopt': { const p = get(path); p.opcions = p.opcions || []; p.opcions.push({ etiqueta: T('Opció'), preu: 0, linia: T('') }); if (!p.preu2) p.preu2 = { preu: 0, unitat: 'mes', extra: false }; break; }
-      case 'addpk': { const s = get(path); s.paquets = s.paquets || []; const id = uid(); s.paquets.push({ id, nom: T('Paquet nou'), desc: T(''), recomanat: false, preu: 0, unitat: 'unic', extra: false, preu2: null, meta: [], inclou: [], opcions: [], tipus: 'Web', exemple: { marca: 'Marca inventada', maqueta: { mock: 'web', brand: 'Marca', url: 'marca.cat', t: 'Un titular curt.', btn: 'Contacta', c1: '#c94a17', c2: '#fbe9e1' } } }); render(); $(`details[data-k="${id}"]`).open = true; setDirty(true); return; }
+      case 'addpk': { const s = get(path); s.paquets = s.paquets || []; const id = uid(); s.paquets.push({ id, nom: T('Paquet nou'), desc: T(''), recomanat: false, preu: 0, unitat: 'unic', extra: false, preu2: null, meta: [], inclou: [], opcions: [], tipus: 'Web', exemple: { marca: 'Marca inventada', maqueta: { mock: 'web', brand: 'Marca', url: 'marca.cat', t: 'Un titular curt.', btn: 'Contacta', c1: '#d12730', c2: '#fde8e9' } } }); render(); $(`details[data-k="${id}"]`).open = true; setDirty(true); return; }
       case 'addalt': { const s = get(path); s.paquets = s.paquets || []; s.paquets.push({ id: uid(), tipus: 'alt', nom: T('Necessites una altra cosa?'), desc: T(''), boto: T('Parlem-ne') }); break; }
     }
     render(); setDirty(true);

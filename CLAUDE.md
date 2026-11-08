@@ -30,7 +30,7 @@ Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet 
 ## Normes de disseny
 
 - Estètica professional i sòbria, que no sembli feta amb IA: res de textures de gra, segells, etiquetes en monoespai en majúscules, numeracions «01/02» ni paraules de colors dins dels títols.
-- Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent taronja teula `#c94a17` (`#ff9a6b` sobre fosc), només per a les accions principals. Variables CSS: `--accent`, `--accent-hover`, `--accent-soft`, `--link`, `--link-night`.
+- Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent vermell `#d12730` (`#ff7a80` sobre fosc, `#f2555a` als logotips sobre fosc), només per a les accions principals. **Està en prova**: abans era taronja teula `#c94a17` (`#ff9a6b` sobre fosc, `#d9541e` als logotips); per tornar-hi, cal canviar els colors de nou a `assets/site.css`, `assets/pages.css`, `assets/site.js`, `admin.html`, `favicon.svg`, l'icona d'Apple i la imatge per compartir. Variables CSS: `--accent`, `--accent-hover`, `--accent-soft`, `--link`, `--link-night`.
 - Textos planers i concrets, sense eslògans buits.
 - Els exemples i les mostres són de **marques inventades** o de **projectes reals que l'equip ha decidit ensenyar**: lliga.cat i Fundicat (productes propis) i el supermercat (web i panell), sempre **sense el nom ni el logotip del client**. Les captures reals són a `img/exemples-serveis/` i `img/exemple-supermercat/`. Cap altre client real sense que ho digui l'equip.
 - Comprova-ho sempre a mòbil (390 px) i a ordinador (1440 px), i que no hi hagi errors a la consola.

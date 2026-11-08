@@ -216,7 +216,7 @@
           if (dd < 9000){ const k = (1 - Math.sqrt(dd)/95) * 3.2 / (Math.sqrt(dd) + .1); o[0] += dx*k; o[1] += dy*k; }
           o[0] *= .92; o[1] *= .92;
         }
-        const color = (i % 13 === 0 && mi > .5) ? '255,154,107' : '245,245,247';
+        const color = (i % 13 === 0 && mi > .5) ? '255,122,128' : '245,245,247';
         if (reduce){
           // fos: la bola s'apaga i les lletres s'encenen al seu lloc, sense que res es mogui
           const alBola = (.06 + depth*depth*.85) * (1 - mi), sz = (.7 + depth*1.4)*f;
@@ -237,6 +237,7 @@
   if (build){
     const stage = $('.bd-stage', build), caps = $$('.bd-cap', build), rail = $$('.bd-rail i', build);
     const wfPaths = $$('.bd-wf [data-o]', build), dsBlocks = $$('.bd-ds [data-r]', build);
+    const webMobil = $('.bd-web-mobil', build);   // tros del web dins l'iPhone: baixa una mica amb el scroll
     const code = $('.bd-code', build), codeLines = $$('.bd-code code > span', build), win = $('.bd-win', build), phone = $('.bd-phone', build), toast = $('.bd-toast', build);
     const pings = $$('[data-ping]', build);
     wfPaths.forEach(p => { p.setAttribute('pathLength', 1); p.style.strokeDasharray = 1; });
@@ -289,6 +290,10 @@
       win.style.transform = `translateX(${wx}%) scale(${ws})`;
       const pk = easeOut(clamp((D - .15) / .5));
       phone.style.opacity = pk; phone.style.transform = `translateY(${(1 - pk) * 40}%) rotate(${(1 - pk) * 6}deg)`;
+      // el web baixa 600 px (en unitats del web) just després que el mòbil hagi entrat; amb menys moviment es queda a dalt
+      const pantallaMobil = webMobil.parentElement, escala = webMobil.offsetWidth / 390;
+      const recorregut = Math.min(600 * escala, Math.max(0, webMobil.offsetHeight - pantallaMobil.clientHeight));
+      webMobil.style.transform = `translateY(${(-recorregut * (reduce ? 0 : ease(clamp((D - .3) / .6)))).toFixed(1)}px)`;
       const tk = clamp((D - .62) / .2); toast.style.opacity = tk; toast.style.transform = `translateY(${(1 - tk) * -16}px) scale(${.96 + tk * .04})`;
       if (ci !== lastShown){ build.dataset.step = ci; lastShown = ci; }
     });
@@ -391,7 +396,7 @@
         edges.push({ path, L });
         for (let k = 0; k < 2; k++){
           const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', 3.6);
-          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#ff9a6b');
+          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#ff7a80');
           if (!back) c.setAttribute('filter', 'url(#glow)');
           gP.append(c); packets.push({ c, path, L, back, sp: .28 + Math.random()*.22, ph: Math.random() });
         }

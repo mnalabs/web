@@ -103,15 +103,10 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .bd-code{position:absolute;z-index:2;left:-7%;top:10%;width:56%;margin:0;background:#0d0d0f;color:#d1d1d6;border-radius:14px;padding:22px 24px;white-space:normal;font:12.5px/1.8 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px -30px rgba(0,0,0,.6);opacity:0;will-change:transform}
 .bd-code code > span{display:block;white-space:pre;min-height:1.8em;overflow:hidden}
 .bd-code b{font-weight:400}
-.bd-code .k{color:#ff9a6b}.bd-code .s{color:#f2d58a}.bd-code .f{color:#7fd8c4}
+.bd-code .k{color:#ff7a80}.bd-code .s{color:#f2d58a}.bd-code .f{color:#7fd8c4}
 .bd-code .typing::after{content:"";display:inline-block;width:7px;height:1.1em;vertical-align:-2px;background:#f5f5f7;margin-left:1px}
-.bd-phone{position:absolute;z-index:3;right:1%;bottom:-6%;width:19%;aspect-ratio:9/19;background:#111;border-radius:4cqw;padding:.9cqw;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);opacity:0;will-change:transform}
-.bd-scr{height:100%;border-radius:3.2cqw;background:#fbf8f2;padding:3.4cqw 2cqw;display:flex;flex-direction:column;gap:1.2cqw;color:#262626;font-size:1.25cqw}
-.bd-scr .logo-amagat{width:7cqw;height:2.2cqw;border-radius:.6cqw}
-.ap-h{font-size:2.2cqw;font-weight:700;letter-spacing:-.02em;margin-top:1cqw}
-.ap-line,.ap-tot{display:flex;justify-content:space-between;padding:.9cqw 0;border-bottom:1px solid #ece6da}
-.ap-tot{border:0;font-size:1.5cqw}
-.ap-btn{margin-top:auto;font-style:normal;text-align:center;background:#1a7f37;color:#fff;border-radius:99px;padding:1cqw;font-weight:600}
+/* iPhone de la portada: el mateix mòbil modern que a «Què fem» (vegeu .exemple-mobil), amb un tros del web que baixa amb el scroll */
+.bd-phone{position:absolute;z-index:3;right:0;bottom:-8%;width:24%;opacity:0;will-change:transform}
 .bd-toast{position:absolute;z-index:4;bottom:18px;left:18px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.97);border-radius:12px;padding:10px 14px;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 16px 30px -12px rgba(0,0,0,.3);opacity:0}
 .bd-toast i{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
 .bd-toast b{display:block;font-size:13px;font-weight:600}
@@ -124,7 +119,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
   .bd-cap h2{font-size:clamp(28px,7.4vw,40px)}
   .bd-cap p{font-size:16px;margin-top:10px}
   .bd-code{left:3%;right:3%;width:auto;top:-4%;font-size:10px;padding:14px 16px}
-  .bd-phone{width:28%;right:2%;bottom:-14%}
+  .bd-phone{width:34%;right:2%;bottom:-14%}
   .bd-toast{bottom:10px;left:10px;padding:8px 10px}
   .bd-toast b{font-size:11.5px}.bd-toast small{font-size:10px}
 }
@@ -162,6 +157,12 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .exemple-mobil-hora{position:absolute;z-index:2;top:4.2cqw;left:10cqw;font-size:4cqw;font-weight:600;letter-spacing:-.01em}
 .exemple-mobil-estat{position:absolute;z-index:2;top:4.6cqw;right:8cqw;width:15cqw;height:auto}
 .exemple-mobil img{display:block;width:100%;height:auto}
+.exemple-mobil-pantalla-clara{color:#1d1d1f}
+/* el contingut passa per sota de la barra d'estat (que es queda quieta, com a Safari) */
+.exemple-mobil-contingut{position:absolute;left:0;right:0;top:12.5cqw;bottom:0;overflow:hidden}
+.exemple-mobil-contingut img{will-change:transform}
+/* barra d'inici de l'iPhone */
+.exemple-mobil-pantalla::after{content:"";position:absolute;z-index:2;bottom:2.2cqw;left:50%;width:33cqw;height:1.3cqw;margin-left:-16.5cqw;border-radius:99px;background:currentColor;opacity:.55}
 /* a les targetes de «Què fem» */
 .servei-exemple > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%}
 .servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
@@ -222,7 +223,7 @@ a.servei-text{color:inherit}
 @media (max-width:860px){.sv-grid,#botigues .sv-grid{grid-template-columns:1fr}#botigues .sv-copy{order:0}}
 
 /* ---------- MAQUETES (marques inventades) ---------- */
-.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#c94a17;--c2:#fbe9e1;--c3:#f5b899}
+.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#d12730;--c2:#fde8e9;--c3:#f6b3b6}
 .mock:is([data-mock="web"],[data-mock="shop"],[data-mock="app"]),.mk-win{border-radius:2cqw;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 4cqw 8cqw -4cqw rgba(0,0,0,.35)}
 .mk-bar{height:5.4cqw;display:flex;align-items:center;gap:1cqw;padding:0 2cqw;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
 .mk-bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:#d2d2d7}
@@ -472,7 +473,7 @@ body[data-page="mostres"]{background:var(--black)}
 }
 
 .pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}
-.pk-promo{font-size:13px;font-weight:600;color:var(--accent);background:rgba(201,74,23,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
+.pk-promo{font-size:13px;font-weight:600;color:var(--accent);background:rgba(209,39,48,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
 .pk-ex-img{background:#eafaf6;display:flex;align-items:flex-start}
 .pk-ex-img > img{height:auto;width:100%;object-fit:contain}
 .pk-ex-img::after{display:none}
