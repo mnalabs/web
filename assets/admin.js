@@ -10,7 +10,8 @@
   const sb = configured ? window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey) : null;
   const clone = o => JSON.parse(JSON.stringify(o));
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-  let DATA = null, lang = 'ca', dirty = false;
+  // el panell només s'edita en català; les traduccions es mantenen fins que se'n canvia el text català
+  let DATA = null, dirty = false;
 
   const show = id => ['vSetup', 'vLogin', 'vEdit'].forEach(v => $('#' + v).hidden = v !== id);
   const toast = msg => { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 2600); };
@@ -20,7 +21,7 @@
   /* ---------- camins dins de les dades: "seccions.0.paquets.2.nom" ---------- */
   const get = path => path.split('.').reduce((o, k) => o == null ? o : o[k], DATA);
   const set = (path, v) => { const ks = path.split('.'), last = ks.pop(); const o = ks.reduce((o, k) => o[k], DATA); o[last] = v; };
-  const tx = t => t == null ? '' : typeof t === 'string' ? t : (t[lang] ?? '');
+  const tx = t => t == null ? '' : typeof t === 'string' ? t : (t.ca ?? '');
 
   /* ---------- camps ---------- */
   const fText = (label, path, opts = {}) => `<label class="field"><span>${label}</span>${opts.area ? `<textarea data-t="${path}">${esc(tx(get(path)))}</textarea>` : `<input type="text" data-t="${path}" value="${esc(tx(get(path)))}">`}${opts.hint ? `<span class="hint">${opts.hint}</span>` : ''}</label>`;
@@ -97,7 +98,9 @@
   $('#editor').addEventListener('input', e => {
     const el = e.target, d = el.dataset;
     if (d.t){
-      let t = get(d.t); if (t == null || typeof t !== 'object'){ t = T(typeof t === 'string' ? t : ''); set(d.t, t); } t[lang] = el.value;
+      let t = get(d.t); if (t == null || typeof t !== 'object'){ t = T(typeof t === 'string' ? t : ''); set(d.t, t); }
+      // si canvia el català, la traducció antiga ja no hi correspon: l'esborrem i la web mostrarà el català
+      if (t.ca !== el.value){ t.ca = el.value; t.es = ''; t.en = ''; }
       // el nom del paquet es veu també a la capçalera plegable
       const sum = /\.paquets\.\d+\.nom$/.test(d.t) && el.closest('details.pk'); if (sum) $('.sum-name', sum).textContent = el.value || t.ca || 'Paquet sense nom';
     }
@@ -106,8 +109,9 @@
     else if (d.s) set(d.s, el.value);
     else if (d.l){
       const arr = get(d.l) || set(d.l, []) || get(d.l), lines = el.value.split('\n').map(s => s.trim()).filter(Boolean);
-      lines.forEach((ln, i) => { if (!arr[i] || typeof arr[i] !== 'object') arr[i] = T(); arr[i][lang] = ln; });
-      if (lang === 'ca') arr.length = lines.length; else arr.slice(lines.length).forEach(x => x[lang] = '');
+      // cada línia que canvia perd la seva traducció antiga (com els textos simples, més amunt)
+      lines.forEach((ln, i) => { if (!arr[i] || typeof arr[i] !== 'object' || arr[i].ca !== ln) arr[i] = T(ln); });
+      arr.length = lines.length;
     } else if (d.kv){
       const m = get(d.kv), mock = m.mock;
       Object.keys(m).forEach(k => delete m[k]); m.mock = mock;
@@ -145,7 +149,6 @@
   });
   $('#addSec').addEventListener('click', () => { DATA.seccions.push({ id: 'seccio-' + (DATA.seccions.length + 1), nom: T('Secció nova'), extra: false, manteniment: true, paquets: [] }); render(); setDirty(true); });
   $('#reset').addEventListener('click', () => { if (!confirm('Es perdran tots els canvis i es tornarà als paquets originals. Vols continuar?')) return; DATA = clone(window.PAQUETS_DEFAULT); render(); setDirty(true); });
-  $$('.seg button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.l; $$('.seg button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(); }));
 
   /* ---------- desar i carregar ---------- */
   const validate = () => {

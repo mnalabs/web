@@ -48,9 +48,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);box-s
 .bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .status{font-size:13px;color:var(--ink-2);min-width:150px}
 .status.dirty{color:#b25e00}
-.seg{display:inline-flex;padding:3px;gap:3px;border-radius:10px;background:#e8e8ed}
-.seg button{border:0;background:none;padding:5px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer}
-.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 16px}
 .check{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;cursor:pointer}
@@ -120,12 +117,11 @@ details.pk[open] > summary::before{transform:rotate(45deg)}
   <section id="vEdit" hidden>
     <div class="bar fix" style="margin-bottom:22px">
       <h1 style="margin-right:auto">Paquets</h1>
-      <div class="seg" role="group" aria-label="Idioma dels textos"><button data-l="ca" aria-pressed="true">CA</button><button data-l="es" aria-pressed="false">ES</button><button data-l="en" aria-pressed="false">EN</button></div>
       <a class="btn sec" href="paquets.html" target="_blank" rel="noopener">Veure la web</a>
       <span class="status" id="status" role="status"></span>
       <button class="btn pri" id="save" disabled>Desa els canvis</button>
     </div>
-    <p class="hint" style="margin-bottom:18px">Els textos que deixis buits en castellà o anglès es mostren en català. Els preus són iguals en tots els idiomes.</p>
+    <p class="hint" style="margin-bottom:18px">Els textos s'escriuen en català. Quan en canvies un, la web el mostra en català també en castellà i anglès fins que el tornem a traduir. Els preus són iguals en tots els idiomes.</p>
     <div id="editor"></div>
     <div class="actions" style="margin-top:28px">
       <button class="btn sec" id="addSec">Afegeix una secció</button>

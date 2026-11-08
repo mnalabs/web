@@ -114,7 +114,10 @@
   if (hero){
     const cv = $('#orb'), ctx = cv.getContext('2d');
     const heroCopy = $('#heroCopy'), heroCap = $('#heroCap'), hint = $('#hint');
-    let W, H, N, sph = [], txt = [], start = [], delay = [], off = [], mx = 0, my = 0, tmx = 0, tmy = 0, px = -9999, py = -9999;
+    // ordreLectura: 0 per als punts que van a la M i 1 per als de la S, perquè el nom es formi d'esquerra a dreta
+    // naixement: d'on surt cada punt a l'entrada (angle i distància dins de la bola)
+    let W, H, N, sph = [], txt = [], ordreLectura = [], naixement = [], delay = [], off = [], mx = 0, my = 0, tmx = 0, tmy = 0, px = -9999, py = -9999;
+    let progresSuau = null, darrerFotograma = 0;
     const buildText = () => {
       const o = document.createElement('canvas'); o.width = W; o.height = H; const g = o.getContext('2d');
       const two = W < 760, fs = two ? Math.min(W * .3, H * .2) : Math.min(W * .15, H * .3);
@@ -126,13 +129,16 @@
       for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (d[(y*W + x)*4 + 3] > 140) c.push([x, y]);
       for (let i = c.length - 1; i > 0; i--){ const j = Math.random()*(i+1) | 0; [c[i], c[j]] = [c[j], c[i]]; }
       txt = Array.from({ length: N }, (_, i) => { const p = c[i % c.length] || [W/2, H/2]; return [p[0] + (Math.random()-.5)*1.5, p[1] + (Math.random()-.5)*1.5]; });
+      // ordre de lectura de cada destí: d'esquerra a dreta; amb dues línies (mòbil), primer «MNA» i després «LABS»
+      const xs = txt.map(p => p[0]), xMin = Math.min(...xs), ample = (Math.max(...xs) - xMin) || 1;
+      ordreLectura = txt.map(([x, y]) => two ? (y > H*.44 ? .5 : 0) + (x - xMin)/ample*.5 : (x - xMin)/ample);
     };
     const size = () => {
       W = cv.clientWidth; H = cv.clientHeight; cv.width = W*DPR; cv.height = H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
       N = W < 760 ? 1500 : 2600;
       sph = []; const g = Math.PI * (3 - Math.sqrt(5));
       for (let i = 0; i < N; i++){ const y = 1 - (i/(N-1))*2, r = Math.sqrt(1-y*y), t = g*i; sph.push([Math.cos(t)*r, y, Math.sin(t)*r]); }
-      start = sph.map(() => [Math.random()*W, Math.random()*H]); delay = sph.map(() => Math.random()); off = sph.map(() => [0, 0]);
+      naixement = sph.map(() => [Math.random()*Math.PI*2, Math.sqrt(Math.random())*.6]); delay = sph.map(() => Math.random()); off = sph.map(() => [0, 0]);
       buildText();
     };
     size(); (document.fonts ? document.fonts.ready : Promise.resolve()).then(buildText); onResize.push(size);
@@ -141,8 +147,11 @@
     draws.push(now => {
       if (!onScreen(hero)) return;
       const t = (now - t0)/1000, p = prog(hero);
-      const intro = reduce ? 1 : clamp(t / 2.4);
-      const fade = clamp(p / .22), m = ease(clamp((p - .18) / .5)), cap = clamp((p - .7) / .15);
+      // la transformació en lletres segueix el scroll amb una mica d'inèrcia (~200 ms), i no a salts amb la roda del ratolí
+      const dt = Math.min(.1, (now - (darrerFotograma || now))/1000); darrerFotograma = now;
+      progresSuau = (progresSuau === null || reduce) ? p : progresSuau + (p - progresSuau)*(1 - Math.pow(1 - .12, dt*60));
+      const intro = reduce ? 1 : clamp(t / 1.2);
+      const fade = clamp(p / .22), m = ease(clamp((progresSuau - .18) / .5)), cap = clamp((p - .7) / .15);
       heroCopy.style.opacity = 1 - fade;
       heroCopy.style.transform = `translateY(${-fade*60}px) scale(${1 - fade*.06})`;
       heroCopy.style.pointerEvents = fade > .5 ? 'none' : '';
@@ -152,24 +161,46 @@
       ctx.clearRect(0, 0, W, H);
       const small = W < 760;
       const S0 = small ? W*.4 : Math.min(W*.2, H*.3), cy0 = small ? heroCopy.offsetTop + heroCopy.offsetHeight + S0*.95 + 24 : H*.55;
-      const cx = lerp(small ? W/2 : W*.74, W/2, m), cy = lerp(cy0, H*.5, m), S = S0 * lerp(1, small ? 1.05 : 1.4, m);
-      const ry = t*.09 + mx*.9, rx = -.25 + my*.45;
+      // amb menys moviment, la bola no es desplaça: es queda quieta i les lletres hi apareixen al damunt amb un fos
+      const mPos = reduce ? 0 : m;
+      const cx = lerp(small ? W/2 : W*.74, W/2, mPos), cy = lerp(cy0, H*.5, mPos), S = S0 * lerp(1, small ? 1.05 : 1.4, mPos);
+      const ry = (reduce ? 0 : t*.09) + mx*.9, rx = -.25 + my*.45;
       const a = Math.cos(ry), b = Math.sin(ry), c = Math.cos(rx), d = Math.sin(rx);
       for (let i = 0; i < N; i++){
-        const s0 = sph[i], wob = 1 + Math.sin(t*.9 + s0[1]*5)*.025;
+        const s0 = sph[i], wob = reduce ? 1 : 1 + Math.sin(t*.9 + s0[1]*5)*.025;
         let X = s0[0]*a - s0[2]*b, Z = s0[0]*b + s0[2]*a, Y = s0[1]*c - Z*d; Z = s0[1]*d + Z*c;
         const f = 2.8/(2.8+Z), depth = (1 - Z)/2;
         let x = cx + X*S*f*wob, y = cy + Y*S*f*wob;
+        // entrada: cada punt neix a prop del centre de la bola i s'obre fins al seu lloc
         const ii = easeOut(clamp(intro*1.6 - delay[i]*.6));
-        if (ii < 1){ x = lerp(start[i][0], x, ii); y = lerp(start[i][1], y, ii); }
-        const mi = ease(clamp(m*1.5 - delay[i]*.5)), T = txt[i];
-        if (mi > 0 && T){ x = lerp(x, T[0] + Math.sin(t*1.3 + i)*.6, mi); y = lerp(y, T[1] + Math.cos(t*1.1 + i)*.6, mi); }
-        const o = off[i], dx = x + o[0] - px, dy = y + o[1] - py, dd = dx*dx + dy*dy;
-        if (dd < 9000){ const k = (1 - Math.sqrt(dd)/95) * 3.2 / (Math.sqrt(dd) + .1); o[0] += dx*k; o[1] += dy*k; }
-        o[0] *= .92; o[1] *= .92;
+        if (ii < 1){ const [angle, dist] = naixement[i]; x = lerp(cx + Math.cos(angle)*dist*S, x, ii); y = lerp(cy + Math.sin(angle)*dist*S, y, ii); }
+        // transformació en lletres: per ordre de lectura (de la M a la S), amb una mica d'atzar perquè no sigui una cortina
+        const T = txt[i], ordre = (ordreLectura[i] ?? delay[i])*.45 + delay[i]*.05;
+        const mi = ease(clamp(m*1.5 - ordre)), miPos = reduce ? 0 : mi;
+        if (miPos > 0 && T){
+          const tx = T[0] + Math.sin(t*1.3 + i)*.6, ty = T[1] + Math.cos(t*1.1 + i)*.6;
+          // trajectòria lleugerament corba: un arc perpendicular al camí (de 12 a 40 px) que s'anul·la en arribar
+          const vx = tx - x, vy = ty - y, llargada = Math.hypot(vx, vy) || 1;
+          const arc = Math.sin(Math.PI*miPos) * (12 + (i % 5)*7) * (i % 2 ? 1 : -1);
+          x = lerp(x, tx, miPos) - vy/llargada*arc; y = lerp(y, ty, miPos) + vx/llargada*arc;
+        }
+        const o = off[i];
+        if (!reduce){
+          const dx = x + o[0] - px, dy = y + o[1] - py, dd = dx*dx + dy*dy;
+          if (dd < 9000){ const k = (1 - Math.sqrt(dd)/95) * 3.2 / (Math.sqrt(dd) + .1); o[0] += dx*k; o[1] += dy*k; }
+          o[0] *= .92; o[1] *= .92;
+        }
+        const color = (i % 13 === 0 && mi > .5) ? '167,150,255' : '245,245,247';
+        if (reduce){
+          // fos: la bola s'apaga i les lletres s'encenen al seu lloc, sense que res es mogui
+          const alBola = (.06 + depth*depth*.85) * (1 - mi), sz = (.7 + depth*1.4)*f;
+          if (alBola > .01){ ctx.fillStyle = `rgba(245,245,247,${alBola})`; ctx.fillRect(x, y, sz, sz); }
+          if (mi > .01 && T){ ctx.fillStyle = `rgba(${color},${.92*mi})`; ctx.fillRect(T[0], T[1], small ? 1.5 : 1.8, small ? 1.5 : 1.8); }
+          continue;
+        }
         const al = lerp(.06 + depth*depth*.85, .92, mi) * (ii*.85 + .15);
         const sz = lerp((.7 + depth*1.4)*f, small ? 1.5 : 1.8, mi);
-        ctx.fillStyle = (i % 13 === 0 && mi > .5) ? `rgba(167,150,255,${al})` : `rgba(245,245,247,${al})`;
+        ctx.fillStyle = `rgba(${color},${al})`;
         ctx.fillRect(x + o[0], y + o[1], sz, sz);
       }
     });
