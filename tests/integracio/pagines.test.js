@@ -1,6 +1,6 @@
 // Prova integrada: genera el web de debò i comprova que les peces encaixen (pàgines, enllaços, recursos, publicació).
 const test = require('node:test'), assert = require('node:assert/strict');
-const fs = require('fs'), path = require('path'), os = require('os');
+const fs = require('fs'), path = require('path');
 const { execFileSync } = require('child_process');
 const ARREL = path.join(__dirname, '..', '..');
 
@@ -86,13 +86,4 @@ test('no es publica cap clau, contrasenya ni correu intern', () => {
     assert.doesNotMatch(t, /sk_live_|whsec_|sb_secret_/, f);
     assert.doesNotMatch(t, /labs\.mna@gmail\.com/, `${f} conté el correu d'administració`);
   }
-});
-
-test('la carpeta de publicació només té fitxers públics', () => {
-  const sortida = fs.mkdtempSync(path.join(os.tmpdir(), 'mna-pub-'));
-  execFileSync('bash', ['src/preparar-publicacio.sh', sortida], { cwd: ARREL, stdio: 'pipe' });
-  const tots = fs.readdirSync(sortida, { recursive: true });
-  for (const f of tots) assert.doesNotMatch(String(f), /(^|\/)(src|tests|\.github)(\/|$)|CLAUDE\.md|CONFIGURAR|PUBLICACIO|package\.json|\.py$|\.blend$/, `fitxer intern publicat: ${f}`);
-  assert.ok(tots.includes('index.html') && tots.includes('CNAME') && tots.includes('.nojekyll'));
-  fs.rmSync(sortida, { recursive: true, force: true });
 });

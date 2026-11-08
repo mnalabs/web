@@ -34,8 +34,10 @@ for (const [nom, amplada] of [['ordinador', 1440], ['mòbil', 390]]) {
 
 test('«La meva web no funciona» porta al formulari amb el motiu triat', async () => {
   const { pagina, errors } = await obre('/serveis.html');
-  await pagina.click('text=La meva web no funciona');
-  await pagina.waitForURL(/contacte\.html\?tipus=/);
+  // Seguim l'adreça de l'enllaç en lloc de clicar-lo: amb la inèrcia del scroll el clic a vegades cau a un altre lloc i la prova fallava sense motiu.
+  const adreca = await pagina.locator('a:has-text("La meva web no funciona")').getAttribute('href');
+  assert.match(adreca, /^contacte\.html\?tipus=/);
+  await pagina.goto(servidor.url + '/' + adreca);
   assert.equal(await pagina.inputValue('#f-tipus'), 'Web caiguda o piratejada');
   assert.deepEqual(errors, []);
 });

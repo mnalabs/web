@@ -7,4 +7,3 @@ exclude:
   - _config.yml
   - tests/
   - package.json
-  - PUBLICACIO.md
