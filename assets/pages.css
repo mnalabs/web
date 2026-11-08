@@ -166,9 +166,15 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .servei-exemple > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%}
 .servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
 .servei:hover .servei-exemple > .exemple-mobil,.servei:hover .servei-exemple > .exemple-finestra{transform:translateY(-2%)}
+/* mostres que són un enllaç (Xarxes socials): el bloc ocupa tota la part de dalt i el text és un altre enllaç */
+a.servei-exemple{display:block}
+a.servei-text{color:inherit}
 /* a Serveis */
 .sv-vis-mobil{display:flex;justify-content:center}
 .sv-vis-mobil .exemple-mobil{width:min(300px,62%)}
+/* quan el mòbil és dins d'un enllaç (Xarxes socials), l'enllaç porta l'amplada i el mòbil l'omple */
+.sv-vis-mobil > a{display:block;width:min(300px,62%)}
+.sv-vis-mobil > a .exemple-mobil{width:100%}
 .servei-text{display:flex;flex-direction:column;gap:10px;flex:1;padding:24px 26px 26px}
 .servei-text h3{font-size:clamp(24px,2.2vw,30px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
 .servei-text p{color:var(--ink-2);font-size:16px;line-height:1.45}

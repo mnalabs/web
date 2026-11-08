@@ -127,6 +127,8 @@ Object.assign(window.I18N.en, {"El primer mes, 50% de descompte per conèixer-no
 Object.assign(window.I18N.es, {
 "pagament per fases":"pago por fases","des de, pagament per fases":"desde, pago por fases",
 "Web caiguda o piratejada?":"¿Web caída o pirateada?",
+"Veure l'Instagram de lliga.cat (s'obre en una pestanya nova)":"Ver el Instagram de lliga.cat (se abre en una pestaña nueva)",
+"Perfil d'Instagram de lliga.cat amb les seves publicacions":"Perfil de Instagram de lliga.cat con sus publicaciones",
 "La restaurem i tornem a posar en marxa el que és bàsic: que la web es vegi, que els clients et puguin contactar i, si tens botiga, que torni a vendre. Normalment ho tenim en unes 48 hores. Després refem la resta amb calma.":"La restauramos y volvemos a poner en marcha lo básico: que la web se vea, que los clientes puedan contactarte y, si tienes tienda, que vuelva a vender. Normalmente lo tenemos en unas 48 horas. Después rehacemos el resto con calma.",
 "Primer, la restaurem.":"Primero, la restauramos.",
 "Recuperem una versió que funcioni i guardem una còpia del que hi ha ara, perquè no es perdi res.":"Recuperamos una versión que funcione y guardamos una copia de lo que hay ahora, para que no se pierda nada.",
@@ -139,6 +141,8 @@ Object.assign(window.I18N.es, {
 Object.assign(window.I18N.en, {
 "pagament per fases":"paid in stages","des de, pagament per fases":"from, paid in stages",
 "Web caiguda o piratejada?":"Website down or hacked?",
+"Veure l'Instagram de lliga.cat (s'obre en una pestanya nova)":"See lliga.cat's Instagram (opens in a new tab)",
+"Perfil d'Instagram de lliga.cat amb les seves publicacions":"lliga.cat's Instagram profile with its posts",
 "La restaurem i tornem a posar en marxa el que és bàsic: que la web es vegi, que els clients et puguin contactar i, si tens botiga, que torni a vendre. Normalment ho tenim en unes 48 hores. Després refem la resta amb calma.":"We restore it and get the basics running again: your site loads, customers can reach you and, if you have a shop, it sells again. It usually takes us about 48 hours. Then we rebuild the rest without rushing.",
 "Primer, la restaurem.":"First, we restore it.",
 "Recuperem una versió que funcioni i guardem una còpia del que hi ha ara, perquè no es perdi res.":"We bring back a working version and save a copy of what's there now, so nothing is lost.",
