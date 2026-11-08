@@ -30,7 +30,7 @@ Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet 
 ## Normes de disseny
 
 - Estètica professional i sòbria, que no sembli feta amb IA: res de textures de gra, segells, etiquetes en monoespai en majúscules, numeracions «01/02» ni paraules de colors dins dels títols.
-- Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent violeta `#6b4eff` (`#a796ff` sobre fosc), només per a les accions principals.
+- Tipografia Geist, títols grans i en negreta, molt d'espai. Color d'accent taronja teula `#c94a17` (`#ff9a6b` sobre fosc), només per a les accions principals. Variables CSS: `--accent`, `--accent-hover`, `--accent-soft`, `--link`, `--link-night`.
 - Textos planers i concrets, sense eslògans buits.
 - Els exemples i les mostres són sempre de **marques inventades**, mai de clients reals.
 - Comprova-ho sempre a mòbil (390 px) i a ordinador (1440 px), i que no hi hagi errors a la consola.

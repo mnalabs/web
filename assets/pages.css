@@ -24,7 +24,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 
 /* capçalera de les pàgines interiors */
 .phead{padding:clamp(72px,10vw,150px) 0 clamp(48px,6vw,80px);background:var(--white)}
-.phead-k{font-size:15px;font-weight:600;color:var(--blue);margin-bottom:18px}
+.phead-k{font-size:15px;font-weight:600;color:var(--accent);margin-bottom:18px}
 .phead-h{font-size:clamp(46px,7.6vw,118px);font-weight:700;letter-spacing:-.052em;line-height:.98;max-width:13ch}
 .phead-p{font-size:clamp(19px,1.9vw,25px);line-height:1.38;letter-spacing:-.02em;font-weight:500;color:var(--ink-2);max-width:48ch;margin-top:32px}
 .subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
@@ -82,11 +82,11 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .b-card img{display:block;flex:1;min-height:0;width:100%;object-fit:cover;border-radius:.7cqw}
 .b-card small{color:#c4231d;font-weight:700}
 .b-card.c1{left:5%}.b-card.c2{left:35.875%}.b-card.c3{left:66.75%}
-.bd-ds .ping{outline:2px solid var(--blue);outline-offset:4px;border-radius:6px}
+.bd-ds .ping{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
 .bd-code{position:absolute;z-index:2;left:-7%;top:10%;width:56%;margin:0;background:#0d0d0f;color:#d1d1d6;border-radius:14px;padding:22px 24px;white-space:normal;font:12.5px/1.8 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px -30px rgba(0,0,0,.6);opacity:0;will-change:transform}
 .bd-code code > span{display:block;white-space:pre;min-height:1.8em;overflow:hidden}
 .bd-code b{font-weight:400}
-.bd-code .k{color:#a796ff}.bd-code .s{color:#ffd6a5}.bd-code .f{color:#7fd8c4}
+.bd-code .k{color:#ff9a6b}.bd-code .s{color:#f2d58a}.bd-code .f{color:#7fd8c4}
 .bd-code .typing::after{content:"";display:inline-block;width:7px;height:1.1em;vertical-align:-2px;background:#f5f5f7;margin-left:1px}
 .bd-phone{position:absolute;z-index:3;right:1%;bottom:-6%;width:19%;aspect-ratio:9/19;background:#111;border-radius:4cqw;padding:.9cqw;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);opacity:0;will-change:transform}
 .bd-scr{height:100%;border-radius:3.2cqw;background:#fbf8f2;padding:3.4cqw 2cqw;display:flex;flex-direction:column;gap:1.2cqw;color:#262626;font-size:1.25cqw}
@@ -181,7 +181,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 @media (max-width:860px){.sv-grid,#botigues .sv-grid{grid-template-columns:1fr}#botigues .sv-copy{order:0}}
 
 /* ---------- MAQUETES (marques inventades) ---------- */
-.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#6b4eff;--c2:#eeeaff;--c3:#c9bcff}
+.mock{position:relative;width:100%;container-type:inline-size;color:#1d1d1f;font-family:Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;--c1:#c94a17;--c2:#fbe9e1;--c3:#f5b899}
 .mock:is([data-mock="web"],[data-mock="shop"],[data-mock="app"]),.mk-win{border-radius:2cqw;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 4cqw 8cqw -4cqw rgba(0,0,0,.35)}
 .mk-bar{height:5.4cqw;display:flex;align-items:center;gap:1cqw;padding:0 2cqw;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
 .mk-bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:#d2d2d7}
@@ -307,7 +307,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .pr-plus{stroke:#fff}
 .pr-fill{opacity:0}
 .pr-led{opacity:0}
-.pr-labels path{stroke:var(--blue);stroke-width:1.5;fill:none}
+.pr-labels path{stroke:var(--accent);stroke-width:1.5;fill:none}
 .pr-labels text{font:600 15px Geist,Arial,sans-serif;fill:var(--ink)}
 .pr-labels text.s{font-weight:400;font-size:13px;fill:var(--ink-2)}
 .pr-labels g{opacity:0}
@@ -428,7 +428,7 @@ body[data-page="mostres"]{background:var(--black)}
 }
 
 .pk-ex > img{display:block;width:100%;height:100%;object-fit:cover}
-.pk-promo{font-size:13px;font-weight:600;color:var(--blue);background:rgba(107,78,255,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
+.pk-promo{font-size:13px;font-weight:600;color:var(--accent);background:rgba(201,74,23,.1);padding:7px 12px;border-radius:10px;margin-top:-6px}
 .pk-ex-img{background:#eafaf6;display:flex;align-items:flex-start}
 .pk-ex-img > img{height:auto;width:100%;object-fit:contain}
 .pk-ex-img::after{display:none}

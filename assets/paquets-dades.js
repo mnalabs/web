@@ -188,7 +188,7 @@ window.PAQUETS_DEFAULT = {
     {
      "id": "webs-2",
      "nom": {
-      "ca": "Ecommerce bàsic",
+      "ca": "Botiga en línia bàsica",
       "es": "Ecommerce básico",
       "en": "Basic ecommerce"
      },

@@ -190,7 +190,7 @@
           if (dd < 9000){ const k = (1 - Math.sqrt(dd)/95) * 3.2 / (Math.sqrt(dd) + .1); o[0] += dx*k; o[1] += dy*k; }
           o[0] *= .92; o[1] *= .92;
         }
-        const color = (i % 13 === 0 && mi > .5) ? '167,150,255' : '245,245,247';
+        const color = (i % 13 === 0 && mi > .5) ? '255,154,107' : '245,245,247';
         if (reduce){
           // fos: la bola s'apaga i les lletres s'encenen al seu lloc, sense que res es mogui
           const alBola = (.06 + depth*depth*.85) * (1 - mi), sz = (.7 + depth*1.4)*f;
@@ -299,12 +299,12 @@
   const dash = $('#dash'), feed = $('#feed');
   const feedPool = [
     ['#30d158','Pagament rebut','Tallers Puig · 318,50 €'],
-    ['#6b4eff','Nova comanda','#10483 · Metall Girona'],
+    ['#c94a17','Nova comanda','#10483 · Metall Girona'],
     ['#ff9f0a','Estoc baix','Sorra PetroBond 5 kg · 8 unitats'],
-    ['#6b4eff','Factura emesa','F-2026-0912 · enviada per correu'],
+    ['#c94a17','Factura emesa','F-2026-0912 · enviada per correu'],
     ['#30d158','Enviament lliurat','#10476 · Fundició del Vallès'],
     ['#7fd8c4','Client nou','Registrat des de l\'app'],
-    ['#6b4eff','Sincronització','Comptabilitat actualitzada'],
+    ['#c94a17','Sincronització','Comptabilitat actualitzada'],
   ];
   let feedI = 0;
   function pushFeed(){
@@ -323,11 +323,11 @@
       for (let i = 0; i < 30; i++){ const v = 95 - i*1.6 - Math.sin(i*.7)*14 - Math.sin(i*1.9)*7 + Math.cos(i*.33)*6; pts.push([i*(600/29), v + 20]); }
       let dl = `M${pts[0][0]},${pts[0][1]}`;
       for (let i = 1; i < pts.length; i++){ const [x0,y0] = pts[i-1], [x1,y1] = pts[i], cxp = (x0+x1)/2; dl += ` C${cxp},${y0} ${cxp},${y1} ${x1},${y1}`; }
-      svg.innerHTML = `<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b4eff" stop-opacity=".22"/><stop offset="1" stop-color="#6b4eff" stop-opacity="0"/></linearGradient></defs>
+      svg.innerHTML = `<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c94a17" stop-opacity=".22"/><stop offset="1" stop-color="#c94a17" stop-opacity="0"/></linearGradient></defs>
         ${[40,90,140].map(y => `<line class="gl" x1="0" x2="600" y1="${y}" y2="${y}"/>`).join('')}
         <path class="ar" d="${dl} L600,180 L0,180 Z" fill="url(#ga)"/>
         <path class="ln" id="ln" d="${dl}"/>
-        <circle id="lnDot" r="4.5" fill="#6b4eff" stroke="#fff" stroke-width="2" cx="${pts[29][0]}" cy="${pts[29][1]}" opacity="0"/>`;
+        <circle id="lnDot" r="4.5" fill="#c94a17" stroke="#fff" stroke-width="2" cx="${pts[29][0]}" cy="${pts[29][1]}" opacity="0"/>`;
       const ln = $('#ln'), L = ln.getTotalLength();
       ln.style.strokeDasharray = L; ln.style.strokeDashoffset = L; ln.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)';
     })();
@@ -381,7 +381,7 @@
         edges.push({ path, L });
         for (let k = 0; k < 2; k++){
           const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', 3.6);
-          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#a796ff');
+          const back = k === 1; c.setAttribute('fill', back ? '#f5f5f7' : '#ff9a6b');
           if (!back) c.setAttribute('filter', 'url(#glow)');
           gP.append(c); packets.push({ c, path, L, back, sp: .28 + Math.random()*.22, ph: Math.random() });
         }
@@ -453,7 +453,7 @@
     const ringN = $('#ringN');
     ring.closest('.tile').addEventListener('reveal', () => {
       const s = performance.now();
-      (function st(n){ const k = reduce ? 1 : easeOut(clamp((n - s)/1800)); const v = Math.round(72*k); ring.style.background = `conic-gradient(var(--blue) 0 ${v}%, #e5e5ea 0)`; ringN.textContent = v + '%'; if (k < 1) requestAnimationFrame(st); })(s);
+      (function st(n){ const k = reduce ? 1 : easeOut(clamp((n - s)/1800)); const v = Math.round(72*k); ring.style.background = `conic-gradient(var(--accent) 0 ${v}%, #e5e5ea 0)`; ringN.textContent = v + '%'; if (k < 1) requestAnimationFrame(st); })(s);
     });
   }
 
