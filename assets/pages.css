@@ -163,6 +163,17 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .exemple-mobil-contingut img{will-change:transform}
 /* barra d'inici de l'iPhone */
 .exemple-mobil-pantalla::after{content:"";position:absolute;z-index:2;bottom:2.2cqw;left:50%;width:33cqw;height:1.3cqw;margin-left:-16.5cqw;border-radius:99px;background:currentColor;opacity:.55}
+/* Google Pixel: mateixa estructura que l'iPhone, però amb les mides d'un Pixel 9 (72 × 153 mm): cantonades menys arrodonides,
+   càmera frontal petita al mig, botons de volum i d'engegada tots dos a la dreta, barra d'estat d'Android i barra de gestos. */
+.exemple-mobil-pixel{aspect-ratio:72/153;padding:1.9%;border-radius:10% / 4.7%;background:#101113;
+  box-shadow:0 0 0 1px #9a9da1,0 0 0 2px #2b2c2f,inset 0 0 0 1px rgba(255,255,255,.07),0 28px 56px -24px rgba(0,0,0,.5)}
+.exemple-mobil-pixel::before{right:-1.2%;top:21%;height:9%}
+.exemple-mobil-pixel::after{left:auto;right:-1.2%;top:34%;height:5%;box-shadow:none}
+.exemple-mobil-pixel .exemple-mobil-pantalla{border-radius:7.8% / 3.6%;padding-top:9.5cqw}
+.exemple-mobil-pixel .exemple-mobil-pantalla::before{top:3cqw;width:4.4cqw;height:4.4cqw;margin-left:-2.2cqw;border-radius:50%;box-shadow:0 0 0 .6cqw #0a0a0b}
+.exemple-mobil-pixel .exemple-mobil-hora{top:3.2cqw;left:7.5cqw;font-size:3.7cqw;font-weight:500}
+.exemple-mobil-pixel .exemple-mobil-estat{top:3.6cqw;right:7.5cqw;width:13.5cqw}
+.exemple-mobil-pixel .exemple-mobil-pantalla::after{bottom:1.8cqw;width:26cqw;height:1.1cqw;margin-left:-13cqw}
 /* a les targetes de «Què fem» */
 .servei-exemple > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%}
 .servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
