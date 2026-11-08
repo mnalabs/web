@@ -515,3 +515,6 @@ body[data-page="mostres"]{background:var(--black)}
 @media (max-width:860px){.rescat-passos{grid-template-columns:1fr}}
 
 @media (max-width:1240px) and (prefers-reduced-motion:reduce){.nav-links,.nav.open .nav-links{transform:none}}
+
+/* Captura de la botiga de Fundicat dins la finestra de Projectes: s'ancora a baix, com la resta de maquetes del bloc */
+.ptile .vis .exemple-finestra{width:min(620px,94%);border-radius:16px 16px 0 0}
