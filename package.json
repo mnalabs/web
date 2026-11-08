@@ -1,0 +1,14 @@
+{
+  "name": "mnalabs-web",
+  "private": true,
+  "description": "Web de MNA LABS. Sense dependències: les proves fan servir node:test i Playwright (ja instal·lat a l'ordinador).",
+  "scripts": {
+    "genera": "node src/build.js",
+    "test": "node --test \"tests/unitaris/*.test.js\" \"tests/integracio/*.test.js\"",
+    "test:unitaris": "node --test \"tests/unitaris/*.test.js\"",
+    "test:integracio": "node --test \"tests/integracio/*.test.js\"",
+    "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.js\"",
+    "test:rendiment": "node --test --test-concurrency=1 \"tests/rendiment/*.test.js\"",
+    "test:tot": "node --test --test-concurrency=1 \"tests/*/*.test.js\""
+  }
+}

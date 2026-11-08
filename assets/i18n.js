@@ -310,7 +310,7 @@ en: {
 "Fitxa de client":"Customer record","Dades en clar":"Plain text","Xifrat":"Encrypted","Nom":"Name","Correu":"Email","Telèfon":"Phone","Adreça":"Address","Targeta":"Card",
 "Animació: les dades d'un client es xifren":"Animation: a customer's data being encrypted",
 "Tria el teu paquet.":"Choose your package.","Preus clars i un exemple real de cada paquet. El pressupost final el tanquem amb tu per escrit.":"Clear prices and a real example of every package. We agree the final quote with you in writing.",
-"Exemple real":"Real example","Instagram d'MNA LABS":"MNA LABS on Instagram","Reel de Mecanitzats ALDA":"Mecanitzats ALDA reel","Ben aviat":"Coming soon","MNA LABS: web i Instagram":"MNA LABS: website and Instagram",
+"Exemple real":"Real example","Instagram d'MNA LABS":"MNA LABS on Instagram","Ben aviat":"Coming soon","MNA LABS: web i Instagram":"MNA LABS: website and Instagram",
 "Ven serveis, reserves o encàrrecs des de la teva web.":"Sell services, bookings or orders from your website.",
 "Disseny gràfic i fotos d'estoc":"Graphic design and stock photos","Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.":"Posts with professional graphic design and high-quality stock photos.",
 "Disseny gràfic a mida per a cada publicació":"Custom graphic design for every post","Fotos d'estoc d'alta qualitat amb llicència":"Licensed high-quality stock photos","Textos pensats per a cada xarxa":"Copy written for each platform",

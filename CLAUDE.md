@@ -27,6 +27,16 @@ Parla sempre en català amb l'equip.
 
 Abans de començar, fes sempre `git pull`: l'altre soci també hi pot haver fet canvis.
 
+## Proves
+
+Tot canvi nou porta les seves proves (unitàries, d'integració i de punta a punta) i, si toca velocitat o pes, també de rendiment. Sense dependències: `node:test` i Playwright.
+
+- `npm test`: unitàries (`tests/unitaris`) i d'integració (`tests/integracio`: genera el web i comprova pàgines, enllaços, àncores, secrets i la carpeta de publicació). Triga segons.
+- `npm run test:e2e`: navegador real (`tests/e2e`): errors de consola, desbordaments a 1440 i 390 px, formularis, animacions.
+- `npm run test:rendiment`: pes dels fitxers i velocitat al navegador (`tests/rendiment`).
+- `npm run test:tot`: tot.
+- Si afegeixes un text nou, la prova de traduccions et dirà si falta l'ES o l'EN.
+
 ## Normes de disseny
 
 - Estètica professional i sòbria, que no sembli feta amb IA: res de textures de gra, segells, etiquetes en monoespai en majúscules, numeracions «01/02» ni paraules de colors dins dels títols.

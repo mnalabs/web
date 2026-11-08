@@ -518,3 +518,6 @@ body[data-page="mostres"]{background:var(--black)}
 
 /* Captura de la botiga de Fundicat dins la finestra de Projectes: s'ancora a baix, com la resta de maquetes del bloc */
 .ptile .vis .exemple-finestra{width:min(620px,94%);border-radius:16px 16px 0 0}
+
+/* Paquets es pinten amb JS: reservem l'espai perquè el peu no surti a la vista i després salti cap avall */
+.pkgs-page{min-height:100svh}

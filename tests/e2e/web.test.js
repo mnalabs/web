@@ -1,0 +1,94 @@
+// Proves de punta a punta: un navegador real obre el web i fa el que faria una persona.
+const test = require('node:test'), assert = require('node:assert/strict');
+const fs = require('fs'), path = require('path');
+const { chromium } = require('playwright');
+const { engega, ARREL } = require('../ajuda/servidor');
+
+const pagines = fs.readdirSync(ARREL).filter(f => f.endsWith('.html') && f !== 'admin.html');
+let servidor, navegador;
+test.before(async () => { servidor = await engega(); navegador = await chromium.launch(); });
+test.after(async () => { await navegador.close(); await servidor.atura(); });
+
+const obre = async (ruta, amplada = 1440, alcada = 900) => {
+  const pagina = await navegador.newPage({ viewport: { width: amplada, height: alcada } });
+  const errors = [];
+  pagina.on('pageerror', e => errors.push(e.message));
+  pagina.on('console', m => m.type() === 'error' && errors.push(m.text()));
+  pagina.on('requestfailed', r => errors.push('no carrega: ' + r.url()));
+  await pagina.goto(servidor.url + ruta, { waitUntil: 'load' });
+  return { pagina, errors };
+};
+
+for (const [nom, amplada] of [['ordinador', 1440], ['mòbil', 390]]) {
+  test(`cap pàgina dona errors ni es desquadra horitzontalment (${nom})`, async () => {
+    for (const p of pagines) {
+      const { pagina, errors } = await obre('/' + p, amplada);
+      await pagina.waitForTimeout(400);
+      const desbordament = await pagina.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+      assert.deepEqual(errors, [], `${p}: errors`);
+      assert.ok(desbordament <= 0, `${p}: desbordament horitzontal de ${desbordament}px`);
+      await pagina.close();
+    }
+  });
+}
+
+test('«La meva web no funciona» porta al formulari amb el motiu triat', async () => {
+  const { pagina, errors } = await obre('/serveis.html');
+  await pagina.click('text=La meva web no funciona');
+  await pagina.waitForURL(/contacte\.html\?tipus=/);
+  assert.equal(await pagina.inputValue('#f-tipus'), 'Web caiguda o piratejada');
+  assert.deepEqual(errors, []);
+});
+
+test('el formulari de contacte avisa si falten dades', async () => {
+  const { pagina } = await obre('/contacte.html');
+  await pagina.click('#form button[type=submit]');
+  assert.match(await pagina.textContent('#note'), /Omple el nom/);
+});
+
+test('el menú surt fosc a la portada des del primer moment i blanc a Serveis', async () => {
+  const context = await navegador.newContext({ javaScriptEnabled: false });
+  const pagina = await context.newPage();
+  const fons = async ruta => { await pagina.goto(servidor.url + ruta); return pagina.evaluate(() => getComputedStyle(document.querySelector('.nav-in')).backgroundColor); };
+  assert.equal(await fons('/index.html'), 'rgb(28, 28, 30)');
+  assert.equal(await fons('/serveis.html'), 'rgb(255, 255, 255)');
+  await context.close();
+});
+
+test('el canvi d\'idioma tradueix la pàgina', async () => {
+  const { pagina } = await obre('/serveis.html');
+  const titolCa = await pagina.textContent('h1');
+  await pagina.click('[data-lang="en"], button:has-text("EN")');
+  await pagina.waitForTimeout(500);
+  assert.notEqual(await pagina.textContent('h1'), titolCa);
+});
+
+test('el panell de gestió de Serveis s\'anima: les xifres pugen i el gràfic es dibuixa', async () => {
+  const { pagina } = await obre('/serveis.html');
+  const dalt = await pagina.evaluate(() => document.querySelector('#programari').getBoundingClientRect().top + scrollY);
+  const alt = await pagina.evaluate(() => document.querySelector('#programari').offsetHeight - innerHeight);
+  await pagina.evaluate(y => scrollTo(0, y), dalt + alt * .6);
+  await pagina.waitForTimeout(2800);
+  assert.equal(await pagina.textContent('[data-count="1284"]'), '1.284');
+  const traçat = await pagina.evaluate(() => getComputedStyle(document.querySelector('#ln')).strokeDashoffset);
+  assert.equal(parseFloat(traçat), 0);
+  const titol = await pagina.evaluate(() => getComputedStyle(document.querySelector('#zoomHead')).opacity);
+  assert.equal(parseFloat(titol), 0, 'el títol ha d\'haver marxat');
+});
+
+test('Paquets mostra els paquets i cada pestanya existeix', async () => {
+  const { pagina, errors } = await obre('/paquets.html');
+  await pagina.waitForSelector('.pk', { timeout: 8000 });
+  assert.ok(await pagina.locator('.pk').count() >= 3);
+  assert.deepEqual(errors.filter(e => !/supabase|Failed to fetch|ERR_/.test(e)), []);
+});
+
+test('les captures de Fundicat es veuen a Què fem, Serveis i Projectes', async () => {
+  for (const [ruta, sel] of [['/index.html', '.que-fem img[src*="exemple-fundicat"]'], ['/serveis.html', '#botigues img[src*="exemple-fundicat"]'], ['/projectes.html', '#fundicat img[src*="exemple-fundicat"]']]) {
+    const { pagina } = await obre(ruta);
+    await pagina.locator(sel).scrollIntoViewIfNeeded();
+    await pagina.waitForTimeout(500);
+    assert.ok(await pagina.locator(sel).evaluate(i => i.complete && i.naturalWidth > 0), `${ruta}: la imatge no carrega`);
+    await pagina.close();
+  }
+});

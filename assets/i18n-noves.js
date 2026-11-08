@@ -1,5 +1,7 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"Web":"Web","Arquitectura":"Arquitectura","RGPD":"RGPD",
+"Web caiguda o piratejada":"Web caída o pirateada",
 "Pomes Fuji 5 kg · 8 unitats":"Manzanas Fuji 5 kg · 8 unidades",
 "Prototipatge":"Prototipado","Mostres":"Muestras","Programes":"Programas","Afiliacions":"Afiliaciones","+ comissió per venda":"+ comisión por venta",
 "El fem ara, el pagues més endavant":"Lo hacemos ahora, lo pagas más adelante","Noves línies de negoci per a empreses":"Nuevas líneas de negocio para empresas","Descomptes en el que ja compres":"Descuentos en lo que ya compras",
@@ -50,6 +52,7 @@ Object.assign(window.I18N.es, {
 "Afiliacions · MNA LABS":"Afiliaciones · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"Web caiguda o piratejada":"Website down or hacked",
 "Pomes Fuji 5 kg · 8 unitats":"Fuji apples 5 kg · 8 units",
 "Prototipatge":"Prototyping","Mostres":"Showcase","Programes":"Programmes","Afiliacions":"Affiliates","+ comissió per venda":"+ commission per sale",
 "El fem ara, el pagues més endavant":"We build it now, you pay later","Noves línies de negoci per a empreses":"New business lines for companies","Descomptes en el que ja compres":"Discounts on what you already buy",
