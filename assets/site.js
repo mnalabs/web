@@ -517,16 +517,13 @@
     onLang.push(() => { if (termDone){ termLang = null; termStatic(); } });
   }
 
-  /* =============== INCLINACIÓ I BOTONS MAGNÈTICS =============== */
+  /* =============== INCLINACIÓ DE LES TARGETES .tilt =============== */
+  // (els botons no es mouen quan hi passes el cursor: només canvien de color)
   if (!reduce && hover){
     $$('.tilt').forEach(el => {
       el.addEventListener('pointerenter', () => { el.style.transition = 'transform .25s ease-out'; el.style.transitionDelay = '0s'; });
       el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(), x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5; el.style.transform = `rotateX(${-y*4}deg) rotateY(${x*5}deg) translateZ(0)`; });
       el.addEventListener('pointerleave', () => { el.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1)'; el.style.transform = ''; });
-    });
-    $$('.mag').forEach(el => {
-      el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width/2)*.18}px,${(e.clientY - r.top - r.height/2)*.3}px)`; });
-      el.addEventListener('pointerleave', () => el.style.transform = '');
     });
   }
 
