@@ -529,3 +529,14 @@ body[data-page="mostres"]{background:var(--black)}
 .pk-ex-duo > .exemple-finestra{left:6%;right:30%;top:12%}
 .pk-ex-duo > .exemple-mobil{left:auto;right:7%;top:16%;width:21%;margin-left:0}
 .pk:hover .pk-ex > .exemple-finestra,.pk:hover .pk-ex > .exemple-mobil{transform:translateY(-2%)}
+
+/* Monitor d'ordinador de sobretaula (marc fi, peu d'alumini) amb la fitxa de producte a la pantalla: Venda a Amazon a Què fem, Serveis i Paquets.
+   La pantalla és img/exemples-serveis/amazon-pantalla.png: per canviar-la només cal substituir aquest fitxer. */
+.exemple-monitor{container-type:inline-size;width:100%;filter:drop-shadow(0 2.2cqw 2.4cqw rgba(15,20,40,.28))}
+.exemple-monitor-pantalla{border-radius:1.5cqw;background:#0d0d0f;padding:1.1cqw 1.1cqw 4.2cqw;box-shadow:inset 0 0 0 1px #3a3b40,0 0 0 1px #aeb1b8}
+.exemple-monitor-pantalla img{display:block;width:100%;height:auto;border-radius:.4cqw;background:#fff}
+.exemple-monitor-coll{width:11cqw;height:9cqw;margin:-.3cqw auto 0;background:linear-gradient(90deg,#9ea1a8,#e3e5e9 45%,#b3b6bd);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
+.exemple-monitor-base{width:30cqw;height:1.3cqw;margin:0 auto;border-radius:.65cqw;background:linear-gradient(#e9ebee,#a9acb3)}
+.servei-exemple > .exemple-monitor,.pk-ex > .exemple-monitor{position:absolute;left:16%;right:16%;top:11%;width:auto;transition:transform 1.2s var(--ease-out)}
+.servei:hover .servei-exemple > .exemple-monitor,.pk:hover .pk-ex > .exemple-monitor{transform:translateY(-2%)}
+.sv-vis > .exemple-monitor{max-width:620px;margin-inline:auto}

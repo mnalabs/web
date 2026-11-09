@@ -1,5 +1,6 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Monitor de ordenador de sobremesa que muestra la ficha de un producto en línea",
 "Mercat Garrofa i app de lliga.cat":"Mercat Garrofa y app de lliga.cat",
 
 "Panell d'un supermercat":"Panel de un supermercado",
@@ -59,6 +60,7 @@ Object.assign(window.I18N.es, {
 "Afiliacions · MNA LABS":"Afiliaciones · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Desktop computer monitor showing an online product page",
 "Mercat Garrofa i app de lliga.cat":"Mercat Garrofa and the lliga.cat app",
 
 "Panell d'un supermercat":"A supermarket's admin panel",
