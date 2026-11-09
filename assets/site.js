@@ -627,7 +627,7 @@
       'combinats-0': { marca: 'Mercat Garrofa i app de lliga.cat', html: finestraReal(IMG + 'web-supermercat.jpg') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
       'combinats-1': { marca: 'Fundicat i app de lliga.cat', html: finestraReal(FUND + 'botiga.webp') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
       'gratuits-0': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
-      'gratuits-amazon': { marca: 'Venda a Amazon', html: `<div class="exemple-monitor"><div class="exemple-monitor-pantalla"><img src="img/exemples-serveis/amazon-pantalla.png" alt="" width="1920" height="1080" loading="lazy"></div><div class="exemple-monitor-coll"></div><div class="exemple-monitor-base"></div></div>` },
+      'gratuits-amazon': { marca: 'Venda a Amazon', html: `<div class="exemple-monitor"><div class="exemple-monitor-pantalla"><img src="img/exemples-serveis/amazon-pantalla.webp" alt="" width="1920" height="1200" loading="lazy"></div><div class="exemple-monitor-coll"></div><div class="exemple-monitor-base"></div></div>` },
       'gratuits-1': { marca: 'Fundicat', html: finestraReal(FUND + 'producte.webp') },
     };
     const card = (p, i, sec) => {

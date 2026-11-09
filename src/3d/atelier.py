@@ -56,8 +56,8 @@ t = LLAO.node_tree.nodes.new('ShaderNodeTexVoronoi'); t.inputs['Scale'].default_
 tc = LLAO.node_tree.nodes.new('ShaderNodeTexCoord')
 LLAO.node_tree.links.new(tc.outputs['Object'], t.inputs['Vector']); amb_relleu(LLAO, t, .5, .08)
 # Cuir: gra fi
-ruido = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); ruido.inputs['Scale'].default_value = 2.4; ruido.inputs['Detail'].default_value = 8; ruido.inputs['Roughness'].default_value = .65
-tc2 = CUIR.node_tree.nodes.new('ShaderNodeTexCoord'); CUIR.node_tree.links.new(tc2.outputs['Object'], ruido.inputs['Vector']); amb_relleu(CUIR, ruido, .9, .25)
+ruido = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); ruido.inputs['Scale'].default_value = 0.85; ruido.inputs['Detail'].default_value = 5; ruido.inputs['Roughness'].default_value = .7
+tc2 = CUIR.node_tree.nodes.new('ShaderNodeTexCoord'); CUIR.node_tree.links.new(tc2.outputs['Object'], ruido.inputs['Vector']); amb_relleu(CUIR, ruido, 1.6, .6)
 varia = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); varia.inputs['Scale'].default_value = .18; varia.inputs['Detail'].default_value = 2   # taques suaus de color, com la pell de debò
 mescla = CUIR.node_tree.nodes.new('ShaderNodeMix'); mescla.data_type = 'RGBA'; mescla.blend_type = 'MULTIPLY'; mescla.inputs['Factor'].default_value = .35
 CUIR.node_tree.links.new(tc2.outputs['Object'], varia.inputs['Vector'])
