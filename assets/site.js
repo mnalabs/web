@@ -619,12 +619,12 @@
     const pixelReal = src => `<div class="exemple-mobil exemple-mobil-pixel"><div class="exemple-mobil-pantalla" style="--fons:#0d1014"><span class="exemple-mobil-hora">9:41</span>${estatPixel}<img src="${src}" alt="" width="640" height="1270" loading="lazy"></div></div>`;
     const IMG = 'img/exemples-serveis/', FUND = 'img/exemple-fundicat/';
     const EXEMPLES_REALS = {
-      'webs-0': { marca: 'Mercat Garrofa', html: finestraReal(IMG + 'web-supermercat.jpg') },
+      'webs-0': { marca: 'HortAlPlat', html: finestraReal(IMG + 'web-supermercat.jpg') },
       'webs-1': { marca: 'Fundicat', html: finestraReal(FUND + 'botiga.webp') },
       'webs-2': { marca: 'Fundicat', html: finestraReal(FUND + 'producte.webp') },
       'webs-3': { marca: "Panell d'un supermercat", html: finestraReal(IMG + 'panell-supermercat.jpg') },
       'xarxes-1': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
-      'combinats-0': { marca: 'Mercat Garrofa i app de lliga.cat', html: finestraReal(IMG + 'web-supermercat.jpg') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
+      'combinats-0': { marca: 'HortAlPlat i app de lliga.cat', html: finestraReal(IMG + 'web-supermercat.jpg') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
       'combinats-1': { marca: 'Fundicat i app de lliga.cat', html: finestraReal(FUND + 'botiga.webp') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
       'gratuits-0': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
       'gratuits-amazon': { marca: 'Venda a Amazon', html: `<div class="exemple-monitor"><div class="exemple-monitor-pantalla"><img src="img/exemples-serveis/amazon-pantalla.webp" alt="" width="1920" height="1200" loading="lazy"></div><div class="exemple-monitor-coll"></div><div class="exemple-monitor-base"></div></div>` },

@@ -1,7 +1,7 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Monitor de ordenador de sobremesa que muestra la ficha de un producto en línea",
-"Mercat Garrofa i app de lliga.cat":"Mercat Garrofa y app de lliga.cat",
+"HortAlPlat i app de lliga.cat":"HortAlPlat y app de lliga.cat",
 
 "Panell d'un supermercat":"Panel de un supermercado",
 
@@ -39,7 +39,7 @@ Object.assign(window.I18N.es, {
 "Obre la mostra":"Abre la muestra",
 "Portada d'aquesta web · scroll narratiu":"Portada de esta web · scroll narrativo","Una web que neix davant teu: l'esbós, el disseny, el codi que s'escriu i la comanda que arriba al mòbil.":"Una web que nace delante de ti: el boceto, el diseño, el código que se escribe y el pedido que llega al móvil.",
 "Mira-la a la portada":"Mírala en la portada","Totes les marques són inventades. Si vols una web així per a la teva,":"Todas las marcas son inventadas. Si quieres una web así para la tuya,","parlem-ne":"hablemos",
-"Rellotge en 3D de la marca inventada Atelier Temps":"Reloj en 3D de la marca inventada Atelier Temps","Web inventada de Mercat Garrofa, un supermercat, amb la seva app al mòbil":"Web inventada de Mercat Garrofa con su app en el móvil",
+"Rellotge en 3D de la marca inventada Atelier Temps":"Reloj en 3D de la marca inventada Atelier Temps","Web inventada de HortAlPlat, un supermercat, amb la seva app al mòbil":"Web inventada de HortAlPlat con su app en el móvil",
 "Mostres · MNA LABS":"Muestras · MNA LABS",
 "El que la teva empresa ja compra, més barat.":"Lo que tu empresa ya compra, más barato.",
 "Tenim acords d'afiliació amb botigues i serveis que fan servir les empreses. Quan compres amb el nostre enllaç, la botiga ens paga una comissió, i te'n tornem una part en forma de descompte.":"Tenemos acuerdos de afiliación con tiendas y servicios que usan las empresas. Cuando compras con nuestro enlace, la tienda nos paga una comisión, y te devolvemos una parte en forma de descuento.",
@@ -61,7 +61,7 @@ Object.assign(window.I18N.es, {
 });
 Object.assign(window.I18N.en, {
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Desktop computer monitor showing an online product page",
-"Mercat Garrofa i app de lliga.cat":"Mercat Garrofa and the lliga.cat app",
+"HortAlPlat i app de lliga.cat":"HortAlPlat and the lliga.cat app",
 
 "Panell d'un supermercat":"A supermarket's admin panel",
 
@@ -97,7 +97,7 @@ Object.assign(window.I18N.en, {
 "Obre la mostra":"Open the demo",
 "Portada d'aquesta web · scroll narratiu":"This site's home page · scroll storytelling","Una web que neix davant teu: l'esbós, el disseny, el codi que s'escriu i la comanda que arriba al mòbil.":"A website born in front of you: the sketch, the design, the code being written and the order arriving on the phone.",
 "Mira-la a la portada":"See it on the home page","Totes les marques són inventades. Si vols una web així per a la teva,":"All brands are invented. If you want a website like this for yours,","parlem-ne":"let's talk",
-"Rellotge en 3D de la marca inventada Atelier Temps":"3D watch from the invented brand Atelier Temps","Web inventada de Mercat Garrofa, un supermercat, amb la seva app al mòbil":"Invented Mercat Garrofa website with its phone app",
+"Rellotge en 3D de la marca inventada Atelier Temps":"3D watch from the invented brand Atelier Temps","Web inventada de HortAlPlat, un supermercat, amb la seva app al mòbil":"Invented HortAlPlat website with its phone app",
 "Mostres · MNA LABS":"Showcase · MNA LABS",
 "El que la teva empresa ja compra, més barat.":"What your business already buys, for less.",
 "Tenim acords d'afiliació amb botigues i serveis que fan servir les empreses. Quan compres amb el nostre enllaç, la botiga ens paga una comissió, i te'n tornem una part en forma de descompte.":"We have affiliate agreements with shops and services businesses use. When you buy through our link, the shop pays us a commission, and we give part of it back to you as a discount.",

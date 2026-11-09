@@ -174,11 +174,11 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Web",
      "exemple": {
-      "marca": "Mercat Garrofa",
+      "marca": "HortAlPlat",
       "maqueta": {
        "mock": "shop",
-       "brand": "Mercat Garrofa",
-       "url": "mercatgarrofa.cat",
+       "brand": "HortAlPlat",
+       "url": "hortalplat.cat",
        "items": "Pomes Fuji|2,10 €;Fruita de temporada|3,90 €;Pa de pasta mare|3,20 €;Maduixes|4,50 €",
        "c1": "#4f7a2f",
        "c2": "#eaf2dc"
