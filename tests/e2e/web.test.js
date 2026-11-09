@@ -137,3 +137,16 @@ test('amb moviment reduït, el desplegable només fa fos (sense escala)', async 
   assert.match(t, /^matrix\(1, 0, 0, 1,/, t);   // escala 1: només es mou el centrat
   await ctx.close();
 });
+
+test('Mostres: la targeta de United Carriers mostra la captura i, en clicar, obre el web real en una pestanya nova', async () => {
+  const { pagina, errors } = await obre('/mostres.html');
+  const targeta = pagina.locator('a.mo-card[href="https://unitedcarriers.com/"]');
+  assert.equal(await targeta.count(), 1);
+  assert.equal(await targeta.getAttribute('target'), '_blank');
+  assert.match(await targeta.getAttribute('rel'), /noopener/);
+  await targeta.locator('img').scrollIntoViewIfNeeded();
+  await pagina.waitForTimeout(500);
+  assert.ok(await targeta.locator('img').evaluate(i => i.complete && i.naturalWidth > 0), 'la captura no carrega');
+  assert.deepEqual(errors, []);
+  await pagina.close();
+});

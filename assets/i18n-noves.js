@@ -1,5 +1,11 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"Transport i logística · projecte real":"Transporte y logística · proyecto real",
+"El web d'un grup de transport internacional: un camió amb velocímetre que creua la pantalla amb l'scroll i el titular que va canviant pel camí.":"La web de un grupo de transporte internacional: un camión con velocímetro que cruza la pantalla con el scroll y el titular que va cambiando por el camino.",
+"Obre el web":"Abrir la web",
+"Portada del web de United Carriers: un camió amb un contenidor creua la pantalla mentre el titular canvia amb l'scroll":"Portada de la web de United Carriers: un camión con un contenedor cruza la pantalla mientras el titular cambia con el scroll",
+"Obre el web de United Carriers (s'obre en una pestanya nova)":"Abrir la web de United Carriers (se abre en una pestaña nueva)",
+
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Monitor de ordenador de sobremesa que muestra la ficha de un producto en línea",
 "HortAlPlat i app de lliga.cat":"HortAlPlat y app de lliga.cat",
 
@@ -38,7 +44,7 @@ Object.assign(window.I18N.es, {
 "Rellotgeria · 3D en temps real":"Relojería · 3D en tiempo real","Un rellotge que gira cap a tu i s'obre per dins mentre baixes, fins a veure-hi les peces del moviment.":"Un reloj que gira hacia ti y se abre por dentro mientras bajas, hasta ver las piezas del movimiento.",
 "Obre la mostra":"Abre la muestra",
 "Portada d'aquesta web · scroll narratiu":"Portada de esta web · scroll narrativo","Una web que neix davant teu: l'esbós, el disseny, el codi que s'escriu i la comanda que arriba al mòbil.":"Una web que nace delante de ti: el boceto, el diseño, el código que se escribe y el pedido que llega al móvil.",
-"Mira-la a la portada":"Mírala en la portada","Totes les marques són inventades. Si vols una web així per a la teva,":"Todas las marcas son inventadas. Si quieres una web así para la tuya,","parlem-ne":"hablemos",
+"Mira-la a la portada":"Mírala en la portada","Les marques són inventades, excepte United Carriers, que és un projecte real. Si vols una web així per a la teva,":"Las marcas son inventadas, excepto United Carriers, que es un proyecto real. Si quieres una web así para la tuya,","parlem-ne":"hablemos",
 "Rellotge en 3D de la marca inventada Atelier Temps":"Reloj en 3D de la marca inventada Atelier Temps","Web inventada de HortAlPlat, un supermercat, amb la seva app al mòbil":"Web inventada de HortAlPlat con su app en el móvil",
 "Mostres · MNA LABS":"Muestras · MNA LABS",
 "El que la teva empresa ja compra, més barat.":"Lo que tu empresa ya compra, más barato.",
@@ -60,6 +66,12 @@ Object.assign(window.I18N.es, {
 "Afiliacions · MNA LABS":"Afiliaciones · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"Transport i logística · projecte real":"Transport and logistics · real project",
+"El web d'un grup de transport internacional: un camió amb velocímetre que creua la pantalla amb l'scroll i el titular que va canviant pel camí.":"The website of an international freight group: a truck with a speedometer crosses the screen as you scroll and the headline changes along the way.",
+"Obre el web":"Open the website",
+"Portada del web de United Carriers: un camió amb un contenidor creua la pantalla mentre el titular canvia amb l'scroll":"United Carriers homepage: a truck with a container crosses the screen while the headline changes with the scroll",
+"Obre el web de United Carriers (s'obre en una pestanya nova)":"Open the United Carriers website (opens in a new tab)",
+
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Desktop computer monitor showing an online product page",
 "HortAlPlat i app de lliga.cat":"HortAlPlat and the lliga.cat app",
 
@@ -96,7 +108,7 @@ Object.assign(window.I18N.en, {
 "Rellotgeria · 3D en temps real":"Watchmaking · real-time 3D","Un rellotge que gira cap a tu i s'obre per dins mentre baixes, fins a veure-hi les peces del moviment.":"A watch that turns towards you and opens up as you scroll, down to the parts of the movement.",
 "Obre la mostra":"Open the demo",
 "Portada d'aquesta web · scroll narratiu":"This site's home page · scroll storytelling","Una web que neix davant teu: l'esbós, el disseny, el codi que s'escriu i la comanda que arriba al mòbil.":"A website born in front of you: the sketch, the design, the code being written and the order arriving on the phone.",
-"Mira-la a la portada":"See it on the home page","Totes les marques són inventades. Si vols una web així per a la teva,":"All brands are invented. If you want a website like this for yours,","parlem-ne":"let's talk",
+"Mira-la a la portada":"See it on the home page","Les marques són inventades, excepte United Carriers, que és un projecte real. Si vols una web així per a la teva,":"The brands are invented, except United Carriers, which is a real project. If you want a website like this for yours,","parlem-ne":"let's talk",
 "Rellotge en 3D de la marca inventada Atelier Temps":"3D watch from the invented brand Atelier Temps","Web inventada de HortAlPlat, un supermercat, amb la seva app al mòbil":"Invented HortAlPlat website with its phone app",
 "Mostres · MNA LABS":"Showcase · MNA LABS",
 "El que la teva empresa ja compra, més barat.":"What your business already buys, for less.",
