@@ -399,19 +399,19 @@ def barreja(a, b, f): return {n: tuple(a[n][i] + (b[n][i] - a[n][i]) * f for i i
 # (t, pose, (azimut°, elevació°, distància mm, objectiu (x, y, z), obertura f/, desplaçament horitzontal, vertical))
 # El desplaçament (shift) mou el rellotge dins del quadre perquè no tapi el text de cada capítol: el text és a l'esquerra → el rellotge a la dreta.
 GUIO = [
-    (0.00, MUNTAT, (-24, 62, 440, (0, 0, 5), 16, 0, -.04)),
-    (0.10, MUNTAT, (-16, 55, 420, (0, 0, 5), 16, 0, -.06)),
+    (0.00, MUNTAT, (-24, 62, 440, (0, 0, 5), 16, 0, .05)),
+    (0.10, MUNTAT, (-16, 55, 420, (0, 0, 5), 16, 0, .05)),
     (0.16, MUNTAT, (-4, 30, 420, (0, 0, 5), 16, -.2, 0)),
     (0.30, MUNTAT, (20, -58, 430, (0, 0, 2), 16, -.22, 0)),
     (0.40, barreja(MUNTAT, EXPLOSIONAT, .3), (32, -34, 470, (0, 0, 0), 16, 0, 0)),
-    (0.50, EXPLOSIONAT, (40, 16, 640, (0, 0, 8), 16, 0, .05)),
-    (0.58, EXPLOSIONAT, (34, 22, 630, (0, 0, 8), 16, 0, .05)),
+    (0.50, EXPLOSIONAT, (40, 16, 700, (0, 0, 8), 16, 0, -.06)),
+    (0.58, EXPLOSIONAT, (34, 22, 690, (0, 0, 8), 16, 0, -.06)),
     (0.66, COR, (14, -46, 230, (VX, VY, 4.4), 4, .2, 0)),
     (0.72, COR, (8, -50, 210, (VX, VY, 4.4), 3.5, .2, 0)),
     (0.80, ROTOR, (-8, -50, 250, (0, 0, 2), 5, -.2, 0)),
     (0.86, ROTOR, (-14, -50, 240, (0, 0, 2), 5, -.2, 0)),
-    (0.95, MUNTAT, (-22, 56, 440, (0, 0, 5), 16, 0, -.1)),
-    (1.00, MUNTAT, (-24, 58, 440, (0, 0, 5), 16, 0, -.1)),
+    (0.95, MUNTAT, (-22, 56, 520, (0, 0, 5), 16, 0, 0)),
+    (1.00, MUNTAT, (-24, 58, 520, (0, 0, 5), 16, 0, 0)),
 ]
 def suau(x): return x * x * (3 - 2 * x)
 def estat(t):
@@ -484,13 +484,17 @@ elif MODE == 'temps':   # fotogrames sols, per mirar el guió: ... temps 0.2,0.3
     for t in [float(x) for x in args[3].split(',')]:
         aplica(t); renderitza(f'temps-{t:.2f}.png')
 elif MODE == 'sequencia':
-    etiquetes = []
+    # args[4] (opcional): trams de t a tornar a renderitzar, p. ex. "0-0.16,0.38-0.66"; la resta es conserva
+    trams = [tuple(float(x) for x in t.split('-')) for t in args[4].split(',')] if len(args) > 4 else None
+    cami = os.path.join(SORTIDA, 'etiquetes.json')
+    etiquetes = json.load(open(cami))['etiquetes'] if trams and os.path.exists(cami) else [None] * N_FOTOGRAMES
     for i in range(N_FOTOGRAMES):
         t = i / (N_FOTOGRAMES - 1)
-        aplica(t); etiquetes.append(posicions_etiquetes())
+        if trams and not any(a <= t <= b for a, b in trams): continue
+        aplica(t); etiquetes[i] = posicions_etiquetes()
         renderitza(f'f{i:03d}.png')
         print('FOTOGRAMA', i)
-    with open(os.path.join(SORTIDA, 'etiquetes.json'), 'w') as f: json.dump({'fotogrames': N_FOTOGRAMES, 'etiquetes': etiquetes}, f)
+    with open(cami, 'w') as f: json.dump({'fotogrames': N_FOTOGRAMES, 'etiquetes': etiquetes}, f)
 elif MODE == 'variants':
     aplica(1.0)
     for e in ESFERES:

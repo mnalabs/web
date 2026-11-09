@@ -58,6 +58,7 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
 
 .cfg{position:fixed;left:50%;bottom:5vh;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;pointer-events:none;width:min(760px,94vw)}
 .cfg.on{pointer-events:auto}
+.cfg::before{content:"";position:absolute;left:-40vw;right:-40vw;bottom:-5vh;top:-8vh;z-index:-1;background:linear-gradient(transparent,rgba(7,10,18,.88) 55%);pointer-events:none}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
 .row > span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);min-width:70px}
 .sw{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:inset 0 0 0 2px var(--bg)}
@@ -212,8 +213,9 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
   let ultim = -1, ultimVariant = -1;
 
   function dibuixa(p){
-    const f = p * (FOTOGRAMES - 1), i0 = Math.floor(f), a = f - i0, i1 = Math.min(FOTOGRAMES - 1, i0 + 1);
-    const clau = `${i0}|${a.toFixed(3)}|${variantAlfa.toFixed(2)}|${canvas.width}`;
+    const f = p * (FOTOGRAMES - 1), i0 = Math.floor(f), i1 = Math.min(FOTOGRAMES - 1, i0 + 1);
+    const a = ss(.25, .75, f - i0);   // el fos creuat només passa al mig: la major part del temps es veu un sol fotograma, net
+    const clau = `${i0}|${a.toFixed(3)}|${variantAlfa.toFixed(2)}|${canvas.width}|${carregats}`;   // carregats: quan arriba un fotograma nou, es torna a dibuixar
     if (clau !== ultim){
       ultim = clau;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -230,8 +232,8 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
     ETIQUETES.forEach(([nom], k) => {
       const el = elsEtiqueta[k];
       if (!posicions || op < .01){ el.style.opacity = 0; return; }
-      const A = posicions[i0][nom], B = posicions[i1][nom];
-      const u = A[0] + (B[0] - A[0]) * a, v = A[1] + (B[1] - A[1]) * a;
+      const A = posicions[i0][nom], B = posicions[i1][nom], q = f - i0;
+      const u = A[0] + (B[0] - A[0]) * q, v = A[1] + (B[1] - A[1]) * q;
       el.style.left = (desX + u * AMPLADA * escala + 14) + 'px'; el.style.top = (desY + v * ALCADA * escala) + 'px';
       el.style.opacity = op.toFixed(3);
     });

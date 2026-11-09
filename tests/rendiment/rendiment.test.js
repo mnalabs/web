@@ -96,3 +96,11 @@ test('el scroll de la portada i de Serveis és fluid (fotogrames sense talls lla
     await pagina.close();
   }
 });
+
+test('la mostra Atelier Temps (seqüència de fotogrames) pesa poc i cada fotograma és lleuger', () => {
+  const fotogrames = fitxersDe('mostres/atelier', /\.webp$/);
+  assert.ok(fotogrames.length >= 144 + 12, `només hi ha ${fotogrames.length} imatges`);
+  const total = fotogrames.reduce((t, f) => t + mida(f), 0);
+  assert.ok(total <= 8 * 1024 * KB, `${(total / KB / KB).toFixed(1)} MB en total`);
+  for (const f of fotogrames) assert.ok(mida(f) <= 130 * KB, `${f}: ${Math.round(mida(f) / KB)} KB`);
+});
