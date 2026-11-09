@@ -23,7 +23,8 @@ test('«web amb compres integrades» i «botiga bàsica» són un sol paquet, am
 });
 
 test('l\'aplicació web val 1.200 € i l\'aplicació mòbil inclou tot el de l\'app web i es publica a l\'App Store i a Google Play', () => {
-  assert.equal(per('webs-3').preu, 1200);
+  assert.equal(per('webs-3').preu, 1700);
+  assert.equal(per('webs-4').preu, 2600);
   const mobil = per('webs-4');
   assert.match(mobil.inclou[0].ca, /aplicació web/);
   for (const l of ['ca', 'es', 'en']) assert.match(mobil.inclou.map(x => x[l]).join(' '), /App Store/), assert.match(mobil.inclou.map(x => x[l]).join(' '), /Google Play/);
@@ -38,7 +39,7 @@ test('la fusió: el paquet del fitxer amb revisió més alta substitueix el desa
   assert.equal(webs.map(p => p.id).join(','), 'webs-0,webs-2,webs-3,webs-4');
   assert.equal(webs[0].nom.ca, 'Web informativa EDITADA des del panell');
   assert.equal(webs[1].inclou.length, 7);
-  assert.equal(webs.find(p => p.id === 'webs-3').preu, 1200);
+  assert.equal(webs.find(p => p.id === 'webs-3').preu, 1700);
 });
 
 test('la fusió no toca els paquets que el panell ja té al dia', () => {

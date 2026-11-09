@@ -205,7 +205,7 @@ window.PAQUETS_DEFAULT = {
       "en": "Custom software that runs in the browser, on any device."
      },
      "recomanat": false,
-     "preu": 1200,
+     "preu": 1700,
      "unitat": "unic",
      "extra": false,
      "preu2": null,
@@ -268,7 +268,7 @@ window.PAQUETS_DEFAULT = {
        "rows": "Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "webs-4",
@@ -283,7 +283,7 @@ window.PAQUETS_DEFAULT = {
       "en": "Your app published on the App Store and Google Play."
      },
      "recomanat": false,
-     "preu": 2500,
+     "preu": 2600,
      "unitat": "unic",
      "extra": false,
      "preu2": null,
@@ -341,7 +341,7 @@ window.PAQUETS_DEFAULT = {
      "exemple": {
       "marca": "App de lliga.cat"
      },
-     "revisio": 2
+     "revisio": 3
     }
    ],
    "manteniment": true

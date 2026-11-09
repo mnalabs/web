@@ -1,7 +1,9 @@
 /* Traduccions dels textos nous de la web de diverses pàgines. La clau és el text en català. */
 Object.assign(window.I18N.es, {
-"des de 2.500 €":"desde 2.500 €",
-"des de 1.200 €":"desde 1.200 €",
+"des de 1.700 €":"desde 1.700 €",
+"des de 2.600 €":"desde 2.600 €",
+
+
 "Salta al contingut":"Saltar al contenido","Principal":"Principal","L'estudi":"El estudio","Contacte":"Contacto",
 
 "Programem el que":"Programamos lo que","la teva empresa necessita.":"tu empresa necesita.",
@@ -77,8 +79,10 @@ Object.assign(window.I18N.es, {
 "Torna a la portada":"Volver a la portada","Escriu-nos":"Escríbenos","Pàgina no trobada · MNA LABS":"Página no encontrada · MNA LABS"
 });
 Object.assign(window.I18N.en, {
-"des de 2.500 €":"from €2,500",
-"des de 1.200 €":"from €1,200",
+"des de 1.700 €":"from €1,700",
+"des de 2.600 €":"from €2,600",
+
+
 "Salta al contingut":"Skip to content","Principal":"Main","L'estudi":"The studio","Contacte":"Contact",
 
 "Programem el que":"We build the software","la teva empresa necessita.":"your business needs.",
