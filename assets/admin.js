@@ -171,11 +171,11 @@
   });
   async function load(){
     DATA = clone(window.PAQUETS_DEFAULT);
-    if (testMode){ try { const s = localStorage.getItem(TEST_KEY); if (s) DATA = JSON.parse(s); } catch (_) {} }
+    if (testMode){ try { const s = localStorage.getItem(TEST_KEY); if (s) DATA = window.fusionaPaquets(JSON.parse(s), window.PAQUETS_DEFAULT); } catch (_) {} }
     else {
       const { data, error } = await sb.from('contingut').select('dades').eq('id', 'paquets').maybeSingle();
       if (error) toast('No s\'han pogut llegir els paquets desats: ' + error.message);
-      else if (data && data.dades && data.dades.seccions) DATA = data.dades;
+      else if (data && data.dades && data.dades.seccions) DATA = window.fusionaPaquets(data.dades, window.PAQUETS_DEFAULT);
     }
     render(); setDirty(false); show('vEdit');
   }

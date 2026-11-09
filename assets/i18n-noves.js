@@ -1,5 +1,6 @@
 /* Traduccions de Prototipatge, Mostres, Afiliacions i el menú «Programes». La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"App de lliga.cat":"App de lliga.cat",
 "Supermercat · botiga online que funciona":"Supermercado · tienda online que funciona",
 "Una botiga de supermercat amb catàleg, cistella, repartiment i comanda de demostració. Pots fer-hi la compra de mentida.":"Una tienda de supermercado con catálogo, cesta, reparto y pedido de demostración. Puedes hacer la compra de mentira.",
 "Obre la botiga":"Abrir la tienda",
@@ -69,6 +70,7 @@ Object.assign(window.I18N.es, {
 "Afiliacions · MNA LABS":"Afiliaciones · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"App de lliga.cat":"lliga.cat app",
 "Supermercat · botiga online que funciona":"Supermarket · working online shop",
 "Una botiga de supermercat amb catàleg, cistella, repartiment i comanda de demostració. Pots fer-hi la compra de mentida.":"A supermarket shop with catalogue, basket, delivery and a demo checkout. You can do a pretend shop.",
 "Obre la botiga":"Open the shop",

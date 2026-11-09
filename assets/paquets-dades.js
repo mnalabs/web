@@ -1,6 +1,6 @@
 /* Paquets per defecte. El panell d'administració els desa a Supabase; si no n'hi ha, la web fa servir aquests. */
 window.PAQUETS_DEFAULT = {
- "versio": 1,
+ "versio": 2,
  "plataformes": {
   "preu": 20,
   "titol": {
@@ -108,82 +108,8 @@ window.PAQUETS_DEFAULT = {
        "c1": "#2f6f5e",
        "c2": "#dfeae4"
       }
-     }
-    },
-    {
-     "id": "webs-1",
-     "nom": {
-      "ca": "Web amb compres integrades",
-      "es": "Web con compras integradas",
-      "en": "Website with built-in payments"
      },
-     "desc": {
-      "ca": "Ven serveis, reserves o encàrrecs des de la teva web.",
-      "es": "Vende servicios, reservas o encargos desde tu web.",
-      "en": "Sell services, bookings or orders from your website."
-     },
-     "recomanat": false,
-     "preu": 1490,
-     "unitat": "unic",
-     "extra": false,
-     "preu2": null,
-     "meta": [
-      {
-       "ca": "Manteniment opcional: 35 €/mes",
-       "es": "Mantenimiento opcional: 35 €/mes",
-       "en": "Optional maintenance: €35/month"
-      },
-      {
-       "ca": "Llesta en 3–4 setmanes",
-       "es": "Lista en 3–4 semanas",
-       "en": "Ready in 3–4 weeks"
-      }
-     ],
-     "inclou": [
-      {
-       "ca": "Tot el de la web informativa",
-       "es": "Todo lo de la web informativa",
-       "en": "Everything in the informative website"
-      },
-      {
-       "ca": "Pagament amb targeta, Bizum, Apple Pay i Google Pay",
-       "es": "Pago con tarjeta, Bizum, Apple Pay y Google Pay",
-       "en": "Card, Bizum, Apple Pay and Google Pay"
-      },
-      {
-       "ca": "Fins a 20 productes, serveis o reserves",
-       "es": "Hasta 20 productos, servicios o reservas",
-       "en": "Up to 20 products, services or bookings"
-      },
-      {
-       "ca": "Correus de confirmació automàtics",
-       "es": "Correos de confirmación automáticos",
-       "en": "Automatic confirmation emails"
-      },
-      {
-       "ca": "Panell per veure i gestionar les vendes",
-       "es": "Panel para ver y gestionar las ventas",
-       "en": "Dashboard to view and manage sales"
-      },
-      {
-       "ca": "Factura automàtica a cada compra",
-       "es": "Factura automática en cada compra",
-       "en": "Automatic invoice on every purchase"
-      }
-     ],
-     "opcions": [],
-     "tipus": "Web",
-     "exemple": {
-      "marca": "HortAlPlat",
-      "maqueta": {
-       "mock": "shop",
-       "brand": "HortAlPlat",
-       "url": "hortalplat.cat",
-       "items": "Pomes Fuji|2,10 €;Fruita de temporada|3,90 €;Pa de pasta mare|3,20 €;Maduixes|4,50 €",
-       "c1": "#4f7a2f",
-       "c2": "#eaf2dc"
-      }
-     }
+     "revisio": 2
     },
     {
      "id": "webs-2",
@@ -193,9 +119,9 @@ window.PAQUETS_DEFAULT = {
       "en": "Basic ecommerce"
      },
      "desc": {
-      "ca": "Una botiga en línia completa, teva i sense comissions per venda.",
-      "es": "Una tienda online completa, tuya y sin comisiones por venta.",
-      "en": "A complete online shop of your own, with no commission on sales."
+      "ca": "Una botiga en línia bàsica, teva i sense comissions per venda.",
+      "es": "Una tienda online básica, tuya y sin comisiones por venta.",
+      "en": "A basic online shop of your own, with no commission on sales."
      },
      "recomanat": true,
      "preu": 2000,
@@ -216,39 +142,39 @@ window.PAQUETS_DEFAULT = {
      ],
      "inclou": [
       {
-       "ca": "Catàleg il·limitat amb variants i estoc",
-       "es": "Catálogo ilimitado con variantes y stock",
-       "en": "Unlimited catalogue with variants and stock"
+       "ca": "Tot el que inclou la web informativa",
+       "es": "Todo lo que incluye la web informativa",
+       "en": "Everything in the informational website"
       },
       {
-       "ca": "Enviaments amb tarifes per zona",
-       "es": "Envíos con tarifas por zona",
-       "en": "Shipping with rates by zone"
+       "ca": "Fins a 30 productes amb fotos i descripció",
+       "es": "Hasta 30 productos con fotos y descripción",
+       "en": "Up to 30 products with photos and descriptions"
       },
       {
-       "ca": "Comptes de client, cupons i descomptes",
-       "es": "Cuentas de cliente, cupones y descuentos",
-       "en": "Customer accounts, coupons and discounts"
+       "ca": "Cistella i pagament amb targeta, Bizum, Apple Pay i Google Pay",
+       "es": "Cesta y pago con tarjeta, Bizum, Apple Pay y Google Pay",
+       "en": "Basket and payment by card, Bizum, Apple Pay and Google Pay"
       },
       {
-       "ca": "Factures i correus automàtics",
-       "es": "Facturas y correos automáticos",
-       "en": "Automatic invoices and emails"
+       "ca": "Correus de confirmació de la comanda per al client i per a tu",
+       "es": "Correos de confirmación del pedido para el cliente y para ti",
+       "en": "Order confirmation emails for the customer and for you"
       },
       {
-       "ca": "Connexió amb Google Shopping i Meta",
-       "es": "Conexión con Google Shopping y Meta",
-       "en": "Google Shopping and Meta integration"
+       "ca": "Tarifa d'enviament única o per zones",
+       "es": "Tarifa de envío única o por zonas",
+       "en": "Single or by-zone shipping rate"
       },
       {
-       "ca": "Panell de gestió fet per a la teva botiga",
-       "es": "Panel de gestión hecho para tu tienda",
-       "en": "Admin panel built for your shop"
+       "ca": "Panell senzill per veure les comandes",
+       "es": "Panel sencillo para ver los pedidos",
+       "en": "Simple panel to see the orders"
       },
       {
-       "ca": "Sense quotes mensuals de plataforma",
-       "es": "Sin cuotas mensuales de plataforma",
-       "en": "No monthly platform fees"
+       "ca": "Opcional, amb cost a part: connexió amb un gestor d'enviaments i gestió d'estoc",
+       "es": "Opcional, con coste aparte: conexión con un gestor de envíos y gestión de stock",
+       "en": "Optional, at extra cost: connection to a shipping manager and stock management"
       }
      ],
      "opcions": [],
@@ -263,7 +189,8 @@ window.PAQUETS_DEFAULT = {
        "c1": "#5d6b2f",
        "c2": "#efe9d6"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "webs-3",
@@ -278,7 +205,7 @@ window.PAQUETS_DEFAULT = {
       "en": "Custom software that runs in the browser, on any device."
      },
      "recomanat": false,
-     "preu": 800,
+     "preu": 1200,
      "unitat": "unic",
      "extra": false,
      "preu2": null,
@@ -296,34 +223,34 @@ window.PAQUETS_DEFAULT = {
      ],
      "inclou": [
       {
-       "ca": "Anàlisi del procés i prototip navegable",
-       "es": "Análisis del proceso y prototipo navegable",
-       "en": "Process analysis and clickable prototype"
+       "ca": "Anàlisi del que necessites i prototip navegable",
+       "es": "Análisis de lo que necesitas y prototipo navegable",
+       "en": "Analysis of what you need and a clickable prototype"
       },
       {
-       "ca": "Usuaris, rols i permisos",
-       "es": "Usuarios, roles y permisos",
-       "en": "Users, roles and permissions"
+       "ca": "Usuaris amb accés per correu i contrasenya",
+       "es": "Usuarios con acceso por correo y contraseña",
+       "en": "Users who sign in with email and password"
       },
       {
-       "ca": "Base de dades i panell de gestió",
-       "es": "Base de datos y panel de gestión",
-       "en": "Database and admin panel"
+       "ca": "Base de dades i panell senzill de gestió",
+       "es": "Base de datos y panel sencillo de gestión",
+       "en": "Database and a simple admin panel"
       },
       {
-       "ca": "Integració amb facturació, ERP o altres eines",
-       "es": "Integración con facturación, ERP u otras herramientas",
-       "en": "Integration with invoicing, ERP or other tools"
+       "ca": "Funciona al navegador: mòbil, tauleta i ordinador",
+       "es": "Funciona en el navegador: móvil, tableta y ordenador",
+       "en": "Works in the browser: phone, tablet and computer"
       },
       {
-       "ca": "Informes i exportació de dades",
-       "es": "Informes y exportación de datos",
-       "en": "Reports and data export"
+       "ca": "Allotjament i domini el primer any",
+       "es": "Alojamiento y dominio el primer año",
+       "en": "Hosting and domain for the first year"
       },
       {
        "ca": "El codi és teu",
        "es": "El código es tuyo",
-       "en": "You own the code"
+       "en": "The code is yours"
       }
      ],
      "opcions": [],
@@ -340,7 +267,81 @@ window.PAQUETS_DEFAULT = {
        "v2": "6",
        "rows": "Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"
       }
-     }
+     },
+     "revisio": 2
+    },
+    {
+     "id": "webs-4",
+     "nom": {
+      "ca": "Aplicació mòbil",
+      "es": "Aplicación móvil",
+      "en": "Mobile app"
+     },
+     "desc": {
+      "ca": "La teva app publicada a l'App Store i a Google Play.",
+      "es": "Tu app publicada en la App Store y en Google Play.",
+      "en": "Your app published on the App Store and Google Play."
+     },
+     "recomanat": false,
+     "preu": 2500,
+     "unitat": "unic",
+     "extra": false,
+     "preu2": null,
+     "meta": [
+      {
+       "ca": "Manteniment opcional: 99 €/mes",
+       "es": "Mantenimiento opcional: 99 €/mes",
+       "en": "Optional maintenance: €99/month"
+      },
+      {
+       "ca": "Opcional: creem un compte de desenvolupador dedicat a la teva empresa i hi publiquem l'app",
+       "es": "Opcional: creamos una cuenta de desarrollador dedicada a tu empresa y publicamos allí la app",
+       "en": "Optional: we set up a developer account dedicated to your company and publish the app from it"
+      },
+      {
+       "ca": "Les quotes d'Apple i Google, a part",
+       "es": "Las cuotas de Apple y Google, aparte",
+       "en": "Apple and Google fees are separate"
+      },
+      {
+       "ca": "Llesta en 10–14 setmanes",
+       "es": "Lista en 10–14 semanas",
+       "en": "Ready in 10–14 weeks"
+      }
+     ],
+     "inclou": [
+      {
+       "ca": "Tot el que inclou l'aplicació web",
+       "es": "Todo lo que incluye la aplicación web",
+       "en": "Everything in the web app"
+      },
+      {
+       "ca": "App per a iPhone i Android",
+       "es": "App para iPhone y Android",
+       "en": "App for iPhone and Android"
+      },
+      {
+       "ca": "Publicada a l'App Store i a Google Play",
+       "es": "Publicada en la App Store y en Google Play",
+       "en": "Published on the App Store and Google Play"
+      },
+      {
+       "ca": "Icona, textos i captures per a les dues botigues d'apps",
+       "es": "Icono, textos y capturas para las dos tiendas de apps",
+       "en": "Icon, texts and screenshots for both app stores"
+      },
+      {
+       "ca": "Gestionem l'aprovació d'Apple i Google fins que surt publicada",
+       "es": "Gestionamos la aprobación de Apple y Google hasta que sale publicada",
+       "en": "We handle Apple and Google's approval until it goes live"
+      }
+     ],
+     "opcions": [],
+     "tipus": "App mòbil",
+     "exemple": {
+      "marca": "App de lliga.cat"
+     },
+     "revisio": 2
     }
    ],
    "manteniment": true
@@ -385,9 +386,9 @@ window.PAQUETS_DEFAULT = {
      ],
      "inclou": [
       {
-       "ca": "12 publicacions al mes",
-       "es": "12 publicaciones al mes",
-       "en": "12 posts a month"
+       "ca": "12 publicacions al mes a Instagram i Facebook",
+       "es": "12 publicaciones al mes en Instagram y Facebook",
+       "en": "12 posts a month on Instagram and Facebook"
       },
       {
        "ca": "Disseny gràfic a mida per a cada publicació",
@@ -418,11 +419,6 @@ window.PAQUETS_DEFAULT = {
        "ca": "Informe mensual de resultats",
        "es": "Informe mensual de resultados",
        "en": "Monthly performance report"
-      },
-      {
-       "ca": "Instagram i Facebook",
-       "es": "Instagram y Facebook",
-       "en": "Instagram and Facebook"
       }
      ],
      "opcions": [],
@@ -431,7 +427,8 @@ window.PAQUETS_DEFAULT = {
       "marca": "Cim & Riu · fotos d'estoc i disseny gràfic",
       "imatge": "img/ex-disseny-instagram.jpg",
       "reemplaca": "Cafè Olla"
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "xarxes-1",
@@ -504,7 +501,8 @@ window.PAQUETS_DEFAULT = {
      "exemple": {
       "marca": "Instagram de lliga.cat",
       "imatge": "img/ex-lliga-instagram.jpg"
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "xarxes-2",
@@ -578,7 +576,8 @@ window.PAQUETS_DEFAULT = {
       "marca": "Cim & Riu · reel, story i publicació",
       "imatge": "img/ex-full-real.jpg",
       "reemplaca": "Hotel Mas Aulet"
-     }
+     },
+     "revisio": 2
     }
    ],
    "manteniment": false
@@ -670,7 +669,8 @@ window.PAQUETS_DEFAULT = {
        "c1": "#1f4fd1",
        "c2": "#e3e9fb"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "combinats-1",
@@ -790,7 +790,8 @@ window.PAQUETS_DEFAULT = {
        "c2": "#e6e9ee",
        "c3": "#9fb3c8"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "alt-2",
@@ -809,7 +810,8 @@ window.PAQUETS_DEFAULT = {
       "ca": "Parlem-ne",
       "es": "Hablemos",
       "en": "Let's talk"
-     }
+     },
+     "revisio": 2
     }
    ],
    "manteniment": true
@@ -894,7 +896,8 @@ window.PAQUETS_DEFAULT = {
        "c2": "#e6efe9",
        "c3": "#b9cfc4"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "gratuits-1",
@@ -965,7 +968,8 @@ window.PAQUETS_DEFAULT = {
        "c1": "#9a4a2f",
        "c2": "#f1e4da"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "gratuits-amazon",
@@ -1041,7 +1045,8 @@ window.PAQUETS_DEFAULT = {
        "c1": "#b06a2c",
        "c2": "#f4e8dc"
       }
-     }
+     },
+     "revisio": 2
     },
     {
      "id": "gratuits-alt",
@@ -1060,7 +1065,8 @@ window.PAQUETS_DEFAULT = {
       "ca": "Proposa-la",
       "es": "Propónla",
       "en": "Suggest it"
-     }
+     },
+     "revisio": 2
     }
    ]
   }
@@ -1108,5 +1114,26 @@ window.PAQUETS_DEFAULT = {
   "ca": "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió. Som flexibles i estem oberts a propostes, també en webs.",
   "es": "Precios sin IVA. Son precios de partida: el presupuesto final lo cerramos por escrito tras la primera reunión. Somos flexibles y estamos abiertos a propuestas, también en webs.",
   "en": "Prices exclude VAT. They are starting prices: we agree the final quote in writing after the first meeting. We're flexible and open to proposals, websites included."
- }
+ },
+ "retirats": [
+  "webs-1"
+ ]
+};
+
+/* Quan el fitxer porta un paquet amb una «revisio» més alta que el que hi ha desat a Supabase, mana el del fitxer; els paquets de «retirats» desapareixen
+   i els paquets nous s'afegeixen. Així un canvi fet al codi arriba a la web i al panell sense perdre la resta del que s'ha editat des del panell. */
+window.fusionaPaquets = function (desat, defecte) {
+  if (!desat || !desat.seccions) return desat;
+  const clona = o => JSON.parse(JSON.stringify(o)), retirats = defecte.retirats || [];
+  const resultat = clona(desat), dePerDefecte = id => (defecte.seccions || []).flatMap(s => s.paquets || []).find(p => p.id === id);
+  resultat.seccions.forEach(sec => { sec.paquets = (sec.paquets || []).filter(p => !retirats.includes(p.id)).map(p => { const dp = dePerDefecte(p.id); return dp && (dp.revisio || 0) > (p.revisio || 0) ? clona(dp) : p; }); });
+  (defecte.seccions || []).forEach(ds => {
+    const sec = resultat.seccions.find(s => s.id === ds.id); if (!sec) return;
+    (ds.paquets || []).forEach((dp, i) => {
+      if (retirats.includes(dp.id) || sec.paquets.some(p => p.id === dp.id)) return;
+      const anterior = i ? sec.paquets.findIndex(p => p.id === ds.paquets[i - 1].id) : -1;
+      sec.paquets.splice(anterior + 1, 0, clona(dp));
+    });
+  });
+  return resultat;
 };

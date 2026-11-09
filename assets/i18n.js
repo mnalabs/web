@@ -106,17 +106,17 @@ es: {
 "des de":"desde","/mes":"/mes","web":"web","Exemple":"Ejemplo","Vull aquest paquet":"Quiero este paquete","M'interessa el paquet:":"Me interesa el paquete:",
 "Web informativa":"Web informativa","La teva empresa ben explicada a internet.":"Tu empresa bien explicada en internet.",
 
-"Llesta en 2–3 setmanes":"Lista en 2–3 semanas","Llesta en 3–4 setmanes":"Lista en 3–4 semanas","Llesta en 4–6 setmanes":"Lista en 4–6 semanas","Llesta en 8–12 setmanes":"Lista en 8–12 semanas","Llesta en 10–14 setmanes":"Lista en 10–14 semanas",
+"Llesta en 2–3 setmanes":"Lista en 2–3 semanas","Llesta en 4–6 setmanes":"Lista en 4–6 semanas","Llesta en 8–12 setmanes":"Lista en 8–12 semanas","Llesta en 10–14 setmanes":"Lista en 10–14 semanas",
 "Disseny a mida, sense plantilles":"Diseño a medida, sin plantillas","Fins a 6 pàgines":"Hasta 6 páginas","Adaptada a mòbil i tauleta":"Adaptada a móvil y tableta","SEO bàsic i fitxa de Google Business":"SEO básico y ficha de Google Business","Formulari de contacte i WhatsApp":"Formulario de contacto y WhatsApp","Textos legals, galetes i RGPD":"Textos legales, cookies y RGPD","Domini i allotjament el primer any":"Dominio y alojamiento el primer año",
 
-"Web amb compres integrades":"Web con compras integradas",
-"Tot el de la web informativa":"Todo lo de la web informativa","Pagament amb targeta, Bizum, Apple Pay i Google Pay":"Pago con tarjeta, Bizum, Apple Pay y Google Pay","Fins a 20 productes, serveis o reserves":"Hasta 20 productos, servicios o reservas","Correus de confirmació automàtics":"Correos de confirmación automáticos","Panell per veure i gestionar les vendes":"Panel para ver y gestionar las ventas","Factura automàtica a cada compra":"Factura automática en cada compra",
 
-"Una botiga en línia completa, teva i sense comissions per venda.":"Una tienda online completa, tuya y sin comisiones por venta.",
-"Catàleg il·limitat amb variants i estoc":"Catálogo ilimitado con variantes y stock","Enviaments amb tarifes per zona":"Envíos con tarifas por zona","Comptes de client, cupons i descomptes":"Cuentas de cliente, cupones y descuentos","Factures i correus automàtics":"Facturas y correos automáticos","Connexió amb Google Shopping i Meta":"Conexión con Google Shopping y Meta","Panell de gestió fet per a la teva botiga":"Panel de gestión hecho para tu tienda","Sense quotes mensuals de plataforma":"Sin cuotas mensuales de plataforma",
+"Factura automàtica a cada compra":"Factura automática en cada compra",
+
+
+
 
 "Aplicació web":"Aplicación web","Programari a mida que funciona al navegador, des de qualsevol dispositiu.":"Software a medida que funciona en el navegador, desde cualquier dispositivo.",
-"Anàlisi del procés i prototip navegable":"Análisis del proceso y prototipo navegable","Usuaris, rols i permisos":"Usuarios, roles y permisos","Base de dades i panell de gestió":"Base de datos y panel de gestión","Integració amb facturació, ERP o altres eines":"Integración con facturación, ERP u otras herramientas","Informes i exportació de dades":"Informes y exportación de datos","El codi és teu":"El código es tuyo",
+"El codi és teu":"El código es tuyo",
 
 
 "Gestió semiautomatitzada":"Gestión semiautomatizada","Sense permanència":"Sin permanencia",
@@ -137,7 +137,7 @@ es: {
 
 "Necessites una altra combinació?":"¿Necesitas otra combinación?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"Combinamos cualquier paquete y lo ajustamos a tu negocio. También puedes hacerlo con Free Developing, sin pagar ahora.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Precios sin IVA. Son precios de partida: el presupuesto final lo cerramos por escrito tras la primera reunión.",
-"Manteniment opcional: 25 €/mes":"Mantenimiento opcional: 25 €/mes","Manteniment opcional: 35 €/mes":"Mantenimiento opcional: 35 €/mes","Manteniment opcional: 49 €/mes":"Mantenimiento opcional: 49 €/mes","Manteniment opcional: 79 €/mes":"Mantenimiento opcional: 79 €/mes","Manteniment opcional: 99 €/mes":"Mantenimiento opcional: 99 €/mes",
+"Manteniment opcional: 25 €/mes":"Mantenimiento opcional: 25 €/mes","Manteniment opcional: 49 €/mes":"Mantenimiento opcional: 49 €/mes","Manteniment opcional: 79 €/mes":"Mantenimiento opcional: 79 €/mes","Manteniment opcional: 99 €/mes":"Mantenimiento opcional: 99 €/mes",
 "Botiga en línia bàsica":"Ecommerce básico","Estalvies 150 € a la web":"Ahorras 150 € en la web","Tria les xarxes":"Elige las redes","IA":"IA","Mixtes":"Mixtas","Vídeos gravats amb vosaltres":"Vídeos grabados con vosotros","Paquet Xarxes mixtes":"Paquete Redes mixtas","Paquet Xarxes amb vídeos gravats amb vosaltres":"Paquete Redes con vídeos grabados con vosotros",
 "Què inclou el manteniment opcional":"Qué incluye el mantenimiento opcional","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Puedes contratarlo cuando quieras y darlo de baja cuando quieras.",
 "Allotjament i domini":"Alojamiento y dominio","Certificat de seguretat SSL":"Certificado de seguridad SSL","Actualitzacions i còpies de seguretat":"Actualizaciones y copias de seguridad","Petits canvis de contingut cada mes":"Pequeños cambios de contenido cada mes","Suport per correu i WhatsApp":"Soporte por correo y WhatsApp",
@@ -152,7 +152,7 @@ es: {
 "Animació: les dades d'un client es xifren":"Animación: los datos de un cliente se cifran",
 
 
-"Ven serveis, reserves o encàrrecs des de la teva web.":"Vende servicios, reservas o encargos desde tu web.",
+
 "Disseny gràfic i fotos d'estoc":"Diseño gráfico y fotos de stock","Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.":"Publicaciones con diseño gráfico profesional y fotos de stock de alta calidad.",
 "Disseny gràfic a mida per a cada publicació":"Diseño gráfico a medida para cada publicación","Fotos d'estoc d'alta qualitat amb llicència":"Fotos de stock de alta calidad con licencia","Textos pensats per a cada xarxa":"Textos pensados para cada red",
 "Disseny":"Diseño","Paquet Disseny gràfic i fotos d'estoc":"Paquete Diseño gráfico y fotos de stock","Menú":"Menú"
@@ -265,17 +265,17 @@ en: {
 "des de":"from","/mes":"/month","web":"website","Exemple":"Example","Vull aquest paquet":"I want this package","M'interessa el paquet:":"I'm interested in the package:",
 "Web informativa":"Informative website","La teva empresa ben explicada a internet.":"Your business, clearly explained online.",
 
-"Llesta en 2–3 setmanes":"Ready in 2–3 weeks","Llesta en 3–4 setmanes":"Ready in 3–4 weeks","Llesta en 4–6 setmanes":"Ready in 4–6 weeks","Llesta en 8–12 setmanes":"Ready in 8–12 weeks","Llesta en 10–14 setmanes":"Ready in 10–14 weeks",
+"Llesta en 2–3 setmanes":"Ready in 2–3 weeks","Llesta en 4–6 setmanes":"Ready in 4–6 weeks","Llesta en 8–12 setmanes":"Ready in 8–12 weeks","Llesta en 10–14 setmanes":"Ready in 10–14 weeks",
 "Disseny a mida, sense plantilles":"Custom design, no templates","Fins a 6 pàgines":"Up to 6 pages","Adaptada a mòbil i tauleta":"Mobile and tablet ready","SEO bàsic i fitxa de Google Business":"Basic SEO and Google Business profile","Formulari de contacte i WhatsApp":"Contact form and WhatsApp","Textos legals, galetes i RGPD":"Legal pages, cookies and GDPR","Domini i allotjament el primer any":"Domain and hosting for the first year",
 
-"Web amb compres integrades":"Website with built-in payments",
-"Tot el de la web informativa":"Everything in the informative website","Pagament amb targeta, Bizum, Apple Pay i Google Pay":"Card, Bizum, Apple Pay and Google Pay","Fins a 20 productes, serveis o reserves":"Up to 20 products, services or bookings","Correus de confirmació automàtics":"Automatic confirmation emails","Panell per veure i gestionar les vendes":"Dashboard to view and manage sales","Factura automàtica a cada compra":"Automatic invoice on every purchase",
 
-"Una botiga en línia completa, teva i sense comissions per venda.":"A complete online shop of your own, with no commission on sales.",
-"Catàleg il·limitat amb variants i estoc":"Unlimited catalogue with variants and stock","Enviaments amb tarifes per zona":"Shipping with rates by zone","Comptes de client, cupons i descomptes":"Customer accounts, coupons and discounts","Factures i correus automàtics":"Automatic invoices and emails","Connexió amb Google Shopping i Meta":"Google Shopping and Meta integration","Panell de gestió fet per a la teva botiga":"Admin panel built for your shop","Sense quotes mensuals de plataforma":"No monthly platform fees",
+"Factura automàtica a cada compra":"Automatic invoice on every purchase",
+
+
+
 
 "Aplicació web":"Web application","Programari a mida que funciona al navegador, des de qualsevol dispositiu.":"Custom software that runs in the browser, on any device.",
-"Anàlisi del procés i prototip navegable":"Process analysis and clickable prototype","Usuaris, rols i permisos":"Users, roles and permissions","Base de dades i panell de gestió":"Database and admin panel","Integració amb facturació, ERP o altres eines":"Integration with invoicing, ERP or other tools","Informes i exportació de dades":"Reports and data export","El codi és teu":"You own the code",
+"El codi és teu":"You own the code",
 
 
 "Gestió semiautomatitzada":"Semi-automated management","Sense permanència":"No lock-in",
@@ -296,7 +296,7 @@ en: {
 
 "Necessites una altra combinació?":"Need a different combination?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"We combine any packages and tailor them to your business. You can also do it through Free Developing, without paying now.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Prices exclude VAT. They are starting prices: we agree the final quote in writing after the first meeting.",
-"Manteniment opcional: 25 €/mes":"Optional maintenance: €25/month","Manteniment opcional: 35 €/mes":"Optional maintenance: €35/month","Manteniment opcional: 49 €/mes":"Optional maintenance: €49/month","Manteniment opcional: 79 €/mes":"Optional maintenance: €79/month","Manteniment opcional: 99 €/mes":"Optional maintenance: €99/month",
+"Manteniment opcional: 25 €/mes":"Optional maintenance: €25/month","Manteniment opcional: 49 €/mes":"Optional maintenance: €49/month","Manteniment opcional: 79 €/mes":"Optional maintenance: €79/month","Manteniment opcional: 99 €/mes":"Optional maintenance: €99/month",
 "Botiga en línia bàsica":"Basic ecommerce","Estalvies 150 € a la web":"Save €150 on the website","Tria les xarxes":"Choose your social media plan","IA":"AI","Mixtes":"Hybrid","Vídeos gravats amb vosaltres":"Videos filmed with you","Paquet Xarxes mixtes":"Hybrid social media package","Paquet Xarxes amb vídeos gravats amb vosaltres":"Social media with videos filmed with you package",
 "Què inclou el manteniment opcional":"What optional maintenance includes","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Add it whenever you like and cancel whenever you like.",
 "Allotjament i domini":"Hosting and domain","Certificat de seguretat SSL":"SSL security certificate","Actualitzacions i còpies de seguretat":"Updates and backups","Petits canvis de contingut cada mes":"Small content changes every month","Suport per correu i WhatsApp":"Email and WhatsApp support",
@@ -311,7 +311,7 @@ en: {
 "Animació: les dades d'un client es xifren":"Animation: a customer's data being encrypted",
 
 
-"Ven serveis, reserves o encàrrecs des de la teva web.":"Sell services, bookings or orders from your website.",
+
 "Disseny gràfic i fotos d'estoc":"Graphic design and stock photos","Publicacions amb disseny gràfic professional i fotos d'estoc d'alta qualitat.":"Posts with professional graphic design and high-quality stock photos.",
 "Disseny gràfic a mida per a cada publicació":"Custom graphic design for every post","Fotos d'estoc d'alta qualitat amb llicència":"Licensed high-quality stock photos","Textos pensats per a cada xarxa":"Copy written for each platform",
 "Disseny":"Design","Paquet Disseny gràfic i fotos d'estoc":"Graphic design and stock photos package","Menú":"Menu"

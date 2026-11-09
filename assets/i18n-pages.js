@@ -1,5 +1,7 @@
 /* Traduccions dels textos nous de la web de diverses pàgines. La clau és el text en català. */
 Object.assign(window.I18N.es, {
+"des de 2.500 €":"desde 2.500 €",
+"des de 1.200 €":"desde 1.200 €",
 "Salta al contingut":"Saltar al contenido","Principal":"Principal","L'estudi":"El estudio","Contacte":"Contacto",
 
 "Programem el que":"Programamos lo que","la teva empresa necessita.":"tu empresa necesita.",
@@ -20,7 +22,7 @@ Object.assign(window.I18N.es, {
 "Per a iPhone i Android, publicades a les botigues i connectades a la teva web.":"Para iPhone y Android, publicadas en las tiendas y conectadas a tu web.",
 "Programari de gestió":"Software de gestión","Comandes, estoc, tècnics o factures: el procés de la teva empresa, en una sola eina.":"Pedidos, stock, técnicos o facturas: el proceso de tu empresa, en una sola herramienta.",
 "Publicacions cada setmana, amb disseny gràfic o gravant a la teva empresa.":"Publicaciones cada semana, con diseño gráfico o grabando en tu empresa.",
-"des de 500 €":"desde 500 €","des de 2.000 €":"desde 2.000 €","des de 4.000 €":"desde 4.000 €","des de 800 €":"desde 800 €","des de 150 € al mes":"desde 150 € al mes",
+"des de 500 €":"desde 500 €","des de 2.000 €":"desde 2.000 €","des de 150 € al mes":"desde 150 € al mes",
 "També fem els nostres.":"También hacemos los nuestros.",
 "Portem lliga.cat i Fundicat. Sabem què vol dir tenir clients reals, factures i un servidor que no pot caure un dissabte a la nit. Això és el que posem a cada projecte.":"Llevamos lliga.cat y Fundicat. Sabemos qué significa tener clientes reales, facturas y un servidor que no puede caerse un sábado por la noche. Eso es lo que ponemos en cada proyecto.",
 "App de cites en català":"App de citas en catalán","Veure el projecte":"Ver el proyecto","Botiga de materials de fundició":"Tienda de materiales de fundición",
@@ -75,6 +77,8 @@ Object.assign(window.I18N.es, {
 "Torna a la portada":"Volver a la portada","Escriu-nos":"Escríbenos","Pàgina no trobada · MNA LABS":"Página no encontrada · MNA LABS"
 });
 Object.assign(window.I18N.en, {
+"des de 2.500 €":"from €2,500",
+"des de 1.200 €":"from €1,200",
 "Salta al contingut":"Skip to content","Principal":"Main","L'estudi":"The studio","Contacte":"Contact",
 
 "Programem el que":"We build the software","la teva empresa necessita.":"your business needs.",
@@ -95,7 +99,7 @@ Object.assign(window.I18N.en, {
 "Per a iPhone i Android, publicades a les botigues i connectades a la teva web.":"For iPhone and Android, published on the stores and connected to your website.",
 "Programari de gestió":"Management software","Comandes, estoc, tècnics o factures: el procés de la teva empresa, en una sola eina.":"Orders, stock, technicians or invoices: the way your business works, in one tool.",
 "Publicacions cada setmana, amb disseny gràfic o gravant a la teva empresa.":"Posts every week, with graphic design or filmed at your business.",
-"des de 500 €":"from €500","des de 2.000 €":"from €2,000","des de 4.000 €":"from €4,000","des de 800 €":"from €800","des de 150 € al mes":"from €150 a month",
+"des de 500 €":"from €500","des de 2.000 €":"from €2,000","des de 150 € al mes":"from €150 a month",
 "També fem els nostres.":"We build our own, too.",
 "Portem lliga.cat i Fundicat. Sabem què vol dir tenir clients reals, factures i un servidor que no pot caure un dissabte a la nit. Això és el que posem a cada projecte.":"We run lliga.cat and Fundicat. We know what it means to have real customers, invoices and a server that can't go down on a Saturday night. That's what we bring to every project.",
 "App de cites en català":"Dating app in Catalan","Veure el projecte":"See the project","Botiga de materials de fundició":"Foundry supplies shop",

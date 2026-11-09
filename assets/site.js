@@ -620,9 +620,9 @@
     const IMG = 'img/exemples-serveis/', FUND = 'img/exemple-fundicat/';
     const EXEMPLES_REALS = {
       'webs-0': { marca: 'HortAlPlat', html: finestraReal(IMG + 'web-supermercat.jpg') },
-      'webs-1': { marca: 'Fundicat', html: finestraReal(FUND + 'botiga.webp') },
-      'webs-2': { marca: 'Fundicat', html: finestraReal(FUND + 'producte.webp') },
+      'webs-2': { marca: 'Fundicat', html: finestraReal(FUND + 'botiga.webp') },
       'webs-3': { marca: "Panell d'un supermercat", html: finestraReal(IMG + 'panell-supermercat.jpg') },
+      'webs-4': { marca: 'App de lliga.cat', html: iphoneReal(IMG + 'lliga-app.jpg') },
       'xarxes-1': { marca: 'Instagram de lliga.cat', html: pixelReal(IMG + 'instagram-lliga.jpg') },
       'combinats-0': { marca: 'HortAlPlat i app de lliga.cat', html: finestraReal(IMG + 'web-supermercat.jpg') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
       'combinats-1': { marca: 'Fundicat i app de lliga.cat', html: finestraReal(FUND + 'botiga.webp') + iphoneReal(IMG + 'lliga-app.jpg'), duo: true },
@@ -716,7 +716,7 @@
     if (CFG.supabaseUrl && CFG.supabaseAnonKey){
       const ctl = new AbortController(); setTimeout(() => ctl.abort(), 3000);
       fetch(`${CFG.supabaseUrl}/rest/v1/contingut?id=eq.paquets&select=dades`, { headers: { apikey: CFG.supabaseAnonKey, Authorization: 'Bearer ' + CFG.supabaseAnonKey }, signal: ctl.signal })
-        .then(r => r.ok ? r.json() : []).then(rows => { if (rows[0] && rows[0].dades && rows[0].dades.seccions) DATA = rows[0].dades;
+        .then(r => r.ok ? r.json() : []).then(rows => { if (rows[0] && rows[0].dades && rows[0].dades.seccions) DATA = window.fusionaPaquets(rows[0].dades, window.PAQUETS_DEFAULT);
           // exemples nous: només substitueixen l'exemple antic que ningú ha editat
           const defs = (window.PAQUETS_DEFAULT.seccions || []).flatMap(x => x.paquets || []);
           (DATA.seccions || []).forEach(sec => (sec.paquets || []).forEach(p => {
