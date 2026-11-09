@@ -516,9 +516,9 @@ window.PAQUETS_DEFAULT = {
     {
      "id": "xarxes-2",
      "nom": {
-      "ca": "Xarxes full real",
-      "es": "Redes full real",
-      "en": "Fully real social media"
+      "ca": "Xarxes amb vídeos gravats amb vosaltres",
+      "es": "Redes con vídeos grabados con vosotros",
+      "en": "Social media with videos filmed with you"
      },
      "desc": {
       "ca": "Tot gravat i fotografiat per professionals. Sense IA a la imatge.",
@@ -775,15 +775,15 @@ window.PAQUETS_DEFAULT = {
       },
       {
        "etiqueta": {
-        "ca": "Full real",
-        "es": "Full real",
-        "en": "Fully real"
+        "ca": "Vídeos gravats amb vosaltres",
+        "es": "Vídeos grabados con vosotros",
+        "en": "Videos filmed with you"
        },
        "preu": 1000,
        "linia": {
-        "ca": "Paquet Xarxes full real",
-        "es": "Paquete Redes full real",
-        "en": "Fully real social media package"
+        "ca": "Paquet Xarxes amb vídeos gravats amb vosaltres",
+        "es": "Paquete Redes con vídeos grabados con vosotros",
+        "en": "Social media with videos filmed with you package"
        }
       }
      ],
