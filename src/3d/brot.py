@@ -77,17 +77,30 @@ def dins(objecte, pare):
     objecte.parent = pare
     return objecte
 
-# ---------- 1. Carcassa: cilindre curt + cúpula, amb una ranura de tancament i el LED a dalt ----------
+# ---------- 1. Carcassa: closca BUIDA (paret de 1,8 mm), oberta per sota, amb una ranura de tancament i el LED a dalt ----------
+# Es genera girant un perfil (paret exterior + interior) al voltant de l'eix: així la placa i la bateria hi caben de debò.
 carcassa = grup('Carcassa')
-bpy.ops.mesh.primitive_cylinder_add(vertices=128, radius=3.6, depth=.8, location=(0, 0, .4))
-dins(assigna(bisellat(bpy.context.object, .04), PLASTIC_BLANC), carcassa)
-bpy.ops.mesh.primitive_uv_sphere_add(segments=128, ring_count=64, radius=3.6, location=(0, 0, .8))
-cupula = bpy.context.object
-cupula.scale = (1, 1, .52)
-bm = bmesh.new(); bm.from_mesh(cupula.data)
-bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.z < -1e-4], context='VERTS')
-bm.to_mesh(cupula.data); bm.free()
-dins(assigna(cupula, PLASTIC_BLANC), carcassa)
+RADI, PARET, ALCADA_CILINDRE, ALCADA_CUPULA = 3.6, .18, .8, 1.87
+def perfil(radi, alcada_cupula, base_z):
+    punts = [(radi, base_z), (radi, ALCADA_CILINDRE)]
+    for i in range(1, 25):
+        t = (i / 24) * math.pi / 2
+        punts.append((radi * math.cos(t), ALCADA_CILINDRE + alcada_cupula * math.sin(t)))
+    return punts
+exterior = perfil(RADI, ALCADA_CUPULA, 0)
+interior = perfil(RADI - PARET, ALCADA_CUPULA - PARET, 0)
+malla = bpy.data.meshes.new('Closca'); objecte = bpy.data.objects.new('Closca', malla)
+bpy.context.collection.objects.link(objecte)
+bm = bmesh.new()
+cares = [bm.verts.new((x, 0, z)) for x, z in exterior] + [bm.verts.new((x, 0, z)) for x, z in reversed(interior)]
+arestes = [bm.edges.new((cares[i], cares[i + 1])) for i in range(len(cares) - 1)]
+arestes.append(bm.edges.new((cares[-1], cares[0])))   # vora inferior (gruix de la paret)
+# la cúpula té un únic vèrtex al cim: a l'eix, exterior i interior no es toquen
+bmesh.ops.spin(bm, geom=list(bm.verts) + list(bm.edges), cent=(0, 0, 0), axis=(0, 0, 1), angle=2 * math.pi, steps=128)
+bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-4)
+bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+bm.to_mesh(malla); bm.free()
+dins(assigna(objecte, PLASTIC_BLANC), carcassa)
 bpy.ops.mesh.primitive_torus_add(major_radius=3.61, minor_radius=.025, major_segments=128, location=(0, 0, .55))
 dins(assigna(bpy.context.object, BATERIA), carcassa)  # ranura fosca on tanca la carcassa
 bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=.22, location=(0, 0, 2.66))
@@ -112,6 +125,8 @@ bpy.ops.mesh.primitive_cube_add(size=1, location=(-1.2, -1.6, .26)); o = bpy.con
 o.scale = (.7, .5, .22); dins(assigna(bisellat(o, .02, 2), XIP), placa)  # sensor
 bpy.ops.mesh.primitive_cube_add(size=1, location=(1.6, 1.5, .26)); o = bpy.context.object
 o.scale = (.6, .4, .2); dins(assigna(bisellat(o, .02, 2), XIP), placa)  # connector de la bateria
+
+placa.scale = (.875, .82, 1)   # 5,6 × 3,6 cm: cap dins la closca (radi interior 3,42 cm)
 
 # ---------- 3. Bateria: paquet pla fosc amb la franja taronja i el «+» ----------
 bateria = grup('Bateria')
@@ -218,8 +233,8 @@ if 'web' in arguments[2:]:
     # (amb 1,6 cm entre peces no se solapen vistes des de la càmera, que mira una mica des de dalt)
     POSICIO = [4.29, 2.25, -.35, -2.35]
     SEPARACIO = [2.2, .8, -.8, -1.8]
-    # el producte muntat, tal com es compra: la carcassa encaixada sobre la base; la placa i la bateria, a dins
-    MUNTAT = [-1.0, -.85, -.35, -1.4]
+    # el producte muntat, tal com es compra: la carcassa encaixada sobre la base; a dins, la bateria sobre la base i la placa sobre la bateria
+    MUNTAT = [-1.0, 0.0, -1.0, -1.4]
 
     # el LED no brilla al render: la web l'encén al final amb una llum pròpia
     nodes = LED.node_tree.nodes['Principled BSDF']

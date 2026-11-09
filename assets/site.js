@@ -313,7 +313,6 @@
       return { nom, capa, separacio: +capa.dataset.separacio, unio: +capa.dataset.unio, esbos: $('.pr-esbos', capa), render: $('.pr-render', capa), etiqueta: $(`.pr-labels [data-peca="${nom}"]`, proto) };
     });
     const producte = $('.pr-producte', proto);
-    const AMAGADES_A_DINS = ['placa', 'bateria'];   // al producte muntat no es veuen
     draws.push(now => {
       if (!onScreen(proto)) return;
       const p = reduce ? .999 : progSuau(proto);
@@ -338,8 +337,7 @@
         const acabat = easeOut(clamp(B * 1.3 - i * .1));
         peca.esbos.style.opacity = (1 - acabat).toFixed(3);
         // la placa i la bateria s'esvaeixen mentre entren dins de la carcassa
-        const dins = AMAGADES_A_DINS.includes(peca.nom) ? 1 - clamp((ajuntat - .55) / .4) : 1;
-        peca.render.style.opacity = (acabat * dins * pecesVisibles).toFixed(3);
+        peca.render.style.opacity = (acabat * pecesVisibles).toFixed(3);
         peca.render.style.filter = acabat < 1 ? `blur(${((1 - acabat) * 3).toFixed(2)}px)` : '';
         const y = peca.separacio * k * (1 - ajuntat) + peca.unio * ajuntat;
         peca.capa.style.transform = `translateY(${y.toFixed(1)}px)`;
