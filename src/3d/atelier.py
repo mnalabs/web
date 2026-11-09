@@ -14,7 +14,7 @@ MOSTRES = int(args[1]) if len(args) > 1 else 48
 MODE = args[2] if len(args) > 2 else 'prova'
 N_FOTOGRAMES = int(args[3]) if len(args) > 3 and args[3].isdigit() else 120
 os.makedirs(SORTIDA, exist_ok=True)
-AMPLADA, ALCADA = (1280, 720)
+AMPLADA, ALCADA = (1600, 900) if MODE in ('video', 'variants') else (1280, 720)
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 escena = bpy.context.scene
@@ -56,8 +56,16 @@ t = LLAO.node_tree.nodes.new('ShaderNodeTexVoronoi'); t.inputs['Scale'].default_
 tc = LLAO.node_tree.nodes.new('ShaderNodeTexCoord')
 LLAO.node_tree.links.new(tc.outputs['Object'], t.inputs['Vector']); amb_relleu(LLAO, t, .5, .08)
 # Cuir: gra fi
-ruido = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); ruido.inputs['Scale'].default_value = 40; ruido.inputs['Detail'].default_value = 6
-tc2 = CUIR.node_tree.nodes.new('ShaderNodeTexCoord'); CUIR.node_tree.links.new(tc2.outputs['Object'], ruido.inputs['Vector']); amb_relleu(CUIR, ruido, .12, .05)
+ruido = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); ruido.inputs['Scale'].default_value = 2.4; ruido.inputs['Detail'].default_value = 8; ruido.inputs['Roughness'].default_value = .65
+tc2 = CUIR.node_tree.nodes.new('ShaderNodeTexCoord'); CUIR.node_tree.links.new(tc2.outputs['Object'], ruido.inputs['Vector']); amb_relleu(CUIR, ruido, .9, .25)
+varia = CUIR.node_tree.nodes.new('ShaderNodeTexNoise'); varia.inputs['Scale'].default_value = .18; varia.inputs['Detail'].default_value = 2   # taques suaus de color, com la pell de debò
+mescla = CUIR.node_tree.nodes.new('ShaderNodeMix'); mescla.data_type = 'RGBA'; mescla.blend_type = 'MULTIPLY'; mescla.inputs['Factor'].default_value = .35
+CUIR.node_tree.links.new(tc2.outputs['Object'], varia.inputs['Vector'])
+CUIR.node_tree.links.new(varia.outputs['Color'], mescla.inputs[7])
+CUIR.node_tree.links.new(mescla.outputs[2], CUIR.node_tree.nodes['Principled BSDF'].inputs['Base Color'])
+CUIR.node_tree.nodes['Principled BSDF'].inputs['Specular IOR Level'].default_value = .35
+MESCLA_CUIR = mescla
+mescla.inputs[6].default_value = (*srgb('#6b4026'), 1)
 # Or del rotor: Côtes de Genève (bandes llargues) com a relleu
 OR_ROTOR = OR.copy(); OR_ROTOR.name = 'Or del rotor'
 ona = OR_ROTOR.node_tree.nodes.new('ShaderNodeTexWave'); ona.wave_type = 'BANDS'; ona.bands_direction = 'X'; ona.inputs['Scale'].default_value = 0.55; ona.inputs['Distortion'].default_value = 0
@@ -371,7 +379,7 @@ camera.data.clip_start, camera.data.clip_end = 20, 4000
 escena.render.engine = 'CYCLES'; escena.cycles.device = 'CPU'; escena.cycles.samples = MOSTRES
 escena.cycles.use_adaptive_sampling = True; escena.cycles.adaptive_threshold = .03
 escena.cycles.max_bounces = 6; escena.cycles.transparent_max_bounces = 6; escena.cycles.transmission_bounces = 6
-escena.cycles.sample_clamp_indirect = 3; escena.cycles.sample_clamp_direct = 12; escena.cycles.caustics_reflective = False; escena.cycles.caustics_refractive = False
+escena.cycles.sample_clamp_indirect = 2.5; escena.cycles.sample_clamp_direct = 8; escena.cycles.blur_glossy = 1.2; escena.cycles.caustics_reflective = False; escena.cycles.caustics_refractive = False
 try:
     escena.cycles.use_denoising = True; escena.cycles.denoiser = 'OPENIMAGEDENOISE'
 except Exception:
@@ -425,6 +433,31 @@ def estat(t):
             return pose, cam
     return GUIO[-1][1], GUIO[-1][2]
 
+
+def temps_per_al_video():
+    """Fotogrames repartits segons com es mou tot (càmera i peces): mateixa quantitat de moviment entre fotogrames, amb un mínim de densitat fins i tot als moments quiets."""
+    import math as m
+    def vector(t):
+        pose, (az, el, dist, obj, fstop, sx, sy) = estat(t)
+        despl = sum(abs(c) for v in pose.values() for c in v) / len(pose) / 8.
+        return [az, el, dist / 10., obj[0] / 4., obj[1] / 4., obj[2] / 4., sx * 200, sy * 200, despl]
+    graella = [i / 4000 for i in range(4001)]
+    acumulat, anterior = [0.], vector(0.)
+    for t in graella[1:]:
+        v = vector(t); acumulat.append(acumulat[-1] + sum(abs(a - b) for a, b in zip(v, anterior))); anterior = v
+    pas_moviment, pas_minim = 1.6, .005
+    triats = {0., 1.}
+    objectiu_l = pas_moviment
+    for t, l in zip(graella, acumulat):
+        if l >= objectiu_l: triats.add(t); objectiu_l += pas_moviment
+    k = 0.
+    while k <= 1.0001: triats.add(round(min(1., k), 4)); k += pas_minim
+    ordenats = sorted(round(t, 4) for t in triats)
+    nets = [ordenats[0]]
+    for t in ordenats[1:]:
+        if t - nets[-1] >= .0015 or t == 1.: nets.append(t)
+    return nets
+
 def aplica(t):
     pose, (az, el, dist, obj, fstop, sx, sy) = estat(t)
     camera.data.shift_x, camera.data.shift_y = sx, sy
@@ -463,7 +496,7 @@ def renderitza(nom):
 def tria_variant(esfera, corretja_clau):
     for o in [c for c in P['esfera'].children]: bpy.data.objects.remove(o)
     construeix_esfera(esfera)
-    CUIR.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (*srgb(CORRETGES[corretja_clau]), 1)
+    MESCLA_CUIR.inputs[6].default_value = (*srgb(CORRETGES[corretja_clau]), 1)
 
 # ---- textos de l'esfera (queden fora de construeix_esfera: depenen del color)
 def textos_esfera(clau):
@@ -483,6 +516,16 @@ if MODE == 'prova':
 elif MODE == 'temps':   # fotogrames sols, per mirar el guió: ... temps 0.2,0.35,0.6
     for t in [float(x) for x in args[3].split(',')]:
         aplica(t); renderitza(f'temps-{t:.2f}.png')
+elif MODE == 'video':
+    # Fotogrames del vídeo (v0000.png ...): s'hi arriba amb ffmpeg (vegeu src/3d/atelier-video.sh). Es poden reprendre: salta els que ja existeixen.
+    temps = temps_per_al_video(); print('FOTOGRAMES:', len(temps))
+    etiquetes = []
+    for i, t in enumerate(temps):
+        aplica(t); etiquetes.append(posicions_etiquetes())
+        nom = f'v{i:04d}.png'
+        if not os.path.exists(os.path.join(SORTIDA, nom)):
+            renderitza(nom); print('FOTOGRAMA', i, flush=True)
+    with open(os.path.join(SORTIDA, 'etiquetes.json'), 'w') as f: json.dump({'fotogrames': len(temps), 'temps': temps, 'etiquetes': etiquetes}, f)
 elif MODE == 'densa':
     # Fotogrames més junts allà on el moviment és ràpid (el gir cap al fons, l'entrada al cor i el muntatge final), perquè el fos creuat no es noti.
     # Cada fotograma es desa amb el seu temps (t00000.png ... t10000.png). Només es renderitzen els que falten: es poden reaprofitar els d'abans.

@@ -97,10 +97,11 @@ test('el scroll de la portada i de Serveis és fluid (fotogrames sense talls lla
   }
 });
 
-test('la mostra Atelier Temps (seqüència de fotogrames) pesa poc i cada fotograma és lleuger', () => {
-  const fotogrames = fitxersDe('mostres/atelier', /\.webp$/);
-  assert.ok(fotogrames.length >= 144 + 12, `només hi ha ${fotogrames.length} imatges`);
-  const total = fotogrames.reduce((t, f) => t + mida(f), 0);
-  assert.ok(total <= 8 * 1024 * KB, `${(total / KB / KB).toFixed(1)} MB en total`);
-  for (const f of fotogrames) assert.ok(mida(f) <= 130 * KB, `${f}: ${Math.round(mida(f) / KB)} KB`);
+test('la mostra Atelier Temps (vídeo de Blender) pesa poc: cada vídeo ≤ 12 MB i les 12 variants del configurador, lleugeres', () => {
+  const ARXIUS = fitxersDe('mostres/atelier', /./);
+  for (const v of ARXIUS.filter(f => /\.(mp4|webm)$/.test(f))) assert.ok(mida(v) <= 12 * 1024 * KB, `${v}: ${(mida(v) / KB / KB).toFixed(1)} MB`);
+  assert.ok(ARXIUS.some(f => f.endsWith('atelier.mp4')) && ARXIUS.some(f => f.endsWith('atelier.webm')), 'falta algun dels dos vídeos');
+  const variants = ARXIUS.filter(f => /v-.*\.webp$/.test(f));
+  assert.equal(variants.length, 12);
+  for (const f of variants) assert.ok(mida(f) <= 200 * KB, `${f}: ${Math.round(mida(f) / KB)} KB`);
 });
