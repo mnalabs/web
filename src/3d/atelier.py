@@ -483,6 +483,23 @@ if MODE == 'prova':
 elif MODE == 'temps':   # fotogrames sols, per mirar el guió: ... temps 0.2,0.35,0.6
     for t in [float(x) for x in args[3].split(',')]:
         aplica(t); renderitza(f'temps-{t:.2f}.png')
+elif MODE == 'densa':
+    # Fotogrames més junts allà on el moviment és ràpid (el gir cap al fons, l'entrada al cor i el muntatge final), perquè el fos creuat no es noti.
+    # Cada fotograma es desa amb el seu temps (t00000.png ... t10000.png). Només es renderitzen els que falten: es poden reaprofitar els d'abans.
+    base = [round(i / 143, 4) for i in range(144)]
+    extres = []
+    for a, b, k in [(0.16, 0.30, 2), (0.58, 0.66, 3), (0.86, 0.95, 3)]:
+        pas = [t for t in base if a <= t <= b]
+        for t0, t1 in zip(pas[:-1], pas[1:]):
+            extres += [round(t0 + (t1 - t0) * j / k, 4) for j in range(1, k)]
+    temps = sorted(set(base + extres))
+    etiquetes = []
+    for t in temps:
+        aplica(t); etiquetes.append(posicions_etiquetes())
+        nom = f't{round(t * 10000):05d}.png'
+        if not os.path.exists(os.path.join(SORTIDA, nom)):
+            renderitza(nom); print('FOTOGRAMA', nom)
+    with open(os.path.join(SORTIDA, 'etiquetes.json'), 'w') as f: json.dump({'fotogrames': len(temps), 'temps': temps, 'etiquetes': etiquetes}, f)
 elif MODE == 'meta':   # només recalcula etiquetes i desplaçaments (sense renderitzar)
     etiquetes = []
     for i in range(N_FOTOGRAMES):

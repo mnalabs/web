@@ -145,7 +145,9 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
 (() => {
   document.getElementById('back').addEventListener('click', e => { if (history.length > 1 && document.referrer) { e.preventDefault(); history.back(); } });
   const canvas = document.getElementById('scene'), ctx = canvas.getContext('2d');
-  const FOTOGRAMES = 144, AMPLADA = 1280, ALCADA = 720, CARPETA = 'atelier/';
+  let FOTOGRAMES = 144;   // el nombre real i el temps (0 a 1) de cada fotograma vénen d'etiquetes.json
+  const AMPLADA = 1280, ALCADA = 720, CARPETA = 'atelier/';
+  let temps = null;
   const nomFotograma = i => `${CARPETA}f${String(i).padStart(3, '0')}.webp`;
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const ss = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
@@ -153,33 +155,40 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
   const instantani = location.hash === '#instant' || reduit;
 
   /* ---------- càrrega progressiva: primer els fotogrames clau, després els del mig ---------- */
-  const imatges = new Array(FOTOGRAMES).fill(null);
-  let carregats = 0;
+  let imatges = [], carregats = 0, posicions = null;
   const carrega = i => new Promise(ok => {
     const im = new Image(); im.decoding = 'async';
     im.onload = () => { imatges[i] = im; carregats++; ok(); };
     im.onerror = ok;
     im.src = nomFotograma(i);
   });
-  const ordre = [];
-  for (const pas of [24, 12, 6, 3, 1]) for (let i = 0; i < FOTOGRAMES; i += pas) if (!ordre.includes(i)) ordre.push(i);
-  ordre.push(FOTOGRAMES - 1);
-  (async () => {
-    // els 7 primers (cada 24) ja permeten veure tot el recorregut; la resta s'omple mentre l'usuari llegeix
-    await Promise.all(ordre.slice(0, 7).map(carrega));
+  async function comenca(){
+    const d = await fetch(CARPETA + 'etiquetes.json').then(r => r.json());
+    FOTOGRAMES = d.fotogrames; temps = d.temps; posicions = d.etiquetes; imatges = new Array(FOTOGRAMES).fill(null);
+    const ordre = [];
+    for (const pas of [24, 12, 6, 3, 1]) for (let i = 0; i < FOTOGRAMES; i += pas) if (!ordre.includes(i)) ordre.push(i);
+    if (!ordre.includes(FOTOGRAMES - 1)) ordre.push(FOTOGRAMES - 1);
+    // els 8 primers ja permeten veure tot el recorregut; la resta s'omple mentre l'usuari llegeix
+    await Promise.all(ordre.slice(0, 8).map(carrega));
     document.getElementById('load').classList.add('done');
-    const resta = ordre.slice(7), grup = 4;
+    const resta = ordre.slice(8), grup = 4;
     for (let k = 0; k < resta.length; k += grup) await Promise.all(resta.slice(k, k + grup).map(carrega));
-  })();
+  }
+  comenca();
   const mesProper = i => { for (let d = 0; d < FOTOGRAMES; d++) { const a = imatges[i - d] || imatges[i + d]; if (a) return a; } return null; };
+  // progrés (0 a 1) → fotograma anterior, el següent i on som entre tots dos
+  const buscaFotograma = p => {
+    if (!temps) return [0, 0, 0];
+    let lo = 0, hi = FOTOGRAMES - 1;
+    while (hi - lo > 1){ const mig = (lo + hi) >> 1; if (temps[mig] <= p) lo = mig; else hi = mig; }
+    return [lo, hi, clamp((p - temps[lo]) / ((temps[hi] - temps[lo]) || 1))];
+  };
 
   /* ---------- etiquetes: posicions per fotograma (mesurades a Blender) ---------- */
   const ETIQUETES = [['vidre', 'Vidre de safir antireflex'], ['hora', "Agulles d'acer polit"], ['esfera', 'Esfera de raigs de sol'], ['platina', 'Platina amb perlat'],
     ['engranatges', "Tren d'engranatges i volant"], ['ponts', 'Ponts amb Côtes de Genève'], ['rotor', "Rotor d'or de 18 quirats"], ['fons', 'Fons de safir']];
   const contenidor = document.getElementById('tags');
   const elsEtiqueta = ETIQUETES.map(([, text]) => { const d = document.createElement('div'); d.className = 'tag'; d.innerHTML = `<span>${text}</span>`; contenidor.appendChild(d); return d; });
-  let posicions = null;
-  fetch(CARPETA + 'etiquetes.json').then(r => r.json()).then(d => { posicions = d.etiquetes; ultim = -1; }).catch(() => {});
 
   /* ---------- configurador: 12 combinacions renderitzades (3 esferes × 4 corretges) ---------- */
   const ESFERES = ['blau', 'negre', 'crema'], CORRETGES = ['marro', 'negre', 'blau', 'verd'];
@@ -215,14 +224,14 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
   let ultim = -1, ultimVariant = -1;
 
   function dibuixa(p){
-    const f = p * (FOTOGRAMES - 1), i0 = Math.floor(f), i1 = Math.min(FOTOGRAMES - 1, i0 + 1);
-    const a = ss(.25, .75, f - i0);   // el fos creuat només passa al mig: la major part del temps es veu un sol fotograma, net
+    const [i0, i1, q0] = buscaFotograma(p), f = i0 + q0;
+    const a = ss(.25, .75, q0);   // el fos creuat només passa al mig: la major part del temps es veu un sol fotograma, net
     // pantalles verticals: Blender desplaça el rellotge a un costat perquè no tapi el text; aquí el tornem al centre i, a la portada, el baixem una mica
     let ox = desX, oy = desY;
     if (vertical){
-      const dA = posicions ? posicions[i0]._desplacament : [0, 0], dB = posicions ? posicions[i1]._desplacament : [0, 0], q0 = f - i0;
+      const dA = posicions ? posicions[i0]._desplacament : [0, 0], dB = posicions ? posicions[i1]._desplacament : [0, 0];
       ox += (dA[0] + (dB[0] - dA[0]) * q0) * AMPLADA * escala;
-      oy += -(dA[1] + (dB[1] - dA[1]) * q0) * AMPLADA * escala + innerHeight * .17 * (1 - ss(.04, .14, p));
+      oy += -(dA[1] + (dB[1] - dA[1]) * q0) * AMPLADA * escala + 0;
     }
     const clau = `${i0}|${a.toFixed(3)}|${variantAlfa.toFixed(2)}|${canvas.width}|${carregats}|${ox.toFixed(1)}|${oy.toFixed(1)}`;   // carregats: quan arriba un fotograma nou, es torna a dibuixar
     if (clau !== ultim){
@@ -241,7 +250,7 @@ body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased
     ETIQUETES.forEach(([nom], k) => {
       const el = elsEtiqueta[k];
       if (!posicions || op < .01){ el.style.opacity = 0; return; }
-      const A = posicions[i0][nom], B = posicions[i1][nom], q = f - i0;
+      const A = posicions[i0][nom], B = posicions[i1][nom], q = q0;
       const u = A[0] + (B[0] - A[0]) * q, v = A[1] + (B[1] - A[1]) * q;
       el.style.left = (ox + u * AMPLADA * escala + 14) + 'px'; el.style.top = (oy + v * ALCADA * escala) + 'px';
       el.style.opacity = op.toFixed(3);
