@@ -399,8 +399,8 @@ def barreja(a, b, f): return {n: tuple(a[n][i] + (b[n][i] - a[n][i]) * f for i i
 # (t, pose, (azimut°, elevació°, distància mm, objectiu (x, y, z), obertura f/, desplaçament horitzontal, vertical))
 # El desplaçament (shift) mou el rellotge dins del quadre perquè no tapi el text de cada capítol: el text és a l'esquerra → el rellotge a la dreta.
 GUIO = [
-    (0.00, MUNTAT, (-24, 62, 440, (0, 0, 5), 16, 0, .05)),
-    (0.10, MUNTAT, (-16, 55, 420, (0, 0, 5), 16, 0, .05)),
+    (0.00, MUNTAT, (-24, 62, 440, (0, 0, 5), 16, -.2, 0)),
+    (0.10, MUNTAT, (-16, 55, 420, (0, 0, 5), 16, -.2, 0)),
     (0.16, MUNTAT, (-4, 30, 420, (0, 0, 5), 16, -.2, 0)),
     (0.30, MUNTAT, (20, -58, 430, (0, 0, 2), 16, -.22, 0)),
     (0.40, barreja(MUNTAT, EXPLOSIONAT, .3), (32, -34, 470, (0, 0, 0), 16, 0, 0)),
@@ -444,7 +444,7 @@ ANCORES = {  # punt de cada peça on s'enganxa l'etiqueta (mm, coordenades de la
     'engranatges': (VX + 4.8, VY, 4.3), 'ponts': (13, 4, 3.3), 'rotor': (-13.8, 5, 2.5), 'fons': (19.5, 0, .8),
 }
 def posicions_etiquetes():
-    sortida = {}
+    sortida = {'_desplacament': [round(camera.data.shift_x, 4), round(camera.data.shift_y, 4)]}   # el JS el fa servir per centrar el rellotge en pantalles verticals
     from bpy_extras.object_utils import world_to_camera_view
     for nom, punt in ANCORES.items():
         mon = Vector(punt) + Vector(P[nom].location)
@@ -483,6 +483,11 @@ if MODE == 'prova':
 elif MODE == 'temps':   # fotogrames sols, per mirar el guió: ... temps 0.2,0.35,0.6
     for t in [float(x) for x in args[3].split(',')]:
         aplica(t); renderitza(f'temps-{t:.2f}.png')
+elif MODE == 'meta':   # només recalcula etiquetes i desplaçaments (sense renderitzar)
+    etiquetes = []
+    for i in range(N_FOTOGRAMES):
+        aplica(i / (N_FOTOGRAMES - 1)); etiquetes.append(posicions_etiquetes())
+    with open(os.path.join(SORTIDA, 'etiquetes.json'), 'w') as f: json.dump({'fotogrames': N_FOTOGRAMES, 'etiquetes': etiquetes}, f)
 elif MODE == 'sequencia':
     # args[4] (opcional): trams de t a tornar a renderitzar, p. ex. "0-0.16,0.38-0.66"; la resta es conserva
     trams = [tuple(float(x) for x in t.split('-')) for t in args[4].split(',')] if len(args) > 4 else None
