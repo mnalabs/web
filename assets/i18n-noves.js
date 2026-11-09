@@ -13,11 +13,11 @@ Object.assign(window.I18N.es, {
 "Obre el web de United Carriers (s'obre en una pestanya nova)":"Abrir la web de United Carriers (se abre en una pestaña nueva)",
 
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Monitor de ordenador de sobremesa que muestra la ficha de un producto en línea",
-"HortAlPlat i app de lliga.cat":"HortAlPlat y app de lliga.cat",
+"HortAlPlat i la seva app":"HortAlPlat y su app",
 
 "Panell d'un supermercat":"Panel de un supermercado",
 
-"Fundicat i app de lliga.cat":"Fundicat y app de lliga.cat",
+"lliga.cat i el seu Instagram":"lliga.cat y su Instagram",
 "Projectes":"Proyectos",
 "lliga.cat i Fundicat":"lliga.cat y Fundicat",
 "Web":"Web","RGPD":"RGPD",
@@ -85,11 +85,11 @@ Object.assign(window.I18N.en, {
 "Obre el web de United Carriers (s'obre en una pestanya nova)":"Open the United Carriers website (opens in a new tab)",
 
 "Monitor d'ordinador de sobretaula que mostra la fitxa d'un producte en línia":"Desktop computer monitor showing an online product page",
-"HortAlPlat i app de lliga.cat":"HortAlPlat and the lliga.cat app",
+"HortAlPlat i la seva app":"HortAlPlat and its app",
 
 "Panell d'un supermercat":"A supermarket's admin panel",
 
-"Fundicat i app de lliga.cat":"Fundicat and the lliga.cat app",
+"lliga.cat i el seu Instagram":"lliga.cat and its Instagram",
 "lliga.cat i Fundicat":"lliga.cat and Fundicat",
 "Web caiguda o piratejada":"Website down or hacked",
 "Pomes Fuji 5 kg · 8 unitats":"Fuji apples 5 kg · 8 units",

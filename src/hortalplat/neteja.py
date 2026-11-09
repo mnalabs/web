@@ -34,6 +34,8 @@ escriu('style.css', llegeix('style.css') + '''
 /* logo de la demo: text fosc, i blanc al peu (fons fosc) */
 .lt{fill:#262626}
 footer.site .lt{fill:#fff}
+/* capçalera a mòbil (390 px): el logo, la cistella i el menú caben sense sortir de la pantalla */
+@media (max-width:560px){.hbar{gap:.4rem}.logo svg{height:1.7rem!important}.hbar .btn,.hbar .cartbtn{padding-inline:.8rem;min-height:2.6rem}.burger{padding:0 .8rem;min-height:2.6rem}.burger span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 /* peu: el telèfon no es parteix, el botó té el text centrat (la regla general dels enllaços del peu li treia el farciment) */
 footer.site .ftel{white-space:nowrap;font-size:clamp(1.3rem,5.6vw,2rem)}
 @media (min-width:900px){footer.site .ftel{font-size:clamp(1.5rem,2.4vw,2rem)}}
