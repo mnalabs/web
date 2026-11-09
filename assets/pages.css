@@ -83,6 +83,7 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .domini-amagat{display:block;width:120px;height:14px;margin:0 auto;border-radius:6px;background:#fff}
 .b-nav{left:0;right:0;top:0;height:9.2%;padding:0 3.5% 0 5%;display:flex;align-items:center;gap:1.8cqw;font-size:1.4cqw;font-weight:600;color:#262626;background:#fff;box-shadow:0 1px 0 #ece6da}
 .b-nav .logo-amagat{margin-right:auto}
+.logo-nom{margin-right:auto;font-weight:800;font-size:2.1cqw;letter-spacing:-.02em;color:#35592a;white-space:nowrap}
 .b-nav em{font-style:normal;color:#fff;padding:.6cqw 1.4cqw;border-radius:.8cqw;font-weight:700}
 .b-nav-botiga{background:#f7403a}
 .b-nav-cistella{background:#8cc63f;color:#1d2a0a!important}

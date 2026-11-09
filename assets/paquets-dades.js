@@ -174,14 +174,14 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Web",
      "exemple": {
-      "marca": "Forn de la Plaça",
+      "marca": "Mercat Garrofa",
       "maqueta": {
        "mock": "shop",
-       "brand": "Forn de la Plaça",
-       "url": "forndelaplaca.cat",
-       "items": "Pa de pagès|4,20 €;Coca de recapte|6,50 €;Croissant|1,60 €;Ensaïmada|3,10 €",
-       "c1": "#a5612a",
-       "c2": "#f3e6d4"
+       "brand": "Mercat Garrofa",
+       "url": "mercatgarrofa.cat",
+       "items": "Pomes Fuji|2,10 €;Fruita de temporada|3,90 €;Pa de pasta mare|3,20 €;Maduixes|4,50 €",
+       "c1": "#4f7a2f",
+       "c2": "#eaf2dc"
       }
      }
     },
