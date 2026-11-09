@@ -428,16 +428,9 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Xarxes socials",
      "exemple": {
-      "marca": "Cafè Olla",
-      "maqueta": {
-       "mock": "ig",
-       "handle": "cafe.olla",
-       "bio": "Cafè d'especialitat · Vic",
-       "posts": "Nou cafè d'Etiòpia;Dissabte, brunch;Tornem dilluns;Latte de tardor;Obrim a les 8;Gràcies, 1.000!;Pastís del dia;Grans a granel;Fins diumenge",
-       "c1": "#7a4b2a",
-       "c2": "#efe2d0",
-       "c3": "#d9a46a"
-      }
+      "marca": "Cim & Riu · fotos d'estoc i disseny gràfic",
+      "imatge": "img/ex-disseny-instagram.jpg",
+      "reemplaca": "Cafè Olla"
      }
     },
     {
@@ -582,16 +575,9 @@ window.PAQUETS_DEFAULT = {
      "opcions": [],
      "tipus": "Xarxes socials",
      "exemple": {
-      "marca": "Hotel Mas Aulet",
-      "maqueta": {
-       "mock": "reel",
-       "handle": "masaulet",
-       "t": "Matí de boira a la Garrotxa.",
-       "likes": "3.980",
-       "c1": "#3d5a4a",
-       "c2": "#c9b79c",
-       "c3": "#eae3d6"
-      }
+      "marca": "Cim & Riu · reel, story i publicació",
+      "imatge": "img/ex-full-real.jpg",
+      "reemplaca": "Hotel Mas Aulet"
      }
     }
    ],
