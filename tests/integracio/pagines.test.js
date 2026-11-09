@@ -87,3 +87,11 @@ test('no es publica cap clau, contrasenya ni correu intern', () => {
     assert.doesNotMatch(t, /labs\.mna@gmail\.com/, `${f} conté el correu d'administració`);
   }
 });
+
+test('la demo HortAlPlat no conté cap dada identificable del client real', () => {
+  const PROHIBIT = /jespac|facsa|euromadi|alteza|selex|696\s?937|932\s?539|alc[úu]dia|1981|esclerosi|mullat|canaldenuncias|facebook\.com|instagram\.com|wa\.me|vilafranca|arimon|muntaner|consell de cent|floridablanca|jaume fabra|rep[úu]blica argentina|avinguda dels quinze|paral·lel|fliphtml5/i;
+  const fitxers = fs.readdirSync(path.join(ARREL, 'mostres', 'hortalplat'), { recursive: true }).filter(f => /\.(html|js|css)$/.test(f));
+  assert.ok(fitxers.includes('index.html'));
+  for (const f of fitxers) { const m = PROHIBIT.exec(fs.readFileSync(path.join(ARREL, 'mostres', 'hortalplat', f), 'utf8')); assert.equal(m, null, `mostres/hortalplat/${f}: «${m && m[0]}»`); }
+  assert.ok(!fs.existsSync(path.join(ARREL, 'mostres', 'hortalplat', 'img', 'jespac')), 'no s\'ha de copiar el material del client');
+});

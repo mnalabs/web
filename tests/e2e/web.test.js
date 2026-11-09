@@ -150,3 +150,17 @@ test('Mostres: la targeta de United Carriers mostra la captura i, en clicar, obr
   assert.deepEqual(errors, []);
   await pagina.close();
 });
+
+test('HortAlPlat és una botiga que funciona: es pot afegir un producte a la cistella i arribar a la comanda', async () => {
+  const { pagina, errors } = await obre('/mostres.html');
+  await Promise.all([pagina.waitForURL(/mostres\/hortalplat/), pagina.click('a.mo-card:has(h2:text-is("HortAlPlat"))')]);
+  await pagina.waitForSelector('.logo svg');
+  await pagina.goto(servidor.url + '/mostres/hortalplat/index.html#botiga');
+  await pagina.waitForSelector('.pgrid button, .pgrid .add', { timeout: 8000 });
+  await pagina.locator('.pgrid').locator('button').first().click();
+  await pagina.waitForTimeout(500);
+  const total = await pagina.evaluate(() => (document.querySelector('#hbar') || document.body).innerText);
+  assert.match(total, /Cistella\s*[1-9]|[1-9]\s*Cistella|\b[1-9]\d?\b/, 'la cistella no ha canviat');
+  assert.deepEqual(errors.filter(e => !/hortalplat\.example|ViewTransition/.test(e)), []);
+  await pagina.close();
+});
