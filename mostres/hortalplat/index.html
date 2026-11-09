@@ -479,6 +479,10 @@ footer.site .flang button{color:#fff;font-size:1rem}
 /* logo de la demo: text fosc, i blanc al peu (fons fosc) */
 .lt{fill:#262626}
 footer.site .lt{fill:#fff}
+/* peu: el telèfon no es parteix, el botó té el text centrat (la regla general dels enllaços del peu li treia el farciment) */
+footer.site .ftel{white-space:nowrap;font-size:clamp(1.3rem,5.6vw,2rem)}
+@media (min-width:900px){footer.site .ftel{font-size:clamp(1.5rem,2.4vw,2rem)}}
+footer.site a.btn{display:inline-flex;align-items:center;justify-content:center;padding:.5rem 1.2rem;text-align:center;min-height:2.8rem}
 
 </style>
 </head>
@@ -572,7 +576,7 @@ const STORES=[
 
 const SERVICES=[
 ['Garantia de devolució','Garantía de devolución'],['Pagament amb targeta de crèdit','Pago con tarjeta de crédito'],['Repartiment gratuït a domicili','Reparto gratuito a domicilio'],
-['Horari continuat de 9\'00 a 21\'00 h','Horario continuado de 9\'00 a 21\'00 h'],['Atenció personalitzada','Atención personalizada'],['Comanda per email','Pedido por email'],
+['Horari continuat de 9\'00 a 21\'00 h','Horario continuado de 9\'00 a 21\'00 h'],['Atenció personalitzada','Atención personalizada'],['Comanda per email','Pedido por email'],
 ['Caixa ràpida per evitar cues','Caja de cobro rápida (evitar colas)'],['Consigna','Taquillas'],['Autoservei','Autoservicio'],
 ['Ofertes periòdiques','Ofertas periódicas'],['Pa acabat de fer tot el dia','Pan recién hecho durante todo el día'],['Vinoteca','Vinacoteca'],
 ['Secció de frescos','Sección de frescos'],['Secció de congelats','Sección de congelados']
@@ -804,7 +808,7 @@ function paintFooter(){
   ${SITE.filter(g=>g.id==='comprar'||g.id==='hortalplat').map(sec).join('')}
   <div class="fcontact"><h4>${L('Contacte','Contacto')}</h4>
    <a class="ftel" href="tel:${TEL_HREF}">${svg('phone')}${TEL}</a>
-   <p>${L('Comandes per WhatsApp o telèfon','Pedidos por WhatsApp o teléfono')}:<br><b>${WA}</b><br>${L('de dilluns a divendres, de 9 a 14 h','de lunes a viernes, de 9 a 14 h')}</p>
+   <p>${L('Comandes per WhatsApp o telèfon','Pedidos por WhatsApp o teléfono')}:<br><b>${WA}</b><br>${L('de dilluns a divendres, de 9 a 14 h','de lunes a viernes, de 9 a 14 h')}</p>
    <p><a href="mailto:${MAIL}">${MAIL}</a><br><a href="mailto:${ORDERS_MAIL}">${ORDERS_MAIL}</a></p>
    <a class="btn green sm" href="#contacte">${L('Contacta amb nosaltres','Contacta con nosotros')}</a></div>
   </div><div class="base"><div class="langs flang" role="group" aria-label="Idioma"><span class="lb">${L('Idioma','Idioma')}:</span>${langBtns()}</div>
@@ -1020,7 +1024,7 @@ ${aboutHTML()}
   <div class="shead"><h2>${L('Com funciona la botiga online','Cómo funciona la tienda online')}</h2></div>
   <div class="steps">
    <div class="rv"><h3>${L('Tria','Elige')}</h3><p>${L('Navega per seccions o enganxa la teva llista.','Navega por secciones o pega tu lista.')}</p></div>
-   <div class="rv"><h3>${L('Programa','Programa')}</h3><p>${L('Escull la botiga i la franja horària, de 9 a 21 h.','Escoge la tienda y la franja horaria, de 9 a 21 h.')}</p></div>
+   <div class="rv"><h3>${L('Programa','Programa')}</h3><p>${L('Escull la botiga i la franja horària, de 9 a 21 h.','Escoge la tienda y la franja horaria, de 9 a 21 h.')}</p></div>
    <div class="rv"><h3>${L('Rep','Recibe')}</h3><p>${L(`Gratuït a casa a partir de ${FREE_FROM} €; per sota, només ${FEE} €. O passa-la a recollir.`,`Gratis en casa a partir de ${FREE_FROM} €; por debajo, solo ${FEE} €. O pásalo a recoger.`)}</p></div>
   </div>
 </div></section>
@@ -1196,18 +1200,18 @@ const statsHTML=()=>`<div class="stats">${STATS().map(s=>`<div class="stat"><div
 const feeBox=()=>`<div class="fee">
   <div class="red"><h3>${L('També repartim les compres inferiors a','También repartimos las compras inferiores a')} ${FREE_FROM} €</h3><b class="t">${L('Per només','Por solo')}</b><div class="coin">${FEE} €</div></div>
   <div class="notes"><strong>${L(`Repartiment gratuït per compres superiors a ${FREE_FROM} €`,`Reparto gratuito para compras superiores a ${FREE_FROM} €`)}</strong>
-   <small>${L('De 9 h a 21 h, inclosos migdies.','De 9 h a 21 h, incluidos mediodías.')}</small>
+   <small>${L('De 9 h a 21 h, inclosos migdies.','De 9 h a 21 h, incluidos mediodías.')}</small>
    <small>* ${L(`Hi ha un màxim de ${PACK_BAND} packs d'aigua, llet o garrafes. Cada franja de ${PACK_BAND} packs addicionals té un cost afegit de ${PACK_FEE} € (Per exemple: de 5 a 8 packs tindria un cost de ${PACK_FEE} €, de 9 a 12 packs el cost és de ${PACK_FEE*2} € i successivament).`,`Hay un máximo de ${PACK_BAND} packs de agua, leche o garrafas. Cada franja de ${PACK_BAND} packs adicionales tiene un coste añadido de ${PACK_FEE} € (Por ejemplo: de 5 a 8 packs tendría un coste de ${PACK_FEE} €, de 9 a 12 packs el coste es de ${PACK_FEE*2} € y sucesivamente).`)}</small>
    <small>** ${L(`El servei de repartiment a domicili té un cost de ${FEE} € per a compres inferiors a ${FREE_FROM} €, per a compres superiors a aquest import el servei és totalment gratuït.`,`El servicio de reparto a domicilio tiene un coste de ${FEE} € para compras inferiores a ${FREE_FROM} €, para compras superiores a este importe el servicio es totalmente gratuito.`)}</small></div></div>`;
 /* order service by WhatsApp / phone / email (from the leaflet banner on hortalplat.example) */
 const ordersBox=()=>`<div class="sbox"><div><h3>${L('Nou servei de comandes','Nuevo servicio de pedidos')}</h3><p>${L('Pots fer la compra des de casa i la portem al teu domicili.','Puedes hacer la compra desde casa y la llevamos a tu domicilio.')}</p>
   <a class="big" href="#contacte">${svg('wa')}${WA}</a><p style="margin:.6rem 0 0">WhatsApp · ${L('telèfon','teléfono')} · email</p></div>
   <div><ul><li>${svg('mail')}<a href="mailto:${ORDERS_MAIL}">${ORDERS_MAIL}</a></li>
-  <li>${svg('clock')}${L('Horari d’atenció: de dilluns a divendres, de 9 a 14 h','Horario de atención: de lunes a viernes, de 9 a 14 h')}</li>
-  <li>${svg('truck')}${L('Entrega el mateix dia o abans de 24 h*','Entrega el mismo día o antes de 24 h*')}</li>
+  <li>${svg('clock')}${L('Horari d’atenció: de dilluns a divendres, de 9 a 14 h','Horario de atención: de lunes a viernes, de 9 a 14 h')}</li>
+  <li>${svg('truck')}${L('Entrega el mateix dia o abans de 24 h*','Entrega el mismo día o antes de 24 h*')}</li>
   <li>${svg('pin')}${L('Àrea de repartiment: 5 illes (500 m a la rodona del teu establiment)','Área de reparto: 5 manzanas (500 m alrededor de tu establecimiento)')}</li>
   <li>${svg('card')}${L('Pagament al repartidor, amb targeta o efectiu','Pago al repartidor, con tarjeta o efectivo')}</li></ul>
-  <p style="font-size:.8rem;margin:.9rem 0 0;opacity:.8">* ${L('El temps màxim de lliurament és de 24 h, encara que probablement es podran lliurar el mateix dia les comandes que es facin abans de les 19 h.','El tiempo máximo de entrega es de 24 h, aunque probablemente se podrán entregar el mismo día los pedidos que se hagan antes de las 19 h.')}</p></div></div>`;
+  <p style="font-size:.8rem;margin:.9rem 0 0;opacity:.8">* ${L('El temps màxim de lliurament és de 24 h, encara que probablement es podran lliurar el mateix dia les comandes que es facin abans de les 19 h.','El tiempo máximo de entrega es de 24 h, aunque probablemente se podrán entregar el mismo día los pedidos que se hagan antes de las 19 h.')}</p></div></div>`;
 
 /* ---------- "Qui som" on the landing: strengths told with big photos ---------- */
 function aboutHTML(){
@@ -1274,8 +1278,8 @@ ROUTES.solidaritat=()=>{const p=docParts('solidaritat'),d=docOf('solidaritat');r
 TITLES.solidaritat=()=>L('Solidaritat','Solidaridad');
 
 ROUTES.feina=()=>{const p=docParts('feina'),skip=/formulari|formulario|Anar al|Ir al/i;return head('',L('Ofertes de treball','Ofertas de trabajo'),p.lead.map(esc).join(' '))+`
-<section class="sec tight"><div class="wrap"><article class="card rv" style="max-width:46rem"><div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><h3 style="margin:0">${L('Repartidor/a','Repartidor/a')}</h3><span class="pill leaf">${L('Contracte indefinit de 36 h','Contrato indefinido de 36 h')}</span></div>
-<ul class="list" style="margin:1rem 0"><li><b>${L('Tipus de contracte','Tipo de contrato')}:</b> ${L('Contracte indefinit de 36 h','Contrato indefinido de 36 h')}</li><li><b>${L('Experiència','Experiencia')}:</b> ${L('No es requereix experiència','No se requiere experiencia')}</li></ul>
+<section class="sec tight"><div class="wrap"><article class="card rv" style="max-width:46rem"><div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><h3 style="margin:0">${L('Repartidor/a','Repartidor/a')}</h3><span class="pill leaf">${L('Contracte indefinit de 36 h','Contrato indefinido de 36 h')}</span></div>
+<ul class="list" style="margin:1rem 0"><li><b>${L('Tipus de contracte','Tipo de contrato')}:</b> ${L('Contracte indefinit de 36 h','Contrato indefinido de 36 h')}</li><li><b>${L('Experiència','Experiencia')}:</b> ${L('No es requereix experiència','No se requiere experiencia')}</li></ul>
 <p>${L('Necessitem professionals amb vocació de treballar de cara al client. Es realitzaran tasques d’embossat, reposició i repartiment a domicili.','Necesitamos profesionales con vocación de trabajar de cara al cliente. Se realizarán tareas de embolsado, reposición y reparto a domicilio.')}</p>
 <p style="margin-bottom:1.4rem">${L('Si hi ha una vacant que t’interessa, ves a la pàgina de «Treballa amb nosaltres» i omple el formulari per enviar-nos les teves dades i el teu currículum.','Si hay una vacante que te interesa, ve a la página de «Trabaja con nosotros» y rellena el formulario para enviarnos tus datos y tu currículum.')}</p><a class="btn" href="#treballa">${L('Omple el formulari de treball','Rellena el formulario de trabajo')}${svg('arrow')}</a></article>
 <div class="docs" style="margin-top:3rem">${secsHTML(p.secs,skip)}</div></div></section>`};
@@ -1302,14 +1306,14 @@ ROUTES.establiments=()=>head('',L('Els nostres establiments','Nuestros estableci
 <div class="shead" style="margin-top:4.5rem;margin-bottom:1.2rem"><h2>${L('On ens pots trobar?','¿Dónde encontrarnos?')}</h2></div>
 <p class="lead">${L('Estem a Barcelona. Treballem perquè puguis tenir un establiment de HortAlPlat a prop teu.','Estamos en Barcelona. Trabajamos para que puedas tener un establecimiento de HortAlPlat cerca de ti.')}</p>
 <p>${L('Ens pots trobar a Barcelona on, progressivament, anem ampliant la nostra xarxa d’establiments per donar servei als diferents barris de la ciutat. Totes les nostres tendes mantenen la mateixa qualitat en el servei, en els productes de primeres marques, de les nostres pròpies marques exclusives i de les parades de mercat tradicional, amb seccions de fruiteria, carnisseria, xarcuteria i peixateria.','Nos puedes encontrar en Barcelona donde, progresivamente, vamos ampliando nuestra red de establecimientos para dar servicio a los diferentes barrios de la ciudad. Todas nuestras tiendas mantienen la misma calidad en el servicio, en los productos de primeras marcas, de nuestras propias marcas exclusivas y de los puestos de mercado tradicional, con secciones de frutería, carnicería, charcutería y pescadería.')}</p>
-<div class="grid3" style="margin-top:2.5rem">${STORES.map(s=>`<article class="card store"><span class="pill leaf" style="align-self:flex-start">${L('Obert 9–21 h','Abierto 9–21 h')}</span><h3>${esc(s.short)}</h3><a class="tel" href="tel:${telHref(s.tel)}">${svg('phone')}${s.tel}</a><div class="acts"><a class="btn green sm" href="#tenda-${s.slug}">${L('Veure la botiga','Ver la tienda')}</a><button class="btn sm" data-act="store" data-v="${s.id}">${L('Prepara aquí la comanda','Prepara aquí el pedido')}</button></div></article>`).join('')}</div></div></section>`;
+<div class="grid3" style="margin-top:2.5rem">${STORES.map(s=>`<article class="card store"><span class="pill leaf" style="align-self:flex-start">${L('Obert 9–21 h','Abierto 9–21 h')}</span><h3>${esc(s.short)}</h3><a class="tel" href="tel:${telHref(s.tel)}">${svg('phone')}${s.tel}</a><div class="acts"><a class="btn green sm" href="#tenda-${s.slug}">${L('Veure la botiga','Ver la tienda')}</a><button class="btn sm" data-act="store" data-v="${s.id}">${L('Prepara aquí la comanda','Prepara aquí el pedido')}</button></div></article>`).join('')}</div></div></section>`;
 TITLES.establiments=()=>L('Els nostres establiments','Nuestros establecimientos');
 
 function storePage(s){
   const phc=k=>`<figure class="phcard"><img class="f" src="img/cat/${k}.jpg" alt="" loading="lazy"><figcaption>${svg(k)}${k==='carn'?L('Carnisseria','Carnicería'):k==='xarc'?L('Xarcuteria','Charcutería'):L('Fruiteria','Frutería')}</figcaption></figure>`;
   return head('',esc(s.short),L('Repartiment gratuït a domicili','Reparto gratuito a domicilio'))+`
 <section class="sec tight"><div class="wrap"><div class="grid2" style="align-items:start">
- <div class="card store"><span class="pill leaf" style="align-self:flex-start">${L('Obert 9–21 h','Abierto 9–21 h')}</span><h3>${L('Telèfons de contacte','Teléfonos de contacto')}</h3><a class="tel" href="tel:${telHref(s.tel)}">${svg('phone')}${s.tel}</a><p class="addr" style="margin:0">${esc(s.full)}, Barcelona</p>
+ <div class="card store"><span class="pill leaf" style="align-self:flex-start">${L('Obert 9–21 h','Abierto 9–21 h')}</span><h3>${L('Telèfons de contacte','Teléfonos de contacto')}</h3><a class="tel" href="tel:${telHref(s.tel)}">${svg('phone')}${s.tel}</a><p class="addr" style="margin:0">${esc(s.full)}, Barcelona</p>
   <div class="acts"><a class="btn green sm" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.full+', Barcelona')}">${svg('pin')}${L('Com arribar-hi','Cómo llegar')}</a><button class="btn sm" data-act="store" data-v="${s.id}">${L('Prepara aquí la comanda','Prepara aquí el pedido')}</button></div></div>
  <div><h2>${L('Treballem per ser la millor proposta de supermercat del teu barri','Trabajamos para ser la mejor propuesta de supermercado de tu barrio')}</h2><p class="lead">${L('En aquesta tenda trobaràs la millor qualitat en el servei, podràs comparar i triar entre les principals i més reconegudes marques del mercat i un ampli assortiment de les nostres pròpies marques exclusives, també gaudiràs dels productes més frescos a les parades de mercat tradicional.','En esta tienda encontrarás la mejor calidad en el servicio, podrás comparar y elegir entre las principales y más reconocidas marcas del mercado y un amplio surtido de nuestras propias marcas exclusivas, también disfrutarás de los productos más frescos en los puestos de mercado tradicional.')}</p></div></div>
  <div class="shead" style="margin-top:4rem"><h2>${L('Les parades fresques de mercat que hi trobaràs','Los puestos frescos de mercado que encontrarás')}</h2></div><div class="grid3">${['carn','xarc','fruita'].map(phc).join('')}</div>

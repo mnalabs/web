@@ -30,7 +30,20 @@ app = re.sub(r"const logo=\(h=46\)=>`<img[^`]*`;",
 app = app.replace("/* official logo, taken from the current jespac.com */", "/* logo de la demo: dibuixat en SVG */")
 escriu('app.js', app)
 # el nom del logo ha de ser blanc sobre el fons fosc del peu de pàgina; i la demo s'obre sempre en català (si algú tria castellà, es recorda)
-escriu('style.css', llegeix('style.css') + '\n/* logo de la demo: text fosc, i blanc al peu (fons fosc) */\n.lt{fill:#262626}\nfooter.site .lt{fill:#fff}\n')
+escriu('style.css', llegeix('style.css') + '''
+/* logo de la demo: text fosc, i blanc al peu (fons fosc) */
+.lt{fill:#262626}
+footer.site .lt{fill:#fff}
+/* peu: el telèfon no es parteix, el botó té el text centrat (la regla general dels enllaços del peu li treia el farciment) */
+footer.site .ftel{white-space:nowrap;font-size:clamp(1.3rem,5.6vw,2rem)}
+@media (min-width:900px){footer.site .ftel{font-size:clamp(1.5rem,2.4vw,2rem)}}
+footer.site a.btn{display:inline-flex;align-items:center;justify-content:center;padding:.5rem 1.2rem;text-align:center;min-height:2.8rem}
+''')
+# les hores no es parteixen entre el número i la «h» (9 a 14 h, 21'00 h…)
+import re as _re
+for _f in ['app.js', 'data.js', 'pages.js', 'views1.js', 'views2.js']:
+    _t = _re.sub(r"(\d) h\b", "\\1\u00a0h", llegeix(_f))
+    escriu(_f, _re.sub(r"(\d) a (\d+)\u00a0h", "\\1\u00a0a\u00a0\\2\u00a0h", _t))   # «9 a 14 h» sencer a la mateixa línia
 canvia('app.js', "lang=s||((navigator.language||'').toLowerCase().startsWith('es')?'es':'ca')", "lang=s||'ca'")
 # ---------- peu de pàgina ----------
 canvia('app.js', "L('Supermercats de proximitat a Barcelona des de 1981.','Supermercados de proximidad en Barcelona desde 1981.')", "L('Supermercat de proximitat. Web de demostració feta per MNA LABS: les dades són inventades.','Supermercado de proximidad. Web de demostración hecha por MNA LABS: los datos son inventados.')")

@@ -175,3 +175,22 @@ test('HortAlPlat s\'obre en català encara que el navegador sigui en castellà, 
   assert.match(fill, /255, 255, 255/);
   await ctx.close();
 });
+
+test('HortAlPlat: al peu el telèfon no es parteix, les hores no es tallen i el text del botó és centrat (320, 390, 1100 i 1440 px)', async () => {
+  for (const w of [320, 390, 1100, 1440]) {
+    const pagina = await navegador.newPage({ viewport: { width: w, height: 900 } });
+    await pagina.goto(servidor.url + '/mostres/hortalplat/index.html');
+    await pagina.waitForSelector('footer.site .ftel');
+    const r = await pagina.evaluate(() => {
+      const tel = document.querySelector('footer.site .ftel'), n = tel.childNodes, btn = document.querySelector('footer.site a.btn');
+      const rg = document.createRange(); rg.selectNodeContents(btn); const t = rg.getBoundingClientRect(), b = btn.getBoundingClientRect();
+      const talls = [...document.querySelectorAll('footer.site *')].filter(e => e.clientWidth > 0 && getComputedStyle(e).display !== 'inline' && e.scrollWidth > e.clientWidth + 1).length;
+      return { liniesTel: Math.round(tel.getBoundingClientRect().height / parseFloat(getComputedStyle(tel).fontSize)), descentrat: Math.round((t.left + t.right) / 2 - (b.left + b.right) / 2), talls, hores: document.querySelector('footer.site').textContent.includes('9 a 14 h') };
+    });
+    assert.ok(r.liniesTel <= 2, `${w}px: telèfon en ${r.liniesTel} línies`);
+    assert.equal(r.descentrat, 0, `${w}px: text del botó descentrat`);
+    assert.equal(r.talls, 0, `${w}px: hi ha textos tallats`);
+    assert.ok(r.hores, `${w}px: «9 a 14 h» no és indivisible`);
+    await pagina.close();
+  }
+});
