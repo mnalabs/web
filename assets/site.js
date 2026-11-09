@@ -53,8 +53,13 @@
   if (navDd){
     const ddSet = o => { navDd.classList.toggle('open', o); ddB.setAttribute('aria-expanded', String(o)); };
     let ddT;
-    ddB.addEventListener('click', () => ddSet(!navDd.classList.contains('open')));
-    if (hover){ navDd.addEventListener('pointerenter', () => { clearTimeout(ddT); ddSet(true); navHover = ddB; navMove(); }); navDd.addEventListener('pointerleave', () => { ddT = setTimeout(() => ddSet(false), 180); navHover = null; navMove(); }); }
+    ddB.addEventListener('click', () => { clearTimeout(ddObre); ddSet(!navDd.classList.contains('open')); });
+    // Amb ratolí s'obre en acostar-s'hi, però amb 90 ms d'espera: si el cursor només creua «Programes» camí d'una altra cosa, no s'obre. Es tanca amb 180 ms.
+    let ddObre;
+    if (hover){
+      navDd.addEventListener('pointerenter', () => { clearTimeout(ddT); clearTimeout(ddObre); if (navDd.classList.contains('open')) ddSet(true); else ddObre = setTimeout(() => ddSet(true), 90); navHover = ddB; navMove(); });
+      navDd.addEventListener('pointerleave', () => { clearTimeout(ddObre); ddT = setTimeout(() => ddSet(false), 180); navHover = null; navMove(); });
+    }
     document.addEventListener('click', e => { if (!navDd.contains(e.target)) ddSet(false); });
     addEventListener('keydown', e => { if (e.key === 'Escape' && navDd.classList.contains('open')){ ddSet(false); ddB.focus(); } });
   }

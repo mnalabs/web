@@ -132,14 +132,14 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .que-fem-capcalera .sub{max-width:34ch;color:var(--ink-2)}
 .que-fem-graella{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
 .servei{display:flex;flex-direction:column;border-radius:var(--r-tile);background:var(--paper);overflow:hidden;transition:transform .6s var(--ease-out),box-shadow .6s var(--ease-out),scale .16s var(--ease-out)}
-.servei:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.25)}
+
 .servei-exemple{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(160deg,#f1f2f6,#e2e5ec)}
-.servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
+.servei-exemple .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform .6s var(--ease-out)}
 .servei-exemple .mock[data-mock="duo"]{left:7%;right:7%;top:9%}
 .servei-exemple .mock[data-mock="ig"]{inset:0;border-radius:0}
-.servei:hover .servei-exemple .mock:not([data-mock="ig"]){transform:translateY(-2%)}
+
 /* ---------- EXEMPLES REALS: una web dins d'una finestra i una app dins d'un mòbil ---------- */
-.exemple-finestra{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 36px -18px rgba(0,0,0,.35);transition:transform 1.2s var(--ease-out)}
+.exemple-finestra{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 36px -18px rgba(0,0,0,.35);transition:transform .6s var(--ease-out)}
 .exemple-finestra-barra{height:18px;display:flex;align-items:center;gap:5px;padding:0 8px;background:#f2f2f4;border-bottom:1px solid #e5e5ea}
 .exemple-finestra-barra i{width:7px;height:7px;border-radius:50%;background:#ff5f57}
 .exemple-finestra-barra i:nth-child(2){background:#febc2e}
@@ -177,8 +177,8 @@ body[data-page="free-developing"] #free-developing{margin-top:-68px;padding-top:
 .exemple-mobil-pixel .exemple-mobil-pantalla::after{bottom:1.8cqw;width:26cqw;height:1.1cqw;margin-left:-13cqw}
 /* a les targetes de «Què fem» */
 .servei-exemple > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%}
-.servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
-.servei:hover .servei-exemple > .exemple-mobil,.servei:hover .servei-exemple > .exemple-finestra{transform:translateY(-2%)}
+.servei-exemple > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform .6s var(--ease-out)}
+
 /* mostres que són un enllaç (Xarxes socials): el bloc ocupa tota la part de dalt i el text és un altre enllaç */
 a.servei-exemple{display:block}
 a.servei-text{color:inherit}
@@ -193,7 +193,7 @@ a.servei-text{color:inherit}
 .servei-text p{color:var(--ink-2);font-size:16px;line-height:1.45}
 .servei-preu{margin-top:auto;padding-top:8px;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .servei-preu::after{content:"→";font-size:22px;font-weight:400;transition:transform .5s var(--ease-out)}
-.servei:hover .servei-preu::after{transform:translateX(6px)}
+
 @media (max-width:1060px){.que-fem-graella{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.que-fem-graella{grid-template-columns:1fr}.servei-text{padding:20px 20px 22px}}
 
@@ -204,8 +204,8 @@ a.servei-text{color:inherit}
 .own-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .own-card{position:relative;border-radius:24px;padding:clamp(28px,4vw,48px);min-height:clamp(280px,32vw,440px);display:flex;flex-direction:column;justify-content:space-between;gap:40px;background:var(--night);box-shadow:inset 0 0 0 1px var(--night-3);overflow:hidden;transition:box-shadow .4s}
 .own-card:hover{box-shadow:inset 0 0 0 1px #5a5a5e}
-.own-card b{font-size:clamp(54px,8vw,124px);font-weight:800;letter-spacing:-.06em;line-height:.9;transition:transform .8s var(--ease-out)}
-.own-card:hover b{transform:translateY(-8px)}
+.own-card b{font-size:clamp(54px,8vw,124px);font-weight:800;letter-spacing:-.06em;line-height:.9;transition:transform .5s var(--ease-out)}
+
 .own-k{color:var(--on-night-2);font-size:16px}
 .own-l{font-size:16px;font-weight:500;color:var(--link-night)}
 .own-l::after{content:" →"}
@@ -214,7 +214,7 @@ a.servei-text{color:inherit}
 /* ---------- PORTADA: preus ---------- */
 .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .price{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px var(--line-2);transition:box-shadow .5s var(--ease-out),transform .5s var(--ease-out),scale .16s var(--ease-out)}
-.price:hover{box-shadow:0 0 0 1px var(--line-2),0 30px 60px -34px rgba(0,0,0,.3);transform:translateY(-4px)}
+
 .price span{font-size:17px;font-weight:600}
 .price b{font-size:clamp(52px,6vw,88px);font-weight:700;letter-spacing:-.055em;line-height:1;margin-top:28px}
 .price small{font-size:14px;color:var(--ink-2)}
@@ -340,10 +340,10 @@ a.servei-text{color:inherit}
 /* exemples dels paquets */
 .pk-ex{aspect-ratio:16/10;background:linear-gradient(160deg,#f1f2f6,#e2e5ec)}
 .pk-ex::after{inset:58% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.6))}
-.pk-ex .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform 1.2s var(--ease-out)}
+.pk-ex .mock{position:absolute;left:8%;right:8%;top:10%;width:auto;transition:transform .6s var(--ease-out)}
 .pk-ex .mock:is([data-mock="ig"],[data-mock="reel"]){left:0;right:0;top:0;border-radius:0}
 .pk-ex .mock[data-mock="duo"]{left:7%;right:7%;top:9%}
-.pk:hover .pk-ex .mock{transform:translateY(-2%)}
+
 .pk-ex .mock:is([data-mock="ig"],[data-mock="reel"]){transform:none}
 
 /* ---------- PROTOTIPATGE ---------- */
@@ -401,14 +401,14 @@ body[data-page="mostres"]{background:var(--black)}
 .mo-card:nth-child(even){grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr)}
 .mo-card:nth-child(even) .mo-media{order:2}
 .mo-media{border-radius:24px;overflow:hidden;background:#111;box-shadow:0 0 0 1px var(--night-3);aspect-ratio:16/9}
-.mo-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-out)}
-.mo-card:hover .mo-media img{transform:scale(1.04)}
+.mo-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+
 .mo-k{font-size:14px;color:var(--on-night-2)}
 .mo-text h2{font-size:clamp(40px,5vw,72px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:10px 0 18px}
 .mo-text p{color:var(--on-night-2);font-size:clamp(17px,1.5vw,20px);line-height:1.45;max-width:34ch}
 .mo-go{display:inline-block;margin-top:24px;color:var(--link-night);font-weight:500}
 .mo-go::after{content:" →";display:inline-block;transition:transform .4s var(--ease-out)}
-.mo-card:hover .mo-go::after{transform:translateX(6px)}
+
 .mo-note{margin-top:clamp(56px,7vw,96px);color:var(--on-night-2);font-size:15px}
 .mo-note a{color:var(--link-night)}
 @media (max-width:820px){.mo-card,.mo-card:nth-child(even){grid-template-columns:1fr}.mo-card:nth-child(even) .mo-media{order:0}}
@@ -431,7 +431,7 @@ body[data-page="mostres"]{background:var(--black)}
 /* ---------- MENÚ: desplegable de programes ---------- */
 .nav-dd{position:relative;z-index:1}
 .nav-dd-b{font:inherit;font-size:14px;font-weight:500;color:inherit;background:none;border:0;padding:8px 13px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.nav-dd-b::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s}
+.nav-dd-b::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s var(--ease-out)}
 .nav-dd.open .nav-dd-b::after{transform:translateY(1px) rotate(-135deg)}
 .nav-dd-b:hover,.nav-dd-b.on{color:var(--ink)}
 .nav.on-dark .nav-dd-b:hover,.nav.on-dark .nav-dd-b.on{color:#fff}
@@ -441,6 +441,13 @@ body[data-page="mostres"]{background:var(--black)}
 .nav-dd-m a{display:grid;gap:2px;padding:10px 12px;border-radius:10px;font-size:15px;font-weight:600}
 .nav-dd-m a small{font-size:13px;font-weight:400;color:var(--ink-2)}
 .nav-dd-m a:hover,.nav-dd-m a.on{background:var(--paper);color:var(--ink)}
+/* Les opcions entren una darrere l'altra (30 ms de diferència) quan el menú ja és al lloc, i surten totes alhora i més de pressa */
+.nav-dd-m a{opacity:0;transform:translateY(4px);transition:background-color .12s var(--ease),opacity .12s var(--ease-out),transform .12s var(--ease-out)}
+.nav-dd.open .nav-dd-m a{opacity:1;transform:none;transition:background-color .12s var(--ease),opacity .2s var(--ease-out) calc(var(--i,0) * 30ms + 40ms),transform .2s var(--ease-out) calc(var(--i,0) * 30ms + 40ms)}
+.nav-dd-m a:nth-child(2){--i:1}.nav-dd-m a:nth-child(3){--i:2}
+/* pont invisible sobre els 10 px que separen el botó del menú: el cursor pot creuar-los sense que es tanqui */
+.nav-dd-m::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+@media (prefers-reduced-motion:reduce){.nav-dd-m{transform:translate(-50%,0)}.nav-dd-m a{transform:none}.nav-dd-b::after{transition:none}}
 @media (max-width:1240px){
   /* menú del mòbil: surt del botó del menú (dalt a la dreta) en 200 ms i hi torna en 160 ms */
   .nav-links{display:flex;opacity:0;visibility:hidden;transform:scale(.95);transform-origin:calc(100% - 28px) -12px;transition:opacity .16s var(--ease-out),transform .16s var(--ease-out),visibility 0s .16s;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 60px -20px rgba(0,0,0,.3);font-size:19px;font-weight:600;color:var(--ink);max-height:calc(100vh - 90px);overflow:auto}
@@ -451,7 +458,7 @@ body[data-page="mostres"]{background:var(--black)}
   .nav-burger{display:flex}
   .nav-dd-b{display:none}
   .nav-dd-m{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;background:none;color:inherit;padding:0;min-width:0}
-  .nav-dd-m a{font-size:19px;padding:12px 14px}
+  .nav-dd-m a,.nav-dd.open .nav-dd-m a{font-size:19px;padding:12px 14px;opacity:1;transform:none;transition:none}
   .nav-dd-m a small{display:none}
   .nav.on-dark .nav-dd-m a:hover{background:#2c2c2e}
 }
@@ -498,8 +505,8 @@ body[data-page="mostres"]{background:var(--black)}
 .ptile.lg-tile{background:radial-gradient(70% 90% at 92% 0%,rgba(55,217,191,.25),rgba(55,217,191,0) 60%),var(--night)}
 .lg-tile .acts .yes,.lg-tile .acts span.yes{background:#37d9bf!important;color:#06312b}
 .own-logo{display:block;font-size:0}
-.own-logo img{display:block;width:min(100%,520px);height:auto;transition:transform .8s var(--ease-out)}
-.own-card:hover .own-logo img{transform:translateY(-8px)}
+.own-logo img{display:block;width:min(100%,520px);height:auto;transition:transform .5s var(--ease-out)}
+
 .pk-ex > img{object-position:50% 0%}
 
 
@@ -524,11 +531,11 @@ body[data-page="mostres"]{background:var(--black)}
 .pkgs-page{min-height:100svh}
 
 /* Exemples reals dins les targetes de Paquets (captures, no maquetes) */
-.pk-ex > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%;transition:transform 1.2s var(--ease-out)}
-.pk-ex > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform 1.2s var(--ease-out)}
+.pk-ex > .exemple-finestra{position:absolute;left:8%;right:8%;top:10%;transition:transform .6s var(--ease-out)}
+.pk-ex > .exemple-mobil{position:absolute;left:50%;top:9%;width:30%;margin-left:-15%;transition:transform .6s var(--ease-out)}
 .pk-ex-duo > .exemple-finestra{left:6%;right:30%;top:12%}
 .pk-ex-duo > .exemple-mobil{left:auto;right:7%;top:16%;width:21%;margin-left:0}
-.pk:hover .pk-ex > .exemple-finestra,.pk:hover .pk-ex > .exemple-mobil{transform:translateY(-2%)}
+
 
 /* Monitor d'ordinador de sobretaula (marc fi, peu d'alumini) amb la fitxa de producte a la pantalla: Venda a Amazon a Què fem, Serveis i Paquets.
    La pantalla és img/exemples-serveis/amazon-pantalla.png: per canviar-la només cal substituir aquest fitxer. */
@@ -537,6 +544,22 @@ body[data-page="mostres"]{background:var(--black)}
 .exemple-monitor-pantalla img{display:block;width:100%;height:auto;border-radius:.4cqw;background:#fff}
 .exemple-monitor-coll{width:11cqw;height:9cqw;margin:-.3cqw auto 0;background:linear-gradient(90deg,#9ea1a8,#e3e5e9 45%,#b3b6bd);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
 .exemple-monitor-base{width:30cqw;height:1.3cqw;margin:0 auto;border-radius:.65cqw;background:linear-gradient(#e9ebee,#a9acb3)}
-.servei-exemple > .exemple-monitor,.pk-ex > .exemple-monitor{position:absolute;left:16%;right:16%;top:11%;width:auto;transition:transform 1.2s var(--ease-out)}
-.servei:hover .servei-exemple > .exemple-monitor,.pk:hover .pk-ex > .exemple-monitor{transform:translateY(-2%)}
+.servei-exemple > .exemple-monitor,.pk-ex > .exemple-monitor{position:absolute;left:16%;right:16%;top:11%;width:auto;transition:transform .6s var(--ease-out)}
+
 .sv-vis > .exemple-monitor{max-width:620px;margin-inline:auto}
+
+/* Efectes de cursor: només amb ratolí (a pantalla tàctil les targetes es quedaven «enganxades» en tocar-les) */
+@media (hover:hover) and (pointer:fine){
+  .servei:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.25)}
+  .servei:hover .servei-exemple .mock:not([data-mock="ig"]){transform:translateY(-2%)}
+  .servei:hover .servei-exemple > .exemple-mobil,.servei:hover .servei-exemple > .exemple-finestra{transform:translateY(-2%)}
+  .servei:hover .servei-preu::after{transform:translateX(6px)}
+  .own-card:hover b{transform:translateY(-8px)}
+  .price:hover{box-shadow:0 0 0 1px var(--line-2),0 30px 60px -34px rgba(0,0,0,.3);transform:translateY(-4px)}
+  .pk:hover .pk-ex .mock{transform:translateY(-2%)}
+  .mo-card:hover .mo-media img{transform:scale(1.04)}
+  .mo-card:hover .mo-go::after{transform:translateX(6px)}
+  .own-card:hover .own-logo img{transform:translateY(-8px)}
+  .pk:hover .pk-ex > .exemple-finestra,.pk:hover .pk-ex > .exemple-mobil{transform:translateY(-2%)}
+  .servei:hover .servei-exemple > .exemple-monitor,.pk:hover .pk-ex > .exemple-monitor{transform:translateY(-2%)}
+}

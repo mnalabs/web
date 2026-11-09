@@ -104,3 +104,36 @@ test('en anar de Prototipatge a la portada, l\'indicador del menú no es queda u
   for (let i = 0; i < 6; i++) { opacitats.push(await pagina.evaluate(() => parseFloat(getComputedStyle(document.querySelector('#navInd')).opacity))); await pagina.waitForTimeout(60); }
   assert.ok(opacitats.every(o => o === 0), `l'indicador s'ha vist: ${opacitats}`);
 });
+
+test('el desplegable de Programes: no s\'obre si el cursor només el creua, s\'obre amb intenció i el cursor pot creuar el buit', async () => {
+  const { pagina } = await obre('/index.html');
+  const caixa = await pagina.locator('.nav-dd-b').boundingBox();
+  const obert = () => pagina.evaluate(() => document.querySelector('.nav-dd').classList.contains('open'));
+  // creuar de pressa
+  await pagina.mouse.move(caixa.x - 40, caixa.y + caixa.height / 2);
+  await pagina.mouse.move(caixa.x + caixa.width / 2, caixa.y + caixa.height / 2);
+  await pagina.mouse.move(caixa.x + caixa.width + 60, caixa.y + caixa.height / 2);
+  await pagina.waitForTimeout(300);
+  assert.equal(await obert(), false, 'ha d\'esperar a la intenció');
+  // quedar-s'hi
+  await pagina.mouse.move(caixa.x + caixa.width / 2, caixa.y + caixa.height / 2);
+  await pagina.waitForTimeout(400);
+  assert.equal(await obert(), true);
+  // les opcions entren escalonades (30 ms)
+  const retards = await pagina.$$eval('.nav-dd-m a', els => els.map(e => getComputedStyle(e).transitionDelay.split(',')[1]));
+  assert.deepEqual(retards.map(r => r.trim()), ['0.04s', '0.07s', '0.1s']);
+  // baixar fins al menú passant pel buit de 10 px, a poc a poc (més de 180 ms): no es tanca
+  const menu = await pagina.locator('.nav-dd-m').boundingBox();
+  const destiY = menu.y + 30;
+  for (let y = caixa.y + caixa.height; y <= destiY; y += 4) { await pagina.mouse.move(caixa.x + caixa.width / 2, y); await pagina.waitForTimeout(25); }
+  assert.equal(await obert(), true, 'el pont ha de mantenir el menú obert');
+});
+
+test('amb moviment reduït, el desplegable només fa fos (sense escala)', async () => {
+  const ctx = await navegador.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
+  const pagina = await ctx.newPage();
+  await pagina.goto(servidor.url + '/index.html');
+  const t = await pagina.evaluate(() => getComputedStyle(document.querySelector('.nav-dd-m')).transform);
+  assert.match(t, /^matrix\(1, 0, 0, 1,/, t);   // escala 1: només es mou el centrat
+  await ctx.close();
+});
