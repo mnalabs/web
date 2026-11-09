@@ -26,9 +26,12 @@ def canvia(f, vell, nou, obligatori=True):
 # ---------- logo: un fulla i el nom, en SVG (no hi ha cap imatge del client) ----------
 app = llegeix('app.js')
 app = re.sub(r"const logo=\(h=46\)=>`<img[^`]*`;",
-  "const logo=(h=46)=>`<svg viewBox=\"0 0 270 56\" style=\"height:${h}px;width:auto\" role=\"img\" aria-label=\"HortAlPlat\"><path d=\"M10 44C6 24 16 8 36 6c2 20-8 34-26 38Z\" fill=\"#8CC63F\"/><path d=\"M10 44C16 32 22 22 30 14\" stroke=\"#fff\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"48\" y=\"39\" font-size=\"32\" font-weight=\"700\" fill=\"#262626\" letter-spacing=\"-.5\">Hort<tspan fill=\"#F7403A\">Al</tspan>Plat</text></svg>`;", app, count=1)
+  "const logo=(h=46)=>`<svg viewBox=\"0 0 270 56\" style=\"height:${h}px;width:auto\" role=\"img\" aria-label=\"HortAlPlat\"><path d=\"M10 44C6 24 16 8 36 6c2 20-8 34-26 38Z\" fill=\"#8CC63F\"/><path d=\"M10 44C16 32 22 22 30 14\" stroke=\"#fff\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"48\" y=\"39\" class=\"lt\" font-size=\"32\" font-weight=\"700\" letter-spacing=\"-.5\">Hort<tspan fill=\"#F7403A\">Al</tspan>Plat</text></svg>`;", app, count=1)
 app = app.replace("/* official logo, taken from the current jespac.com */", "/* logo de la demo: dibuixat en SVG */")
 escriu('app.js', app)
+# el nom del logo ha de ser blanc sobre el fons fosc del peu de pàgina; i la demo s'obre sempre en català (si algú tria castellà, es recorda)
+escriu('style.css', llegeix('style.css') + '\n/* logo de la demo: text fosc, i blanc al peu (fons fosc) */\n.lt{fill:#262626}\nfooter.site .lt{fill:#fff}\n')
+canvia('app.js', "lang=s||((navigator.language||'').toLowerCase().startsWith('es')?'es':'ca')", "lang=s||'ca'")
 # ---------- peu de pàgina ----------
 canvia('app.js', "L('Supermercats de proximitat a Barcelona des de 1981.','Supermercados de proximidad en Barcelona desde 1981.')", "L('Supermercat de proximitat. Web de demostració feta per MNA LABS: les dades són inventades.','Supermercado de proximidad. Web de demostración hecha por MNA LABS: los datos son inventados.')")
 canvia('app.js', "<p>C/ Alcúdia 9-11<br>08016 Barcelona</p>", "<p>C/ dels Llimoners, 8<br>08000 Barcelona</p>")

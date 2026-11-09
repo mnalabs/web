@@ -476,6 +476,10 @@ footer.site .flang button{color:#fff;font-size:1rem}
 @media (max-width:360px){.burger span{display:none}.burger{padding:0 .9rem}.logo img{height:1.8rem!important}.hbar{gap:.4rem}}
 @media (max-width:700px){.arrows{gap:.4rem}.arrows .iconbtn{width:2.8rem;height:2.8rem}.dot{width:2rem}.dots{gap:.2rem}}
 
+/* logo de la demo: text fosc, i blanc al peu (fons fosc) */
+.lt{fill:#262626}
+footer.site .lt{fill:#fff}
+
 </style>
 </head>
 <body>
@@ -612,7 +616,7 @@ const DOCS={"ca": {"empresa": {"t": "L’empresa", "b": [["p", "HortAlPlat és u
 /* ---------- CORE ---------- */
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 let lang='ca';
-try{const s=localStorage.getItem('jp-lang');lang=s||((navigator.language||'').toLowerCase().startsWith('es')?'es':'ca')}catch(e){}
+try{const s=localStorage.getItem('jp-lang');lang=s||'ca'}catch(e){}
 const L=(ca,es)=>lang==='es'?es:ca;
 const eur=n=>n.toLocaleString(lang==='es'?'es-ES':'ca-ES',{style:'currency',currency:'EUR'});
 const num=n=>n.toLocaleString(lang==='es'?'es-ES':'ca-ES',{maximumFractionDigits:2});
@@ -750,7 +754,7 @@ function setNav(on){ov.nav=on;$('#mnav').classList.toggle('on',on);$('#mnav').se
 
 /* ---------- LOGO ---------- */
 /* logo de la demo: dibuixat en SVG */
-const logo=(h=46)=>`<svg viewBox="0 0 270 56" style="height:${h}px;width:auto" role="img" aria-label="HortAlPlat"><path d="M10 44C6 24 16 8 36 6c2 20-8 34-26 38Z" fill="#8CC63F"/><path d="M10 44C16 32 22 22 30 14" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><text x="48" y="39" font-size="32" font-weight="700" fill="#262626" letter-spacing="-.5">Hort<tspan fill="#F7403A">Al</tspan>Plat</text></svg>`;
+const logo=(h=46)=>`<svg viewBox="0 0 270 56" style="height:${h}px;width:auto" role="img" aria-label="HortAlPlat"><path d="M10 44C6 24 16 8 36 6c2 20-8 34-26 38Z" fill="#8CC63F"/><path d="M10 44C16 32 22 22 30 14" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><text x="48" y="39" class="lt" font-size="32" font-weight="700" letter-spacing="-.5">Hort<tspan fill="#F7403A">Al</tspan>Plat</text></svg>`;
 
 /* ---------- LAYOUT ---------- */
 const NAVMAIN=[

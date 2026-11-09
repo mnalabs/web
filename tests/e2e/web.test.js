@@ -164,3 +164,14 @@ test('HortAlPlat és una botiga que funciona: es pot afegir un producte a la cis
   assert.deepEqual(errors.filter(e => !/hortalplat\.example|ViewTransition/.test(e)), []);
   await pagina.close();
 });
+
+test('HortAlPlat s\'obre en català encara que el navegador sigui en castellà, i el nom del peu es veu sobre el fons fosc', async () => {
+  const ctx = await navegador.newContext({ locale: 'es-ES', viewport: { width: 1440, height: 900 } });
+  const pagina = await ctx.newPage();
+  await pagina.goto(servidor.url + '/mostres/hortalplat/index.html');
+  await pagina.waitForSelector('footer.site .lt');
+  assert.equal(await pagina.evaluate(() => document.documentElement.lang), 'ca');
+  const fill = await pagina.evaluate(() => getComputedStyle(document.querySelector('footer.site .lt')).fill);
+  assert.match(fill, /255, 255, 255/);
+  await ctx.close();
+});
