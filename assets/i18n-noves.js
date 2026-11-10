@@ -46,7 +46,7 @@ Object.assign(window.I18N.es, {
 "Prototipem el producte a canvi d'una participació en l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"Prototipamos el producto a cambio de una participación en la empresa o de un pago cuando empiece a vender. Estudiamos cada invento y lo dejamos todo por escrito antes de empezar.",
 "Presenta l'invent":"Presenta el invento","Com funciona Free Developing":"Cómo funciona Free Developing","Prototipatge · MNA LABS":"Prototipado · MNA LABS",
 "Webs que no s'obliden.":"Webs que no se olvidan.",
-"Experiments sense client darrere: marques inventades on provem fins on pot arribar una web. Objectes en 3D que es mouen amb l'scroll, s'obren peça a peça o se serveixen sols. Obre-les en un ordinador per veure-les com toca.":"Experimentos sin cliente detrás: marcas inventadas donde probamos hasta dónde puede llegar una web. Objetos en 3D que se mueven con el scroll, se abren pieza a pieza o se sirven solos. Ábrelas en un ordenador para verlas como toca.",
+
 "Rellotgeria · 3D en temps real":"Relojería · 3D en tiempo real","Un rellotge que gira cap a tu i s'obre per dins mentre baixes, fins a veure-hi les peces del moviment.":"Un reloj que gira hacia ti y se abre por dentro mientras bajas, hasta ver las piezas del movimiento.",
 "Obre la mostra":"Abre la muestra",
 
@@ -116,7 +116,7 @@ Object.assign(window.I18N.en, {
 "Prototipem el producte a canvi d'una participació en l'empresa o d'un pagament quan comenci a vendre. Estudiem cada invent i ho deixem tot per escrit abans de començar.":"We prototype the product in exchange for a stake in the company or a payment once it starts selling. We review every invention and put everything in writing before we start.",
 "Presenta l'invent":"Pitch the invention","Com funciona Free Developing":"How Free Developing works","Prototipatge · MNA LABS":"Prototyping · MNA LABS",
 "Webs que no s'obliden.":"Websites people remember.",
-"Experiments sense client darrere: marques inventades on provem fins on pot arribar una web. Objectes en 3D que es mouen amb l'scroll, s'obren peça a peça o se serveixen sols. Obre-les en un ordinador per veure-les com toca.":"Experiments with no client behind them: invented brands where we push how far a website can go. 3D objects that move as you scroll, open up piece by piece or pour themselves. Open them on a computer to see them properly.",
+
 "Rellotgeria · 3D en temps real":"Watchmaking · real-time 3D","Un rellotge que gira cap a tu i s'obre per dins mentre baixes, fins a veure-hi les peces del moviment.":"A watch that turns towards you and opens up as you scroll, down to the parts of the movement.",
 "Obre la mostra":"Open the demo",
 
