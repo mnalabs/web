@@ -40,7 +40,7 @@ es: {
 "Apps en temps real":"Apps en tiempo real","Xat, geolocalització, notificacions push i sincronització fora de línia per a iOS i Android.":"Chat, geolocalización, notificaciones push y sincronización sin conexión para iOS y Android.",
 "Compradors i venedors, pagaments dividits, comissions, valoracions i gestió de disputes.":"Compradores y vendedores, pagos divididos, comisiones, valoraciones y gestión de disputas.",
 "Integracions i API":"Integraciones y API","Connectem ERP, CRM, pagaments, logística i comptabilitat perquè les dades flueixin soles.":"Conectamos ERP, CRM, pagos, logística y contabilidad para que los datos fluyan solos.",
-"IA aplicada":"IA aplicada","Assistents, lectura automàtica de documents i cerca intel·ligent sobre les dades de la vostra empresa.":"Asistentes, lectura automática de documentos y búsqueda inteligente sobre los datos de vuestra empresa.",
+
 "Comerç electrònic B2B i B2C":"Ecommerce B2B y B2C","Tarifes per client, estoc en temps real, enviaments automatitzats i botiga sense quotes.":"Tarifas por cliente, stock en tiempo real, envíos automatizados y tienda sin cuotas.",
 
 
@@ -91,11 +91,11 @@ es: {
 "Catalunya":"Cataluña",
 "MNA LABS, inici":"MNA LABS, inicio","Idioma":"Idioma",
 "Exemple de panell de gestió fet a mida (dades de demostració)":"Ejemplo de panel de gestión a medida (datos de demostración)",
-"Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, IA, base de dades i notificacions.":"Diagrama: las apps iOS y Android, la web y el panel interno se conectan a una API central, que habla con autenticación, pagos, IA, base de datos y notificaciones.",
+"Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, base de dades i notificacions.":"Diagrama: las apps iOS y Android, la web y el panel interno se conectan a una API central, que habla con autenticación, pagos, base de datos y notificaciones.",
 "Com pensem":"Cómo pensamos",
 "Programem cada línia com si l'haguéssim de mantenir nosaltres deu anys.":"Programamos cada línea como si tuviéramos que mantenerla nosotros diez años.",
 "Pagament rebut":"Pago recibido","Nova comanda":"Nuevo pedido","Estoc baix":"Stock bajo","Factura emesa":"Factura emitida","F-2026-0912 · enviada per correu":"F-2026-0912 · enviada por correo","Enviament lliurat":"Envío entregado","Client nou":"Cliente nuevo","Sincronització":"Sincronización","Comptabilitat actualitzada":"Contabilidad actualizada","ara":"ahora",
-"Panell intern":"Panel interno","Gestió a mida":"Gestión a medida","A mida":"A medida","Autenticació":"Autenticación","Rols i permisos":"Roles y permisos","Rols":"Roles","Pagaments":"Pagos","Models i cerca":"Modelos y búsqueda","Models":"Modelos","Base de dades":"Base de datos","Notificacions":"Notificaciones","Push · correu":"Push · correo",
+"Panell intern":"Panel interno","Gestió a mida":"Gestión a medida","A mida":"A medida","Autenticació":"Autenticación","Rols i permisos":"Roles y permisos","Rols":"Roles","Pagaments":"Pagos","Base de dades":"Base de datos","Notificacions":"Notificaciones","Push · correu":"Push · correo",
 
 "Omple el nom, un correu vàlid i el missatge.":"Rellena el nombre, un correo válido y el mensaje.","S'està obrint el teu correu per enviar la proposta.":"Se está abriendo tu correo para enviar la propuesta.",
 
@@ -138,10 +138,10 @@ es: {
 "Necessites una altra combinació?":"¿Necesitas otra combinación?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"Combinamos cualquier paquete y lo ajustamos a tu negocio. También puedes hacerlo con Free Developing, sin pagar ahora.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Precios sin IVA. Son precios de partida: el presupuesto final lo cerramos por escrito tras la primera reunión.",
 "Manteniment opcional: 25 €/mes":"Mantenimiento opcional: 25 €/mes","Manteniment opcional: 49 €/mes":"Mantenimiento opcional: 49 €/mes","Manteniment opcional: 79 €/mes":"Mantenimiento opcional: 79 €/mes","Manteniment opcional: 99 €/mes":"Mantenimiento opcional: 99 €/mes",
-"Botiga en línia bàsica":"Ecommerce básico","Estalvies 150 € a la web":"Ahorras 150 € en la web","Tria les xarxes":"Elige las redes","IA":"IA","Mixtes":"Mixtas","Paquet Xarxes mixtes":"Paquete Redes mixtas",
+"Botiga en línia bàsica":"Ecommerce básico","Estalvies 150 € a la web":"Ahorras 150 € en la web","Tria les xarxes":"Elige las redes","Mixtes":"Mixtas","Paquet Xarxes mixtes":"Paquete Redes mixtas",
 "Què inclou el manteniment opcional":"Qué incluye el mantenimiento opcional","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Puedes contratarlo cuando quieras y darlo de baja cuando quieras.",
 "Allotjament i domini":"Alojamiento y dominio","Certificat de seguretat SSL":"Certificado de seguridad SSL","Actualitzacions i còpies de seguretat":"Actualizaciones y copias de seguridad","Petits canvis de contingut cada mes":"Pequeños cambios de contenido cada mes","Suport per correu i WhatsApp":"Soporte por correo y WhatsApp",
-"Subscripcions":"Suscripciones","Multiusuari":"Multiusuario","Estoc":"Stock","Producció":"Producción","Notificacions":"Notificaciones","Pagaments dividits":"Pagos divididos","Valoracions":"Valoraciones","Assistents":"Asistentes","Cerca semàntica":"Búsqueda semántica","Sense quotes":"Sin cuotas",
+"Subscripcions":"Suscripciones","Multiusuari":"Multiusuario","Estoc":"Stock","Producció":"Producción","Notificacions":"Notificaciones","Pagaments dividits":"Pagos divididos","Valoracions":"Valoraciones","Sense quotes":"Sin cuotas",
 
 
 "Privacitat des del disseny":"Privacidad desde el diseño","Decidim quines dades calen, on es guarden i qui hi accedeix abans d'escriure la primera línia.":"Decidimos qué datos hacen falta, dónde se guardan y quién accede a ellos antes de escribir la primera línea.",
@@ -199,7 +199,7 @@ en: {
 "Apps en temps real":"Real-time apps","Xat, geolocalització, notificacions push i sincronització fora de línia per a iOS i Android.":"Chat, geolocation, push notifications and offline sync for iOS and Android.",
 "Compradors i venedors, pagaments dividits, comissions, valoracions i gestió de disputes.":"Buyers and sellers, split payments, commissions, reviews and dispute handling.",
 "Integracions i API":"Integrations and APIs","Connectem ERP, CRM, pagaments, logística i comptabilitat perquè les dades flueixin soles.":"We connect ERP, CRM, payments, logistics and accounting so data flows on its own.",
-"IA aplicada":"Applied AI","Assistents, lectura automàtica de documents i cerca intel·ligent sobre les dades de la vostra empresa.":"Assistants, automatic document reading and smart search across your company's data.",
+
 "Comerç electrònic B2B i B2C":"B2B and B2C ecommerce","Tarifes per client, estoc en temps real, enviaments automatitzats i botiga sense quotes.":"Per-customer pricing, real-time stock, automated shipping and a store with no fees.",
 
 
@@ -250,11 +250,11 @@ en: {
 "Catalunya":"Catalonia",
 "MNA LABS, inici":"MNA LABS, home","Principal":"Main","Idioma":"Language",
 "Exemple de panell de gestió fet a mida (dades de demostració)":"Example of a custom management dashboard (demo data)",
-"Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, IA, base de dades i notificacions.":"Diagram: the iOS and Android apps, the website and the internal dashboard connect to a central API, which talks to authentication, payments, AI, the database and notifications.",
+"Diagrama: les apps iOS i Android, la web i el panell intern es connecten a una API central, que parla amb autenticació, pagaments, base de dades i notificacions.":"Diagram: the iOS and Android apps, the website and the internal dashboard connect to a central API, which talks to authentication, payments, the database and notifications.",
 "Com pensem":"How we think",
 "Programem cada línia com si l'haguéssim de mantenir nosaltres deu anys.":"We write every line as if we had to maintain it ourselves for ten years.",
 "Pagament rebut":"Payment received","Nova comanda":"New order","Estoc baix":"Low stock","Factura emesa":"Invoice issued","F-2026-0912 · enviada per correu":"F-2026-0912 · sent by email","Enviament lliurat":"Shipment delivered","Client nou":"New customer","Sincronització":"Sync","Comptabilitat actualitzada":"Accounting updated","ara":"now",
-"Panell intern":"Internal dashboard","Gestió a mida":"Custom operations","A mida":"Custom","IA":"AI","Autenticació":"Authentication","Rols i permisos":"Roles and permissions","Rols":"Roles","Pagaments":"Payments","Models i cerca":"Models and search","Models":"Models","Base de dades":"Database","Notificacions":"Notifications","Push · correu":"Push · email",
+"Panell intern":"Internal dashboard","Gestió a mida":"Custom operations","A mida":"Custom","Autenticació":"Authentication","Rols i permisos":"Roles and permissions","Rols":"Roles","Pagaments":"Payments","Base de dades":"Database","Notificacions":"Notifications","Push · correu":"Push · email",
 
 "Omple el nom, un correu vàlid i el missatge.":"Please enter your name, a valid email and a message.","S'està obrint el teu correu per enviar la proposta.":"Opening your email app to send the proposal.",
 
@@ -297,10 +297,10 @@ en: {
 "Necessites una altra combinació?":"Need a different combination?","Combinem qualsevol paquet i l'ajustem al teu negoci. També ho pots fer amb Free Developing, sense pagar ara.":"We combine any packages and tailor them to your business. You can also do it through Free Developing, without paying now.",
 "Preus sense IVA. Són preus de partida: el pressupost final el tanquem per escrit després de la primera reunió.":"Prices exclude VAT. They are starting prices: we agree the final quote in writing after the first meeting.",
 "Manteniment opcional: 25 €/mes":"Optional maintenance: €25/month","Manteniment opcional: 49 €/mes":"Optional maintenance: €49/month","Manteniment opcional: 79 €/mes":"Optional maintenance: €79/month","Manteniment opcional: 99 €/mes":"Optional maintenance: €99/month",
-"Botiga en línia bàsica":"Basic ecommerce","Estalvies 150 € a la web":"Save €150 on the website","Tria les xarxes":"Choose your social media plan","IA":"AI","Mixtes":"Hybrid","Paquet Xarxes mixtes":"Hybrid social media package",
+"Botiga en línia bàsica":"Basic ecommerce","Estalvies 150 € a la web":"Save €150 on the website","Tria les xarxes":"Choose your social media plan","Mixtes":"Hybrid","Paquet Xarxes mixtes":"Hybrid social media package",
 "Què inclou el manteniment opcional":"What optional maintenance includes","El pots contractar quan vulguis i donar-lo de baixa quan vulguis.":"Add it whenever you like and cancel whenever you like.",
 "Allotjament i domini":"Hosting and domain","Certificat de seguretat SSL":"SSL security certificate","Actualitzacions i còpies de seguretat":"Updates and backups","Petits canvis de contingut cada mes":"Small content changes every month","Suport per correu i WhatsApp":"Email and WhatsApp support",
-"Subscripcions":"Subscriptions","Multiusuari":"Multi-user","Estoc":"Stock","Producció":"Production","Informes":"Reports","Notificacions":"Notifications","Pagaments dividits":"Split payments","Valoracions":"Reviews","Assistents":"Assistants","Cerca semàntica":"Semantic search","Sense quotes":"No fees",
+"Subscripcions":"Subscriptions","Multiusuari":"Multi-user","Estoc":"Stock","Producció":"Production","Informes":"Reports","Notificacions":"Notifications","Pagaments dividits":"Split payments","Valoracions":"Reviews","Sense quotes":"No fees",
 
 
 "Privacitat des del disseny":"Privacy by design","Decidim quines dades calen, on es guarden i qui hi accedeix abans d'escriure la primera línia.":"We decide what data is needed, where it is stored and who can access it before writing the first line.",

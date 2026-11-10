@@ -427,12 +427,12 @@
       let vb, nodes, nw, nh;
       if (mode === 'h'){
         vb = [1100, 620]; nw = 190; nh = 64;
-        nodes = { ios:[120,110,'App iOS','Swift · React Native'], and:[120,250,'App Android','Kotlin · React Native'], web:[120,390,'Web','Next.js'], adm:[120,530,'Panell intern','Gestió a mida'], api:[550,320,'API','Node.js · TypeScript',1], auth:[980,80,'Autenticació','Rols i permisos'], pay:[980,195,'Pagaments','Stripe'], ai:[980,310,'IA','Models i cerca'], db:[980,425,'Base de dades','PostgreSQL'], ntf:[980,540,'Notificacions','Push · correu'] };
+        nodes = { ios:[120,110,'App iOS','Swift · React Native'], and:[120,250,'App Android','Kotlin · React Native'], web:[120,390,'Web','Next.js'], adm:[120,530,'Panell intern','Gestió a mida'], api:[550,320,'API','Node.js · TypeScript',1], auth:[980,110,'Autenticació','Rols i permisos'], pay:[980,250,'Pagaments','Stripe'], db:[980,390,'Base de dades','PostgreSQL'], ntf:[980,530,'Notificacions','Push · correu'] };
       } else {
-        vb = [400, 900]; nw = 150; nh = 58;
-        nodes = { ios:[105,70,'App iOS','React Native'], and:[295,70,'App Android','React Native'], web:[105,180,'Web','Next.js'], adm:[295,180,'Panell intern','A mida'], api:[200,420,'API','Node.js · TS',1], auth:[105,660,'Autenticació','Rols'], pay:[295,660,'Pagaments','Stripe'], ai:[105,770,'IA','Models'], db:[295,770,'Base de dades','PostgreSQL'], ntf:[200,870,'Notificacions','Push · correu'] };
+        vb = [400, 810]; nw = 150; nh = 58;
+        nodes = { ios:[105,70,'App iOS','React Native'], and:[295,70,'App Android','React Native'], web:[105,180,'Web','Next.js'], adm:[295,180,'Panell intern','A mida'], api:[200,420,'API','Node.js · TS',1], auth:[105,660,'Autenticació','Rols'], pay:[295,660,'Pagaments','Stripe'], db:[105,770,'Base de dades','PostgreSQL'], ntf:[295,770,'Notificacions','Push · correu'] };
       }
-      const links = [['ios','api'],['and','api'],['web','api'],['adm','api'],['api','auth'],['api','pay'],['api','ai'],['api','db'],['api','ntf']];
+      const links = [['ios','api'],['and','api'],['web','api'],['adm','api'],['api','auth'],['api','pay'],['api','db'],['api','ntf']];
       arch.setAttribute('viewBox', `0 0 ${vb[0]} ${vb[1]}`);
       arch.innerHTML = ''; edges = []; packets = [];
       const gE = document.createElementNS(NS, 'g'), gP = document.createElementNS(NS, 'g'), gN = document.createElementNS(NS, 'g');
