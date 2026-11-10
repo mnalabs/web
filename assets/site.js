@@ -609,7 +609,7 @@
     const UNIT = { unic: 'pagament per fases', mes: '/mes', web: 'web', comissio: '+ comissió per venda' };
     let DATA = window.PAQUETS_DEFAULT, tab = null;
     const money = v => new Intl.NumberFormat(LOC(), { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v);
-    const price = (p, cls) => `<div class="pk-p${cls || ''}"><span class="pk-from">${cls ? '+' : p.desDe === false ? '' : esc(tr('des de'))}</span><span class="pk-n" data-v="${+p.preu || 0}"${p.extra ? ` data-x="${+DATA.plataformes.preu || 0}"` : ''}>${money(+p.preu || 0)}</span><span class="pk-u">${esc(tr(UNIT[p.unitat] || ''))}</span></div>`;
+    const price = (p, cls) => p.preuText ? `<div class="pk-p"><span class="pk-t">${esc(L(p.preuText))}</span></div>` : `<div class="pk-p${cls || ''}"><span class="pk-from">${cls ? '+' : p.desDe === false ? '' : esc(tr('des de'))}</span><span class="pk-n" data-v="${+p.preu || 0}"${p.extra ? ` data-x="${+DATA.plataformes.preu || 0}"` : ''}>${money(+p.preu || 0)}</span><span class="pk-u">${esc(tr(UNIT[p.unitat] || ''))}</span></div>`;
     /* Exemples reals dels paquets: captures de projectes que ensenyem (mai amb el nom ni el logotip del client).
        Van per l'identificador del paquet, així es veuen també quan els paquets venen de Supabase. */
     const finestraReal = src => `<div class="exemple-finestra"><div class="exemple-finestra-barra"><i></i><i></i><i></i></div><img src="${src}" alt="" width="1440" height="900" loading="lazy"></div>`;

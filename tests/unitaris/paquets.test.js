@@ -47,3 +47,19 @@ test('la fusió no toca els paquets que el panell ja té al dia', () => {
   const f = fusiona(desat, D);
   assert.equal(f.seccions[0].paquets.find(p => p.id === 'webs-2').nom.ca, 'Nom retocat');
 });
+
+test('tots els paquets inclouen l\'auditoria amb l\'equip de màrqueting, en català, castellà i anglès', () => {
+  for (const p of tots.filter(p => p.inclou && p.inclou.length)) {
+    for (const [l, re] of [['ca', /Auditoria .*equip de màrqueting/], ['es', /Auditoría .*equipo de marketing/], ['en', /audit .*marketing team/i]]) assert.ok(p.inclou.some(x => re.test(x[l])), `${p.id}: falta l'auditoria (${l})`);
+  }
+});
+
+test('xarxes: «només amb imatges reals», pack de màrqueting sense preu i cap text diu que les publicacions són fetes amb IA', () => {
+  assert.equal(per('xarxes-2').nom.ca, 'Xarxes només amb imatges reals');
+  const m = per('xarxes-3');
+  assert.equal(m.nom.ca, 'Pack de màrqueting'); assert.ok(m.preuText.ca && !m.extra);
+  for (const l of ['ca', 'es', 'en']) { const t = m.inclou.map(x => x[l]).join(' '); assert.match(t, /influencer/i); assert.match(t, /Meta Ads/); }
+  const xarxes = D.seccions.find(s => s.id === 'xarxes').paquets.concat(per('combinats-1'));
+  const text = JSON.stringify(xarxes);
+  assert.doesNotMatch(text, /\bIA\b|\bAI\b|Sin IA|No AI|inteligencia artificial|intel·ligència artificial/i);
+});

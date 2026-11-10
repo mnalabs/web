@@ -5,7 +5,7 @@
 *{box-sizing:border-box;margin:0}
 body{font-family:Geist,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
 .scene{display:none;width:1600px;height:1000px;position:relative;overflow:hidden}
-body[data-s="mur"] #mur,body[data-s="reals"] #reals{display:block}
+body[data-s="mur"] #mur,body[data-s="reals"] #reals,body[data-s="marqueting"] #marqueting{display:block}
 .photo{background-size:cover;background-position:center}
 
 /* ---------- MUR: perfil d'Instagram amb fotos d'stock i publicacions dissenyades ---------- */
@@ -65,6 +65,29 @@ body[data-s="mur"] #mur,body[data-s="reals"] #reals{display:block}
 .post .row{display:flex;gap:20px;padding:14px 18px 6px;font-size:30px}
 .post .txt{padding:0 18px;font-size:19px;line-height:1.4}.post .txt small{display:block;color:#777;margin-top:8px;font-size:15px}
 .lbl{position:absolute;left:0;right:0;bottom:36px;text-align:center;font-size:21px;color:#4b4b4b;font-weight:500}
+
+/* ---------- MÀRQUETING: campanya d'anuncis i publicació amb col·laboradora ---------- */
+#marqueting{background:linear-gradient(135deg,#efe6d6,#dfe9e1)}
+.camp{position:absolute;left:90px;top:130px;width:800px;height:700px;background:#fff;border-radius:34px;padding:44px 48px;box-shadow:0 40px 80px -30px rgba(0,0,0,.35)}
+.camp h4{font-size:34px;font-weight:700;letter-spacing:-.02em}
+.camp .sb{font-size:20px;color:#6b6b6b;margin-top:4px}
+.camp .live{float:right;font-size:18px;font-weight:700;color:#1b7a46;background:#e3f4ea;border-radius:99px;padding:8px 18px}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.kp div{background:#f4f1ea;border-radius:20px;padding:22px}
+.kp small{font-size:17px;color:#6b6b6b;display:block}
+.kp b{font-size:44px;font-weight:800;letter-spacing:-.03em;color:var(--g)}
+.kp em{display:block;font-style:normal;font-size:16px;font-weight:600;color:#1b7a46;margin-top:4px}
+.gr{margin-top:30px;height:220px;border-radius:20px;background:#f4f1ea;padding:22px;position:relative}
+.gr svg{width:100%;height:100%}
+.gr small{position:absolute;left:24px;top:16px;font-size:17px;color:#6b6b6b}
+.pl{display:flex;gap:12px;margin-top:26px}.pl span{background:var(--g);color:#fff;border-radius:99px;padding:10px 20px;font-size:18px;font-weight:600}.pl span.o{background:var(--cream);color:var(--g)}
+.inf{position:absolute;left:1010px;top:100px;width:500px;height:740px;background:#fff;border-radius:34px;box-shadow:0 40px 80px -30px rgba(0,0,0,.35);overflow:hidden;transform:rotate(2deg)}
+.inf .head{display:flex;align-items:center;gap:14px;padding:26px 26px 14px;font-weight:600;font-size:21px}
+.inf .head i{width:52px;height:52px;border-radius:50%;background:#c9885a;display:grid;place-items:center;color:#fff;font-style:normal;font-size:18px;font-weight:800}
+.inf .head small{display:block;font-size:16px;color:#777;font-weight:500}
+.inf .img{height:470px}
+.inf .row{display:flex;gap:22px;padding:16px 26px 6px;font-size:32px}
+.inf .txt{padding:0 26px;font-size:20px;line-height:1.4}.inf .txt small{display:block;color:#777;margin-top:8px;font-size:16px}
 </style></head><body data-s="mur">
 <svg width="0" height="0" style="position:absolute"><symbol id="m" viewBox="0 0 24 24" fill="none" stroke="#f3ece0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M2 20l7-12 4 7 3-4 6 9z"/><circle cx="17" cy="6" r="1.6" fill="#f3ece0"/></symbol></svg>
 
@@ -103,5 +126,21 @@ body[data-s="mur"] #mur,body[data-s="reals"] #reals{display:block}
     <div class="row"><span>♡</span><span>💬</span><span>↗</span></div>
     <div class="txt"><b>1.208 m'agrada</b><br><b>cimiriu.aventura</b> Cascada del Riu Clar, a una hora a peu del refugi. Porta botes i ganes.<small>Fa 3 dies</small></div></div></div>
   <div class="lbl">Reel, story i publicació, gravats i publicats al ritme que pactem</div>
+</section>
+
+<section class="scene" id="marqueting">
+  <div class="camp">
+    <span class="live">Campanya activa</span>
+    <h4>Cap de setmana de tardor</h4><div class="sb">Instagram i Facebook · públic: Catalunya, 25–55 anys</div>
+    <div class="kp"><div><small>Persones</small><b>48.300</b><em>▲ 18%</em></div><div><small>Clics</small><b>1.926</b><em>▲ 24%</em></div><div><small>Cost per reserva</small><b>3,80 €</b><em>▼ 31%</em></div></div>
+    <div class="gr"><small>Reserves per dia</small><svg viewBox="0 0 600 190" preserveAspectRatio="none"><path d="M0 170C60 160 90 140 140 138S220 120 270 100S350 90 400 62S520 34 600 18" fill="none" stroke="#1f4d3a" stroke-width="5" stroke-linecap="round"/><path d="M0 170C60 160 90 140 140 138S220 120 270 100S350 90 400 62S520 34 600 18V190H0z" fill="#1f4d3a" opacity=".1"/></svg></div>
+    <div class="pl"><span>Anunci amb vídeo</span><span class="o">Anunci amb foto</span><span class="o">Col·laboracions</span></div>
+  </div>
+  <div class="inf">
+    <div class="head"><i>MP</i><div>marta.pirineu<small>En col·laboració amb cimiriu.aventura</small></div></div>
+    <div class="img photo" style="background-image:url(fotos/1035.jpg)"></div>
+    <div class="row"><span>♡</span><span>💬</span><span>↗</span></div>
+    <div class="txt"><b>3.470 m'agrada</b><br><b>marta.pirineu</b> Un cap de setmana amb @cimiriu.aventura: ruta, refugi i silenci.<small>Fa 2 dies</small></div>
+  </div>
 </section>
 </body></html>

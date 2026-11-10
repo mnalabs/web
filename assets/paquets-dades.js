@@ -1,6 +1,6 @@
 /* Paquets per defecte. El panell d'administració els desa a Supabase; si no n'hi ha, la web fa servir aquests. */
 window.PAQUETS_DEFAULT = {
- "versio": 2,
+ "versio": 3,
  "plataformes": {
   "preu": 20,
   "titol": {
@@ -60,19 +60,14 @@ window.PAQUETS_DEFAULT = {
      ],
      "inclou": [
       {
-       "ca": "Disseny a mida, sense plantilles",
-       "es": "Diseño a medida, sin plantillas",
-       "en": "Custom design, no templates"
+       "ca": "Disseny a mida, adaptat a mòbil i tauleta",
+       "es": "Diseño a medida, adaptado a móvil y tableta",
+       "en": "Custom design, mobile and tablet ready"
       },
       {
        "ca": "Fins a 6 pàgines",
        "es": "Hasta 6 páginas",
        "en": "Up to 6 pages"
-      },
-      {
-       "ca": "Adaptada a mòbil i tauleta",
-       "es": "Adaptada a móvil y tableta",
-       "en": "Mobile and tablet ready"
       },
       {
        "ca": "SEO bàsic i fitxa de Google Business",
@@ -93,6 +88,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Domini i allotjament el primer any",
        "es": "Dominio y alojamiento el primer año",
        "en": "Domain and hosting for the first year"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -109,7 +109,7 @@ window.PAQUETS_DEFAULT = {
        "c2": "#dfeae4"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "webs-2",
@@ -157,9 +157,9 @@ window.PAQUETS_DEFAULT = {
        "en": "Basket and payment by card, Bizum, Apple Pay and Google Pay"
       },
       {
-       "ca": "Correus de confirmació de la comanda per al client i per a tu",
-       "es": "Correos de confirmación del pedido para el cliente y para ti",
-       "en": "Order confirmation emails for the customer and for you"
+       "ca": "Correus de confirmació i panell senzill per veure les comandes",
+       "es": "Correos de confirmación y panel sencillo para ver los pedidos",
+       "en": "Confirmation emails and a simple panel to see orders"
       },
       {
        "ca": "Tarifa d'enviament única o per zones",
@@ -167,14 +167,14 @@ window.PAQUETS_DEFAULT = {
        "en": "Single or by-zone shipping rate"
       },
       {
-       "ca": "Panell senzill per veure les comandes",
-       "es": "Panel sencillo para ver los pedidos",
-       "en": "Simple panel to see the orders"
-      },
-      {
        "ca": "Opcional, amb cost a part: connexió amb un gestor d'enviaments i gestió d'estoc",
        "es": "Opcional, con coste aparte: conexión con un gestor de envíos y gestión de stock",
        "en": "Optional, at extra cost: connection to a shipping manager and stock management"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -190,7 +190,7 @@ window.PAQUETS_DEFAULT = {
        "c2": "#efe9d6"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "webs-3",
@@ -251,6 +251,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "El codi és teu",
        "es": "El código es tuyo",
        "en": "The code is yours"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -268,7 +273,7 @@ window.PAQUETS_DEFAULT = {
        "rows": "Caldera · Rambla 12|Joan;Ascensor · C. Sol 3|Núria;Porta garatge · Av. Pau|Pere;Clima · Hotel Mar|Anna"
       }
      },
-     "revisio": 3
+     "revisio": 4
     },
     {
      "id": "webs-4",
@@ -334,6 +339,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Gestionem l'aprovació d'Apple i Google fins que surt publicada",
        "es": "Gestionamos la aprobación de Apple y Google hasta que sale publicada",
        "en": "We handle Apple and Google's approval until it goes live"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -341,7 +351,7 @@ window.PAQUETS_DEFAULT = {
      "exemple": {
       "marca": "App de lliga.cat"
      },
-     "revisio": 3
+     "revisio": 4
     }
    ],
    "manteniment": true
@@ -391,19 +401,14 @@ window.PAQUETS_DEFAULT = {
        "en": "12 posts a month on Instagram and Facebook"
       },
       {
-       "ca": "Disseny gràfic a mida per a cada publicació",
-       "es": "Diseño gráfico a medida para cada publicación",
-       "en": "Custom graphic design for every post"
+       "ca": "Disseny gràfic i textos a mida per a cada publicació i xarxa",
+       "es": "Diseño gráfico y textos a medida para cada publicación y red",
+       "en": "Custom graphic design and copy for every post and platform"
       },
       {
        "ca": "Fotos d'estoc d'alta qualitat amb llicència",
        "es": "Fotos de stock de alta calidad con licencia",
        "en": "Licensed high-quality stock photos"
-      },
-      {
-       "ca": "Textos pensats per a cada xarxa",
-       "es": "Textos pensados para cada red",
-       "en": "Copy written for each platform"
       },
       {
        "ca": "Calendari mensual que aproves tu",
@@ -419,6 +424,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Informe mensual de resultats",
        "es": "Informe mensual de resultados",
        "en": "Monthly performance report"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -428,7 +438,7 @@ window.PAQUETS_DEFAULT = {
       "imatge": "img/ex-disseny-instagram.jpg",
       "reemplaca": "Cafè Olla"
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "xarxes-1",
@@ -438,9 +448,9 @@ window.PAQUETS_DEFAULT = {
       "en": "Hybrid social media"
      },
      "desc": {
-      "ca": "Contingut audiovisual real, gravat a la teva empresa, combinat amb IA.",
-      "es": "Contenido audiovisual real, grabado en tu empresa, combinado con IA.",
-      "en": "Real video and photos shot at your business, combined with AI."
+      "ca": "Contingut audiovisual real, gravat a la teva empresa, amb disseny gràfic i fotos d'estoc.",
+      "es": "Contenido audiovisual real, grabado en tu empresa, con diseño gráfico y fotos de stock.",
+      "en": "Real video and photos shot at your business, with graphic design and stock photos."
      },
      "recomanat": true,
      "preu": 200,
@@ -471,14 +481,14 @@ window.PAQUETS_DEFAULT = {
        "en": "4 edited reels with real footage"
       },
       {
-       "ca": "12 publicacions entre material real i IA",
-       "es": "12 publicaciones entre material real e IA",
-       "en": "12 posts mixing real footage and AI"
+       "ca": "12 publicacions entre material real i disseny gràfic",
+       "es": "12 publicaciones entre material real y diseño gráfico",
+       "en": "12 posts mixing real footage and graphic design"
       },
       {
-       "ca": "Stories setmanals",
-       "es": "Stories semanales",
-       "en": "Weekly stories"
+       "ca": "Stories setmanals a Instagram i Facebook",
+       "es": "Stories semanales en Instagram y Facebook",
+       "en": "Weekly stories on Instagram and Facebook"
       },
       {
        "ca": "Revisió de dissenyador gràfic",
@@ -491,9 +501,9 @@ window.PAQUETS_DEFAULT = {
        "en": "Monthly performance report"
       },
       {
-       "ca": "Instagram i Facebook",
-       "es": "Instagram y Facebook",
-       "en": "Instagram and Facebook"
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -502,19 +512,19 @@ window.PAQUETS_DEFAULT = {
       "marca": "Instagram de lliga.cat",
       "imatge": "img/ex-lliga-instagram.jpg"
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "xarxes-2",
      "nom": {
-      "ca": "Xarxes amb vídeos gravats amb vosaltres",
-      "es": "Redes con vídeos grabados con vosotros",
-      "en": "Social media with videos filmed with you"
+      "ca": "Xarxes només amb imatges reals",
+      "es": "Redes solo con imágenes reales",
+      "en": "Social media with real images only"
      },
      "desc": {
-      "ca": "Tot gravat i fotografiat per professionals. Sense IA a la imatge.",
-      "es": "Todo grabado y fotografiado por profesionales. Sin IA en la imagen.",
-      "en": "Everything filmed and photographed by professionals. No AI imagery."
+      "ca": "Tot gravat i fotografiat per professionals a la teva empresa.",
+      "es": "Todo grabado y fotografiado por profesionales en tu empresa.",
+      "en": "Everything filmed and photographed by professionals at your business."
      },
      "recomanat": false,
      "preu": 1000,
@@ -550,9 +560,9 @@ window.PAQUETS_DEFAULT = {
        "en": "16 posts with original photography"
       },
       {
-       "ca": "Stories diàries",
-       "es": "Stories diarias",
-       "en": "Daily stories"
+       "ca": "Stories diàries a Instagram i Facebook",
+       "es": "Stories diarias en Instagram y Facebook",
+       "en": "Daily stories on Instagram and Facebook"
       },
       {
        "ca": "Gestió de comentaris i missatges",
@@ -565,9 +575,9 @@ window.PAQUETS_DEFAULT = {
        "en": "Monthly meeting and report"
       },
       {
-       "ca": "Instagram i Facebook",
-       "es": "Instagram y Facebook",
-       "en": "Instagram and Facebook"
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -577,7 +587,77 @@ window.PAQUETS_DEFAULT = {
       "imatge": "img/ex-full-real.jpg",
       "reemplaca": "Hotel Mas Aulet"
      },
-     "revisio": 2
+     "revisio": 3
+    },
+    {
+     "id": "xarxes-3",
+     "nom": {
+      "ca": "Pack de màrqueting",
+      "es": "Pack de marketing",
+      "en": "Marketing pack"
+     },
+     "desc": {
+      "ca": "Per fer créixer la teva marca: col·laboracions amb influencers i anuncis optimitzats.",
+      "es": "Para hacer crecer tu marca: colaboraciones con influencers y anuncios optimizados.",
+      "en": "To grow your brand: influencer collaborations and optimised ads."
+     },
+     "recomanat": false,
+     "preu": 0,
+     "unitat": "",
+     "extra": false,
+     "preu2": null,
+     "meta": [
+      {
+       "ca": "Preu segons el projecte",
+       "es": "Precio según el proyecto",
+       "en": "Price depends on the project"
+      },
+      {
+       "ca": "Sense permanència",
+       "es": "Sin permanencia",
+       "en": "No lock-in"
+      }
+     ],
+     "inclou": [
+      {
+       "ca": "Gestió amb influencers: les triem, les contactem i coordinem les col·laboracions",
+       "es": "Gestión con influencers: las elegimos, las contactamos y coordinamos las colaboraciones",
+       "en": "Influencer management: we pick them, reach out and coordinate the collaborations"
+      },
+      {
+       "ca": "Optimització de Meta Ads (Instagram i Facebook)",
+       "es": "Optimización de Meta Ads (Instagram y Facebook)",
+       "en": "Meta Ads optimisation (Instagram and Facebook)"
+      },
+      {
+       "ca": "Estratègia i objectius de la campanya",
+       "es": "Estrategia y objetivos de la campaña",
+       "en": "Campaign strategy and goals"
+      },
+      {
+       "ca": "Informe mensual de resultats",
+       "es": "Informe mensual de resultados",
+       "en": "Monthly performance report"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
+      }
+     ],
+     "opcions": [],
+     "tipus": "Xarxes socials",
+     "exemple": {
+      "marca": "Cim & Riu · anuncis i col·laboració",
+      "imatge": "img/ex-marqueting.jpg"
+     },
+     "revisio": 3,
+     "desDe": false,
+     "preuText": {
+      "ca": "Pressupost a mida",
+      "es": "Presupuesto a medida",
+      "en": "Custom quote"
+     }
     }
    ],
    "manteniment": false
@@ -650,6 +730,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Panell de gestió compartit",
        "es": "Panel de gestión compartido",
        "en": "Shared admin panel"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -670,7 +755,7 @@ window.PAQUETS_DEFAULT = {
        "c2": "#e3e9fb"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "combinats-1",
@@ -730,6 +815,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Instagram i Facebook",
        "es": "Instagram y Facebook",
        "en": "Instagram and Facebook"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [
@@ -761,15 +851,15 @@ window.PAQUETS_DEFAULT = {
       },
       {
        "etiqueta": {
-        "ca": "Vídeos gravats amb vosaltres",
-        "es": "Vídeos grabados con vosotros",
-        "en": "Videos filmed with you"
+        "ca": "Imatges reals",
+        "es": "Imágenes reales",
+        "en": "Real images"
        },
        "preu": 1000,
        "linia": {
-        "ca": "Paquet Xarxes amb vídeos gravats amb vosaltres",
-        "es": "Paquete Redes con vídeos grabados con vosotros",
-        "en": "Social media with videos filmed with you package"
+        "ca": "Paquet Xarxes només amb imatges reals",
+        "es": "Paquete Redes solo con imágenes reales",
+        "en": "Social media with real images only package"
        }
       }
      ],
@@ -791,7 +881,7 @@ window.PAQUETS_DEFAULT = {
        "c3": "#9fb3c8"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "alt-2",
@@ -811,7 +901,7 @@ window.PAQUETS_DEFAULT = {
       "es": "Hablemos",
       "en": "Let's talk"
      },
-     "revisio": 2
+     "revisio": 3
     }
    ],
    "manteniment": true
@@ -881,6 +971,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Instagram i Facebook",
        "es": "Instagram y Facebook",
        "en": "Instagram and Facebook"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -897,7 +992,7 @@ window.PAQUETS_DEFAULT = {
        "c3": "#b9cfc4"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "gratuits-1",
@@ -954,6 +1049,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Millores mentre dura l'acord",
        "es": "Mejoras mientras dura el acuerdo",
        "en": "Improvements for as long as the agreement lasts"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -969,7 +1069,7 @@ window.PAQUETS_DEFAULT = {
        "c2": "#f1e4da"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "gratuits-amazon",
@@ -1031,6 +1131,11 @@ window.PAQUETS_DEFAULT = {
        "ca": "Informe mensual de vendes",
        "es": "Informe mensual de ventas",
        "en": "Monthly sales report"
+      },
+      {
+       "ca": "Auditoria inicial amb l'equip de màrqueting",
+       "es": "Auditoría inicial con el equipo de marketing",
+       "en": "Initial audit with our marketing team"
       }
      ],
      "opcions": [],
@@ -1046,7 +1151,7 @@ window.PAQUETS_DEFAULT = {
        "c2": "#f4e8dc"
       }
      },
-     "revisio": 2
+     "revisio": 3
     },
     {
      "id": "gratuits-alt",
@@ -1066,7 +1171,7 @@ window.PAQUETS_DEFAULT = {
       "es": "Propónla",
       "en": "Suggest it"
      },
-     "revisio": 2
+     "revisio": 3
     }
    ]
   }

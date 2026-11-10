@@ -440,6 +440,7 @@ a.pk-ex .pk-ex-c b::after{content:" ↗";font-weight:500;opacity:.7}
 .pk-p + .pk-p{margin-top:-14px}
 .pk-from,.pk-u{font-size:14px;color:var(--ink-2)}
 .pk-n{font-size:42px;font-weight:600;letter-spacing:-.04em;line-height:1.05;font-variant-numeric:tabular-nums}
+.pk-t{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.1;padding:7px 0}
 .pk-p.sm .pk-n{font-size:28px}
 .pk-meta{display:grid;gap:2px;font-size:13.5px;color:var(--ink-2);margin-top:-6px}
 .pk ul{padding-top:20px;border-top:1px solid var(--line-2)}

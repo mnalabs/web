@@ -50,7 +50,7 @@
         <label class="check"><input type="checkbox" data-b="${P}.__p2"${p.preu2 ? ' checked' : ''}>Té un segon preu (per exemple, la quota mensual)</label>
         ${p.preu2 ? `<div class="grid3">${fNum('Segon preu (€)', P + '.preu2.preu')}${fSel('Unitat', P + '.preu2.unitat', UNITS)}<div>${fBool('Suma «totes les plataformes»', P + '.preu2.extra')}</div></div>` : ''}
       </div>
-      <div class="sub"><h3>Opcions a triar</h3><p class="hint">Botons dins la targeta que canvien el segon preu i una línia de la llista (com Disseny, Mixtes o Vídeos gravats amb vosaltres).</p>
+      <div class="sub"><h3>Opcions a triar</h3><p class="hint">Botons dins la targeta que canvien el segon preu i una línia de la llista (com Disseny, Mixtes o Imatges reals amb vosaltres).</p>
         ${(p.opcions || []).map((o, oi) => `<div class="opt">${fText('Botó', `${P}.opcions.${oi}.etiqueta`)}${fNum('Preu (€)', `${P}.opcions.${oi}.preu`)}${fText('Línia que afegeix', `${P}.opcions.${oi}.linia`)}<button class="btn del sm" data-act="delopt" data-p="${P}.opcions.${oi}" style="margin-bottom:6px">Treu</button></div>`).join('')}
         <div class="actions"><button class="btn sec sm" data-act="addopt" data-p="${P}">Afegeix una opció</button></div>
       </div>
